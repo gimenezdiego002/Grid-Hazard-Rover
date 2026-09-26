@@ -1,8 +1,16 @@
 # Environment / secrets
 .env
 .env.local
+.env.*
 *.env
 !.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
 
 # Python
 __pycache__/
@@ -11,26 +19,61 @@ __pycache__/
 .venv/
 venv/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.egg-info/
+.eggs/
+build/
+wheels/
 
 # Node
 node_modules/
 dist/
 .vite/
+.npm/
+.eslintcache
+*.tsbuildinfo
+coverage/
+.turbo/
+.vercel/
 
 # IDE / OS
 .vscode/
 .idea/
+.fleet/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Temporary / generated data
 tmp/
 temp/
 uploads/
+.cache/
+*.tmp
+*.sqlite
+*.sqlite3
+*.sqlite-journal
 *.mp3
+*.wav
+*.m4a
+*.ogg
 
 # Raspberry Pi / local runtime files
 *.jpg
