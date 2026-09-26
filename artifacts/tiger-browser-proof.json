@@ -1,0 +1,75 @@
+{
+  "schema_version": "relay.tiger-browser-proof.v1",
+  "provider": "Tiger Data",
+  "mode": "live_browser_sql",
+  "status": "completed",
+  "recorded_date": "2026-09-26",
+  "evidence_source": "assistant_observed_provider_sql_editor",
+  "database_side_proof_verified": true,
+  "application_adapter_verified": false,
+  "simulated": true,
+  "service": {
+    "name": "shellhacks-relay-telemetry",
+    "cloud": "AWS",
+    "region": "us-east-1",
+    "compute": "Shared",
+    "memory_mib": 750,
+    "database": "tsdb",
+    "postgresql_version": "18.6"
+  },
+  "schema": {
+    "source": "deploy/sql/tiger-telemetry.sql",
+    "table": "public.relay_telemetry",
+    "mission_time_index": "relay_telemetry_mission_time",
+    "setup_transaction_completed": true,
+    "information_schema_table_readback_verified": true
+  },
+  "proof": {
+    "sql_source": "artifacts/tiger-browser-proof.sql",
+    "execution_path": "provider_browser_sql_editor",
+    "transaction_committed": true,
+    "assertions_raise_on_failure": true,
+    "asserted_initial_insert_rows": 1,
+    "asserted_identical_replay_insert_rows": 0,
+    "asserted_window_rows": 1,
+    "asserted_exact_payload_match": true,
+    "window_start_inclusive": "2026-09-26T17:59:00Z",
+    "window_end_exclusive": "2026-09-26T18:01:00Z",
+    "read_limit": 2,
+    "post_commit_separate_select_rows": 1,
+    "post_commit_readback_verified": true,
+    "readback": {
+      "mission_id": "relay-browser-proof-20260926-v1",
+      "event_id": "water-proof-001",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:00Z",
+      "kind": "water",
+      "value_milli": 850,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    }
+  },
+  "spending": {
+    "coverage": "existing_resource_reservation",
+    "reservation_operation_id": "tiger-free-service-2026-09-26",
+    "resource_reserved_usd": "0.100000",
+    "additional_reservation_usd": "0.000000",
+    "actual_billed_usd": null,
+    "note": "Setup and browser SQL proof use the existing Tiger resource hold. The hold remains unresolved; a displayed free-service quote is not an invoice."
+  },
+  "remaining": {
+    "local_adapter_tls_connection": "unresolved",
+    "rotated_administrator_password_authentication": "unverified",
+    "select_insert_only_runtime_user": "not_created",
+    "connected_incident_workflow": "unverified"
+  },
+  "limitations": [
+    "This is real provider database-side SQL evidence, not a successful Relay application-adapter connection.",
+    "The browser session does not validate the current rotated database password or a restricted runtime user's access.",
+    "The local adapter must retain certificate and hostname verification while its TLS connection is resolved.",
+    "All telemetry inputs are synthetic; no human review or physical inspection is established.",
+    "The dashboard, API and integrated replay remain mock-only. Gemini, ElevenLabs and Atlas remain the three separate live application proofs.",
+    "The committed initial-insert assertion prevents replaying this proof transaction under the same mission/event identity. Do not delete evidence to force a rerun."
+  ]
+}
