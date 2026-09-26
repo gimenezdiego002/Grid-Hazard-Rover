@@ -8,6 +8,8 @@ A student-built robot fleet that investigates suspected leaks while budgeting it
 
 **Current boundary:** the dashboard, API and integration replay always use synthetic data and mock providers. Live Gemini calls have been verified separately. Data/speech/receipt adapters are implemented and tested, but a passing fixture is not a connected account, real audio, blockchain transaction, or physical inspection. See [the per-provider status](docs/mlh-integrations.md).
 
+All eight published MLH prize categories have a defined role and a concrete acceptance check in [the prize submission plan](docs/mlh-submission.md). This is complete design coverage, not eight completed live integrations or confirmed prize eligibility.
+
 The separate GCP project `shellhacks-relay-2026-0926` has linked billing, enabled APIs, dedicated service accounts, the `relay` Artifact Registry repository in `us-east1`, a private evidence bucket with a seven-day lifecycle, and a staging bucket with a two-day lifecycle. A restricted project Gemini API key is stored in Secret Manager as `relay-gemini-api-key`. The mock dashboard receives no secret.
 
 The [private Cloud Run service](https://relay-gateway-345149168663.us-east1.run.app) is deployed and verified: unauthenticated requests return 403; authenticated health and integrated-replay requests succeed, with six mock stages and 12 telemetry rows. A synthetic report was uploaded to private Cloud Storage and read back unchanged. Cloud Run uses minimum zero, maximum one instance and request-based billing. See [cloud verification](docs/cloud-setup.md) and [deployment notes](deploy/README.md) for access, resource controls and cleanup.
