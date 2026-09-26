@@ -5,8 +5,10 @@ stay in memory; only non-secret, selected evidence is saved or printed.
 """
 
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -52,6 +54,19 @@ def main():
     expected_revision = evidence["revision"]
     assert evidence["project_id"] == PROJECT and evidence["url"] == ORIGIN
 
+    def digest(value):
+        normalized = value.rsplit("@", 1)[-1] if isinstance(value, str) else ""
+        if not re.fullmatch(r"sha256:[0-9a-f]{64}", normalized):
+            raise RuntimeError("A valid immutable image digest is required")
+        return normalized
+
+    expected_digest = digest(evidence["image_digest"])
+    revision = json.loads(cloud("run", "revisions", "describe", expected_revision,
+                                f"--region={REGION}", "--format=json(status.imageDigest)"))
+    verified_digest = digest(revision["status"]["imageDigest"])
+    if verified_digest != expected_digest:
+        raise RuntimeError("Deployed revision image digest differs from the expected build")
+
     def verify_traffic():
         service = json.loads(cloud("run", "services", "describe", SERVICE,
                                    f"--region={REGION}",
@@ -69,7 +84,7 @@ def main():
     token = cloud("auth", "print-identity-token")
     opener = build_opener(NoRedirect())
 
-    def request(path, data=None, *, authenticated=True):
+    def request(path, data=None, *, authenticated=True, decode_json=True):
         headers = {"Content-Type": "application/json"}
         if authenticated:
             headers["Authorization"] = "Bearer " + token
@@ -80,7 +95,7 @@ def main():
                 body = response.read(2_000_001)
                 if len(body) > 2_000_000:
                     raise RuntimeError("Oversize response")
-                return response.status, json.loads(body)
+                return response.status, json.loads(body) if decode_json else body
         except HTTPError as exc:
             return exc.code, None
 
@@ -95,6 +110,20 @@ def main():
     health = checked("/health")
     assert health["provider_mode"] == "mock" and not health["paid_api_enabled"]
     assert not health["actuation_enabled"]
+
+    served_assets = {}
+    for route, relative_path in (("/", "web/index.html"), ("/static/app.js", "web/app.js")):
+        status, content = request(route, decode_json=False)
+        if status != 200:
+            raise RuntimeError(f"Unexpected HTTP {status} at {route}")
+        local_content = (ROOT / relative_path).read_bytes()
+        expected_sha = hashlib.sha256(local_content).hexdigest()
+        served_sha = hashlib.sha256(content).hexdigest()
+        if served_sha != expected_sha:
+            raise RuntimeError(f"Served asset differs from the local source: {relative_path}")
+        served_assets[route] = {"source_path": relative_path, "sha256": served_sha,
+                                "bytes": len(content), "matches_local_source": True}
+
     inventory = checked("/api/missions/inventory")
     assert inventory["simulated"] and not inventory["physical_connections_verified"]
 
@@ -116,8 +145,14 @@ def main():
                 "action_id": action_id or action, "action": action,
                 "payload": payload or {}})
 
-        assert act("start")["status"] == "running"
-        assert act("pause")["status"] == "paused"
+        started = act("start")
+        assert started["status"] == "running"
+        paused = act("pause")
+        assert paused["status"] == "paused"
+        # A repeated accepted ID returns its original receipt, while GET must
+        # preserve the newer state. This is the dashboard's recovery contract.
+        assert act("start") == started
+        assert checked(f"/api/missions/{mission_id}") == paused
         assert act("resume")["status"] == "running"
         act("complete_task", {"task_id": "monitor", "outcome": "completed"}, "monitor")
         if outcome == "budget_refused":
@@ -141,11 +176,15 @@ def main():
         assert not result["review"]["human_review_performed"]
         mission_results.append({"input_outcome": outcome, "final_status": result["status"],
                                 "progress": result["progress"], "simulated": True,
-                                "human_review_performed": False, "actuation_enabled": False})
+                                "human_review_performed": False, "actuation_enabled": False,
+                                "repeated_action_receipt_verified": True,
+                                "current_state_readback_verified": True})
 
     traffic_after = verify_traffic()
     revision = expected_revision
     evidence.update({"verified_at": datetime.now(timezone.utc).isoformat(),
+                     "verified_image_digest": verified_digest,
+                     "served_assets": served_assets,
                      "unauthenticated_status": unauthenticated, "health": health,
                      "cloud_missions": mission_results,
                      "verified_traffic_before": traffic_before,

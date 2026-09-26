@@ -1,0 +1,99 @@
+{
+  "mode": "mock",
+  "report_file": "artifacts/integration-replay.json",
+  "create": {
+    "schema": "relay.receipt-command.v1",
+    "operation": "create",
+    "mode": "mock",
+    "network": "devnet",
+    "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+    "report_simulated": true,
+    "funding_requested": false,
+    "fee_unit": "devnet_lamports",
+    "fee_is_test_tokens": true,
+    "actual_billed_usd": "0.000000",
+    "spend_ledger_modified": false,
+    "limitations": [
+      "Devnet lamports are test-token units, not USD; this command performs no currency conversion.",
+      "A report hash proves integrity, not sensor accuracy, human review or a physical inspection."
+    ],
+    "status": "mock",
+    "receipt": {
+      "schema": "relay.receipt.v1",
+      "provider": "solana",
+      "mode": "mock",
+      "network": "devnet",
+      "simulated": true,
+      "report_simulated": true,
+      "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+      "memo": "relay:v1:sha256:dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+      "signature": null,
+      "signer": null,
+      "status": "mock",
+      "chain_verified": false,
+      "request_sent": false,
+      "reused_receipt": false,
+      "explorer_url": null
+    },
+    "verification": null,
+    "chain_verified": false
+  },
+  "verify": {
+    "schema": "relay.receipt-command.v1",
+    "operation": "verify",
+    "mode": "mock",
+    "network": "devnet",
+    "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+    "report_simulated": true,
+    "funding_requested": false,
+    "fee_unit": "devnet_lamports",
+    "fee_is_test_tokens": true,
+    "actual_billed_usd": "0.000000",
+    "spend_ledger_modified": false,
+    "limitations": [
+      "Devnet lamports are test-token units, not USD; this command performs no currency conversion.",
+      "A report hash proves integrity, not sensor accuracy, human review or a physical inspection."
+    ],
+    "status": "mock_hash_verified",
+    "receipt_mode": "mock",
+    "verification": {
+      "status": "mock_hash_verified",
+      "hash_matches": true,
+      "chain_verified": false,
+      "valid": true
+    },
+    "chain_verified": false,
+    "transaction_submitted": false
+  },
+  "modified_report_verification": {
+    "schema": "relay.receipt-command.v1",
+    "operation": "verify",
+    "mode": "mock",
+    "network": "devnet",
+    "report_sha256": "44e9356b058628de03ce58c9723c116ed81c1e27293ae7debd865ca3e415e70c",
+    "report_simulated": true,
+    "funding_requested": false,
+    "fee_unit": "devnet_lamports",
+    "fee_is_test_tokens": true,
+    "actual_billed_usd": "0.000000",
+    "spend_ledger_modified": false,
+    "limitations": [
+      "Devnet lamports are test-token units, not USD; this command performs no currency conversion.",
+      "A report hash proves integrity, not sensor accuracy, human review or a physical inspection."
+    ],
+    "status": "report_changed",
+    "receipt_mode": "mock",
+    "verification": {
+      "status": "report_changed",
+      "hash_matches": false,
+      "chain_verified": false,
+      "valid": false
+    },
+    "chain_verified": false,
+    "transaction_submitted": false
+  },
+  "live_rpc_used": false,
+  "wallet_accessed": false,
+  "funding_requested": false,
+  "spend_ledger_modified": false
+}

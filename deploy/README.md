@@ -20,7 +20,7 @@ gcloud builds submit --config=deploy/cloudbuild.yaml --substitutions=_IMAGE=us-e
 
 Wait for a successful build, inspect its returned image digest, and deploy that digest. Keep `--no-allow-unauthenticated`, the dedicated `relay-runtime` identity, minimum zero, maximum one, request-based CPU, and `RELAY_ALLOW_LIVE_GEMINI=0`. Do not inject provider secrets into the mock container. Private invocation, instance limits and provider billing alerts are not dollar hard stops.
 
-Record the deployed revision, build and digest in `.state/cloud-config.json`, then run `.\.venv\Scripts\python.exe scripts/verify-cloud.py` for a finite authenticated smoke check under the existing GCP reservation. It checks private access, mock integration replay, directed mission review, and budget-refusal behavior, without exposing its identity token. A successful run updates `artifacts/cloud-verification.json`. The cloud mission engine uses bounded process memory, so a container restart clears mission records.
+Record the deployed revision, build and digest in `.state/cloud-config.json`, then run `.\.venv\Scripts\python.exe scripts/verify-cloud.py` for a finite authenticated smoke check under the existing GCP reservation. It checks the revision's actual image digest, served HTML/JavaScript hashes against this checkout, private access, mock integration replay, repeated mission-action read-back, directed mission review, and budget-refusal behavior, without exposing its identity token. Keep the checkout unchanged until verification finishes. A successful run updates `artifacts/cloud-verification.json`. The cloud mission engine uses bounded process memory, so a container restart clears mission records.
 
 ## End the demo
 
