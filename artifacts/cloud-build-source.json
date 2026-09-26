@@ -1,5 +1,5 @@
 {
-  "source_commit": "f8165f1e0939dbf8562ae1b7fa31b942a30865f3",
+  "source_commit": "023f9cc0ce06d410312f1db3384f9147a1daf32d",
   "files": {
     ".dockerignore": "284e4ae457bc280808357ab20c77b9486cac3475f3a06380e7a1a8857703f9bd",
     ".gcloudignore": "31f45cbefe497f25729acd44c55dbd2c7eedf68e6ccb2a007d5b64af15ca1cf2",
@@ -26,9 +26,9 @@
     "src/relay_gateway/models.py": "01efe00908d435d0eef50df7a63a338e1b743e62efe59fefa0f182480b9270e2",
     "src/relay_gateway/providers.py": "1e040dd04635b38b200ac6603ad98dceb5900cc6bc83423d89c9985ab0fa4e29",
     "web/app.js": "4385f6184fca551c0088f15c683803517952fa16d2f179bab50144d83703585a",
-    "web/index.html": "29f830d29bce239bd834797564b22c6ed191b1b92b414181ca13d23aab890116",
+    "web/index.html": "c55f17aa7a07537852a123621e716f384e4d43067fdc5217b530f7e0c5207140",
     "web/styles.css": "e61a4332f8bf3ece7522c92aaee4c4d796200d8fefc60a522d6dbcc3d3f68308"
   },
   "file_count": 27,
-  "manifest_sha256": "146213144dbc19698161400948c27e3f5067197927bf3089c816f3ca19ff49bb"
+  "manifest_sha256": "b80b099c3cf1779edcf2348748de23e074b1e0575f4d8801d4aba699716cbef9"
 }

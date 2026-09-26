@@ -1,16 +1,19 @@
 {
-  "recorded_at": "2026-09-26T21:49:26.907904+00:00",
-  "scope": "Verified local software and the private mock Cloud Run update",
+  "recorded_at": "2026-09-26T22:01:16.330936+00:00",
+  "scope": "Software verification with eight-category copy review and latest private mock Cloud Run proof",
   "python_tests": {
     "command": ".venv/Scripts/python.exe -m pytest -q",
     "passed": 346,
     "warnings": [
       "Existing upstream Starlette/httpx deprecation"
-    ]
+    ],
+    "last_verified_source_commit": "f8165f1e0939dbf8562ae1b7fa31b942a30865f3",
+    "latest_review_note": "No Python application changes in this category-copy review; prior 346-test pass retained."
   },
   "frontend_tests": {
     "command": "node --test tests/test_dashboard_recovery.cjs",
-    "passed": 8
+    "passed": 8,
+    "last_verified_source_commit": "023f9cc0ce06d410312f1db3384f9147a1daf32d"
   },
   "javascript_syntax": "passed",
   "dependency_check": "passed",
@@ -41,7 +44,7 @@
     "src/relay_gateway/integrations/data_cli.py": "4e3887ff4fdee0ae78eedf4076f7c0689090e41e577dafecae99f0aaf724c19f",
     "scripts/rehearse-demo.py": "a2881d7be059e5f5e6856d582d6e83bc740e5b9ad091571100459c962a22a6e7",
     "web/app.js": "4385f6184fca551c0088f15c683803517952fa16d2f179bab50144d83703585a",
-    "web/index.html": "29f830d29bce239bd834797564b22c6ed191b1b92b414181ca13d23aab890116",
+    "web/index.html": "c55f17aa7a07537852a123621e716f384e4d43067fdc5217b530f7e0c5207140",
     "tests/test_data_cli.py": "90ad8816c0b049eefafc56a8c27135e4ed8353f6eb812214ea3a14b1621259fc",
     "tests/test_cli_references.py": "cb5114bbbd8382fba97bdaa37ac4b49d80c67598cfec71dbf6f1077f2ea650c9",
     "tests/test_rehearsal_packet.py": "b086c2c8f846b668b19ed0f1d856c6ae6a7272be14c9030d9715c135b929fde8",
@@ -64,12 +67,13 @@
     "integration_status": "Relay and team geospatial/photo workflows are separate; no end-to-end bridge claimed"
   },
   "provider_activity": {
-    "gcp_builds": 1,
-    "gcp_revision_updates": 2,
+    "gcp_builds": 2,
+    "gcp_revision_updates": 3,
     "private_cloud_http_verification": true,
     "reservation_operation_id": "gcp-demo-resources-2026-09-26",
     "other_live_provider_requests": 0,
-    "actual_new_billed_usd": null
+    "actual_new_billed_usd": null,
+    "scope": "Since c331a32 software baseline, including receipt CLI/cloud update and category review"
   },
   "receipt_cli": {
     "focused_tests_passed": 33,
@@ -77,14 +81,28 @@
     "chain_verified": false
   },
   "cloud_deployment": {
-    "revision": "relay-gateway-00005-z5h",
-    "build_id": "de75e4b8-200e-448e-9524-f1430d113767",
-    "image_digest": "sha256:d5f2352a91bf3c24ba1b2b118775c6364aa8f1ac399992d898189839b028b4d7",
+    "revision": "relay-gateway-00006-w89",
+    "build_id": "45668edd-4edf-45df-9fcc-58eb96c5dc59",
+    "image_digest": "sha256:61f6b0d4b47a34b89f9cc3de3520f780391ceb94eb5f3771340f6da22fe0a08a",
     "evidence": "artifacts/cloud-verification.json",
     "source_manifest": "artifacts/cloud-build-source.json",
     "served_assets_match": true,
     "repeated_action_and_state_readback_verified": true,
     "runtime_environment_and_controls_verified": true,
-    "source_commit": "f8165f1e0939dbf8562ae1b7fa31b942a30865f3"
+    "source_commit": "023f9cc0ce06d410312f1db3384f9147a1daf32d"
+  },
+  "prize_fit_review": {
+    "checked_at": "2026-09-26T22:01:16.330936+00:00",
+    "official_list": "https://www.mlh.com/events/shellhacks-b9/prizes",
+    "category_count": 8,
+    "unique_dashboard_roles_verified": 8,
+    "local_served_html_matches": true,
+    "document_links_checked": true,
+    "plan": "docs/mlh-submission.md",
+    "live_provider_smoke_categories": [
+      "Gemini API"
+    ],
+    "all_eight_live_workflow_verified": false,
+    "eligibility_guaranteed": false
   }
 }
