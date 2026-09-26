@@ -18,8 +18,12 @@ from shared.schemas import LineStringGeometry, Project
 class MongoProjectSmokeTest(unittest.TestCase):
     project_id = "smoke-test:project:canonical"
 
+    def setUp(self) -> None:
+        self.saved = False
+
     def tearDown(self) -> None:
-        get_database()["projects"].delete_one({"id": self.project_id})
+        if self.saved:
+            get_database()["projects"].delete_one({"id": self.project_id})
         close_mongo_client()
 
     def test_canonical_project_round_trip(self) -> None:
@@ -36,6 +40,7 @@ class MongoProjectSmokeTest(unittest.TestCase):
         )
         repository = MongoRepository()
         repository.save_project(project)
+        self.saved = True
         stored = get_database()["projects"].find_one({"id": self.project_id}, {"_id": False})
         self.assertEqual(Project.model_validate(stored), project)
 

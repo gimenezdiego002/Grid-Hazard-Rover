@@ -133,7 +133,8 @@ class MongoRepository:
 
 @lru_cache(maxsize=1)
 def get_repository() -> Repository:
-    return MongoRepository() if get_settings().mongodb_uri else MemoryRepository()
+    settings = get_settings()
+    return MongoRepository() if settings.mongodb_uri_has_valid_scheme else MemoryRepository()
 
 
 def clear_repository_cache() -> None:

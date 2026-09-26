@@ -28,6 +28,13 @@ class Settings:
     discord_webhook_url: str | None = field(default=None, repr=False)
 
     @property
+    def mongodb_uri_has_valid_scheme(self) -> bool:
+        return bool(
+            self.mongodb_uri
+            and self.mongodb_uri.startswith(("mongodb://", "mongodb+srv://"))
+        )
+
+    @property
     def cors_origins(self) -> list[str]:
         return list(dict.fromkeys([LOCAL_FRONTEND, self.frontend_url]))
 

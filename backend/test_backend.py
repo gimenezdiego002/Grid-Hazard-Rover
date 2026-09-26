@@ -45,6 +45,7 @@ class BackendTests(unittest.TestCase):
     def test_config_defaults_and_overrides(self) -> None:
         defaults = config.get_settings()
         self.assertIsNone(defaults.mongodb_uri)
+        self.assertFalse(defaults.mongodb_uri_has_valid_scheme)
         self.assertIsNone(defaults.gemini_api_key)
         self.assertIsNone(defaults.gemini_model)
         self.assertEqual(defaults.mongodb_db, "grid_hazard_rover")
@@ -55,6 +56,11 @@ class BackendTests(unittest.TestCase):
             settings = config.get_settings()
             self.assertEqual(settings.mongodb_db, "test_db")
             self.assertEqual(settings.frontend_url, "https://frontend.example")
+
+    def test_mongo_uri_scheme_detection(self) -> None:
+        self.assertFalse(config.Settings(mongodb_uri="not-a-mongodb-uri").mongodb_uri_has_valid_scheme)
+        self.assertTrue(config.Settings(mongodb_uri="mongodb://localhost:27017").mongodb_uri_has_valid_scheme)
+        self.assertTrue(config.Settings(mongodb_uri="mongodb+srv://example.invalid").mongodb_uri_has_valid_scheme)
 
     def test_missing_mongo_is_clear_error(self) -> None:
         for accessor in (database.get_mongo_client, database.get_database):

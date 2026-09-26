@@ -149,7 +149,12 @@ The total is clamped to `0..100`: LOW `0..29`, MODERATE `30..59`, HIGH `60..79`,
 
 ## MongoDB and geocoding
 
-Without `MONGODB_URI`, a process-local demo repository is used. With Mongo configured, access stays lazy and canonical projects, records, hazards, matches, and risk cells can be upserted. Every collection gets a unique `id` index; collections with a GeoJSON `location` (`projects`, `records`, `hazards`, and `risk_cells`) also get a `2dsphere` index.
+Without a valid `MONGODB_URI` scheme, a process-local demo repository is used;
+valid URIs begin with `mongodb://` or `mongodb+srv://`. With Mongo configured,
+access stays lazy and canonical projects, records, hazards, matches, and risk
+cells can be upserted. Every collection gets a unique `id` index; collections
+with a GeoJSON `location` (`projects`, `records`, `hazards`, and `risk_cells`)
+also get a `2dsphere` index.
 
 Google Geocoding is isolated in `backend.app.geocoding` and called only when normalized source data has an address but no geometry. Existing source coordinates bypass Google. Results are cached in process and converted from Google's `lat/lng` object to canonical `[lng, lat]`.
 
