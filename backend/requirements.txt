@@ -1,4 +1,5 @@
-# Direct dependencies, pinned to the verified Python 3.11 environment.
+# Backend dependencies from Diego's verified Python 3.11 environment.
+# Shapely is also required by the ingestion pipeline (tested locally on 3.14).
 fastapi==0.141.1
 uvicorn==0.54.0
 pydantic==2.13.5

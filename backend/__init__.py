@@ -1,0 +1,1 @@
+"""Grid Hazard Rover backend."""

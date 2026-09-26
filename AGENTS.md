@@ -283,6 +283,9 @@ At the time this guide was updated:
 - Gemini JPEG classification, canonical hazard conversion, deterministic
   spatial/timeline matching, explainable risk scoring, demo fixtures, lazy
   Mongo repositories, and a mocked Google geocoding boundary exist.
+- The integrated `backend/ingestion` package provides bounded ArcGIS reads,
+  canonical normalization, auditable exports, and idempotent FDOT record
+  imports into the same collections consumed by the API and risk engine.
 - The backend runs offline with synthetic demo-safe Miami data when MongoDB
   is not configured. Live Gemini classification has been verified separately.
 - `.venv` uses Python 3.11 and is ignored. `.env` is also ignored and must

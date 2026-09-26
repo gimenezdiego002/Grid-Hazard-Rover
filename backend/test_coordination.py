@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from datetime import date
+import json
+from pathlib import Path
 import unittest
 
 from backend.app.demo_data import demo_hazards, demo_projects, demo_records
@@ -10,6 +12,7 @@ from backend.app.matching import generate_matches
 from backend.app.risk import generate_risk_grid, risk_level
 from backend.app.spatial import distance_tier, spatial_relationship
 from backend.app.timeline import TimelineRelationship, compare_timelines
+from backend.ingestion.normalize import normalize_snapshot
 from shared.schemas import (
     DistanceTier,
     LineStringGeometry,
@@ -17,6 +20,7 @@ from shared.schemas import (
     MultiPolygonGeometry,
     PointGeometry,
     PolygonGeometry,
+    Project,
     RiskLevel,
 )
 
@@ -90,6 +94,20 @@ class TimelineTests(unittest.TestCase):
 
 
 class CoordinationTests(unittest.TestCase):
+    def test_ingestion_fixture_flows_into_matching_and_risk(self) -> None:
+        fixture_path = (
+            Path(__file__).resolve().parents[1]
+            / "shared" / "fixtures" / "ingestion" / "imdc_power.snapshot.json"
+        )
+        normalized = normalize_snapshot(json.loads(fixture_path.read_text(encoding="utf-8")))
+        projects = [Project.model_validate(item) for item in normalized["projects"]]
+        matches = generate_matches(projects, [], [])
+        cells = generate_risk_grid(matches, [], [])
+        self.assertEqual({item.utility for item in projects}, {"Demo Electric A", "Demo Electric B"})
+        self.assertTrue(any(item.distance_tier is DistanceTier.CROSSING for item in matches))
+        self.assertEqual(cells[0].score, 65)
+        self.assertEqual(cells[0].level, RiskLevel.HIGH)
+
     def test_demo_matches_and_explainable_risk_grid(self) -> None:
         projects, records, hazards = demo_projects(), demo_records(), demo_hazards()
         matches = generate_matches(projects, records, hazards)

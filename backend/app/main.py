@@ -12,6 +12,7 @@ from backend.app.config import get_settings
 from backend.app.database import close_mongo_client
 from backend.app.api import router as api_router
 from backend.app.repository import clear_repository_cache
+from backend.app.data_routes import router as data_router
 
 
 @asynccontextmanager
@@ -38,6 +39,7 @@ def create_app() -> FastAPI:
         allow_headers=["Content-Type", "Authorization"],
     )
     application.include_router(api_router)
+    application.include_router(data_router)
 
     @application.get("/health", tags=["health"])
     def health() -> dict[str, str]:

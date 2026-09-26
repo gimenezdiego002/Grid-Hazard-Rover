@@ -68,6 +68,11 @@ All successful responses are JSON. Geometry coordinates remain longitude-first.
 | `GET /api/demo-summary` | One envelope containing every demo collection |
 | `POST /ingest/photo` | AI classification plus an optional canonical `Hazard` |
 
+When MongoDB is configured, `/api/storage/projects`, `/api/storage/records`,
+and `/api/storage/hazards` provide paginated `items` envelopes with fixture
+filtering and invalid-row counts for data-quality inspection. These do not
+replace the raw-array frontend endpoints above.
+
 The offline store starts with safe synthetic Miami-area data: two crossing downtown utility projects, public-roadwork context, a severity-four pothole, and a separate lower-risk comparison. These are demo fixtures, not restricted infrastructure data.
 
 ### `POST /ingest/photo`
@@ -149,6 +154,19 @@ Without `MONGODB_URI`, a process-local demo repository is used. With Mongo confi
 Google Geocoding is isolated in `backend.app.geocoding` and called only when normalized source data has an address but no geometry. Existing source coordinates bypass Google. Results are cached in process and converted from Google's `lat/lng` object to canonical `[lng, lat]`.
 
 The data-pipeline teammate can normalize public ArcGIS/utility inputs directly into the shared models. Gemini is not used for already-structured data and never computes distance, timeline, or risk.
+
+The integrated `backend.ingestion` package provides bounded ArcGIS fetches,
+source-specific canonical normalization, rejection manifests, reproducible
+fixture tests, and an idempotent FDOT record importer. Records imported into the
+shared Mongo collections are immediately visible to the primary API and become
+public-context inputs to deterministic matching and risk scoring.
+
+```powershell
+python -m backend.ingestion probe fdot_active
+python -m backend.ingestion fetch fdot_active --limit 20 --output tmp\fdot.snapshot.json
+python -m backend.ingestion normalize tmp\fdot.snapshot.json --output tmp\fdot-export
+python -m backend.ingestion.import_records tmp\fdot-export --apply
+```
 
 ## Tests
 
