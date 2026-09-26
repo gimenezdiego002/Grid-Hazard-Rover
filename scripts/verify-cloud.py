@@ -70,7 +70,24 @@ def main():
     def verify_traffic():
         service = json.loads(cloud("run", "services", "describe", SERVICE,
                                    f"--region={REGION}",
-                                   "--format=json(status.latestReadyRevisionName,status.traffic)"))
+                                   "--format=json(spec.template,metadata.annotations,status.latestReadyRevisionName,status.traffic)"))
+        template = service["spec"]["template"]
+        spec = template["spec"]
+        annotations = template["metadata"].get("annotations", {})
+        assert len(spec["containers"]) == 1
+        container = spec["containers"][0]
+        assert spec["containerConcurrency"] == 1 and spec["timeoutSeconds"] == 30
+        assert spec["serviceAccountName"] == f"relay-runtime@{PROJECT}.iam.gserviceaccount.com"
+        assert container["resources"]["limits"] == {"cpu": "1", "memory": "512Mi"}
+        assert annotations.get("autoscaling.knative.dev/minScale", "0") == "0"
+        assert annotations.get("autoscaling.knative.dev/maxScale") == "1"
+        assert service["metadata"].get("annotations", {}).get("run.googleapis.com/minScale", "0") == "0"
+        assert annotations.get("run.googleapis.com/cpu-throttling") == "true"
+        environment = container.get("env", [])
+        assert len(environment) == 2 and not any("valueFrom" in item for item in environment)
+        assert {item["name"]: item.get("value") for item in environment} == {
+            "RELAY_PROVIDER": "mock", "RELAY_ALLOW_LIVE_GEMINI": "0"}
+        assert not spec.get("volumes")
         status = service["status"]
         traffic = status["traffic"]
         assert status["latestReadyRevisionName"] == expected_revision
@@ -81,6 +98,10 @@ def main():
         return {"revision": expected_revision, "percent": 100}
 
     traffic_before = verify_traffic()
+    policy = json.loads(cloud("run", "services", "get-iam-policy", SERVICE,
+                              f"--region={REGION}", "--format=json"))
+    assert not any(member in {"allUsers", "allAuthenticatedUsers"}
+                   for binding in policy.get("bindings", []) for member in binding.get("members", []))
     token = cloud("auth", "print-identity-token")
     opener = build_opener(NoRedirect())
 
@@ -185,6 +206,9 @@ def main():
     evidence.update({"verified_at": datetime.now(timezone.utc).isoformat(),
                      "verified_image_digest": verified_digest,
                      "served_assets": served_assets,
+                     "runtime_controls_verified": {"min_instances": 0, "revision_max_instances": 1,
+                         "concurrency": 1, "cpu": "1", "memory": "512Mi", "request_based_cpu": True,
+                         "provider_secrets_attached": False, "public_invokers": False},
                      "unauthenticated_status": unauthenticated, "health": health,
                      "cloud_missions": mission_results,
                      "verified_traffic_before": traffic_before,

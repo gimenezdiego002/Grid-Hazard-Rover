@@ -4,11 +4,39 @@
   "service": "relay-gateway",
   "url": "https://relay-gateway-345149168663.us-east1.run.app",
   "mode": "mock",
-  "revision": "relay-gateway-00003-8zf",
-  "image_digest": "sha256:154c2b74d6f73688cc8357bc42ce83ee535ee7e45b1ea70e3ff760228daf6cd8",
-  "build_id": "02d9970e-973d-4d6a-80e8-d0bbcb210c46",
+  "image_digest": "sha256:d5f2352a91bf3c24ba1b2b118775c6364aa8f1ac399992d898189839b028b4d7",
+  "build_id": "de75e4b8-200e-448e-9524-f1430d113767",
+  "source_commit": "f8165f1e0939dbf8562ae1b7fa31b942a30865f3",
+  "source_manifest_sha256": "146213144dbc19698161400948c27e3f5067197927bf3089c816f3ca19ff49bb",
+  "source_file_count": 27,
+  "revision": "relay-gateway-00005-z5h",
   "deployment_status": "deployed_and_verified_private",
-  "verified_at": "2026-09-26T20:10:51.268742+00:00",
+  "verified_at": "2026-09-26T21:48:39.245371+00:00",
+  "verified_image_digest": "sha256:d5f2352a91bf3c24ba1b2b118775c6364aa8f1ac399992d898189839b028b4d7",
+  "served_assets": {
+    "/": {
+      "source_path": "web/index.html",
+      "sha256": "29f830d29bce239bd834797564b22c6ed191b1b92b414181ca13d23aab890116",
+      "bytes": 15460,
+      "matches_local_source": true
+    },
+    "/static/app.js": {
+      "source_path": "web/app.js",
+      "sha256": "4385f6184fca551c0088f15c683803517952fa16d2f179bab50144d83703585a",
+      "bytes": 23723,
+      "matches_local_source": true
+    }
+  },
+  "runtime_controls_verified": {
+    "min_instances": 0,
+    "revision_max_instances": 1,
+    "concurrency": 1,
+    "cpu": "1",
+    "memory": "512Mi",
+    "request_based_cpu": true,
+    "provider_secrets_attached": false,
+    "public_invokers": false
+  },
   "unauthenticated_status": 403,
   "health": {
     "status": "ok",
@@ -30,7 +58,9 @@
       },
       "simulated": true,
       "human_review_performed": false,
-      "actuation_enabled": false
+      "actuation_enabled": false,
+      "repeated_action_receipt_verified": true,
+      "current_state_readback_verified": true
     },
     {
       "input_outcome": "budget_refused",
@@ -42,15 +72,17 @@
       },
       "simulated": true,
       "human_review_performed": false,
-      "actuation_enabled": false
+      "actuation_enabled": false,
+      "repeated_action_receipt_verified": true,
+      "current_state_readback_verified": true
     }
   ],
   "verified_traffic_before": {
-    "revision": "relay-gateway-00003-8zf",
+    "revision": "relay-gateway-00005-z5h",
     "percent": 100
   },
   "verified_traffic_after": {
-    "revision": "relay-gateway-00003-8zf",
+    "revision": "relay-gateway-00005-z5h",
     "percent": 100
   },
   "cloud_replay": {

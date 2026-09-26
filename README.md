@@ -59,7 +59,7 @@ The dashboard also runs economy mode, compares the same fixture against fixed-in
 
 Accounting cards come from backend responses and explicitly distinguish simulated estimates. The briefing contains no generated audio, and the receipt has no blockchain transaction. Review/finalization are fixture states, not human approval. A completed replay does not imply that a physical hazard is clear. See [the integrated demo](docs/integrated-demo.md) for inputs, output fields and verification.
 
-If a mission response is interrupted, the dashboard reloads the saved mission and checks whether the original action was recorded. If its outcome is still unknown, **Retry pending request** reuses that exact request. Mission controls stay paused until it is resolved. The service retains at most 32 missions per process; preserve needed records before a deliberate restart. These recovery changes are local until the next verified cloud deployment.
+If a mission response is interrupted, the dashboard reloads the saved mission and checks whether the original action was recorded. If its outcome is still unknown, **Retry pending request** reuses that exact request. Mission controls stay paused until it is resolved. The service retains at most 32 missions per process; preserve needed records before a deliberate restart. These recovery assets are also deployed on the private Cloud Run service; authenticated checks matched the served HTML and JavaScript to this source and verified repeated-action read-back.
 
 ## Integration configuration
 

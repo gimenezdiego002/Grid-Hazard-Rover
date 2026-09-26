@@ -1,9 +1,9 @@
 {
-  "recorded_at": "2026-09-26T21:24:41.787785+00:00",
-  "scope": "Local continuation changes; not a new cloud deployment",
+  "recorded_at": "2026-09-26T21:49:26.907904+00:00",
+  "scope": "Verified local software and the private mock Cloud Run update",
   "python_tests": {
     "command": ".venv/Scripts/python.exe -m pytest -q",
-    "passed": 313,
+    "passed": 346,
     "warnings": [
       "Existing upstream Starlette/httpx deprecation"
     ]
@@ -29,8 +29,7 @@
     "checks_total": 29,
     "html_review": "source-reviewed; in-app browser does not allow file URLs"
   },
-  "new_billable_provider_operations": 0,
-  "solana": "Read-only devnet balance check; zero lamports, no transaction or faucet request",
+  "solana": "Receipt CLI mock creation, original verification and changed-report rejection passed; no RPC, faucet or transaction in this update. Earlier balance evidence remains zero lamports.",
   "spending": {
     "settled_estimated_usd": "0.000436",
     "reserved_usd": "3.000000",
@@ -48,7 +47,10 @@
     "tests/test_rehearsal_packet.py": "b086c2c8f846b668b19ed0f1d856c6ae6a7272be14c9030d9715c135b929fde8",
     "tests/test_dashboard_recovery.cjs": "2b6f893ddc1f058e3cd7b90cd4f54825e53dc97aa388fdfcb16cae8b81ced5c5",
     "src/relay_gateway/integrations/ledger.py": "b202425b497f49b36cefa3e261b9fc51a916f79ef7f5c1ac068ab7c3eeeff071",
-    "tests/test_spend_ledger.py": "6c2686a093efb070b7d0bc1c7e3b158db60810ad43bc93ff5fe1021ec3450bf0"
+    "tests/test_spend_ledger.py": "6c2686a093efb070b7d0bc1c7e3b158db60810ad43bc93ff5fe1021ec3450bf0",
+    "src/relay_gateway/integrations/receipt_cli.py": "926b6b9c7b405dda96a1ac5f5f5fd3510285fefef79d14f1f063612b2aecb410",
+    "tests/test_receipt_cli.py": "e9ef9a247eba0ce16a849aae3809bb8852fa50139b9c16f9971556ffbe0fcb58",
+    "scripts/verify-cloud.py": "266d51217ada71e5588021b2181dd8bdd5d65ea5a94cbaf6bea1899ef68e797f"
   },
   "fresh_clone_live_admission": "Fails closed without existing initialized canonical spending ledger; no bootstrap from stale history",
   "repository": "https://github.com/gimenezdiego002/Grid-Hazard-Rover",
@@ -60,5 +62,29 @@
     "team_environment_template": "preserved at .env.example",
     "relay_environment_template": "deploy/relay.env.example",
     "integration_status": "Relay and team geospatial/photo workflows are separate; no end-to-end bridge claimed"
+  },
+  "provider_activity": {
+    "gcp_builds": 1,
+    "gcp_revision_updates": 2,
+    "private_cloud_http_verification": true,
+    "reservation_operation_id": "gcp-demo-resources-2026-09-26",
+    "other_live_provider_requests": 0,
+    "actual_new_billed_usd": null
+  },
+  "receipt_cli": {
+    "focused_tests_passed": 33,
+    "proof": "artifacts/receipt-cli-verification.json",
+    "chain_verified": false
+  },
+  "cloud_deployment": {
+    "revision": "relay-gateway-00005-z5h",
+    "build_id": "de75e4b8-200e-448e-9524-f1430d113767",
+    "image_digest": "sha256:d5f2352a91bf3c24ba1b2b118775c6364aa8f1ac399992d898189839b028b4d7",
+    "evidence": "artifacts/cloud-verification.json",
+    "source_manifest": "artifacts/cloud-build-source.json",
+    "served_assets_match": true,
+    "repeated_action_and_state_readback_verified": true,
+    "runtime_environment_and_controls_verified": true,
+    "source_commit": "f8165f1e0939dbf8562ae1b7fa31b942a30865f3"
   }
 }
