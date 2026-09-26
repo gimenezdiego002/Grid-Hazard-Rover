@@ -1,0 +1,146 @@
+{
+  "recorded_at": "2026-09-26T23:32:30.557281+00:00",
+  "scope": "Local Gemini-Jev-Pollard simulated supervision; no deployment or hardware",
+  "checks": {
+    "python_tests": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "passed": 613,
+      "warnings": 1,
+      "warning": "Existing Starlette/httpx deprecation"
+    },
+    "dependency_check": "passed",
+    "diff_check": "passed",
+    "team_contract_vs_origin_main": "unchanged",
+    "owned_files_credential_scan": "passed",
+    "fixture_comparison_runs": 36,
+    "comparison_reproduced_after_review": true,
+    "comparison_matched_fields": [
+      "fixture_sha256",
+      "versions",
+      "missions",
+      "summary",
+      "nominal_summary",
+      "claims"
+    ],
+    "publication_review": {
+      "provider_budget_cli": "No blocking finding in scoped code/test review; no live validation.",
+      "supervisor": "Fixed hold-state loss on unchanged dry frames after provider failure or decision/escalation budget refusal.",
+      "added_regression_cases": 16,
+      "focused_supervisor_comparison_tests_passed": 87,
+      "live_provider_requests_during_review": 0
+    }
+  },
+  "live": {
+    "gemini_attempted_requests": 5,
+    "gemini_successful_role_responses": 0,
+    "latest_http_status": 400,
+    "latest_error_category": "INVALID_ARGUMENT",
+    "jev_attempted_requests": 0,
+    "combined_live_proven": false,
+    "hardware_verified": false,
+    "cloud_deployment_performed": false
+  },
+  "task_spending": {
+    "task_cap_usd": "0.50",
+    "committed_estimated_usd": "0.008659",
+    "remaining_usd": "0.491341",
+    "operations": [
+      {
+        "operation_id": "jev-integration-v1:9e8e58eb6139133dae32d543563b63cd44a071620996da5feedb5873fb067b69",
+        "provider": "Gemini Developer API",
+        "status": "unknown",
+        "reserved_usd": "0.001715",
+        "settled_estimated_usd": null,
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:09:20.134+00:00",
+        "updated_at": "2026-09-26T23:09:20.549+00:00",
+        "unknown_reason": "unclassified",
+        "reservation_overrun_usd": "0.000000",
+        "historical_import": false
+      },
+      {
+        "operation_id": "jev-integration-v1:e47f0d227ca48e01fea7668d61b3e545c18917bb4a95cd58b2d23f7ab19c5a25",
+        "provider": "Gemini Developer API",
+        "status": "unknown",
+        "reserved_usd": "0.001799",
+        "settled_estimated_usd": null,
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:09:20.560+00:00",
+        "updated_at": "2026-09-26T23:09:20.665+00:00",
+        "unknown_reason": "unclassified",
+        "reservation_overrun_usd": "0.000000",
+        "historical_import": false
+      },
+      {
+        "operation_id": "jev-integration-v1:533fedf54193a934d09f93ec2ecfea63732dbc80612408b006b149131f2aaa8c",
+        "provider": "Gemini Developer API",
+        "status": "unknown",
+        "reserved_usd": "0.001715",
+        "settled_estimated_usd": null,
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:14:10.268+00:00",
+        "updated_at": "2026-09-26T23:14:10.506+00:00",
+        "unknown_reason": "unclassified",
+        "reservation_overrun_usd": "0.000000",
+        "historical_import": false
+      },
+      {
+        "operation_id": "jev-integration-v1:0a8e886239a98263b47801cf81c360098835f9f788388cdb71700596b8e0dd3d",
+        "provider": "Gemini Developer API",
+        "status": "unknown",
+        "reserved_usd": "0.001715",
+        "settled_estimated_usd": null,
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:16:57.435+00:00",
+        "updated_at": "2026-09-26T23:16:57.833+00:00",
+        "unknown_reason": "unclassified",
+        "reservation_overrun_usd": "0.000000",
+        "historical_import": false
+      },
+      {
+        "operation_id": "jev-integration-v1:d80c466de6c7b9dc0cb22dd0e41e6d44e19920c077bf9bf1fa36fc8e4caa9513",
+        "provider": "Gemini Developer API",
+        "status": "unknown",
+        "reserved_usd": "0.001715",
+        "settled_estimated_usd": null,
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:23:30.355+00:00",
+        "updated_at": "2026-09-26T23:23:30.865+00:00",
+        "unknown_reason": "unclassified",
+        "reservation_overrun_usd": "0.000000",
+        "historical_import": false
+      }
+    ]
+  },
+  "shared_spending": {
+    "settled_estimated_usd": "0.000436",
+    "reserved_usd": "4.358659",
+    "unknown_reserved_usd": "0.158659",
+    "remaining_planned_usd": "10.640905",
+    "actual_billed_usd": null
+  },
+  "source_sha256": {
+    "deploy/relay.env.example": "e2a5029086621c0f3bae471d8c5883612c1513ef087a7c66f3d80236af3cdbc5",
+    "pyproject.toml": "edf7e1147b98daced6cae884d0e92951b6986503f0b896c1f509903ec5162eba",
+    "src/relay_gateway/jev_budget.py": "51ef60cf11413c62a6723dbb70676f4a16994af3d1a85f49c2f7d864b1219e27",
+    "src/relay_gateway/jev_cli.py": "a894eca3271a23db3a6a8fe44e5d35b42493e67e9ba63e36d55abfada2958267",
+    "src/relay_gateway/jev_comparison.py": "ea51e42483cd7b16f4bc9324b5e30fddc77998e0d21710cd926d3ae133987ec2",
+    "src/relay_gateway/jev_gemini.py": "87d4dd2581a5b2dc9c456cbac9a587d8089ed424444b116e716d1b0df7da569a",
+    "src/relay_gateway/jev_pollard.py": "32a5c902245c5ee531b6a6099a2eb5eb49d1dbcc74560c6f4c4b58f632696839",
+    "src/relay_gateway/jev_provider.py": "17efad4894c66805fc44d8aecff858ab51b433766ca9fddf1516dab3e06f3b04",
+    "src/relay_gateway/jev_supervisor.py": "19c370cdb8ef1af1d56c90e3929ab658af9e6dc1519318930df088903a6bcb05",
+    "tests/test_jev_budget.py": "863c184cd2126bacdef3afa181ee5d92a4a019e27649d444b2c152b7077ef432",
+    "tests/test_jev_cli.py": "b72ec4ff419f6d5855156aec88c51aa037451e0017db3ac02d3ec1359a189974",
+    "tests/test_jev_comparison.py": "c0c6b9eb965f7a99772a452c5e0645221bd3145f0f442c613f83aca043ba96b7",
+    "tests/test_jev_gemini.py": "b2fb24d069a95a174565c79f544e02c0df61085619b73a09b5eaa36816de893e",
+    "tests/test_jev_pollard.py": "f0d8b6b0e318be23a83a3b088c7df7671822745ac9c80258857319ebf452b5fc",
+    "tests/test_jev_provider.py": "6033e2bca24188fbc18614ade5c899d379c6d28b313e4e6793c287e7a18af081",
+    "tests/test_jev_supervisor.py": "68053053245fa3b5a78ce110201b4ef6f5f48112427fb3a082febf8b65bdff52"
+  },
+  "fixture_sha256": "893e017b5e410ddeaa913ecf822d7124c38166a3dc041712301f15f376b14625",
+  "limitations": [
+    "Live Gemini role workflow remains blocked by HTTP400; no successful Jev call without credentials.",
+    "Fixtures are not model-quality, physical-safety, energy or carbon measurements.",
+    "Unknown live reservations remain held; no account invoice is claimed."
+  ]
+}

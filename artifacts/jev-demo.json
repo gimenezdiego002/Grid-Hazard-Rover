@@ -1,0 +1,371 @@
+{
+  "accounting": {
+    "actual_paid_usd": "0.000000",
+    "calls": 5,
+    "estimated_usd": "0.000631936",
+    "gemini_calls": 3,
+    "input_tokens": 495,
+    "jev_calls": 2,
+    "known_estimated_usd": "0.000631936",
+    "known_input_tokens": 495,
+    "known_output_tokens": 156,
+    "known_total_tokens": 651,
+    "output_tokens": 156,
+    "provider_reported_cost_usd": null,
+    "total_tokens": 651,
+    "unknown_usage_calls": 0
+  },
+  "actuation_enabled": false,
+  "evaluation": {
+    "labeled_hazard_frames": 2,
+    "latency_basis": "virtual injected time; not provider performance",
+    "local_alarm_latency_seconds": [
+      0,
+      0
+    ],
+    "missed_hazard_frames": 0,
+    "scope": "Synthetic frame labels only; needs_review is not a positive detection.",
+    "supervision_latency_ms": [
+      0,
+      0,
+      0
+    ],
+    "unsafe_action_rejections": 0,
+    "unsafe_actions_accepted": 0
+  },
+  "events": [
+    {
+      "action": "continue_monitoring",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini",
+        "continue_monitoring"
+      ],
+      "changed": true,
+      "frame_id": "dry",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": false,
+      "physical_action": false,
+      "provider_results": [
+        {
+          "choice": "continue_monitoring",
+          "confidence": 0.8,
+          "metrics": {
+            "actual_billed_usd": null,
+            "actual_paid_usd": "0",
+            "calls": 1,
+            "cost_basis": "illustrative_fixture_estimate",
+            "dispatches": 1,
+            "estimated_usd": "0.000006468",
+            "input_tokens": 154,
+            "latency_ms": 0.0,
+            "output_tokens": 24,
+            "price_revision": "typesafe-models-2026-09-26",
+            "provider_reported_cost_usd": null,
+            "reservation_held_usd": "0",
+            "reserved_usd": "0"
+          },
+          "model": "jev-fixture-v1",
+          "operation_id": "wet_episode:dry:jev:attempt-0",
+          "reason": "fixture_choice",
+          "simulated": true,
+          "status": "completed"
+        }
+      ],
+      "reason": "validated_supervisory_choice",
+      "replayed": false,
+      "safe_hold": false,
+      "simulated": true,
+      "status": "monitoring",
+      "unsafe_action_rejections": 0
+    },
+    {
+      "action": "escalate_gemini",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini"
+      ],
+      "changed": true,
+      "frame_id": "wet",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": true,
+      "physical_action": false,
+      "provider_results": [
+        {
+          "choice": "escalate_gemini",
+          "confidence": 0.8,
+          "metrics": {
+            "actual_billed_usd": null,
+            "actual_paid_usd": "0",
+            "calls": 1,
+            "cost_basis": "illustrative_fixture_estimate",
+            "dispatches": 1,
+            "estimated_usd": "0.000006468",
+            "input_tokens": 154,
+            "latency_ms": 0.0,
+            "output_tokens": 24,
+            "price_revision": "typesafe-models-2026-09-26",
+            "provider_reported_cost_usd": null,
+            "reservation_held_usd": "0",
+            "reserved_usd": "0"
+          },
+          "model": "jev-fixture-v1",
+          "operation_id": "wet_episode:wet:jev:attempt-0",
+          "reason": "fixture_choice",
+          "simulated": true,
+          "status": "completed"
+        },
+        {
+          "actual_billed_usd": "0.000000",
+          "actuation_enabled": false,
+          "alarm_clear_authorized": false,
+          "estimated_usd": "0.000304",
+          "evidence": {
+            "cited_reference_ids": [],
+            "confidence_milli": 800,
+            "hazard_type": "standing_water",
+            "recommended_action": "Retain local alarms and request human review.",
+            "status": "suspected_hazard",
+            "summary": "Fixture sensor metadata suggests standing water."
+          },
+          "inference_simulated": true,
+          "latency_ms": 3.245,
+          "limitations": [
+            "All actions are simulated; advisory output cannot clear local alarms.",
+            "Text metadata only; no image decoding or measured model quality in fixture mode."
+          ],
+          "mode": "fixture",
+          "model": "relay-gemini-role-fixture-v1",
+          "operation_id": "wet_episode:wet:evidence:attempt-0",
+          "pollard_node_id": "166219982d0a297faae0d56baa542587c9b672fceb397d7daaaa7f6cf80567ca",
+          "price_basis": "illustrative simulation rates",
+          "prompt_sha256": "4462b1878518a73cf16eac9dbb1f02b82b846f90e44eae6790a054b2a038fedb",
+          "provider": "Gemini",
+          "reason": "fixture_completed",
+          "reserved_tokens": 2575,
+          "result_sha256": "eea17d5ca5813b1e94fbd980346c2fe27e663132c2fd617551f166a56501f5de",
+          "role": "evidence",
+          "schema_version": "1",
+          "shared_spend_operation_id": null,
+          "simulated": true,
+          "status": "completed",
+          "usage": {
+            "basis": "illustrative_fixture",
+            "calls": 1,
+            "input_tokens": 56,
+            "output_tokens": 62,
+            "total_tokens": 118
+          }
+        }
+      ],
+      "reason": "validated_supervisory_choice",
+      "replayed": false,
+      "safe_hold": true,
+      "simulated": true,
+      "status": "needs_review",
+      "unsafe_action_rejections": 0
+    },
+    {
+      "action": "hold",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini"
+      ],
+      "changed": false,
+      "frame_id": "wet-repeat",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": true,
+      "physical_action": false,
+      "provider_results": [],
+      "reason": "unchanged_state_no_cloud_work",
+      "replayed": false,
+      "safe_hold": true,
+      "simulated": true,
+      "status": "needs_review",
+      "unsafe_action_rejections": 0
+    }
+  ],
+  "inference_simulated": true,
+  "mission_id": "wet_episode",
+  "provider_results": [
+    {
+      "actual_billed_usd": "0.000000",
+      "actuation_enabled": false,
+      "alarm_clear_authorized": false,
+      "estimated_usd": "0.000100",
+      "evidence": {
+        "intent": "inspect_water",
+        "summary": "Fixture water-inspection intent."
+      },
+      "inference_simulated": true,
+      "latency_ms": 3.026,
+      "limitations": [
+        "All actions are simulated; advisory output cannot clear local alarms.",
+        "Text metadata only; no image decoding or measured model quality in fixture mode."
+      ],
+      "mode": "fixture",
+      "model": "relay-gemini-role-fixture-v1",
+      "operation_id": "wet_episode:mission:attempt-0",
+      "pollard_node_id": "4604fc970dae293c3c8b19a371dd15804eb4c132ab655a4c7b61cbd5991f8f48",
+      "price_basis": "illustrative simulation rates",
+      "prompt_sha256": "26b55d10b44e7bf2803d461b8f65a26aab6d2626ced091ce39ef18c3f3c1de48",
+      "provider": "Gemini",
+      "reason": "fixture_completed",
+      "reserved_tokens": 1961,
+      "result_sha256": "a053ccaef0e946cafc67eb9349ef23598894284fed940314faa0d9789255a0b2",
+      "role": "mission",
+      "schema_version": "1",
+      "shared_spend_operation_id": null,
+      "simulated": true,
+      "status": "completed",
+      "usage": {
+        "basis": "illustrative_fixture",
+        "calls": 1,
+        "input_tokens": 28,
+        "output_tokens": 18,
+        "total_tokens": 46
+      }
+    },
+    {
+      "choice": "continue_monitoring",
+      "confidence": 0.8,
+      "metrics": {
+        "actual_billed_usd": null,
+        "actual_paid_usd": "0",
+        "calls": 1,
+        "cost_basis": "illustrative_fixture_estimate",
+        "dispatches": 1,
+        "estimated_usd": "0.000006468",
+        "input_tokens": 154,
+        "latency_ms": 0.0,
+        "output_tokens": 24,
+        "price_revision": "typesafe-models-2026-09-26",
+        "provider_reported_cost_usd": null,
+        "reservation_held_usd": "0",
+        "reserved_usd": "0"
+      },
+      "model": "jev-fixture-v1",
+      "operation_id": "wet_episode:dry:jev:attempt-0",
+      "reason": "fixture_choice",
+      "simulated": true,
+      "status": "completed"
+    },
+    {
+      "choice": "escalate_gemini",
+      "confidence": 0.8,
+      "metrics": {
+        "actual_billed_usd": null,
+        "actual_paid_usd": "0",
+        "calls": 1,
+        "cost_basis": "illustrative_fixture_estimate",
+        "dispatches": 1,
+        "estimated_usd": "0.000006468",
+        "input_tokens": 154,
+        "latency_ms": 0.0,
+        "output_tokens": 24,
+        "price_revision": "typesafe-models-2026-09-26",
+        "provider_reported_cost_usd": null,
+        "reservation_held_usd": "0",
+        "reserved_usd": "0"
+      },
+      "model": "jev-fixture-v1",
+      "operation_id": "wet_episode:wet:jev:attempt-0",
+      "reason": "fixture_choice",
+      "simulated": true,
+      "status": "completed"
+    },
+    {
+      "actual_billed_usd": "0.000000",
+      "actuation_enabled": false,
+      "alarm_clear_authorized": false,
+      "estimated_usd": "0.000304",
+      "evidence": {
+        "cited_reference_ids": [],
+        "confidence_milli": 800,
+        "hazard_type": "standing_water",
+        "recommended_action": "Retain local alarms and request human review.",
+        "status": "suspected_hazard",
+        "summary": "Fixture sensor metadata suggests standing water."
+      },
+      "inference_simulated": true,
+      "latency_ms": 3.245,
+      "limitations": [
+        "All actions are simulated; advisory output cannot clear local alarms.",
+        "Text metadata only; no image decoding or measured model quality in fixture mode."
+      ],
+      "mode": "fixture",
+      "model": "relay-gemini-role-fixture-v1",
+      "operation_id": "wet_episode:wet:evidence:attempt-0",
+      "pollard_node_id": "166219982d0a297faae0d56baa542587c9b672fceb397d7daaaa7f6cf80567ca",
+      "price_basis": "illustrative simulation rates",
+      "prompt_sha256": "4462b1878518a73cf16eac9dbb1f02b82b846f90e44eae6790a054b2a038fedb",
+      "provider": "Gemini",
+      "reason": "fixture_completed",
+      "reserved_tokens": 2575,
+      "result_sha256": "eea17d5ca5813b1e94fbd980346c2fe27e663132c2fd617551f166a56501f5de",
+      "role": "evidence",
+      "schema_version": "1",
+      "shared_spend_operation_id": null,
+      "simulated": true,
+      "status": "completed",
+      "usage": {
+        "basis": "illustrative_fixture",
+        "calls": 1,
+        "input_tokens": 56,
+        "output_tokens": 62,
+        "total_tokens": 118
+      }
+    },
+    {
+      "actual_billed_usd": "0.000000",
+      "actuation_enabled": false,
+      "alarm_clear_authorized": false,
+      "estimated_usd": "0.000215",
+      "evidence": {
+        "status": "review_required",
+        "summary": "Fixture summary: human review remains required; retain local alarms."
+      },
+      "inference_simulated": true,
+      "latency_ms": 1.949,
+      "limitations": [
+        "All actions are simulated; advisory output cannot clear local alarms.",
+        "Text metadata only; no image decoding or measured model quality in fixture mode."
+      ],
+      "mode": "fixture",
+      "model": "relay-gemini-role-fixture-v1",
+      "operation_id": "wet_episode:report:attempt-0",
+      "pollard_node_id": "eb9a4d7da84aa70526d73ae6f7dbc64949e705a20b0a14e51764347795402f84",
+      "price_basis": "illustrative simulation rates",
+      "prompt_sha256": "9a33603ae7afedef81302d27ddbc4e33e752db3acef1b3d76e010dbd686a4207",
+      "provider": "Gemini",
+      "reason": "fixture_completed",
+      "reserved_tokens": 2263,
+      "result_sha256": "16803dbdc767c500623419486db87b65b149d5f886fa4901526003956141a631",
+      "role": "report",
+      "schema_version": "1",
+      "shared_spend_operation_id": null,
+      "simulated": true,
+      "status": "completed",
+      "usage": {
+        "basis": "illustrative_fixture",
+        "calls": 1,
+        "input_tokens": 103,
+        "output_tokens": 28,
+        "total_tokens": 131
+      }
+    }
+  ],
+  "run_kind": "fixture_replay",
+  "simulated": true,
+  "strategy": "hybrid",
+  "task_outcome": "needs_review"
+}

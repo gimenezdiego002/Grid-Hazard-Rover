@@ -16,7 +16,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest==9.1.1", "httpx==0.28.1"]
+jev = ["pollard-jev==0.1"]
+dev = ["pytest==9.1.1", "httpx==0.28.1", "pollard-jev==0.1"]
 mongodb = ["pymongo==4.15.1"]
 integrations = ["pymongo==4.15.1", "psycopg[binary]==3.3.6", "solders==0.29.0"]
 

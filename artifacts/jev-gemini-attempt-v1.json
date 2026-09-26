@@ -1,0 +1,222 @@
+{
+  "accounting": {
+    "actual_paid_usd": null,
+    "calls": 2,
+    "estimated_usd": null,
+    "gemini_calls": 2,
+    "input_tokens": null,
+    "jev_calls": 0,
+    "known_estimated_usd": "0",
+    "known_input_tokens": 0,
+    "known_output_tokens": 0,
+    "known_total_tokens": 0,
+    "output_tokens": null,
+    "provider_reported_cost_usd": null,
+    "total_tokens": null,
+    "unknown_usage_calls": 2
+  },
+  "actuation_enabled": false,
+  "evaluation": {
+    "labeled_hazard_frames": 2,
+    "latency_basis": "measured local wall time",
+    "local_alarm_latency_seconds": [
+      0,
+      0
+    ],
+    "missed_hazard_frames": 0,
+    "scope": "Synthetic frame labels only; needs_review is not a positive detection.",
+    "supervision_latency_ms": [
+      0,
+      0,
+      0
+    ],
+    "unsafe_action_rejections": 0,
+    "unsafe_actions_accepted": 0
+  },
+  "events": [
+    {
+      "action": "hold",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini",
+        "continue_monitoring"
+      ],
+      "changed": true,
+      "frame_id": "dry",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": false,
+      "physical_action": false,
+      "provider_results": [],
+      "reason": "decision_budget_exhausted",
+      "replayed": false,
+      "safe_hold": true,
+      "simulated": true,
+      "status": "needs_review",
+      "unsafe_action_rejections": 0
+    },
+    {
+      "action": "hold",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini"
+      ],
+      "changed": true,
+      "frame_id": "wet",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": true,
+      "physical_action": false,
+      "provider_results": [],
+      "reason": "decision_budget_exhausted",
+      "replayed": false,
+      "safe_hold": true,
+      "simulated": true,
+      "status": "needs_review",
+      "unsafe_action_rejections": 0
+    },
+    {
+      "action": "hold",
+      "actuation_enabled": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini"
+      ],
+      "changed": false,
+      "frame_id": "wet-repeat",
+      "health": "fresh",
+      "latency_ms": 0,
+      "local_alarm": true,
+      "physical_action": false,
+      "provider_results": [],
+      "reason": "unchanged_state_no_cloud_work",
+      "replayed": false,
+      "safe_hold": true,
+      "simulated": true,
+      "status": "needs_review",
+      "unsafe_action_rejections": 0
+    }
+  ],
+  "inference_simulated": false,
+  "limitations": [
+    "No physical action, image decoding, leak-source confirmation or energy measurement.",
+    "Provider usage estimates are not invoices; unknown reservations remain held."
+  ],
+  "mission_id": "jev-gemini-smoke-20260926-v1",
+  "provider_results": [
+    {
+      "actual_billed_usd": null,
+      "actuation_enabled": false,
+      "alarm_clear_authorized": false,
+      "estimated_usd": null,
+      "evidence": {
+        "intent": "needs_review",
+        "summary": "Mission interpretation requires human review."
+      },
+      "held_estimated_usd": "0.001715",
+      "inference_simulated": false,
+      "latency_ms": 435.956,
+      "limitations": [
+        "All actions are simulated; advisory output cannot clear local alarms.",
+        "Text metadata only; no image decoding or measured model quality in fixture mode."
+      ],
+      "mode": "live",
+      "model": "gemini-3.5-flash-lite",
+      "operation_id": "jev-gemini-smoke-20260926-v1:mission:attempt-0",
+      "price_basis": "operator-supplied rates; invoice authoritative",
+      "prompt_sha256": "26b55d10b44e7bf2803d461b8f65a26aab6d2626ced091ce39ef18c3f3c1de48",
+      "provider": "Gemini",
+      "reason": "provider_or_accounting_failure",
+      "reserved_tokens": 1961,
+      "role": "mission",
+      "schema_version": "1",
+      "simulated": true,
+      "status": "unknown",
+      "usage": {
+        "basis": "unavailable_reservation_retained",
+        "calls": 1,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "actual_billed_usd": null,
+      "actuation_enabled": false,
+      "alarm_clear_authorized": false,
+      "estimated_usd": null,
+      "evidence": {
+        "status": "review_required",
+        "summary": "Review pending evidence and retain local alarms."
+      },
+      "held_estimated_usd": "0.001799",
+      "inference_simulated": false,
+      "latency_ms": 114.957,
+      "limitations": [
+        "All actions are simulated; advisory output cannot clear local alarms.",
+        "Text metadata only; no image decoding or measured model quality in fixture mode."
+      ],
+      "mode": "live",
+      "model": "gemini-3.5-flash-lite",
+      "operation_id": "jev-gemini-smoke-20260926-v1:report:attempt-0",
+      "price_basis": "operator-supplied rates; invoice authoritative",
+      "prompt_sha256": "a55ed50d8b86d29ccc1787d54794285eeff883b7d7454dbcf8a7d2d21174ffb7",
+      "provider": "Gemini",
+      "reason": "provider_or_accounting_failure",
+      "reserved_tokens": 2239,
+      "role": "report",
+      "schema_version": "1",
+      "simulated": true,
+      "status": "unknown",
+      "usage": {
+        "basis": "unavailable_reservation_retained",
+        "calls": 1,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      }
+    }
+  ],
+  "run_kind": "actual_provider_on_synthetic_observations",
+  "simulated": true,
+  "strategy": "gemini",
+  "task_outcome": "needs_review",
+  "task_spending": {
+    "committed_estimated_usd": "0.003514",
+    "operations": [
+      {
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:09:20.134+00:00",
+        "historical_import": false,
+        "operation_id": "jev-integration-v1:9e8e58eb6139133dae32d543563b63cd44a071620996da5feedb5873fb067b69",
+        "provider": "Gemini Developer API",
+        "reservation_overrun_usd": "0.000000",
+        "reserved_usd": "0.001715",
+        "settled_estimated_usd": null,
+        "status": "unknown",
+        "unknown_reason": "unclassified",
+        "updated_at": "2026-09-26T23:09:20.549+00:00"
+      },
+      {
+        "actual_billed_usd": null,
+        "created_at": "2026-09-26T23:09:20.560+00:00",
+        "historical_import": false,
+        "operation_id": "jev-integration-v1:e47f0d227ca48e01fea7668d61b3e545c18917bb4a95cd58b2d23f7ab19c5a25",
+        "provider": "Gemini Developer API",
+        "reservation_overrun_usd": "0.000000",
+        "reserved_usd": "0.001799",
+        "settled_estimated_usd": null,
+        "status": "unknown",
+        "unknown_reason": "unclassified",
+        "updated_at": "2026-09-26T23:09:20.665+00:00"
+      }
+    ],
+    "remaining_usd": "0.496486",
+    "task_cap_usd": "0.50"
+  }
+}
