@@ -71,7 +71,9 @@ All successful responses are JSON. Geometry coordinates remain longitude-first.
 When MongoDB is configured, `/api/storage/projects`, `/api/storage/records`,
 and `/api/storage/hazards` provide paginated `items` envelopes with fixture
 filtering and invalid-row counts for data-quality inspection. These do not
-replace the raw-array frontend endpoints above.
+replace the raw-array frontend endpoints above. Legacy rows that fail the
+canonical shared schema remain reported by the storage inspection API but are
+excluded from matching, risk calculations, and canonical frontend arrays.
 
 The offline store starts with safe synthetic Miami-area data: two crossing downtown utility projects, public-roadwork context, a severity-four pothole, and a separate lower-risk comparison. These are demo fixtures, not restricted infrastructure data.
 

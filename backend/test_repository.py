@@ -7,6 +7,7 @@ from unittest.mock import MagicMock, patch
 
 from backend.app.demo_data import demo_hazards
 from backend.app.repository import MemoryRepository, MongoRepository
+from backend.app.demo_data import demo_projects
 
 
 class RepositoryTests(unittest.TestCase):
@@ -37,6 +38,21 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(args[0], {"id": hazard.id})
         self.assertEqual(args[1]["location"]["coordinates"], [-80.3521, 25.7652])
         self.assertTrue(kwargs["upsert"])
+
+    def test_mongo_lists_only_canonical_rows(self) -> None:
+        database = MagicMock()
+        collection = MagicMock()
+        database.__getitem__.return_value = collection
+        cursor = MagicMock()
+        collection.find.return_value = cursor
+        valid = demo_projects()[0].model_dump(mode="json")
+        cursor.sort.return_value = [{"sourceId": "legacy", "name": "old"}, valid]
+        repository = MongoRepository()
+        with patch.object(repository, "ensure_indexes"), patch(
+            "backend.app.repository.get_database", return_value=database
+        ):
+            projects = repository.list_projects()
+        self.assertEqual(projects, [demo_projects()[0]])
 
 
 if __name__ == "__main__":

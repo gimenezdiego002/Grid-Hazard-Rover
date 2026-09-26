@@ -6,9 +6,10 @@ from functools import lru_cache
 from typing import Protocol, TypeVar
 
 from pymongo import ASCENDING, GEOSPHERE
+from pydantic import ValidationError
 
 from backend.app.config import get_settings
-from backend.app.database import get_database
+from backend.app.database import DatabaseConfigurationError, get_database
 from backend.app.demo_data import demo_hazards, demo_projects, demo_records
 from shared.schemas import Hazard, Match, Project, Record, RiskCell
 
@@ -87,15 +88,43 @@ class MongoRepository:
             return
         database = get_database()
         for name in self.model_collections:
-            database[name].create_index([("id", ASCENDING)], unique=True, name="id_unique")
+            collection = database[name]
+            indexes = list(collection.list_indexes())
+            id_indexes = [
+                item for item in indexes
+                if list(item["key"].items()) == [("id", ASCENDING)]
+            ]
+            if id_indexes and not any(item.get("unique") for item in id_indexes):
+                raise DatabaseConfigurationError(
+                    f"Collection {name!r} has a non-unique id index."
+                )
+            if not id_indexes:
+                # Do not force a custom name: Atlas or teammate setup may have
+                # already created the equivalent default-named index.
+                collection.create_index([("id", ASCENDING)], unique=True)
         for name in ("projects", "records", "hazards", "risk_cells"):
-            database[name].create_index([("location", GEOSPHERE)], name="location_2dsphere")
+            collection = database[name]
+            indexes = list(collection.list_indexes())
+            location_index = any(
+                list(item["key"].items()) == [("location", GEOSPHERE)]
+                for item in indexes
+            )
+            if not location_index:
+                collection.create_index([("location", GEOSPHERE)])
         self._indexed = True
 
     def _list(self, name: str, model: type[ModelT]) -> list[ModelT]:
         self.ensure_indexes()
         documents = get_database()[name].find({}, {"_id": False}).sort("id", ASCENDING)
-        return [model.model_validate(document) for document in documents]
+        canonical: list[ModelT] = []
+        for document in documents:
+            try:
+                canonical.append(model.model_validate(document))
+            except ValidationError:
+                # Legacy rows remain visible with an invalid count through
+                # /api/storage/*, but cannot poison canonical calculations.
+                continue
+        return canonical
 
     def list_projects(self) -> list[Project]:
         return self._list("projects", Project)
