@@ -13,17 +13,21 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 
 
 HazardType: TypeAlias = Literal[
+    "pothole",
+    "road_surface_damage",
+    "damaged_sidewalk",
     "vegetation_encroachment",
     "fallen_branch",
-    "debris_obstruction",
+    "debris_or_obstruction",
     "damaged_pole",
     "leaning_pole",
     "damaged_utility_equipment",
     "exposed_or_damaged_infrastructure",
     "blocked_access",
-    "flooding_standing_water",
+    "flooding_or_standing_water",
     "construction_obstruction",
-    "other_visible_hazard",
+    "lane_closure",
+    "other_visible_infrastructure_hazard",
 ]
 
 

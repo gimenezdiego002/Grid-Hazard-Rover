@@ -10,6 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.config import get_settings
 from backend.app.database import close_mongo_client
+from backend.app.api import router as api_router
+from backend.app.repository import clear_repository_cache
 
 
 @asynccontextmanager
@@ -18,6 +20,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         yield
     finally:
         close_mongo_client()
+        clear_repository_cache()
 
 
 def create_app() -> FastAPI:
@@ -34,6 +37,7 @@ def create_app() -> FastAPI:
         allow_methods=["GET", "POST"],
         allow_headers=["Content-Type", "Authorization"],
     )
+    application.include_router(api_router)
 
     @application.get("/health", tags=["health"])
     def health() -> dict[str, str]:

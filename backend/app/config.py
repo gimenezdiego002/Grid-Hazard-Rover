@@ -22,6 +22,10 @@ class Settings:
     # Optional at startup; validate before a future classification request.
     gemini_api_key: str | None = field(default=None, repr=False)
     gemini_model: str | None = None
+    google_maps_api_key: str | None = field(default=None, repr=False)
+    elevenlabs_api_key: str | None = field(default=None, repr=False)
+    elevenlabs_voice_id: str | None = None
+    discord_webhook_url: str | None = field(default=None, repr=False)
 
     @property
     def cors_origins(self) -> list[str]:
@@ -49,4 +53,8 @@ def get_settings() -> Settings:
         frontend_url=origin,
         gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip() or None,
         gemini_model=os.getenv("GEMINI_MODEL", "").strip() or None,
+        google_maps_api_key=os.getenv("GOOGLE_MAPS_API_KEY", "").strip() or None,
+        elevenlabs_api_key=os.getenv("ELEVENLABS_API_KEY", "").strip() or None,
+        elevenlabs_voice_id=os.getenv("ELEVENLABS_VOICE_ID", "").strip() or None,
+        discord_webhook_url=os.getenv("DISCORD_WEBHOOK_URL", "").strip() or None,
     )

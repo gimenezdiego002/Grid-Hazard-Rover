@@ -275,15 +275,19 @@ Do not advance to the next major step without instruction.
 
 At the time this guide was updated:
 
-- The Git repository is on `main` and has no commits.
-- `backend/`, `frontend/`, `rover/`, and `shared/` exist and are essentially
-  empty except for `shared/__init__.py`.
-- `shared/schemas.py`, `backend/requirements.txt`, and
-  `frontend/package.json` do not exist yet.
-- `.gitignore`, `.env.example`, and this file are untracked.
-- `.venv` uses Python 3.11.9 and is ignored by Git.
-- Pydantic 2 is installed in `.venv`; no application framework or frontend
-  dependencies have been installed.
-- No secret `.env` exists.
+- Backend work is on `Diego-Branch`; re-check Git before editing.
+- `shared/schemas.py` defines the validated canonical contract and its tests
+  pass. Do not create competing entity models.
+- The FastAPI backend exposes health, photo ingestion, projects, records,
+  hazards, matches, and risk-grid endpoints.
+- Gemini JPEG classification, canonical hazard conversion, deterministic
+  spatial/timeline matching, explainable risk scoring, demo fixtures, lazy
+  Mongo repositories, and a mocked Google geocoding boundary exist.
+- The backend runs offline with synthetic demo-safe Miami data when MongoDB
+  is not configured. Live Gemini classification has been verified separately.
+- `.venv` uses Python 3.11 and is ignored. `.env` is also ignored and must
+  never be committed; `.env.example` contains names and safe defaults only.
+- Frontend and rover directories remain teammate-owned and were not
+  implemented by the backend lane.
 
 Re-check the repository rather than assuming this baseline remains current.
