@@ -1,0 +1,66 @@
+{
+  "schema": "relay.elevenlabs-live-proof.v1",
+  "recorded_at": "2026-09-26T22:17:24.562312+00:00",
+  "provider": "elevenlabs",
+  "mode": "live",
+  "status": "completed",
+  "audio_generated": true,
+  "script": {
+    "path": "artifacts/elevenlabs-briefing.txt",
+    "characters": 165,
+    "text_sha256": "efba4c514002787a93b36dac50ddb2b226491f520cc5fa9d98c5262ef2ef7716",
+    "facts_simulated": true,
+    "operator_reviewed_script": true,
+    "connected_incident_report_link_verified": false
+  },
+  "model_id": "eleven_flash_v2_5",
+  "voice": {
+    "voice_id": "SAz9YHcvj6GT2YYXdXww",
+    "name": "River - Relaxed, Neutral, Informative",
+    "category": "premade"
+  },
+  "request_sent": true,
+  "cache_hit": false,
+  "audio": {
+    "path": ".state/audio/3095aab8137f4c07a70f89ce6b53b8abc1ec27ba8ef9c22afd41b12d39250a6c.mp3",
+    "sha256": "1ab3690fd39fa75bfb55a1bb30e5ebbad4b30fada2b6eebfb8d321f64fd64df1",
+    "bytes": 165137,
+    "requested_output_format": "mp3_44100_128",
+    "mp3_signature_verified": true,
+    "decoded_format": "mp3",
+    "duration_seconds": 10.26322,
+    "decoder": "ffmpeg",
+    "full_decode_exit_code": 0,
+    "full_decode_verified": true,
+    "storage_note": "Audio remains in ignored local state; this public proof does not publish the MP3."
+  },
+  "playback": {
+    "artifact_rendered": true,
+    "audible_semantic_review_verified": false,
+    "hardware_playback_verified": false
+  },
+  "provider_usage": {
+    "character_cost": "83",
+    "status": "reported",
+    "unit": "provider_defined"
+  },
+  "spending": {
+    "operation_id": "speech:3095aab8137f4c07a70f89ce6b53b8abc1ec27ba8ef9c22afd41b12d39250a6c",
+    "status": "unknown",
+    "reserved_usd": "0.050000",
+    "estimated_usd": null,
+    "actual_billed_usd": null,
+    "note": "Provider usage units and public pricing do not establish the account invoice. The full reservation remains held."
+  },
+  "integration_boundary": {
+    "dashboard_and_api": "mock_only",
+    "integrated_replay": "mock_only",
+    "all_eight_live_chain_verified": false,
+    "physical_inspection_verified": false
+  },
+  "limitations": [
+    "Live synthesis used a reviewed synthetic demonstration script; it does not prove sensor accuracy or human inspection approval.",
+    "MP3 structure and full decoding were verified; audible semantic review and physical-device playback remain unverified.",
+    "This separate provider proof does not convert the six-stage mock replay into a live pipeline."
+  ]
+}

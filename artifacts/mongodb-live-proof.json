@@ -1,0 +1,46 @@
+{
+  "schema_version": "1",
+  "provider": "mongodb",
+  "mode": "live",
+  "status": "completed",
+  "operation_id": "data:mongodb:atlas-proof-20260926-v1",
+  "simulated": true,
+  "remote_verified": true,
+  "proof_verified": true,
+  "actual_billed_usd": null,
+  "steps": [
+    {
+      "action": "upsert_pending_snapshot",
+      "status": "completed"
+    },
+    {
+      "action": "upsert_simulated_review",
+      "status": "completed"
+    },
+    {
+      "action": "read_with_fresh_adapter",
+      "status": "completed"
+    }
+  ],
+  "evidence": {
+    "mission_id": "relay-data-proof-23661719f0f30d3029595424",
+    "content_sha256": "878b7fcea71ba2e797fc4a2187a71d08e7debb79d8539da741231d24ddf1d5cc",
+    "review_status": "simulated_review",
+    "human_review_performed": false,
+    "initial_inserted": true,
+    "review_inserted": false,
+    "fresh_adapter_readback_verified": true
+  },
+  "spending": {
+    "status": "unknown",
+    "reserved_usd": "0.100000",
+    "estimated_usd": null,
+    "note": "The entire reservation remains held. Reconcile provider usage and resource lifetime manually."
+  },
+  "limitations": [
+    "All proof inputs are synthetic; human review and physical inspection are not established.",
+    "The separate guarded CLI proof verifies only the listed remote persistence operations. The dashboard, API and integrated replay remain mock-only.",
+    "No all-provider live incident workflow or connection to the team photo-ingest and risk-map architecture is established.",
+    "Actual billed USD remains unknown; the entire proof reservation remains held pending provider usage and resource-lifetime reconciliation."
+  ]
+}

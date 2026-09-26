@@ -1,5 +1,9 @@
 # One reviewed spoken briefing
 
+One live generation is now demonstrated in [the sanitized proof](../artifacts/elevenlabs-live-proof.json). The reviewed [165-character synthetic script](../artifacts/elevenlabs-briefing.txt) used the premade River voice with Eleven Flash v2.5 and produced a 165,137-byte, 10.263220-second MP3. Its saved hash, MP3 signature and full `ffmpeg` decoding were verified. The audio was rendered for playback, but audible semantic review and physical-device playback remain unverified. The integrated dashboard replay still creates only a mock descriptor.
+
+The provider reported 83 character-cost units with provider-defined billing semantics. The full $0.05 reservation remains `unknown`; neither these units nor public pricing establish the account's USD invoice. Reuse the existing audio for demonstration, and reconcile that same operation before releasing any reservation.
+
 The one-shot command is offline by default. It reads a UTF-8 text file of at most 200 characters (803 input bytes including an optional BOM), requires explicit operator review, and creates no audio, ledger, or network request in mock mode. Mock mode does not read environment credentials.
 
 ```powershell

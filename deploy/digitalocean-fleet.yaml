@@ -1,0 +1,40 @@
+{
+  "name": "relay-fleet-2026-0926",
+  "region": "nyc",
+  "services": [
+    {
+      "name": "fleet-intake",
+      "git": {
+        "repo_clone_url": "https://github.com/gimenezdiego002/Grid-Hazard-Rover.git",
+        "branch": "relay/inspection-system"
+      },
+      "source_dir": "/",
+      "dockerfile_path": "Dockerfile",
+      "run_command": "python -m uvicorn relay_gateway.fleet_gateway:app --host 0.0.0.0 --port 8080 --workers 1",
+      "http_port": 8080,
+      "instance_size_slug": "apps-s-1vcpu-0.5gb",
+      "instance_count": 1,
+      "health_check": {
+        "http_path": "/health",
+        "initial_delay_seconds": 10,
+        "period_seconds": 10,
+        "timeout_seconds": 3,
+        "success_threshold": 1,
+        "failure_threshold": 3
+      },
+      "envs": [
+        {"key": "RELAY_FLEET_MODE", "value": "live", "scope": "RUN_TIME", "type": "GENERAL"},
+        {"key": "RELAY_FLEET_API_TOKEN", "value": "", "scope": "RUN_TIME", "type": "SECRET"},
+        {"key": "RELAY_FLEET_TTL_SECONDS", "value": "3600", "scope": "RUN_TIME", "type": "GENERAL"},
+        {"key": "RELAY_FLEET_MAX_EVENTS", "value": "5000", "scope": "RUN_TIME", "type": "GENERAL"},
+        {"key": "RELAY_PROVIDER", "value": "mock", "scope": "RUN_TIME", "type": "GENERAL"},
+        {"key": "RELAY_ALLOW_LIVE_GEMINI", "value": "0", "scope": "RUN_TIME", "type": "GENERAL"}
+      ]
+    }
+  ],
+  "ingress": {
+    "rules": [
+      {"component": {"name": "fleet-intake", "preserve_path_prefix": true}, "match": {"path": {"prefix": "/"}}}
+    ]
+  }
+}

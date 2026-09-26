@@ -4,6 +4,8 @@
 
 ## ElevenLabs
 
+The separate guarded CLI has completed one real generation from the reviewed 165-character synthetic demo script. [Sanitized evidence](../artifacts/elevenlabs-live-proof.json) records premade River / Eleven Flash v2.5, verified MP3 hashing and full decoding, 83 provider-defined usage units, and the retained $0.05 unknown-billing reservation. Audible semantic review, connected-report linkage and hardware playback remain unverified. The integrated replay remains mock-only.
+
 Call `synthesize_briefing(text, reviewed=True)` for a mock, or use `live=True` after setting `RELAY_ALLOW_ELEVENLABS=1`, `ELEVENLABS_API_KEY`, and `ELEVENLABS_VOICE_ID`. `ELEVENLABS_MODEL_ID` is optional; the default is `eleven_multilingual_v2`. Keys are read only at dispatch and never stored in results.
 
 The adapter uses the documented POST `/v1/text-to-speech/{voice_id}`, sends `xi-api-key` authentication, and requests `mp3_44100_128`. Text is capped at 600 characters, output at 4 MiB, and each network request at 20 seconds. It performs zero automatic retries. [ElevenLabs API reference](https://elevenlabs.io/docs/api-reference/text-to-speech/convert).
