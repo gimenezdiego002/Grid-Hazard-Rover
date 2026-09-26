@@ -45,6 +45,8 @@ class BackendTests(unittest.TestCase):
     def test_config_defaults_and_overrides(self) -> None:
         defaults = config.get_settings()
         self.assertIsNone(defaults.mongodb_uri)
+        self.assertIsNone(defaults.gemini_api_key)
+        self.assertIsNone(defaults.gemini_model)
         self.assertEqual(defaults.mongodb_db, "grid_hazard_rover")
         self.assertEqual(defaults.cors_origins, ["http://localhost:5173"])
         with patch.dict("os.environ", {"MONGODB_DB": "test_db",
@@ -59,6 +61,32 @@ class BackendTests(unittest.TestCase):
             with self.assertRaisesRegex(database.DatabaseConfigurationError, "MONGODB_URI"):
                 accessor()
         database.close_mongo_client()
+
+    def test_gemini_sdk_import(self) -> None:
+        from google import genai
+
+        self.assertTrue(callable(genai.Client))
+
+    def test_gemini_settings_and_secret_representation(self) -> None:
+        # Synthetic sentinel only; no real credentials or network calls.
+        sentinel = "unit-test-only-secret"
+        with patch.dict("os.environ", {"GEMINI_API_KEY": f" {sentinel} ",
+                                     "GEMINI_MODEL": " test-model "}):
+            settings = config.get_settings()
+            self.assertEqual(settings.gemini_api_key, sentinel)
+            self.assertEqual(settings.gemini_model, "test-model")
+            self.assertNotIn(sentinel, repr(settings))
+            self.assertNotIn(sentinel, str(settings))
+
+    def test_blank_gemini_settings_remain_unset(self) -> None:
+        with patch.dict("os.environ", {"GEMINI_API_KEY": "  ", "GEMINI_MODEL": ""}):
+            settings = config.get_settings()
+            self.assertIsNone(settings.gemini_api_key)
+            self.assertIsNone(settings.gemini_model)
+            with TestClient(create_app()) as client:
+                response = client.get("/health")
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.json(), {"status": "ok"})
 
     def test_lazy_client_reuse_and_close(self) -> None:
         with patch("backend.app.database.get_settings", return_value=config.Settings(

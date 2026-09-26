@@ -19,6 +19,9 @@ class Settings:
     mongodb_uri: str | None = field(default=None, repr=False)
     mongodb_db: str = "grid_hazard_rover"
     frontend_url: str = LOCAL_FRONTEND
+    # Optional at startup; validate before a future classification request.
+    gemini_api_key: str | None = field(default=None, repr=False)
+    gemini_model: str | None = None
 
     @property
     def cors_origins(self) -> list[str]:
@@ -44,4 +47,6 @@ def get_settings() -> Settings:
         mongodb_uri=os.getenv("MONGODB_URI", "").strip() or None,
         mongodb_db=os.getenv("MONGODB_DB", "").strip() or "grid_hazard_rover",
         frontend_url=origin,
+        gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip() or None,
+        gemini_model=os.getenv("GEMINI_MODEL", "").strip() or None,
     )
