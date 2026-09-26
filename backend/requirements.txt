@@ -1,0 +1,4 @@
+# Ingestion only; target Python 3.11+. API dependencies come later.
+pydantic>=2.10,<3
+httpx>=0.27,<1
+shapely>=2.0,<3

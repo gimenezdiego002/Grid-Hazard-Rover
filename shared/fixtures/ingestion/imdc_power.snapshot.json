@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source": "imdc_power",
+  "source_url": "https://gisweb.miamidade.gov/arcgis/rest/services/Wasd/iMDCUtilityCoordination_2_v1/MapServer/9",
+  "where": "synthetic fixture, not a live query",
+  "fetched_at": "2026-09-26T12:00:00+00:00",
+  "object_id_field": "OBJECTID",
+  "total_count": 3,
+  "selected_count": 3,
+  "selection": "all",
+  "complete_for_selection": true,
+  "is_fixture": true,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1, "GlobalID": "fixture-electric-a", "PROJECTID": "DEMO-A-001",
+        "PRJNAME": "Synthetic electric corridor A", "AGCYNAME": "Demo Electric A",
+        "FACTYPE": "Power", "GENPRJSTAT": "Planning",
+        "STARTDATE": "2027-01-01", "ENDDATE": "2027-06-30"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-80.36,25.76],[-80.35,25.76],[-80.35,25.77],[-80.36,25.77],[-80.36,25.76]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 2, "GlobalID": "fixture-electric-b", "PROJECTID": "DEMO-B-001",
+        "PRJNAME": "Synthetic crossing corridor B", "AGCYNAME": "Demo Electric B",
+        "FACTYPE": "Power", "GENPRJSTAT": "Planning",
+        "STARTDATE": "2027-04-01", "ENDDATE": "2027-09-30"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-80.355,25.755],[-80.345,25.755],[-80.345,25.765],[-80.355,25.765],[-80.355,25.755]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 3, "GlobalID": "fixture-electric-unknown", "PROJECTID": "DEMO-A-002",
+        "PRJNAME": "Synthetic unscheduled project", "AGCYNAME": "Demo Electric A",
+        "FACTYPE": "Power", "STARTDATE": null, "ENDDATE": null
+      },
+      "geometry": {"type": "Point", "coordinates": [-80.3,25.76]}
+    }
+  ]
+}
