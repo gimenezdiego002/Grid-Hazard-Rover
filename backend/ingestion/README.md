@@ -92,7 +92,29 @@ these identities are suitable for repeated imports of a snapshot but are not a
 guarantee of identity across future dataset rebuilds. Collection setup remains
 with the MongoDB teammate.
 
-## Live verification on September 26, 2026
+## Importing the accepted FDOT samples into MongoDB
+
+The importer reuses `backend.app.database` and the root `.env`. Set
+`MONGODB_URI` locally and allow this computer's current IP in the Atlas project's
+database Network Access list. No key is printed by the importer.
+
+Validate the two exports offline first:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.ingestion.import_records tmp/ingestion/fdot_active-export tmp/ingestion/fdot_work_program-current-export
+```
+
+To write the accepted records, append `--apply` to that command. It pings MongoDB,
+ensures a unique `id` index and a `location` 2dsphere index on `records`, upserts
+by canonical `id`, and verifies each record by reading it back. It never deletes
+rows or imports the rejected rows. Fixture exports are refused. Imports are not
+transactional: a failure during writes may leave some records imported; rerunning
+is safe by ID. Existing incompatible indexes are reported rather than dropped.
+
+Run importer tests with:
+`python -m unittest backend.ingestion.test_import_records -v`.
+
+## Live source verification on September 26, 2026
 
 | Source selection | Matching feature count | Sample result |
 |---|---:|---|

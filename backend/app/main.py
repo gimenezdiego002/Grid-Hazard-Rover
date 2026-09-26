@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.config import get_settings
 from backend.app.database import close_mongo_client
+from backend.app.data_routes import router as data_router
 
 
 @asynccontextmanager
@@ -34,6 +35,7 @@ def create_app() -> FastAPI:
         allow_methods=["GET", "POST"],
         allow_headers=["Content-Type", "Authorization"],
     )
+    application.include_router(data_router)
 
     @application.get("/health", tags=["health"])
     def health() -> dict[str, str]:
