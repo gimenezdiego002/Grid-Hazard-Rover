@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112a35">
+  <title>Relay — Fleet mission lab</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to mission controls</a>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Relay home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>relay<span class="brand-caption">FLEET OPERATIONS</span></a>
+    <nav aria-label="Page sections"><a href="#mission-console" class="nav-current">Mission lab</a><a href="#fleet">Hardware</a><a href="#integrations">Integrations</a></nav>
+    <span class="sandbox-label"><span aria-hidden="true">◇</span> SIMULATION</span>
+  </header>
+
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">SHELLHACKS 2026 / MISSION LAB</p><h1 id="page-title">Inspect where it matters.</h1><p class="intro-copy">A small fleet. A shared mission. An AI budget you can see.</p></div>
+      <div class="connection-card"><span class="connection-dot" aria-hidden="true"></span><div><strong id="connection-status">Checking mission service…</strong><span>No hardware connected · no physical motion</span></div></div>
+    </section>
+
+    <div class="simulation-notice"><span class="notice-symbol" aria-hidden="true">i</span><p><strong>This is a synthetic water-leak replay.</strong> Model responses, tokens, and cost estimates are simulated. This demo makes no paid API calls.</p></div>
+
+    <section class="metrics" aria-label="Latest run accounting">
+      <article class="metric"><span class="metric-label">MODEL REQUESTS</span><strong id="metric-requests">—</strong><span id="metric-request-detail">Run a mission to measure</span></article>
+      <article class="metric"><span class="metric-label">SIMULATED TOKENS</span><strong id="metric-tokens">—</strong><span id="metric-token-detail">From the backend ledger</span></article>
+      <article class="metric"><span class="metric-label">ESTIMATED MODEL COST</span><strong id="metric-estimated">—</strong><span>Illustrative simulation rates</span></article>
+      <article class="metric metric-paid"><span class="metric-label">ACTUAL PAID API COST</span><strong id="metric-paid">—</strong><span id="metric-paid-detail">Returned by the local run</span></article>
+    </section>
+
+    <section class="panel mission-console" id="mission-console" aria-labelledby="mission-console-heading">
+      <div class="panel-heading"><div><p class="eyebrow">FLEET MISSION PLANNER</p><h2 id="mission-console-heading">Choose the inspection.</h2></div><span class="pill">SIMULATED MISSIONS</span></div>
+      <p class="section-copy">Use a preset patrol or direct a scout to a named area. Advance the simulated tasks and review the finding before the announcement.</p>
+      <form id="mission-plan-form" class="mission-plan-form">
+        <label for="mission-mode">Mission type<select id="mission-mode"><option value="preset">Preset water inspection</option><option value="directed">Directed inspection</option></select></label>
+        <label for="mission-station">Station<input id="mission-station" value="station-a" maxlength="96" pattern="[A-Za-z0-9][A-Za-z0-9_.:-]*" required></label>
+        <label for="mission-target">Target area<input id="mission-target" value="inspection-area" maxlength="96" pattern="[A-Za-z0-9][A-Za-z0-9_.:-]*" required></label>
+        <label for="mission-scout">Scout<select id="mission-scout"><option value="">Assign available scout</option></select></label>
+        <label class="mission-checkbox"><input id="mission-second-view" type="checkbox"> Include a second observation</label>
+        <button type="submit" class="button button-primary" id="create-mission" disabled>Plan simulated mission</button>
+      </form>
+      <p id="mission-plan-status" class="caption" role="status">Loading the declared fleet. Every device remains physically disconnected.</p>
+      <button type="button" class="button button-secondary" id="mission-retry" hidden>Retry pending request</button>
+      <div id="mission-active" hidden>
+        <div class="mission-summary"><strong id="mission-state">Planned</strong><span id="mission-progress"></span></div>
+        <ol id="mission-tasks" class="mission-tasks"></ol>
+        <div class="mission-actions">
+          <button type="button" class="button button-primary" id="mission-start" hidden>Start simulation</button>
+          <button type="button" class="button button-primary" id="mission-advance" hidden>Simulate next task</button>
+          <button type="button" class="button button-secondary" id="mission-review" hidden>Simulate operator review</button>
+          <button type="button" class="button button-secondary" id="mission-pause" hidden>Pause</button>
+          <button type="button" class="button button-secondary" id="mission-resume" hidden>Resume</button>
+          <button type="button" class="button button-secondary" id="mission-cancel" hidden>Cancel simulation</button>
+        </div>
+        <p class="caption">No movements, images, announcements, or human approvals occur in this simulation. LeArm actions remain blocked.</p>
+        <details><summary>Inspect mission record</summary><pre id="mission-record"></pre></details>
+      </div>
+    </section>
+
+    <div class="workspace" id="mission">
+      <div class="main-column">
+        <section class="panel scenario-panel" aria-labelledby="scenario-heading">
+          <div class="panel-heading"><div><p class="eyebrow">SCENARIO 01</p><h2 id="scenario-heading">Water at Station A</h2></div><span class="pill">SYNTHETIC INPUT</span></div>
+          <p class="section-copy">A fixed station sees rising wetness. Compare routine model checks with an analysis triggered by new evidence.</p>
+          <div class="trace-header"><strong>Sensor trace</strong><span id="scenario-details">Loading the labeled fixture…</span></div>
+          <div class="sensor-chart"><svg id="sensor-chart" viewBox="0 0 720 150" role="img" aria-label="Loading synthetic wetness readings"></svg></div>
+          <div class="chart-legend"><span><i class="legend-line"></i> Synthetic wetness, 0–1000</span><span><i class="legend-dash"></i> Analysis threshold: 700</span></div>
+          <div class="mission-flow" aria-label="Intended physical workflow, not connected"><span>Station</span><b aria-hidden="true">→</b><span>Rover</span><b aria-hidden="true">→</b><span>Second view</span><b aria-hidden="true">→</b><span>Review</span></div>
+          <p class="caption">Intended hardware workflow. This replay evaluates only the sensor-to-model decision.</p>
+        </section>
+
+        <section class="panel comparison-panel" id="comparison-panel" aria-labelledby="comparison-heading" hidden>
+          <div class="panel-heading"><div><p class="eyebrow">SAME EVIDENCE, TWO POLICIES</p><h2 id="comparison-heading">What changed?</h2></div><span class="pill" id="comparison-status">SIMULATED</span></div>
+          <p id="comparison-summary" class="section-copy"></p>
+          <div class="table-scroll"><table><caption class="sr-only">Fixed-interval and economy policy results</caption><thead><tr><th scope="col">Measured in this replay</th><th scope="col">Fixed interval</th><th scope="col">Economy</th></tr></thead><tbody id="comparison-rows"></tbody></table></div>
+          <p class="caption" id="environmental-note"></p>
+        </section>
+
+        <section class="panel" aria-labelledby="timeline-heading">
+          <div class="panel-heading"><div><p class="eyebrow">DECISION TRAIL</p><h2 id="timeline-heading">Evidence to action</h2></div><span class="pill" id="strategy-label">AWAITING REPLAY</span></div>
+          <div id="timeline-empty" class="empty-state"><span class="empty-icon" aria-hidden="true">⌁</span><strong>The first decision starts here.</strong><p>Run a replay to see which observations reach the model and which stay local.</p></div>
+          <ol class="timeline" id="timeline" aria-label="Observation decisions"></ol>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="panel budget-panel" aria-labelledby="budget-heading">
+          <div class="panel-heading"><div><p class="eyebrow">MISSION CONTROLS</p><h2 id="budget-heading">Set the allowance.</h2></div><span class="budget-icon" aria-hidden="true">↗</span></div>
+          <p class="section-copy">A request must fit the mission limits before the model is called.</p>
+          <form id="budget-form">
+            <div class="field-pair"><label for="max-requests">Request limit<input id="max-requests" name="max_requests" type="number" min="0" max="100" step="1" value="12" required></label><label for="max-tokens">Token limit<input id="max-tokens" name="max_tokens" type="number" min="0" max="200000" step="1" value="24000" required></label></div>
+            <label for="max-usd">Estimated model allowance <span>USD</span><div class="money-input"><span aria-hidden="true">$</span><input id="max-usd" name="max_usd" type="number" min="0" max="15" step="0.01" value="0.10" required></div></label>
+            <button type="submit" class="button button-primary" id="run-economy" disabled>Run economy <span aria-hidden="true">↗</span></button>
+            <button type="button" class="button button-secondary" id="run-compare" disabled>Compare policies</button>
+            <button type="button" class="button button-refusal" id="run-refusal" disabled>Test budget refusal <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="caption">Refusal test uses a zero-request allowance for that run. A denied analysis remains visible for review.</p>
+          <div class="budget-footer"><strong>$20 cumulative setup ceiling</strong><span>$15 planned · $5 held contingency</span><p>Project policy across providers. This model ledger does not enforce whole-account cloud spending.</p></div>
+        </section>
+
+        <section class="panel outcome-panel" aria-labelledby="outcome-heading">
+          <p class="eyebrow">LATEST OUTCOME</p><h2 id="outcome-heading">Ready when you are.</h2><p id="outcome-description" class="section-copy">Results appear after a local replay. A completed replay does not mean a physical hazard is resolved.</p>
+          <dl class="outcome-facts"><div><dt>Provider</dt><dd id="provider-mode">—</dd></div><div><dt>Record integrity</dt><dd id="audit-status">—</dd></div><div><dt>Labeled events detected</dt><dd id="detection-status">—</dd></div><div><dt>Detection delay</dt><dd id="detection-delay">—</dd></div></dl>
+          <p id="run-limits" class="caption"></p>
+          <details id="raw-details" hidden><summary>Inspect returned JSON</summary><pre id="raw-result"></pre></details>
+        </section>
+      </aside>
+    </div>
+
+    <div id="run-status" class="run-status" role="status" aria-live="polite">Connecting to the mission service.</div>
+
+    <section class="fleet-section" id="fleet" aria-labelledby="fleet-heading">
+      <div class="section-heading"><div><p class="eyebrow">HARDWARE INVENTORY</p><h2 id="fleet-heading">Different tools. One inspection.</h2></div><span class="section-note">Proposed roles · all devices disconnected</span></div>
+      <div class="fleet-grid">
+        <article class="fleet-card"><span class="device-monogram" aria-hidden="true">R</span><h3>Intellio Rover</h3><p>Primary scout</p><span class="hardware-state">Not connected</span></article>
+        <article class="fleet-card"><span class="device-monogram" aria-hidden="true">H</span><h3>Freenove Hexapod</h3><p>Second observation</p><span class="hardware-state">Not connected</span></article>
+        <article class="fleet-card"><span class="device-monogram" aria-hidden="true">S</span><h3>Sensor Station</h3><p>Continuous lookout</p><span class="hardware-state">Not connected</span></article>
+        <article class="fleet-card"><span class="device-monogram" aria-hidden="true">A</span><h3>LeArm</h3><p>Reviewed response</p><span class="hardware-state">Not connected</span></article>
+        <article class="fleet-card"><span class="device-monogram" aria-hidden="true">C</span><h3>StackChan</h3><p>Mission announcer</p><span class="hardware-state">Not connected</span></article>
+      </div>
+    </section>
+
+    <section class="integrations-section" id="integrations" aria-labelledby="integrations-heading">
+      <div class="section-heading"><div><p class="eyebrow">EIGHT MLH INTEGRATION TARGETS</p><h2 id="integrations-heading">Every service has a job.</h2></div><span class="section-note">Gemini API smoke verified · adapter replay available</span></div>
+      <section class="panel integration-replay" aria-labelledby="integration-replay-heading">
+        <div class="panel-heading"><div><p class="eyebrow">ONE INCIDENT, SIX ADAPTERS</p><h2 id="integration-replay-heading">Follow the report.</h2></div><span class="pill">OFFLINE REPLAY</span></div>
+        <p class="section-copy">Retrieve reference passages, analyze the incident, store its readings and report, prepare a briefing, then verify the report hash. This replay uses synthetic data and mocks every provider.</p>
+        <button type="button" class="button button-secondary" id="run-integrations" disabled>Run integration replay</button>
+        <p class="caption" id="integration-status" role="status">No cloud database writes, speech generation, or blockchain transactions.</p>
+        <ol class="integration-trail" id="integration-trail"></ol>
+        <details id="integration-details" hidden><summary>Inspect integration evidence</summary><pre id="integration-json"></pre></details>
+      </section>
+      <div class="integration-grid">
+        <article><h3>Gemini API</h3><p>Interpret selected evidence</p><span>API smoke verified · dashboard simulated</span></article>
+        <article><h3>ElevenLabs</h3><p>Speak reviewed findings</p><span>Adapter tested · account connection pending</span></article>
+        <article><h3>Solana</h3><p>Verify finalized report hashes</p><span>Adapter tested · devnet funding pending</span></article>
+        <article><h3>Tiger Data</h3><p>Keep sensor history</p><span>Adapter tested · account connection pending</span></article>
+        <article><h3>DigitalOcean</h3><p>Host the fleet gateway</p><span>Gateway prepared · not deployed</span></article>
+        <article><h3>Snowflake API</h3><p>Retrieve relevant incident history</p><span>Adapter tested · account connection pending</span></article>
+        <article><h3>MongoDB Atlas</h3><p>Persist missions and reviews</p><span>Adapter tested · account connection pending</span></article>
+        <article><h3>GoDaddy Registry</h3><p>Give the project a domain</p><span>Planned · not registered</span></article>
+      </div>
+      <div class="cloud-note"><strong>Separate GCP project: ShellHacks Relay.</strong> The dashboard always runs a simulation. Live provider and hardware connections require their own verified evidence.</div>
+    </section>
+    <footer><a class="footer-brand" href="#main">relay</a><p>Measured economy. Evidence before claims.</p><span>No energy or carbon savings have been measured.</span></footer>
+  </main>
+</body>
+</html>

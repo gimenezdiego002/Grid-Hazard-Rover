@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools==82.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relay-gateway"
+version = "0.1.0"
+description = "Local, simulated fleet inspection with governed Gemini calls"
+requires-python = ">=3.12"
+dependencies = [
+  "pollard==1.6.0",
+  "google-genai==2.25.0",
+  "pydantic==2.13.5",
+  "fastapi==0.141.1",
+  "uvicorn==0.54.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "httpx==0.28.1"]
+mongodb = ["pymongo==4.15.1"]
+integrations = ["pymongo==4.15.1", "psycopg[binary]==3.3.6", "solders==0.29.0"]
+
+[project.scripts]
+relay-gateway = "relay_gateway.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

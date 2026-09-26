@@ -1,0 +1,23 @@
+# Allowlist: credentials, local databases, recordings, and cloud config never
+# enter the build context. Pass secrets at runtime through a secret manager.
+**
+!Dockerfile
+!.dockerignore
+!pyproject.toml
+!src/
+!src/**
+!web/
+!web/**
+!scenarios/
+!scenarios/**
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+**/.env
+**/.env.*
+**/*credential*
+**/*secret*
+**/*.pem
+**/*.key
+**/*.sqlite*
+**/*.db

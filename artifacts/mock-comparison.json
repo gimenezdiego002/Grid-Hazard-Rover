@@ -1,0 +1,410 @@
+{
+  "simulated": true,
+  "actual_paid_usd": "0.000000",
+  "baseline": {
+    "mission_id": "leak-demo",
+    "strategy": "baseline",
+    "provider_mode": "mock",
+    "simulated": true,
+    "actuation_enabled": false,
+    "root_id": "65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3",
+    "findings": [
+      {
+        "event_id": "water-000",
+        "timestamp_seconds": 0,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-010",
+        "timestamp_seconds": 10,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-020",
+        "timestamp_seconds": 20,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-030",
+        "timestamp_seconds": 30,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-040",
+        "timestamp_seconds": 40,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-050",
+        "timestamp_seconds": 50,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-060",
+        "timestamp_seconds": 60,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-070",
+        "timestamp_seconds": 70,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-080",
+        "timestamp_seconds": 80,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-090",
+        "timestamp_seconds": 90,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-100",
+        "timestamp_seconds": 100,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      },
+      {
+        "event_id": "water-110",
+        "timestamp_seconds": 110,
+        "status": "clear",
+        "hazard_type": null,
+        "confidence_milli": 850,
+        "summary": "Simulated reading is below the wetness threshold.",
+        "recommended_action": "Continue local monitoring.",
+        "cited_reference_ids": []
+      }
+    ],
+    "events": [
+      {
+        "event_id": "water-000",
+        "timestamp_seconds": 0,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-010",
+        "timestamp_seconds": 10,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-020",
+        "timestamp_seconds": 20,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-030",
+        "timestamp_seconds": 30,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-040",
+        "timestamp_seconds": 40,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-050",
+        "timestamp_seconds": 50,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-060",
+        "timestamp_seconds": 60,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-070",
+        "timestamp_seconds": 70,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-080",
+        "timestamp_seconds": 80,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-090",
+        "timestamp_seconds": 90,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-100",
+        "timestamp_seconds": 100,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-110",
+        "timestamp_seconds": 110,
+        "decision": "analyze",
+        "reason": "fixed_interval",
+        "local_alarm": false
+      }
+    ],
+    "reference_context": [],
+    "outcome": "complete",
+    "accounting": {
+      "requests": 12,
+      "new_requests": 12,
+      "tokens": 3743,
+      "estimated_usd": "0.006623",
+      "new_estimated_usd": "0.006623",
+      "actual_paid_usd": "0.000000",
+      "replayed_requests": 0,
+      "avoided_tokens": 0,
+      "session_estimated_usd": "0.006623",
+      "shared_spend_operation_ids": [],
+      "price_basis": "illustrative simulation rates"
+    },
+    "limits": {
+      "max_requests": 12,
+      "max_tokens": 24000,
+      "max_usd": "0.10",
+      "session_api_ceiling_usd": "15.00",
+      "reserve_usd": "5.00"
+    },
+    "evaluation": {
+      "available": true,
+      "labeled_hazard_episodes": 1,
+      "detected_hazard_episodes": 1,
+      "detection_latency_seconds": [
+        0
+      ],
+      "false_positive_findings": 0,
+      "scope": "Deterministic labeled simulation only; not real-world accuracy."
+    },
+    "audit_verified": true,
+    "limitations": [
+      "No physical robot commands or media decoding.",
+      "Estimated token/USD reservations can differ from final provider usage.",
+      "No cloud energy or carbon measurement; no whole-account spending enforcement."
+    ]
+  },
+  "economy": {
+    "mission_id": "leak-demo",
+    "strategy": "economy",
+    "provider_mode": "mock",
+    "simulated": true,
+    "actuation_enabled": false,
+    "root_id": "65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3",
+    "findings": [
+      {
+        "event_id": "water-040",
+        "timestamp_seconds": 40,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": []
+      }
+    ],
+    "events": [
+      {
+        "event_id": "water-000",
+        "timestamp_seconds": 0,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-010",
+        "timestamp_seconds": 10,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-020",
+        "timestamp_seconds": 20,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-030",
+        "timestamp_seconds": 30,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-040",
+        "timestamp_seconds": 40,
+        "decision": "analyze",
+        "reason": "threshold_crossing",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-050",
+        "timestamp_seconds": 50,
+        "decision": "suppressed",
+        "reason": "alert_already_active",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-060",
+        "timestamp_seconds": 60,
+        "decision": "suppressed",
+        "reason": "alert_already_active",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-070",
+        "timestamp_seconds": 70,
+        "decision": "suppressed",
+        "reason": "alert_already_active",
+        "local_alarm": true
+      },
+      {
+        "event_id": "water-080",
+        "timestamp_seconds": 80,
+        "decision": "suppressed",
+        "reason": "alert_reset",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-090",
+        "timestamp_seconds": 90,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-100",
+        "timestamp_seconds": 100,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      },
+      {
+        "event_id": "water-110",
+        "timestamp_seconds": 110,
+        "decision": "suppressed",
+        "reason": "below_threshold",
+        "local_alarm": false
+      }
+    ],
+    "reference_context": [],
+    "outcome": "complete",
+    "accounting": {
+      "requests": 1,
+      "new_requests": 1,
+      "tokens": 312,
+      "estimated_usd": "0.000552",
+      "new_estimated_usd": "0.000552",
+      "actual_paid_usd": "0.000000",
+      "replayed_requests": 0,
+      "avoided_tokens": 0,
+      "session_estimated_usd": "0.000552",
+      "shared_spend_operation_ids": [],
+      "price_basis": "illustrative simulation rates"
+    },
+    "limits": {
+      "max_requests": 12,
+      "max_tokens": 24000,
+      "max_usd": "0.10",
+      "session_api_ceiling_usd": "15.00",
+      "reserve_usd": "5.00"
+    },
+    "evaluation": {
+      "available": true,
+      "labeled_hazard_episodes": 1,
+      "detected_hazard_episodes": 1,
+      "detection_latency_seconds": [
+        0
+      ],
+      "false_positive_findings": 0,
+      "scope": "Deterministic labeled simulation only; not real-world accuracy."
+    },
+    "audit_verified": true,
+    "limitations": [
+      "No physical robot commands or media decoding.",
+      "Estimated token/USD reservations can differ from final provider usage.",
+      "No cloud energy or carbon measurement; no whole-account spending enforcement."
+    ]
+  },
+  "savings": {
+    "requests_avoided": 11,
+    "tokens_avoided": 3431,
+    "estimated_usd_avoided": "0.006071",
+    "request_reduction_percent": 91.67
+  },
+  "comparison_complete": true,
+  "environmental_claim": "Fewer simulated model requests and tokens. No measured energy or carbon savings."
+}

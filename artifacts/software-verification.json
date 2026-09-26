@@ -1,0 +1,64 @@
+{
+  "recorded_at": "2026-09-26T21:24:41.787785+00:00",
+  "scope": "Local continuation changes; not a new cloud deployment",
+  "python_tests": {
+    "command": ".venv/Scripts/python.exe -m pytest -q",
+    "passed": 313,
+    "warnings": [
+      "Existing upstream Starlette/httpx deprecation"
+    ]
+  },
+  "frontend_tests": {
+    "command": "node --test tests/test_dashboard_recovery.cjs",
+    "passed": 8
+  },
+  "javascript_syntax": "passed",
+  "dependency_check": "passed",
+  "browser_rehearsal": {
+    "mode": "mock",
+    "mission_status": "completed",
+    "progress": "4/4",
+    "human_review_performed": false,
+    "environment_safety": "not_established",
+    "screenshot": "artifacts/dashboard-mission-completed.png",
+    "fault_recovery_scope": "Node controller tests; no browser network fault injection"
+  },
+  "offline_packet": {
+    "path": "artifacts/rehearsal/run-oxm1ba4f/packet.json",
+    "checks_passed": 29,
+    "checks_total": 29,
+    "html_review": "source-reviewed; in-app browser does not allow file URLs"
+  },
+  "new_billable_provider_operations": 0,
+  "solana": "Read-only devnet balance check; zero lamports, no transaction or faucet request",
+  "spending": {
+    "settled_estimated_usd": "0.000436",
+    "reserved_usd": "3.000000",
+    "remaining_planned_usd": "11.999564",
+    "actual_billed_usd": null
+  },
+  "source_sha256": {
+    "src/relay_gateway/__main__.py": "f112b8b873db0b5497f1b46fafc858a714a04c2e5d84b98cd684bf49dffc1cc1",
+    "src/relay_gateway/integrations/data_cli.py": "4e3887ff4fdee0ae78eedf4076f7c0689090e41e577dafecae99f0aaf724c19f",
+    "scripts/rehearse-demo.py": "a2881d7be059e5f5e6856d582d6e83bc740e5b9ad091571100459c962a22a6e7",
+    "web/app.js": "4385f6184fca551c0088f15c683803517952fa16d2f179bab50144d83703585a",
+    "web/index.html": "29f830d29bce239bd834797564b22c6ed191b1b92b414181ca13d23aab890116",
+    "tests/test_data_cli.py": "90ad8816c0b049eefafc56a8c27135e4ed8353f6eb812214ea3a14b1621259fc",
+    "tests/test_cli_references.py": "cb5114bbbd8382fba97bdaa37ac4b49d80c67598cfec71dbf6f1077f2ea650c9",
+    "tests/test_rehearsal_packet.py": "b086c2c8f846b668b19ed0f1d856c6ae6a7272be14c9030d9715c135b929fde8",
+    "tests/test_dashboard_recovery.cjs": "2b6f893ddc1f058e3cd7b90cd4f54825e53dc97aa388fdfcb16cae8b81ced5c5",
+    "src/relay_gateway/integrations/ledger.py": "b202425b497f49b36cefa3e261b9fc51a916f79ef7f5c1ac068ab7c3eeeff071",
+    "tests/test_spend_ledger.py": "6c2686a093efb070b7d0bc1c7e3b158db60810ad43bc93ff5fe1021ec3450bf0"
+  },
+  "fresh_clone_live_admission": "Fails closed without existing initialized canonical spending ledger; no bootstrap from stale history",
+  "repository": "https://github.com/gimenezdiego002/Grid-Hazard-Rover",
+  "source_branch": "relay/inspection-system",
+  "team_foundation": {
+    "base_commit": "e71bbf2bf41d306f5a5746d28136d1a3994c8bea",
+    "shared_schemas": "preserved unchanged",
+    "schema_check": ".venv/Scripts/python.exe -m shared.test_schemas: passed",
+    "team_environment_template": "preserved at .env.example",
+    "relay_environment_template": "deploy/relay.env.example",
+    "integration_status": "Relay and team geospatial/photo workflows are separate; no end-to-end bridge claimed"
+  }
+}
