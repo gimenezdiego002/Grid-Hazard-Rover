@@ -1,135 +1,258 @@
-# FieldSight: budget-aware robot inspection
+# Grid Hazard Rover + FieldSight: infrastructure coordination and economical physical AI
 
 ## Elevator pitch
 
-FieldSight coordinates robot inspections around new evidence. Our interactive prototype combines a rover, a hexapod and an arm with explicit review steps, selective AI analysis, and visible spending limits.
+Grid Hazard Rover helps infrastructure teams see where planned work overlaps and why a corridor deserves attention. FieldSight adds a robotics inspection prototype that gathers simulated evidence, coordinates a rover, crawler, and arm, and makes the cost of AI decisions visible. Together, our work explores a practical loop: identify a coordination problem, investigate it, review the evidence, and communicate what should happen next.
 
 ## Inspiration
 
-Physical AI has two costs: moving a robot through the world and deciding when its observations deserve more analysis. Repeatedly asking a model about an unchanged scene adds work without necessarily adding useful evidence. We wanted an inspection system that could explain what changed, why it escalated, and what it spent.
+Infrastructure projects rarely happen in isolation. A water utility may replace a pipe along the same corridor where a telecommunications company plans an installation and a road agency schedules construction. Flooding, vegetation, damaged infrastructure, and street obstructions can make that shared space even harder to manage. Each organization may understand its own project while missing the activity around it.
 
-We also wanted to make progress while assembling and connecting different robots. A repeatable simulator let us develop mission logic, rehearse failures, and test the handoffs between a patrol rover, an inspection hexapod, and a station arm.
+The information needed to coordinate those decisions is scattered across utility plans, public records, maps, photographs, field observations, and community reports. We started Grid Hazard Rover with a simple question: what if teams could recognize upcoming conflicts and inspect the surrounding conditions before sending crews into the field?
+
+That question led to a second one: how should an inspection system decide when it needs more intelligence? A robot can produce many observations of an unchanged scene. Sending all of them to a model adds requests, latency, and potential cost without necessarily improving the decision. We wanted to expose those tradeoffs and use AI at the points where new or ambiguous evidence justified it.
+
+FieldSight became the physical AI side of that work. It explores how a patrol rover, a hexapod crawler, a station arm, and an operator could cooperate in an inspection. When the rover and crawler encountered mechanical problems near the deadline, we expanded the simulator so mission development and failure testing could continue. We also gave the arm its own simulation mode so the software demonstration would remain repeatable if the moving hardware became unavailable.
 
 ## What it does
 
-FieldSight supports preset patrols and directed inspections. In our interactive simulation, a rover travels around obstacles, encounters a suspected wet area, and hands off a closer inspection to a hexapod. The mission pauses for review before continuing. A separate virtual arm can perform a marker pick-and-place sequence, record virtual poses, and replay a taught routine.
+Our project brings together two complementary areas of the team's work: geographic infrastructure coordination and reviewed robotic inspection. The coordination dashboard, inspection services, provider adapters, and hardware experiments have different levels of completion. We have implemented connections between several of them, but have not demonstrated the entire system operating as one live, autonomous field deployment.
 
-The demo also makes failure visible. Sensor dropout, low battery, blocked movement, grip loss, and exhausted inference allowance stop or hold the relevant workflow. Clearing a fault requires an explicit recovery action. Acknowledging a suspected hazard does not replenish a spent model allowance or establish that a physical site is safe.
+### See where infrastructure work needs coordination
 
-Alongside the simulator, we built an offline incident replay connecting reference retrieval, structured findings, sensor-history storage, mission persistence, a speech descriptor, and report-hash verification. We separately demonstrated real Gemini, ElevenLabs, MongoDB Atlas, and Snowflake API calls using synthetic inputs, plus real database-side SQL in Tiger Data. These component proofs have not yet been joined into one live incident pipeline.
+The Grid Hazard Rover dashboard presents utility projects, public infrastructure records, observed hazards, relationships between them, and geographic risk cells. Operations and company-focused preview views help users explore the area, inspect supporting records, and understand which nearby activities deserve coordination. The company preview filters a selected utility's records; it does not establish production tenant isolation.
+
+Utility-to-utility relationships are the core signal. The backend compares project geometries and schedules; nearby public activity and hazard observations add context. A roadwork record or a rover observation enriches that comparison rather than substituting for a second utility project.
+
+The current two-utility coordination demonstration uses controlled synthetic projects. We have separately documented public-record ingestion samples, but verified future project data from two real utilities is still a data-completion milestone.
+
+The Coordination Risk Index is deterministic and explainable. The current prototype combines four components into a score capped at 100:
+
+| Component | Maximum contribution | What it represents |
+| --- | ---: | --- |
+| Utility proximity | 40 | Whether project geometries intersect or fall into defined distance tiers |
+| Schedule relationship | 25 | Overlapping schedules or work occurring within the coordination window |
+| Nearby observed hazard | 20 | The severity of the strongest related hazard |
+| Public infrastructure context | 15 | Nearby public works or infrastructure records |
+
+The response includes component scores, reasons, and references to the contributing records. For example, a checked-in synthetic corridor combines crossing projects, overlapping schedules, a severity-four hazard, and nearby public activity: **40 + 25 + 16 + 15 = 96**, classified as critical by the prototype. That number can be traced to explicit inputs rather than a model-generated judgment.
+
+Absent schedule information remains explicitly unknown. Model confidence is retained with a hazard, but the current risk formula uses hazard severity rather than treating confidence as an additional score component. These are prototype prioritization rules, not a validated prediction of an accident or utility failure. The rendered risk cells are illustrative geographic areas, not measured hazard boundaries.
+
+### Turn observations into reviewable evidence
+
+The team backend includes a photo-ingestion and Gemini visual-classification path that produces structured hazard information, including type, severity, confidence, and explanatory notes. A reviewed integration adapter can also translate a suspected finding from the inspection subsystem into the shared geographic hazard contract.
+
+That conversion requires trusted location, time, severity, review status, and stable evidence identities. A provisional model finding cannot invent its own coordinates or silently become a confirmed hazard. Its provenance and simulation status travel with it.
+
+The company-facing calling prototype adds another evidence source: community reports. It accepts and organizes completed AI-assisted call reports for review. Caller statements remain untrusted reports and do not automatically change the Coordination Risk Index. The implemented queue and webhook handling are separate from proof of an operational public phone service.
+
+### Rehearse a multi-robot inspection
+
+FieldSight's simulator supports preset patrols and directed inspections. A virtual rover navigates around obstacles, encounters synthetic evidence, and hands off a closer inspection to the hexapod crawler. The mission pauses for operator review before continuing. Users can inspect the route and event trail, pause or step through execution, and test blocked paths, low battery, sensor loss, or an exhausted model allowance.
+
+The arm has an independent six-joint simulator. It can execute a marker-transfer preset, accept virtual poses, record them into a taught routine, and replay the sequence. Joint-stall and grip-loss scenarios expose how the controller holds and recovers. These are illustrative kinematics and scripted contact behavior; they do not establish calibrated physical grasping.
+
+Simulation exports use a distinct format that the physical motion-recording parsers reject. This lets us rehearse coordination without accidentally treating virtual joint angles as validated servo commands.
+
+## A representative user journey
+
+Consider two utilities planning work along intersecting corridors near a public road project. A coordinator first examines the geometry, dates, and explanation behind the area's risk score. When schedule information is unavailable, the explanation retains that uncertainty rather than fabricating an overlap.
+
+If an observation suggests standing water or an obstruction, the coordinator can inspect the evidence and request further investigation. In the robotics demo, that investigation becomes a directed mission: the rover approaches the target, the crawler contributes a second observation, and the operator reviews the resulting finding. A proposed arm task remains a separate intervention requiring its own validated execution path.
+
+The intended complete workflow then preserves the reviewed incident, links the relevant telemetry and reference material, generates an understandable briefing, and produces a verifiable report receipt. We have an offline replay of that service sequence and separate live component proofs. Completing and recording the joined live incident is our next integration milestone.
 
 ## How we built it
 
-The application uses Python, FastAPI, Pydantic, and a browser interface written in HTML, CSS, and JavaScript. Canvas-based views show the robots and virtual arm. The spatial simulator uses a local metric floor plan and A* navigation; it is a 2D kinematic model rather than a validated physics or terrain simulator.
+### Shared geographic contracts and explicit integration boundaries
 
-Deterministic code owns mission state, permitted actions, retries, and budget checks. AI adapters interpret selected evidence or propose constrained decisions. Observations, reports, and simulation exports retain their provenance so a simulated completion cannot be mistaken for a physical confirmation.
+The coordination backend uses Python, FastAPI, Pydantic, and MongoDB. The canonical shared models are `Project`, `Record`, `Hazard`, `Match`, and `RiskCell`. They provide a common geographic contract for the team backend, frontend, data pipeline, and rover upload path.
 
-We separated timestamped telemetry, mutable mission documents, and inspection reference material into distinct storage roles. That gives each database a specific responsibility instead of copying the same information into every service.
+The inspection subsystem has separate mission, observation, finding, reference, and budget models. We preserved those meanings and implemented an explicit reviewed adapter between the systems instead of treating all records as interchangeable. The team's combined application also mounts the inspection applications under dedicated routes while preserving their standalone entry points.
 
-## Challenge categories and technologies
+Geographic storage and API data use GeoJSON in longitude-latitude order. Map rendering converts coordinate order where the mapping library requires it. The matching engine uses a locally centered metric projection and closest points, rather than interpreting degrees as meters or substituting centroid distance for the distance between actual project shapes. Its tiers distinguish crossing projects and separations under 1.6, 8, and 40 kilometers; more distant pairs are excluded.
 
-### Gemini API — structured inspection findings
+Timeline matching uses a 180-day coordination window. Completely absent dates remain unknown. Where only one date is supplied, the current implementation treats it as a point date rather than reconstructing an unsupported project duration.
 
-We built a Gemini adapter that turns selected sensor metadata into validated, structured suspected-hazard findings. We completed two real text-only API smoke tests using synthetic readings and recorded the model response and provider usage. The gateway supports bounded reference context and explicit request, token, and estimated-cost limits.
+### Public records with traceable normalization
 
-Our current live proof covers text metadata. Camera analysis, live use of retrieved Snowflake passages, and the newer mission/evidence/report supervisor remain unfinished. The dashboard and simulator use mocked analysis.
+The data pipeline retrieves structured public infrastructure records, validates their geometry and fields, and normalizes accepted records into the shared contract. Existing ArcGIS data can enter that path directly without spending an LLM request to re-extract already structured fields.
 
-### ElevenLabs — spoken inspection briefings
+Historical ingestion notes record 20 accepted records from a 20-record FDOT Active sample and 14 accepted records from a 20-record Work Program sample, with six rejected. The recorded iMDC Power query returned no records. These samples establish specific retrieval and normalization results; they do not establish complete regional coverage or fulfill the separate requirement for two real utilities' future project schedules.
 
-We built an explicit speech-generation path for reviewed briefing text, with caching, duplicate-dispatch protection, and spending admission. One real ElevenLabs request turned our 165-character synthetic inspection script into a 10.26-second MP3 using River and Eleven Flash v2.5. We verified the audio format, digest, and full decoding.
+### A map that explains its results
 
-This demonstrates real speech generation. Audible semantic review, deriving the briefing from the connected incident report, and playback through StackChan are the remaining steps.
+The geographic frontend uses React, TypeScript, Vite, and Leaflet with OpenStreetMap. Different visual treatments identify projects, public records, hazards, and risk areas. Grouping nearby items and exposing details help users inspect dense areas without losing the supporting evidence behind a marker or score. A separate Google Geocoding helper is implemented; the audited branch does not establish a live Google Routes integration.
 
-### MongoDB Atlas — mission persistence
+The geographic risk layer and the robotics simulation use different coordinate systems for different purposes. The map represents real-world longitude and latitude; the inspection scene is a local floor plan measured in meters. A simulator target is not automatically a geolocated field observation.
 
-We built an Atlas adapter for the latest mission snapshot, review state, and content digest under a stable mission ID. On an isolated Atlas M0 cluster, we inserted a synthetic mission, updated its simulated review state without inserting another document, then recreated the client and retrieved the same content and SHA-256 digest.
+### Deterministic control around model output
 
-The proof demonstrates remote persistence and consistent read-back. The current dashboard still holds its mission state in process memory, and connecting its complete workflow to Atlas remains next work. The adapter stores the latest snapshot; it is not a report revision-history system.
+Local code owns mission state, allowed transitions, evidence freshness, duplicate handling, request limits, and recovery. AI adapters interpret selected evidence or propose constrained supervisory choices. A response is checked before it can affect the workflow, and a failed request leaves uncertainty visible.
+
+Mission commands carry stable action identities so an interrupted response can be recovered without blindly repeating the underlying action. Stale commands are rejected. Budget exhaustion preserves a review-required or holding state rather than clearing a suspected hazard. These controls give the operator a visible explanation of what happened and what can happen next.
+
+### A browser fallback that preserves the real simulation logic
+
+The public FieldSight simulator is deployed on Vercel. Its reviewed Python simulation engines run through Pyodide and WebAssembly in a browser worker, with an independent scene for each tab. The browser interface uses HTML, CSS, JavaScript, and Canvas for the fleet and arm views.
+
+This deployment serves static assets. It makes no model calls, connects to no robot, and exposes no provider credentials. Reloading the page resets that tab's simulation and taught virtual poses. The public AI workflow page separately presents recorded OpenJev results and their evidence identifiers; it does not start a live model service.
+
+The simulator is a 2D navigation and mission-control model, with A* pathfinding and illustrative robot animation. Traction, terrain stability, contact dynamics, and real sensor accuracy require physical testing beyond this prototype.
+
+## Economy and efficiency of AI workflows
+
+We treated AI economy as a measurable engineering question. Routine navigation, threshold checks, duplicate detection, and unchanged observations can often be handled locally. Model work becomes more useful when it addresses a changed condition, ambiguous evidence, or an explicit need for interpretation.
+
+Pollard records model work and applies request, token, and estimated-cost limits in the analysis gateway. A separate durable ledger reserves cumulative dollar spending across providers, including unresolved attempts. Creating a new mission or restarting a process does not create a new spending allowance. Local request accounting and provider billing are recorded as different things.
+
+We kept three experiments separate:
+
+| Experiment | Recorded result | What the result supports |
+| --- | --- | --- |
+| Twelve-reading analysis fixture | 12 baseline versus 1 economy mock model call; 3,743 versus 312 simulated tokens | The event-driven policy avoided repeated analysis on that controlled fixture: 91.67% fewer mock calls |
+| Completed spatial patrol | 80 modeled baseline requests versus 3 admitted requests, after filtering 57 routine and 20 duplicate observations | The simulator demonstrates request admission and makes its assumptions visible; actual model calls are zero |
+| Actual local OpenJev dry sequence | Three frames used one inference and two reuses of unchanged local state | A narrow recorded example of avoiding repeated local inference while the state remained eligible for reuse |
+
+The broader comparison also challenged our initial intuition. In an eight-mission fixture subset without injected provider faults, the Gemini-only strategy made 21 attempts and used 1,696 simulated tokens. The hybrid made 18 Gemini attempts plus five Jev attempts, for 23 total attempts and 2,290 simulated tokens. Fewer Gemini calls did not produce fewer total calls or tokens, and improved detection was not demonstrated.
+
+We therefore do not claim measured production savings, lower energy use, or reduced carbon emissions. A useful future comparison must consider total requests, provider usage, latency, missed events, review burden, and billing evidence together.
+
+Physical AI has a similar measurement problem. Robot travel, battery indicators, and elapsed time in our simulator describe the model, not measured hardware efficiency. The demonstrated benefit is a repeatable way to develop and inspect coordination behavior while hardware is unavailable. Quantified engineering-time, hardware-cost, electricity, or environmental savings would require additional measurements.
+
+## Challenge integrations and supporting technologies
+
+We gave each service a specific responsibility in the incident workflow. The eight MLH integration targets are Gemini, ElevenLabs, MongoDB Atlas, Snowflake, Tiger Data, Solana, DigitalOcean, and GoDaddy Registry. Our supporting cloud, simulation, and governance work adds GCP, Vercel, Pollard, OpenJev, and ngrok. Defined roles and implemented adapters do not mean every service has been demonstrated together live.
+
+### Gemini API — structured hazard interpretation
+
+The team implements a visual photo-classification path, while FieldSight's analysis gateway accepts selected sensor metadata and bounded reference context. Both approaches aim to produce structured findings that software can validate and a person can review.
+
+Our separately retained FieldSight live proof consists of two successful text-only API smoke tests on synthetic readings, with validated findings and provider usage. That evidence does not independently establish the visual pipeline or a live analysis using retrieved Snowflake passages. The newer mission/evidence/report supervisor also needs a successful live run; its recorded Gemini attempts did not return usable results.
+
+### ElevenLabs — understandable briefings and call reports
+
+We implemented an explicit speech-generation path for reviewed briefing text, with caching, duplicate-dispatch protection, and spending admission. A real request converted a 165-character synthetic inspection script into a 10.26-second MP3 using River and Eleven Flash v2.5. We verified its format, digest, and decoding.
+
+The calling subsystem adds signed, timestamp-checked, deduplicated webhook intake and a protected review queue for completed conversations. It is a separate contribution from the generated briefing proof. Audible review, automatic linkage to a completed live incident, robot playback, and a fully configured public calling service remain distinct milestones.
+
+### MongoDB Atlas — canonical records and mission persistence
+
+MongoDB supports the coordination platform's geographic records. The separate Atlas mission adapter preserves a latest snapshot, review state, and content digest under a stable mission identity.
+
+On an isolated Atlas M0 cluster, we inserted a synthetic mission, updated its simulated review state without creating another document, and retrieved the same contents and SHA-256 digest through a fresh client. This demonstrates remote persistence and consistent read-back. The FieldSight dashboard still uses process-local mission state, and the public simulator uses tab-local state; neither automatically becomes Atlas-backed because the adapter proof succeeded.
 
 ### Snowflake API — traceable inspection references
 
-We implemented bounded retrieval through Snowflake's SQL API to fetch hazard-specific reference passages with source identifiers. A real authenticated query returned two synthetic inspection-reference passages, and we retained the successful statement handle and exact retrieved context.
+We implemented bounded SQL API retrieval of hazard-specific reference passages with source identifiers. A real authenticated query returned two synthetic inspection-reference passages, with a retained statement handle and exact context.
 
-FieldSight can carry that context into its analysis path. A successful live Gemini response using those passages remains to be demonstrated. Our implementation uses SQL API retrieval; it does not use Cortex Search or Snowflake-hosted model inference.
+The gateway can carry that reference context into analysis. Successful live Gemini use of those retrieved passages is still pending. Our contribution uses Snowflake SQL API retrieval, with source traceability and bounded queries; it does not claim Cortex Search or Snowflake-hosted inference.
 
-### Tiger Data — timestamped sensor history
+### Tiger Data — timestamped telemetry around an incident
 
-We built a telemetry adapter and indexed PostgreSQL schema for timestamped robot readings, duplicate protection, and bounded queries around an incident. In Tiger Data's browser SQL editor, we demonstrated one synthetic insertion, zero additional rows on identical replay, and exact retrieval after the transaction committed.
+We built a telemetry adapter and indexed PostgreSQL schema for robot readings, duplicate protection, and bounded time-window queries. In the real service's browser SQL editor, we demonstrated one synthetic insertion, zero additional rows on identical replay, and exact retrieval after commit.
 
-That establishes database-side behavior on a real Tiger Data service. Our local application's TLS connection and runtime access still need resolution. The current schema is an indexed PostgreSQL table; we have not implemented hypertables, continuous aggregates, or measured compression benefits.
+That establishes database-side behavior. The local application's TLS connection and runtime access still need resolution. Our current schema is an indexed PostgreSQL table; hypertables, continuous aggregates, and compression measurements are future work.
 
 ### Solana — verifiable report receipts
 
-We implemented a devnet receipt adapter with canonical report hashing, memo-transaction signing, and transaction-verification code. The offline demonstration verifies an original report and rejects a modified copy. The intended use is to make a finalized report's bytes independently checkable after publication.
+The devnet receipt adapter implements canonical report hashing, memo-transaction signing, and transaction verification. The offline demonstration accepts the original report and rejects a modified copy, showing how a recipient could check that a report's bytes have changed.
 
-We created a dedicated devnet wallet, but its funding attempt failed. No report transaction has been submitted or confirmed. Our present result is receipt software and offline verification, with on-chain proof still pending. A report hash demonstrates consistency of bytes, not the truth of a sensor reading.
+A dedicated devnet wallet exists, but funding was unsuccessful and no report transaction has been submitted or confirmed. On-chain proof remains pending. Even a confirmed hash would establish consistency with recorded bytes, not independently prove that a sensor observation was true.
 
-### DigitalOcean — fleet intake service prepared for deployment
+### DigitalOcean — a prepared fleet intake service
 
-We built a bounded, authenticated fleet telemetry gateway and a finite consumer that checks event identities, hashes, duplicates, and sequence gaps. The consumer stores accepted evidence and its cursor locally so interrupted reads can be recovered. We tested the transport locally and prepared an App Platform deployment specification in an isolated DigitalOcean project.
+We implemented a bounded, authenticated fleet telemetry gateway and a finite consumer that checks identities, hashes, duplicates, and sequence gaps. The consumer retains accepted evidence and its cursor so interrupted reads can be recovered.
 
-Deployment and remote event intake/read-back remain incomplete. Our verified cloud deployment is on GCP, so we do not count it as a DigitalOcean deployment. The fleet gateway currently retains events in process memory with a time limit; the intended durable telemetry store is Tiger Data.
+Local transport tests and an App Platform deployment specification are complete. Remote deployment and event read-back remain pending. The existing verified cloud deployment is on GCP, which we do not count as a DigitalOcean result.
 
-### GoDaddy Registry — fieldsight.biz
+### GoDaddy Registry — a public identity
 
-Our teammate registered **fieldsight.biz** through the GoDaddy Registry offer for the project's public identity. The domain is not yet connected to a hosted site. Our next step is to connect it to a public project and evidence page with HTTPS; the private mission API remains a separate authenticated service.
+Our teammate registered **fieldsight.biz** through the GoDaddy Registry offer. The domain is not yet connected to the hosted demo. Connecting it to the public project and evidence pages with HTTPS is the next step; the authenticated mission API remains a separate service.
 
-### Google Cloud — hosted application and evidence storage
+### Google Cloud — private hosting and evidence storage
 
-We deployed a private Cloud Run service in an isolated GCP project and verified authenticated health checks, mission actions, and the six-stage mock replay. Unauthenticated requests were denied. We also uploaded a synthetic report to private Cloud Storage and retrieved identical bytes.
+We deployed a private Cloud Run service and verified authenticated health checks, mission actions, and the six-stage mock replay. Unauthenticated requests were denied. A synthetic report uploaded to private Cloud Storage was retrieved with identical contents.
 
-The setup includes Artifact Registry, service accounts, Secret Manager for the project Gemini key, and storage lifecycle policies. Cloud Run was configured to scale to zero with a maximum of one instance. The deployed service is mock-only, has no live-provider secret attached, and predates the newer local simulator work.
+The setup includes Artifact Registry, dedicated service accounts, Secret Manager, and storage lifecycle policies. The verified Cloud Run configuration scales to zero and permits at most one instance. That revision is mock-only and predates the newer simulator; the current browser simulator is the separate Vercel deployment.
 
-### Pollard — make model work measurable
+### OpenJev, pollard-jev, and ngrok — constrained local supervision
 
-We integrated Pollard's runtime, request/token meters, durable recordings, and verification into the analysis gateway. Local rules admit model work when evidence changes; request, token, and estimated-dollar limits preserve a review-required result when further analysis is refused. A separate cumulative ledger accounts for reservations across providers.
+We used `pollard-jev` for typed decision and freshness contracts and its OpenJev provider adapter, then ran a pinned local NLI model on an RTX 4090 Laptop GPU. The recorded evidence includes one warm-up, four mission decisions, and one additional request through an authenticated ngrok HTTPS tunnel.
 
-On the same twelve-reading synthetic fixture, the baseline made 12 mock model calls and the economy policy made 1, with 3,743 versus 312 simulated tokens. That is 91.67% fewer calls for this fixture. It is a reproducible software comparison, not a measurement of production savings, energy use, or general detection accuracy.
+The model proposes only bounded supervisory choices: hold, request evidence, escalate for Gemini interpretation, or continue passive monitoring. Local checks validate the choice, allowed actions, freshness, and deadline after inference. The model cannot supply arbitrary motor commands or clear a latched alarm.
 
-The newer spatial preset models 80 baseline requests versus 3 admitted requests by filtering 57 routine and 20 duplicate observations. Its actual model calls are zero; token and dollar estimates use disclosed illustrative assumptions. This is a separate experiment from the twelve-reading fixture.
+The four mission decisions took 454–718 milliseconds at the provider boundary in this small trial. Dry observations supported monitoring; wet and conflicting observations produced abstentions that preserved the alarm and review requirement. Gemini roles were fixtures in these runs. These are recorded local-model and transport proofs, separate from the public simulator and from the unverified hosted TypeSafe Jev path.
 
-### OpenJev and ngrok — local supervisory decisions
+### Robotics and Bluetooth — physical targets with repeatable software fallbacks
 
-We connected pollard-jev's typed decision and freshness contracts to a constrained supervisory policy and ran a pinned OpenJev model on an RTX 4090 Laptop GPU. Recorded tests include five local inferences and another request through an authenticated ngrok HTTPS tunnel.
+Our hardware targets include the Quarky Intellio rover, Freenove FNK0052 hexapod, Hiwonder LeArm, and a planned StackChan announcement role. We wrote project-owned simulated controllers for patrol, reporting, kit transfer, inspection, and return, and retained the Freenove vendor source with its attribution separately.
 
-Dry observations supported continued monitoring. Wet and conflicting observations produced abstentions, leaving review required and the local alarm latched. Gemini roles in those runs remained fixtures. These results demonstrate local model execution and handling of uncertainty; they do not establish improved accuracy or lower overall inference cost. The recorded demonstration is separate from the hosted TypeSafe Jev path, which has no successful live proof.
+The team reports a partial physical robot demonstration, and the LeArm was reported moving through its vendor app. Our recorded software integration used Python and Bleak to establish Bluetooth LE discovery and connection and obtain a valid non-motion controller response reporting 7,881 mV. The position query received no reply.
 
-### Robotics and Bluetooth — simulation plus an initial hardware connection
+That proof establishes communication, not calibrated FieldSight-controlled motion. Bluetooth-module metadata does not establish the arm controller's exact revision. Reliable position capture, a validated taught routine, physical replay, and an attended end-to-end multi-robot mission remain work to complete. The rover, crawler, and arm simulators provide usable fallbacks in the meantime.
 
-We wrote separate simulated controllers for the Quarky Intellio rover, Freenove FNK0052 hexapod, and Hiwonder LeArm. Their finite workflow covers patrol, hazard reporting, kit pickup, inspection, and kit return, with explicit transfer and clearance acknowledgements. We preserved pinned Freenove vendor source and its attribution separately from our own controller code.
+## Challenges we faced
 
-Our browser simulator adds visible obstacle-aware movement, inspection review, and a virtual six-joint arm with pose teaching, replay, joint-stall and grip-loss recovery. Virtual pose exports are rejected by the physical motion-recording parsers.
+**Keeping geographic meaning consistent.** Longitude-latitude ordering, metric projection, closest-point geometry, and partial schedules all affect whether a coordination result is useful. We treated them as contract rules and exposed uncertainty rather than hiding it behind a convincing map.
 
-Our team also completed a physical robot demonstration. The interactive multi-robot inspection described above remains simulated; the physical demonstration does not establish that complete mission through FieldSight.
+**Making dense information readable.** Projects, public records, hazards, and risk areas can occupy the same space. Layer styling, grouping, selection, and expandable evidence details were necessary to help users understand relationships rather than just see more markers.
 
-Using Python and Bleak, our separately recorded hardware integration discovered and connected to the LeArm over Bluetooth LE and received a valid non-motion controller response reporting 7,881 mV. A position query received no reply. Earlier operator feedback reported LeArm movement through its vendor app. FieldSight-controlled motion, measured pose capture, physical replay, camera capture, calibrated sensor readings, and StackChan playback are not yet established by our integration evidence.
+**Coordinating independent subsystems.** A mission observation, a caller statement, a suspected finding, and a canonical hazard have different meanings. We introduced explicit adapters and review requirements so that data could cross those boundaries without silently acquiring a stronger claim.
 
-## Challenges we ran into
+**Recovering from interrupted work.** A failed browser response does not always mean an action failed. Stable identities, duplicate protection, read-back, and explicit recovery states helped us avoid replaying uncertain work or losing the evidence that an action already occurred.
 
-The hardest part was preserving the distinction between an intended integration and an observed result. Database-side SQL did not automatically produce a working application connection. A successful model smoke test did not make every later prompt/schema combination valid. Our newer Gemini supervisor requests failed with HTTP 400, and the Solana faucet did not fund the wallet.
+**Working through hardware failures.** Mechanical problems prevented a reliable mobile-robot mission near the deadline. Building the simulation fallback let us continue testing mission logic, operator review, and arm routines. It also made the remaining hardware questions more specific: calibration, position feedback, mobility, stopping, and repeatable execution.
 
-Hardware introduced another boundary: discovering a Bluetooth characteristic and reading a controller response did not establish servo limits, position feedback, or verified playback. The simulator let us keep developing coordination and failure handling while those device-specific questions remained open.
+**Proving integrations individually.** Real database-side SQL did not automatically establish an application connection. A successful model smoke test did not guarantee that a later prompt and response schema would work. We encountered failed supervisor requests, unresolved telemetry access, and unsuccessful devnet funding, and kept those results separate from completed proofs.
 
-## Accomplishments we're proud of
+## Accomplishments we are proud of
 
-We built a repeatable inspection demo with two mission modes, visible robot roles, review gates, failure injection, taught virtual-arm replay, and explicit model-work accounting. We also captured separate real-provider evidence for model analysis, speech generation, mission persistence, reference retrieval, cloud hosting/storage, and database-side telemetry operations.
+We developed an infrastructure-coordination backend with explainable spatial and schedule relationships, a geographic dashboard, and a reviewed path for inspection findings to enter the shared hazard model. We also added a company-facing call-report workflow that preserves the distinction between a report and a validated hazard.
 
-At the September 27 audit, the current checkout passed 931 Python tests, 21 subtests, and 35 JavaScript tests. The original offline rehearsal passed all 29 checks, and fresh spatial and virtual-arm rehearsals completed their normal, refusal, and recovery cases. These checks validate the software behaviors exercised; they do not substitute for field testing.
+We turned a hardware-constrained inspection demo into a repeatable software experience: two mobile robot roles, preset and directed missions, visible evidence and review, failure injection, a virtual arm with taught replay, and model-work accounting. The public browser deployment makes that experience accessible without requiring the visitor to configure Python, a GPU, or robot hardware.
+
+Beyond simulation, we retained separate real-provider results for Gemini analysis, ElevenLabs speech generation, Atlas persistence, Snowflake reference retrieval, GCP hosting/storage, and Tiger Data database operations. We also recorded actual local OpenJev inference and an initial non-motion LeArm Bluetooth response.
+
+At the latest FieldSight publication check, the inspection branch passed **931 Python tests and 21 subtests**, **44 Node tests**, and an additional real Pyodide runtime rehearsal. The runtime completed the fleet mission and virtual-arm preset and exercised refusal, stale-command rejection, repeated actions, teaching, and recovery. These checks describe the inspected software branch, not validation of every teammate branch or real-world robot safety.
 
 ## What we learned
 
-Fewer model calls are useful only when the system still handles the evidence that matters. We learned to measure admitted and refused work separately, preserve uncertainty after failures, and keep synthetic metrics distinct from provider usage and physical measurements. We also learned that reliable multi-robot coordination needs explicit acknowledgements and recovery states even before real hardware is attached.
+Useful infrastructure intelligence must explain its evidence. A score is more valuable when the user can inspect the contributing projects, schedule relationship, hazard, and public record. A finding is more useful when its source, uncertainty, and next review step remain visible.
+
+We learned to assign deterministic responsibilities to deterministic code. Freshness checks, permitted actions, duplicate protection, spending reservations, and local alarm handling remain explicit even when a model proposes an interpretation. An abstention can be a useful result when the controller preserves the evidence and holds for review.
+
+We also learned to evaluate economy across the whole workflow. Moving work from one model to another can reduce a particular provider's calls while increasing total work. Request counts, token estimates, provider usage, latency, and electricity consumption answer different questions and need separate measurements.
+
+Finally, simulation helped us identify operational requirements before the complete hardware workflow was ready. It exposed where a mission should pause, how a failed handoff should recover, and which acknowledgements must come from an actual device rather than a software animation.
 
 ## What's next
 
-Our next milestone is one traceable incident across the live providers: timestamped telemetry, retrieved references actually used by Gemini, a reviewed Atlas report, an audible ElevenLabs briefing, and a confirmed Solana devnet receipt. We also need DigitalOcean deployment, an HTTPS site connected to fieldsight.biz, and a recorded end-to-end hardware mission with device versions, control methods, and physical results.
+Our immediate priority is one recorded, traceable incident across the coordination and inspection components: select a mapped location, create a mission, collect timestamped and geolocated evidence, review the finding, pass it through the existing shared-schema adapter, and show the resulting deterministic risk update. The public local-floor simulator will remain clearly labeled during that work.
 
-FieldSight currently lives alongside the Grid Hazard Rover foundation. It has not yet been connected to that project's utility coordination, photo ingestion, or geographic risk dashboard.
+We then want to connect the independently proven provider components: resolve application telemetry access, persist actual mission state, demonstrate Gemini using retrieved reference passages, generate a briefing directly from reviewed incident facts, and confirm a Solana devnet receipt. DigitalOcean deployment, the custom domain connection, and validation of the calling service are additional concrete milestones.
+
+Hardware work will focus on reliable mobility and capture, confirmed device/controller versions, calibrated arm limits, usable feedback or a verified taught routine, and attended stop/recovery tests. We will claim software-controlled physical replay only after recording that behavior on the real device.
+
+For AI evaluation, we plan repeated comparisons across varied and labeled incidents, reporting total inference work, missed events, latency, review burden, and billing evidence. Physical efficiency claims will require measured distance, energy, sensor reliability, and task completion on hardware.
+
+Our longer-term vision is a shared infrastructure intelligence network: utility plans, public activity, community reports, fixed sensors, and mobile inspection evidence informing a continually updated view of a city. Forecasting failures, coordinating construction schedules, and notifying affected organizations are future goals. The foundation is the same principle we used in the prototype: make the evidence, uncertainty, and cost of a decision visible.
 
 ## Built with
 
-Python, FastAPI, Pydantic, Uvicorn, JavaScript, HTML/CSS, Canvas, SQLite, Gemini API, ElevenLabs, MongoDB Atlas, Snowflake SQL API, Tiger Data/PostgreSQL, Google Cloud Run, Cloud Storage, Artifact Registry, Secret Manager, Pollard, pollard-jev, OpenJev, PyTorch, Transformers, CUDA, ngrok, Bleak, and GoDaddy Registry.
+**Coordination and interface:** Python, FastAPI, Pydantic, MongoDB, GeoJSON, Shapely, pyproj, React, TypeScript, Vite, Leaflet, OpenStreetMap, HTML, CSS, JavaScript, and Canvas.
 
-Implemented but awaiting live completion: Solana devnet receipts and DigitalOcean deployment. The registered domain is fieldsight.biz; website connection remains pending. Robot hardware targets are Quarky Intellio, Freenove FNK0052, Hiwonder LeArm, and StackChan, with the demonstrated hardware boundary described above.
+**AI and workflow governance:** Gemini API, ElevenLabs, Pollard, pollard-jev, OpenJev, PyTorch, Transformers, CUDA, and SQLite.
 
-The eight MLH category technologies were checked against the [official ShellHacks prize page](https://www.mlh.com/events/shellhacks-b9/prizes) on September 27, 2026. This draft describes our work and its evidence; category listing alone does not establish award eligibility.
+**Data, deployment, and transport:** MongoDB Atlas, Snowflake SQL API, Tiger Data/PostgreSQL, Google Cloud Run, Cloud Storage, Artifact Registry, Secret Manager, Vercel, Pyodide, WebAssembly, ngrok, and Bleak. Solana devnet receipts and DigitalOcean deployment are implemented/prepared areas awaiting the live milestones described above. GoDaddy Registry supplies the registered fieldsight.biz domain.
+
+## Demo and source
+
+- [Public FieldSight rover, crawler, and arm simulator](https://shellhacks-relay-robotics.vercel.app/)
+- [Recorded OpenJev and AI workflow evidence](https://shellhacks-relay-robotics.vercel.app/workflow-proof.html)
+- [Team GitHub repository](https://github.com/gimenezdiego002/Grid-Hazard-Rover)
+- [Published FieldSight inspection branch](https://github.com/gimenezdiego002/Grid-Hazard-Rover/tree/relay/inspection-system)
+- [Team coordination and integration branch reviewed for this draft](https://github.com/gimenezdiego002/Grid-Hazard-Rover/tree/Diego-Crawler-Plan)
+
+This draft describes the September 27, 2026 prototype. The public simulator, separate live component proofs, implemented integration code, and team-reported physical demonstration are identified separately throughout; none alone establishes a fully live autonomous deployment.
