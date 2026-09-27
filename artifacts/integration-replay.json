@@ -1,0 +1,706 @@
+{
+  "schema_version": "1",
+  "mode": "mock",
+  "simulated": true,
+  "status": "completed",
+  "mission_id": "leak-demo",
+  "mission_outcome": "complete",
+  "actuation_enabled": false,
+  "network_requests": 0,
+  "live_services_verified": [],
+  "production_spend_ledger_modified": false,
+  "actual_paid_usd": "0.000000",
+  "steps": [
+    {
+      "provider": "snowflake",
+      "action": "Retrieve synthetic reference passages",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "statement_handle": "mock-reference-query-v1",
+        "reference_ids": [
+          "fixture-water-review-v1",
+          "fixture-water-routing-v1"
+        ],
+        "returned_references": 2,
+        "source_urls": [
+          "relay://fixtures/water-review-v1",
+          "relay://fixtures/water-routing-v1"
+        ]
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "Offline contract rehearsal; no provider request was made."
+      ]
+    },
+    {
+      "provider": "gemini",
+      "action": "Exercise the model gateway with deterministic findings",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "provider_mode": "mock",
+        "mock_model_calls": 1,
+        "findings": 1,
+        "cited_reference_ids": [
+          "fixture-water-review-v1"
+        ],
+        "audit_verified": true,
+        "mission_outcome": "complete"
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "MockProvider produced these findings; this stage did not call Gemini.",
+        "Reference use in this rehearsal is deterministic and does not establish model quality."
+      ]
+    },
+    {
+      "provider": "tiger",
+      "action": "Insert, replay, and read the synthetic telemetry window",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "inserted_events": 12,
+        "replay_inserted_events": 0,
+        "readback_events": 12,
+        "event_ids": [
+          "water-000",
+          "water-010",
+          "water-020",
+          "water-030",
+          "water-040",
+          "water-050",
+          "water-060",
+          "water-070",
+          "water-080",
+          "water-090",
+          "water-100",
+          "water-110"
+        ],
+        "start_inclusive": "2026-09-26T18:00:00Z",
+        "end_exclusive": "2026-09-26T18:01:51Z",
+        "idempotency_verified": true
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "Offline contract rehearsal; no provider request was made."
+      ]
+    },
+    {
+      "provider": "mongodb",
+      "action": "Store and read back the simulated reviewed report",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "mission_id": "leak-demo",
+        "content_sha256": "57c30c4e04364d448a7a0f947b5742c09fd004c186d141d2a0654326b9f23e93",
+        "inserted": true,
+        "readback_verified": true,
+        "review_status": "simulated_review",
+        "human_review_performed": false
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "Offline contract rehearsal; no provider request was made."
+      ]
+    },
+    {
+      "provider": "elevenlabs",
+      "action": "Prepare a reviewed briefing descriptor without audio",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "characters": 226,
+        "cache_key": "b32c43df518fe87ab094c6ce12819e7774b44ac2cd264e9091d1b8cd6c41c7b4",
+        "audio_generated": false,
+        "audio_path": null,
+        "human_review_performed": false
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "This is a mock descriptor; no speech was synthesized or played."
+      ]
+    },
+    {
+      "provider": "solana",
+      "action": "Verify the report hash and reject a modified copy",
+      "mode": "mock",
+      "simulated": true,
+      "status": "completed",
+      "remote_verified": false,
+      "evidence": {
+        "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+        "original_valid": true,
+        "modified_valid": false,
+        "chain_verified": false,
+        "transaction_signature": null
+      },
+      "estimated_usd": "0.000000",
+      "actual_billed_usd": "0.000000",
+      "limitations": [
+        "Only local hash consistency was tested; no wallet or blockchain transaction exists."
+      ]
+    }
+  ],
+  "services": [
+    {
+      "provider": "gemini",
+      "name": "Gemini API",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "elevenlabs",
+      "name": "ElevenLabs",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "solana",
+      "name": "Solana",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "tiger",
+      "name": "Tiger Data",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "digitalocean",
+      "name": "DigitalOcean",
+      "remote_verified": false,
+      "demo_status": "not_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "Hosting/domain setup requires separate deployment evidence."
+    },
+    {
+      "provider": "snowflake",
+      "name": "Snowflake API",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "mongodb",
+      "name": "MongoDB Atlas",
+      "remote_verified": false,
+      "demo_status": "mock_adapter_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "This run does not establish an active account or remote integration."
+    },
+    {
+      "provider": "godaddy",
+      "name": "GoDaddy Registry",
+      "remote_verified": false,
+      "demo_status": "not_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "Hosting/domain setup requires separate deployment evidence."
+    },
+    {
+      "provider": "gcp",
+      "name": "Google Cloud",
+      "remote_verified": false,
+      "demo_status": "not_exercised",
+      "connection_status": "not_checked_by_offline_demo",
+      "note": "Hosting/domain setup requires separate deployment evidence."
+    }
+  ],
+  "report": {
+    "schema": "relay.report.v1",
+    "report_id": "leak-demo:report-v1",
+    "report_revision": 1,
+    "mission_id": "leak-demo",
+    "station_id": "station-a",
+    "simulated": true,
+    "fixture_start": "2026-09-26T18:00:00Z",
+    "outcome": "complete",
+    "findings": [
+      {
+        "event_id": "water-040",
+        "timestamp_seconds": 40,
+        "status": "suspected_hazard",
+        "hazard_type": "standing_water",
+        "confidence_milli": 850,
+        "summary": "Simulated wetness reading suggests standing water.",
+        "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+        "cited_reference_ids": [
+          "fixture-water-review-v1"
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-000",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:00Z",
+        "kind": "water",
+        "value_milli": 40,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-010",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:10Z",
+        "kind": "water",
+        "value_milli": 55,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-020",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:20Z",
+        "kind": "water",
+        "value_milli": 80,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-030",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:30Z",
+        "kind": "water",
+        "value_milli": 60,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-040",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:40Z",
+        "kind": "water",
+        "value_milli": 850,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-050",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:00:50Z",
+        "kind": "water",
+        "value_milli": 1000,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-060",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:00Z",
+        "kind": "water",
+        "value_milli": 960,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-070",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:10Z",
+        "kind": "water",
+        "value_milli": 900,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-080",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:20Z",
+        "kind": "water",
+        "value_milli": 130,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-090",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:30Z",
+        "kind": "water",
+        "value_milli": 70,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-100",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:40Z",
+        "kind": "water",
+        "value_milli": 60,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      },
+      {
+        "mission_id": "leak-demo",
+        "event_id": "water-110",
+        "robot_id": "station-a",
+        "observed_at": "2026-09-26T18:01:50Z",
+        "kind": "water",
+        "value_milli": 45,
+        "simulated": true,
+        "latitude": null,
+        "longitude": null
+      }
+    ],
+    "references": [
+      {
+        "reference_id": "fixture-water-review-v1",
+        "hazard_type": "standing_water",
+        "title": "Synthetic water inspection procedure",
+        "body": "Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.",
+        "source_url": "relay://fixtures/water-review-v1",
+        "is_simulated": true
+      },
+      {
+        "reference_id": "fixture-water-routing-v1",
+        "hazard_type": "standing_water",
+        "title": "Synthetic route review note",
+        "body": "Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.",
+        "source_url": "relay://fixtures/water-routing-v1",
+        "is_simulated": true
+      }
+    ],
+    "accounting": {
+      "requests": 1,
+      "new_requests": 1,
+      "tokens": 485,
+      "estimated_usd": "0.000725",
+      "new_estimated_usd": "0.000725",
+      "actual_paid_usd": "0.000000",
+      "replayed_requests": 0,
+      "avoided_tokens": 0,
+      "session_estimated_usd": "0.000725",
+      "shared_spend_operation_ids": [],
+      "price_basis": "illustrative simulation rates"
+    },
+    "review": {
+      "status": "simulated_review",
+      "reviewed": true,
+      "human_review_performed": false
+    },
+    "finalization": {
+      "status": "simulated_finalization",
+      "finalized": true
+    },
+    "actuation_enabled": false
+  },
+  "findings": [
+    {
+      "event_id": "water-040",
+      "timestamp_seconds": 40,
+      "status": "suspected_hazard",
+      "hazard_type": "standing_water",
+      "confidence_milli": 850,
+      "summary": "Simulated wetness reading suggests standing water.",
+      "recommended_action": "Ask a person to inspect; a second robot observation may help.",
+      "cited_reference_ids": [
+        "fixture-water-review-v1"
+      ]
+    }
+  ],
+  "accounting": {
+    "requests": 1,
+    "new_requests": 1,
+    "tokens": 485,
+    "estimated_usd": "0.000725",
+    "new_estimated_usd": "0.000725",
+    "actual_paid_usd": "0.000000",
+    "replayed_requests": 0,
+    "avoided_tokens": 0,
+    "session_estimated_usd": "0.000725",
+    "shared_spend_operation_ids": [],
+    "price_basis": "illustrative simulation rates"
+  },
+  "references": [
+    {
+      "reference_id": "fixture-water-review-v1",
+      "hazard_type": "standing_water",
+      "title": "Synthetic water inspection procedure",
+      "body": "Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.",
+      "source_url": "relay://fixtures/water-review-v1",
+      "simulated": true
+    },
+    {
+      "reference_id": "fixture-water-routing-v1",
+      "hazard_type": "standing_water",
+      "title": "Synthetic route review note",
+      "body": "Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.",
+      "source_url": "relay://fixtures/water-routing-v1",
+      "simulated": true
+    }
+  ],
+  "reference_context": [
+    {
+      "reference_id": "fixture-water-review-v1",
+      "hazard_type": "standing_water",
+      "title": "Synthetic water inspection procedure",
+      "body": "Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.",
+      "source_url": "relay://fixtures/water-review-v1",
+      "is_simulated": true
+    },
+    {
+      "reference_id": "fixture-water-routing-v1",
+      "hazard_type": "standing_water",
+      "title": "Synthetic route review note",
+      "body": "Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.",
+      "source_url": "relay://fixtures/water-routing-v1",
+      "is_simulated": true
+    }
+  ],
+  "telemetry": [
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-000",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:00Z",
+      "kind": "water",
+      "value_milli": 40,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-010",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:10Z",
+      "kind": "water",
+      "value_milli": 55,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-020",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:20Z",
+      "kind": "water",
+      "value_milli": 80,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-030",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:30Z",
+      "kind": "water",
+      "value_milli": 60,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-040",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:40Z",
+      "kind": "water",
+      "value_milli": 850,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-050",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:00:50Z",
+      "kind": "water",
+      "value_milli": 1000,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-060",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:00Z",
+      "kind": "water",
+      "value_milli": 960,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-070",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:10Z",
+      "kind": "water",
+      "value_milli": 900,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-080",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:20Z",
+      "kind": "water",
+      "value_milli": 130,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-090",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:30Z",
+      "kind": "water",
+      "value_milli": 70,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-100",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:40Z",
+      "kind": "water",
+      "value_milli": 60,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    {
+      "mission_id": "leak-demo",
+      "event_id": "water-110",
+      "robot_id": "station-a",
+      "observed_at": "2026-09-26T18:01:50Z",
+      "kind": "water",
+      "value_milli": 45,
+      "simulated": true,
+      "latitude": null,
+      "longitude": null
+    }
+  ],
+  "telemetry_persistence": {
+    "inserted": 12,
+    "replay_inserted": 0,
+    "readback_count": 12,
+    "verified": true
+  },
+  "mission_persistence": {
+    "mission_id": "leak-demo",
+    "verified": true,
+    "content_sha256": "57c30c4e04364d448a7a0f947b5742c09fd004c186d141d2a0654326b9f23e93"
+  },
+  "briefing": {
+    "provider": "elevenlabs",
+    "mode": "mock",
+    "simulated": true,
+    "cache_key": "b32c43df518fe87ab094c6ce12819e7774b44ac2cd264e9091d1b8cd6c41c7b4",
+    "cache_hit": false,
+    "characters": 226,
+    "voice_id": "mock-voice",
+    "model_id": "mock-model",
+    "output_format": "mp3_44100_128",
+    "audio_path": null,
+    "audio_sha256": null,
+    "request_sent": false,
+    "actual_billed_usd": "0.00",
+    "status": "mock",
+    "note": "No speech generated; no provider request made.",
+    "text": "Simulated inspection: 12 readings across 1 robot identifiers. 1 suspected hazard findings; 0 findings need review. Review and finalization are simulated. No physical inspection, real human approval, or robot movement occurred.",
+    "review_status": "simulated_review",
+    "human_review_performed": false
+  },
+  "receipt": {
+    "schema": "relay.receipt.v1",
+    "provider": "solana",
+    "mode": "mock",
+    "network": "devnet",
+    "simulated": true,
+    "report_simulated": true,
+    "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+    "memo": "relay:v1:sha256:dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+    "signature": null,
+    "signer": null,
+    "explorer_url": null,
+    "chain_verified": false,
+    "request_sent": false,
+    "status": "mock",
+    "note": "No wallet or blockchain transaction created."
+  },
+  "receipt_verification": {
+    "hash_matches": true,
+    "chain_verified": false,
+    "valid": true,
+    "mode": "mock",
+    "network": "devnet",
+    "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+    "simulated": true,
+    "status": "mock_hash_verified",
+    "note": "Local hash comparison only; no blockchain transaction exists."
+  },
+  "tamper_verification": {
+    "hash_matches": false,
+    "chain_verified": false,
+    "valid": false,
+    "mode": "mock",
+    "network": "devnet",
+    "report_sha256": "44e9356b058628de03ce58c9723c116ed81c1e27293ae7debd865ca3e415e70c",
+    "status": "report_changed",
+    "simulated": true
+  },
+  "limitations": [
+    "All adapter operations in this workflow are mock; remote accounts and deployments were not checked.",
+    "Supplied observations are replayed as simulated and use a fixed fixture epoch.",
+    "Review, finalization, and reference passages are demo fixtures, not real human approval.",
+    "There is no generated audio, blockchain transaction, physical actuation, or cloud provisioning.",
+    "Mock model cost estimates are illustrative; actual new provider charges for this run are zero."
+  ]
+}

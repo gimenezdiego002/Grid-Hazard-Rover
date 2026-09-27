@@ -1,3 +1,31 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.state/
+.codex-remote-attachments/
+.env
+.env.*
+!.env.example
+dist/
+build/
+*.sqlite*
+*.db
+*.db-shm
+*.db-wal
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+credentials*.json
+# Local cross-chat handoffs and shopping history are not project source.
+docs/continuation.md
+docs/shopping-list.md
+artifacts/verification.md
+
+# Retained Grid Hazard Rover workspace exclusions
 # Environment / secrets
 .env
 .env.local
@@ -79,3 +107,6 @@ uploads/
 *.jpg
 *.jpeg
 *.png
+
+# Reviewed synthetic dashboard evidence only
+!artifacts/dashboard-mission-completed.png

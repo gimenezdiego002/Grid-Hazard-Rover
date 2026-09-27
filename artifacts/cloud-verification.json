@@ -1,0 +1,101 @@
+{
+  "project_id": "shellhacks-relay-2026-0926",
+  "region": "us-east1",
+  "service": "relay-gateway",
+  "url": "https://relay-gateway-345149168663.us-east1.run.app",
+  "mode": "mock",
+  "revision": "relay-gateway-00006-w89",
+  "image_digest": "sha256:61f6b0d4b47a34b89f9cc3de3520f780391ceb94eb5f3771340f6da22fe0a08a",
+  "build_id": "45668edd-4edf-45df-9fcc-58eb96c5dc59",
+  "deployment_status": "deployed_and_verified_private",
+  "source_commit": "023f9cc0ce06d410312f1db3384f9147a1daf32d",
+  "source_manifest_sha256": "b80b099c3cf1779edcf2348748de23e074b1e0575f4d8801d4aba699716cbef9",
+  "source_file_count": 27,
+  "verified_at": "2026-09-26T22:00:19.471647+00:00",
+  "verified_image_digest": "sha256:61f6b0d4b47a34b89f9cc3de3520f780391ceb94eb5f3771340f6da22fe0a08a",
+  "served_assets": {
+    "/": {
+      "source_path": "web/index.html",
+      "sha256": "c55f17aa7a07537852a123621e716f384e4d43067fdc5217b530f7e0c5207140",
+      "bytes": 15951,
+      "matches_local_source": true
+    },
+    "/static/app.js": {
+      "source_path": "web/app.js",
+      "sha256": "4385f6184fca551c0088f15c683803517952fa16d2f179bab50144d83703585a",
+      "bytes": 23723,
+      "matches_local_source": true
+    }
+  },
+  "runtime_controls_verified": {
+    "min_instances": 0,
+    "revision_max_instances": 1,
+    "concurrency": 1,
+    "cpu": "1",
+    "memory": "512Mi",
+    "request_based_cpu": true,
+    "provider_secrets_attached": false,
+    "public_invokers": false
+  },
+  "unauthenticated_status": 403,
+  "health": {
+    "status": "ok",
+    "provider_mode": "mock",
+    "simulated": true,
+    "actuation_enabled": false,
+    "paid_api_enabled": false,
+    "session_api_ceiling_usd": "15.00",
+    "reserved_usd": "5.00"
+  },
+  "cloud_missions": [
+    {
+      "input_outcome": "suspected_hazard",
+      "final_status": "completed",
+      "progress": {
+        "completed": 4,
+        "total": 4,
+        "unit": "simulated_tasks"
+      },
+      "simulated": true,
+      "human_review_performed": false,
+      "actuation_enabled": false,
+      "repeated_action_receipt_verified": true,
+      "current_state_readback_verified": true
+    },
+    {
+      "input_outcome": "budget_refused",
+      "final_status": "needs_review",
+      "progress": {
+        "completed": 1,
+        "total": 4,
+        "unit": "simulated_tasks"
+      },
+      "simulated": true,
+      "human_review_performed": false,
+      "actuation_enabled": false,
+      "repeated_action_receipt_verified": true,
+      "current_state_readback_verified": true
+    }
+  ],
+  "verified_traffic_before": {
+    "revision": "relay-gateway-00006-w89",
+    "percent": 100
+  },
+  "verified_traffic_after": {
+    "revision": "relay-gateway-00006-w89",
+    "percent": 100
+  },
+  "cloud_replay": {
+    "status": "completed",
+    "steps": 6,
+    "telemetry_rows": 12,
+    "network_requests": 0,
+    "receipt_checks": {
+      "report_sha256": "dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41",
+      "original_valid": true,
+      "modified_valid": false,
+      "chain_verified": false,
+      "transaction_signature": null
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "scenario_id": "synthetic-water-onset-v1",
+  "version": 1,
+  "simulated": true,
+  "duration_seconds": 120,
+  "mission_id": "leak-demo",
+  "station_id": "station-a",
+  "budget": {
+    "max_requests": 12,
+    "max_tokens": 24000,
+    "max_usd": "0.10"
+  },
+  "evaluation": {
+    "baseline_interval_seconds": 10,
+    "leak_onset_seconds": 40,
+    "leak_end_seconds": 80
+  },
+  "observations": [
+    {"event_id": "water-000", "robot_id": "station-a", "kind": "water", "value_milli": 40, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 0, "ground_truth_hazard": false},
+    {"event_id": "water-010", "robot_id": "station-a", "kind": "water", "value_milli": 55, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 10, "ground_truth_hazard": false},
+    {"event_id": "water-020", "robot_id": "station-a", "kind": "water", "value_milli": 80, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 20, "ground_truth_hazard": false},
+    {"event_id": "water-030", "robot_id": "station-a", "kind": "water", "value_milli": 60, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 30, "ground_truth_hazard": false},
+    {"event_id": "water-040", "robot_id": "station-a", "kind": "water", "value_milli": 850, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 40, "ground_truth_hazard": true},
+    {"event_id": "water-050", "robot_id": "station-a", "kind": "water", "value_milli": 1000, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 50, "ground_truth_hazard": true},
+    {"event_id": "water-060", "robot_id": "station-a", "kind": "water", "value_milli": 960, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 60, "ground_truth_hazard": true},
+    {"event_id": "water-070", "robot_id": "station-a", "kind": "water", "value_milli": 900, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 70, "ground_truth_hazard": true},
+    {"event_id": "water-080", "robot_id": "station-a", "kind": "water", "value_milli": 130, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 80, "ground_truth_hazard": false},
+    {"event_id": "water-090", "robot_id": "station-a", "kind": "water", "value_milli": 70, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 90, "ground_truth_hazard": false},
+    {"event_id": "water-100", "robot_id": "station-a", "kind": "water", "value_milli": 60, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 100, "ground_truth_hazard": false},
+    {"event_id": "water-110", "robot_id": "station-a", "kind": "water", "value_milli": 45, "unit": "normalized_wetness", "evidence_uri": null, "simulated": true, "timestamp_seconds": 110, "ground_truth_hazard": false}
+  ]
+}

@@ -1,191 +1,156 @@
-# Grid Hazard Rover — AI and Backend
+# Grid Hazard Rover
 
-Grid Hazard Rover finds places where planned utility projects collide in space and time, then enriches that core coordination signal with public roadwork and rover-observed hazards. This repository currently contains the shared data contract and a runnable FastAPI backend. Frontend and Raspberry Pi implementation remain teammate-owned.
+Grid Hazard Rover combines planned utility work, public infrastructure records,
+and rover observations to identify places where field coordination deserves
+attention. The repository contains the Grid backend and dashboard, Matias's
+public-data ingestion pipeline, and Monty's Relay mission/telemetry subsystem.
 
-## Architecture
+## System layout
 
 ```text
-JPEG + trusted lng/lat/timestamp
-  -> Gemini structured visual classification
-  -> canonical shared.schemas.Hazard
-  -> optional MongoDB persistence
-  -> closest-point spatial matching + timeline comparison
-  -> deterministic Coordination Risk Index
-  -> canonical Match/RiskCell JSON for the frontend
+public records ──> backend.ingestion ───────────────┐
+utility projects ────────────────────────────────────┤
+JPEG + trusted GPS/time ──> Gemini classifier ──────┤
+Relay reviewed finding + trusted field context ─────┤
+                                                    v
+                                      canonical shared schemas
+                                                    |
+                                      spatial/timeline matching
+                                                    |
+                                      explainable risk cells
+                                                    |
+                                      FastAPI + web dashboard
 ```
 
-`shared/schemas.py` is the only canonical definition of `Project`, `Record`, `Hazard`, `Match`, and `RiskCell`. Backend helper and response models do not replace those types. All GeoJSON is stored and transmitted as `[longitude, latitude]`; Leaflet must swap to `[latitude, longitude]` only while rendering.
+`shared/schemas.py` is the single source of truth for `Project`, `Record`,
+`Hazard`, `Match`, and `RiskCell`. Stored and transmitted GeoJSON always uses
+`[longitude, latitude]`. Browser map libraries may swap coordinate order only
+at the rendering boundary.
 
-## Setup (PowerShell, Python 3.11)
+Relay remains a deliberate subsystem under `src/relay_gateway`. Its mission,
+telemetry, budgeting, and provisional-finding models serve different purposes
+from the canonical Grid records and are not silently treated as equivalent.
+Integration occurs through an explicit reviewed adapter with trusted location,
+time, and severity inputs.
+
+## Components
+
+- `backend/`: FastAPI API, Gemini image classification, storage, spatial and
+  timeline matching, explainable risk scoring, and public-record ingestion.
+- `shared/`: canonical Pydantic data contract shared by every subsystem.
+- `frontend/`: the operator-facing Grid dashboard.
+- `src/relay_gateway/`: Relay mission planning, mock replay, telemetry gateway,
+  integration proofs, spending controls, and its standalone dashboard.
+- `docs/`: Relay operations, evaluation, hardware, cloud, and demo evidence.
+- `rover/`: rover-side simulation and supervised hardware adapters.
+
+## Grid backend setup
+
+From the repository root in PowerShell:
 
 ```powershell
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r backend\requirements.txt
+python -m pip install -e ".[dev,integrations]"
 Copy-Item .env.example .env
-```
-
-Put credentials only in `.env`, which is ignored by Git. The backend starts without Gemini or MongoDB credentials; only the features that need those services will be unavailable.
-
-```powershell
 python -m uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Open `http://localhost:8000/docs` for Swagger UI. DigitalOcean App Platform can use this production run command (substitute its provided port variable in the UI):
+Open `http://localhost:8000/docs`. The backend starts without Gemini or MongoDB
+credentials; only features requiring those services are unavailable. Keep real
+credentials in the ignored `.env` file and never expose server keys through
+`VITE_*` variables.
 
-```text
-python -m uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
-```
+Core endpoints include:
 
-## Environment variables
+- `GET /health`
+- `GET /api/projects`, `/api/records`, `/api/hazards`
+- `GET /api/matches`, `/api/risk-grid`, `/api/demo-summary`
+- `POST /ingest/photo`
+- `POST /api/integrations/relay/hazards`
+- `/relay/*` for the namespaced Relay simulator and dashboard
+- `/relay/fleet/*` for bounded Relay telemetry intake
 
-| Name | Purpose |
-|---|---|
-| `GEMINI_API_KEY` | Server-side Gemini API credential |
-| `GEMINI_MODEL` | Configurable image-capable Gemini model |
-| `GOOGLE_MAPS_API_KEY` | One server-side key shared by Geocoding and future Routes calls |
-| `MONGODB_URI` | Optional MongoDB connection string |
-| `MONGODB_DB` | Database name; defaults to `grid_hazard_rover` |
-| `ELEVENLABS_API_KEY` | Reserved for optional explicit voice briefings |
-| `ELEVENLABS_VOICE_ID` | Reserved voice identifier |
-| `DISCORD_WEBHOOK_URL` | Reserved for optional explicit alerts |
-| `FRONTEND_URL` | Additional exact CORS origin |
+`POST /ingest/photo` accepts a bounded JPEG plus trusted longitude, latitude,
+timestamp, and optional source. Gemini supplies visual classification only; it
+does not invent GPS, timestamps, identity, distance, or risk. A no-hazard result
+does not create a fake canonical hazard.
 
-Never expose server keys through `VITE_*` values.
-
-## API contract for the frontend
-
-All successful responses are JSON. Geometry coordinates remain longitude-first.
-
-| Method and path | Response |
-|---|---|
-| `GET /health` | `{"status":"ok"}`; does not require MongoDB |
-| `GET /api/projects` | Array of canonical `Project` objects |
-| `GET /api/records` | Array of canonical public `Record` objects |
-| `GET /api/hazards` | Array of canonical rover `Hazard` objects |
-| `GET /api/matches` | Array of canonical spatial/timeline `Match` objects |
-| `GET /api/risk-grid` | Array of canonical explainable `RiskCell` polygons |
-| `GET /api/demo-summary` | One envelope containing every demo collection |
-| `POST /ingest/photo` | AI classification plus an optional canonical `Hazard` |
-
-When MongoDB is configured, `/api/storage/projects`, `/api/storage/records`,
-and `/api/storage/hazards` provide paginated `items` envelopes with fixture
-filtering and invalid-row counts for data-quality inspection. These do not
-replace the raw-array frontend endpoints above. Legacy rows that fail the
-canonical shared schema remain reported by the storage inspection API but are
-excluded from matching, risk calculations, and canonical frontend arrays.
-
-The offline store starts with safe synthetic Miami-area data: two crossing downtown utility projects, public-roadwork context, a severity-four pothole, and a separate lower-risk comparison. These are demo fixtures, not restricted infrastructure data.
-
-### `POST /ingest/photo`
-
-Send `multipart/form-data`:
-
-- `image` (required): complete JPEG, maximum 8 MiB and 20 megapixels
-- `longitude` (required): `-180..180`
-- `latitude` (required): `-90..90`
-- `timestamp` (required): ISO 8601 with UTC offset, such as `2026-09-26T16:00:00Z`
-- `source` (optional): device/source label, maximum 100 characters
-
-Detected hazard response:
-
-```json
-{
-  "hazard_detected": true,
-  "classification": {
-    "hazard_detected": true,
-    "hazard_type": "pothole",
-    "severity": 4,
-    "confidence": 0.92,
-    "description": "A pothole is visible in the road surface."
-  },
-  "hazard": {
-    "id": "hazard-generated-id",
-    "hazard_type": "pothole",
-    "severity": 4,
-    "confidence": 0.92,
-    "description": "A pothole is visible in the road surface.",
-    "location": {"type": "Point", "coordinates": [-80.3521, 25.7652]},
-    "timestamp": "2026-09-26T16:00:00Z",
-    "image_url": null,
-    "metadata": {"source": "mock-rover", "classification_provider": "gemini"}
-  },
-  "persisted": true
-}
-```
-
-When Gemini reports no visible hazard, `hazard` is `null`, `persisted` is `false`, and no fake entity is created. GPS, timestamp, source, and IDs always come from trusted request/backend data—not Gemini.
-
-## Gemini classifier
-
-The classifier uses the official `google-genai` SDK, a configurable `GEMINI_MODEL`, inline JPEG bytes, JSON MIME type, provider-side response schema, and local Pydantic validation. Allowed labels cover potholes, road/sidewalk damage, vegetation, debris, pole/equipment damage, flooding, construction/lane closures, other visible infrastructure hazards, and a genuine no-hazard state.
-
-Normal tests mock the SDK. An intentional one-call live test is separate:
+## Frontend
 
 ```powershell
-python -m backend.live_smoke C:\path\to\sample.jpg
+cd frontend
+npm install
+npm run dev
 ```
 
-It prints `LIVE SKIPPED` if credentials or the image are absent and never pretends an external call passed.
+The dashboard consumes the canonical API. Leaflet conversion from GeoJSON
+`[longitude, latitude]` to display `[latitude, longitude]` belongs only in this
+frontend boundary.
 
-## Deterministic coordination logic
+## Relay subsystem
 
-Spatial matching converts WGS84 geometry to a local azimuthal-equidistant metric CRS using `pyproj`, then uses Shapely closest points. It never treats latitude/longitude degrees as metres and never substitutes centroid distance.
-
-- touching/intersection: `crossing`, 0 m
-- `0 < distance < 1,600`: `under_1_6km`
-- `1,600 <= distance < 8,000`: `under_8km`
-- `8,000 <= distance < 40,000`: `under_40km`
-- `>= 40,000`: excluded
-
-Timeline comparison supports overlaps, gaps of at most 180 days, gaps outside that window, partial dates, and unknown dates. Unknown stays `null` in the canonical match rather than becoming false.
-
-The Coordination Risk Index is deterministic:
-
-- distance, max 40: crossing 40; under 1.6 km 35; under 8 km 25; under 40 km 10
-- timeline, max 25: overlap 25; gap <=30 days 20; <=90 days 15; <=180 days 10; otherwise/unknown 0
-- nearby rover hazard, max 20: severity × 4 (within 8 km)
-- nearby public context, max 15: crossing/under 1.6 km 15; under 8 km 10
-
-The total is clamped to `0..100`: LOW `0..29`, MODERATE `30..59`, HIGH `60..79`, CRITICAL `80..100`. Every `RiskCell` includes component scores, human-readable reasons, and related IDs.
-
-## MongoDB and geocoding
-
-Without a valid `MONGODB_URI` scheme, a process-local demo repository is used;
-valid URIs begin with `mongodb://` or `mongodb+srv://`. With Mongo configured,
-access stays lazy and canonical projects, records, hazards, matches, and risk
-cells can be upserted. Every collection gets a unique `id` index; collections
-with a GeoJSON `location` (`projects`, `records`, `hazards`, and `risk_cells`)
-also get a `2dsphere` index.
-
-Google Geocoding is isolated in `backend.app.geocoding` and called only when normalized source data has an address but no geometry. Existing source coordinates bypass Google. Results are cached in process and converted from Google's `lat/lng` object to canonical `[lng, lat]`.
-
-The data-pipeline teammate can normalize public ArcGIS/utility inputs directly into the shared models. Gemini is not used for already-structured data and never computes distance, timeline, or risk.
-
-The integrated `backend.ingestion` package provides bounded ArcGIS fetches,
-source-specific canonical normalization, rejection manifests, reproducible
-fixture tests, and an idempotent FDOT record importer. Records imported into the
-shared Mongo collections are immediately visible to the primary API and become
-public-context inputs to deterministic matching and risk scoring.
+Relay has a fully offline mock path and separately gated live proofs. Its mock
+workflow does not require an API key, paid model call, cloud deployment, or
+physical motion.
 
 ```powershell
-python -m backend.ingestion probe fdot_active
-python -m backend.ingestion fetch fdot_active --limit 20 --output tmp\fdot.snapshot.json
-python -m backend.ingestion normalize tmp\fdot.snapshot.json --output tmp\fdot-export
-python -m backend.ingestion.import_records tmp\fdot-export --apply
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,integrations]"
+.\.venv\Scripts\python.exe -m relay_gateway demo --scenario scenarios/leak.json
+.\.venv\Scripts\python.exe -m relay_gateway compare --scenario scenarios/leak.json
+.\.venv\Scripts\python.exe -m relay_gateway integrations
 ```
 
-## Tests
+The primary Grid startup exposes Relay at `http://localhost:8000/relay/`. The
+standalone Relay dashboard can also be launched with `scripts/start-demo.ps1`.
+Its mission state is bounded and process-local. Inventory, sensor observations,
+review events, model usage, and costs are clearly labeled when simulated.
+
+Read these before claiming or operating integrations:
+
+- [Integration status](docs/mlh-integrations.md)
+- [Mission behavior](docs/missions.md)
+- [Budget policy](docs/budget-policy.md)
+- [Hardware bring-up](docs/hardware-bringup.md)
+- [Five-minute demo](docs/demo-runbook.md)
+- [Cloud deployment](deploy/README.md)
+
+## Data and environment boundaries
+
+The root `.env.example` documents Grid settings. `deploy/relay.env.example`
+documents Relay settings. Neither contains credentials. Runtime state, raw
+attachments, private operator handoffs, and canonical spending databases remain
+outside Git.
+
+Without a valid `MONGODB_URI`, Grid uses its process-local demo repository.
+With MongoDB configured, canonical collections use unique IDs and GeoJSON
+collections receive `2dsphere` indexes. Relay mission state and spending records
+remain separate unless an explicit integration path says otherwise.
+
+Google Geocoding uses the single server-side `GOOGLE_MAPS_API_KEY`; the same key
+may authorize Routes when that feature is enabled. Existing coordinates bypass
+geocoding. Routes cannot automatically avoid custom hazard polygons: route
+alternatives must be scored against canonical hazards locally.
+
+## Verification
 
 ```powershell
 python -W error -m unittest discover -v
 python -m shared.test_schemas
-python -m compileall backend shared
+python -m compileall backend shared src
 python -m pip check
 ```
 
-Automated tests perform no live Gemini, Google, or MongoDB calls. They cover schema validation, classifier requests and failure modes, canonical hazard conversion, multipart ingest, coordinate order, geometry variants, distance tiers, timeline states, match enrichment, exact risk scoring, API contracts, geocoding, repository behavior, CORS, and optional configuration.
+Frontend tests run from `frontend/`. Relay also has focused tests under `tests/`.
+Automated tests use mocks and fixtures; passing them is not proof of a connected
+account, paid request, blockchain transaction, or physical robot inspection.
 
-## External integrations not in the core MVP
+## Safety and truthfulness
 
-Google Routes exposure scoring, ElevenLabs briefings, and Discord alerts remain optional follow-ups. The backend does not claim Google Routes can directly avoid custom hazard polygons; a future implementation must request alternatives and score their exposure locally. No frontend, Leaflet rendering, rover hardware, GPIO, camera, or motor code is implemented here.
+- Never move physical hardware unattended. Motion requires a supervised,
+  explicit enable step and an immediate stop path.
+- Keep simulated and real observations clearly distinguished.
+- Treat model findings as provisional until reviewed.
+- Do not fabricate missing location, timestamp, severity, dates, or evidence.
+- Keep cumulative paid-service use within the documented shared budget.

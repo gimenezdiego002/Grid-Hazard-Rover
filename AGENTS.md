@@ -1,3 +1,28 @@
+# Branch scope: Grid Hazard Rover and Relay
+
+This branch integrates the Relay inspection prototype alongside the Grid Hazard Rover foundation. Preserve `/shared` as the canonical contract for the team backend, frontend and rover. Relay's separate observation/mission models in `src/relay_gateway` do not replace Project, Record, Hazard, Match or RiskCell. Relay is mounted under `/relay`, its fleet gateway under `/relay/fleet`, and reviewed findings cross into the canonical hazard pipeline only through `backend/app/integrations/relay_adapter.py` with trusted location, timestamp, and severity.
+
+The Relay constraints below govern its software and the existing cumulative API/cloud authorization. The retained Grid Hazard Rover guidance later in this file governs the team-owned backend, frontend, rover and shared contract. Where product/deployment directions differ, keep the subsystems distinct and follow the user's explicit scope; do not silently change teammate architecture. Use `deploy/relay.env.example` for Relay; root `.env.example` retains the team's configuration.
+
+# ShellHacks working constraints
+
+User objective: a multi-robot hazard/leak inspection system with preset and directed missions, using all eight MLH challenge integrations. Gemini is the model provider and GCP is the primary cloud. See `docs/mlh-integrations.md` for exact intended roles and proof requirements.
+
+- Total newly incurred API/cloud cost is authorized up to **USD 20**, cumulatively across agents, providers, reruns, and sessions. Plan within **USD 15**, retaining USD 5 for delayed billing and necessary recovery. Hardware purchases are separate.
+- Read `docs/budget-policy.md` and existing spending records before any billable work. Never treat a new process, mission, or cloud project as a fresh allowance. Account for unresolved reservations. Pollard currently governs model calls; its ledger does not automatically include other providers' bills.
+- Prefer offline fixtures and explicit model calls over background loops. API routes and the default CLI must remain mock-only. A live CLI path must be deliberately enabled, metered, and within the remaining authorized budget; existing environment keys must never silently enable live behavior.
+- Do not print credentials, write them to source control, put them into frontend code, or bake them into container images. Use local environment or a runtime secret store.
+- No physical robot actuation, flashing, or calibration while the operator is away. Hardware versions, adapters, and power requirements must be confirmed before bring-up.
+- Mark simulation data and costs explicitly. Do not claim a cloud integration, hardware connection, energy measurement, or environmental saving that has not been demonstrated.
+- Keep the user's other cloud projects and unrelated resources untouched. The user selected a separate ShellHacks project on September 26, 2026: use `shellhacks-relay-2026-0926`; leave unrelated projects untouched.
+- Use a project-local `.venv`. Repository edits are shared between agents; coordinate file ownership.
+
+Hardware known: Freenove Big Hexapod Robot Kit for Raspberry Pi model FNK0052, Quarky Intellio Rover kit, Hiwonder LeArm (exact version pending), assorted station sensors, StackChan (exact version pending), and an existing IMREN K4 charger. The operator's local-only `docs/shopping-list.md` contains shopping evidence and is excluded from Git; use `docs/hardware-bringup.md` for the shared bring-up requirements.
+
+---
+
+# Retained Grid Hazard Rover team guidance
+
 # Grid Hazard Rover - Agent Context
 
 ## Mission
@@ -290,7 +315,7 @@ At the time this guide was updated:
   is not configured. Live Gemini classification has been verified separately.
 - `.venv` uses Python 3.11 and is ignored. `.env` is also ignored and must
   never be committed; `.env.example` contains names and safe defaults only.
-- Frontend and rover directories remain teammate-owned and were not
-  implemented by the backend lane.
+- The React/Leaflet frontend is implemented and consumes the canonical API.
+  Rover physical control remains hardware-gated and must preserve mock support.
 
 Re-check the repository rather than assuming this baseline remains current.
