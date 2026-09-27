@@ -1374,6 +1374,15 @@ form > small {
   font-size: 9px;
   line-height: 1.5;
 }
+.device-connected-note {
+  margin-top: 12px;
+  padding: 9px;
+  border-radius: 8px;
+  background: #e4f1df;
+  color: #32613a;
+  font-size: 9px;
+  line-height: 1.5;
+}
 .rover-demo {
   margin-top: 26px;
   padding: 26px;

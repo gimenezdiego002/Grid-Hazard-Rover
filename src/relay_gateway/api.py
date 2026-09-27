@@ -72,6 +72,13 @@ def mission_inventory():
             "mission_storage": "bounded_process_memory"}
 
 
+@app.get("/api/hiwonder/status")
+def hiwonder_status():
+    """Read-only local BLE status; never sends an arm-control command."""
+    from .hiwonder_ble import read_status
+    return read_status()
+
+
 @app.post("/api/missions")
 def plan_mission(request: MissionPlanRequest):
     return mission_operation(lambda: mission_engine().create_mission(**request.model_dump()))

@@ -104,6 +104,17 @@ test.beforeEach(async ({ page }) => {
       },
     }),
   );
+  await page.route("**/relay/api/hiwonder/status", (route) =>
+    route.fulfill({
+      json: {
+        connected: false,
+        device_name: "Hiwonder",
+        control_mode: "unavailable",
+        actuation_enabled: false,
+        writes_performed: 0,
+      },
+    }),
+  );
 });
 test("renders real contracts, filters matches, preserves unknown dates and exports", async ({
   page,

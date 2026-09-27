@@ -17,16 +17,30 @@ interface Inventory {
   simulated: boolean;
   physical_connections_verified: boolean;
 }
+interface HiwonderStatus {
+  connected: boolean;
+  device_name: string;
+  reason?: string;
+  control_mode?: string;
+  actuation_enabled?: boolean;
+  writes_performed?: number;
+  gatt_service_count?: number;
+}
 
 export default function Fleet({ hazards }: { hazards: Hazard[] }) {
   const [inventory, setInventory] = useState<Device[]>([]);
+  const [hiwonder, setHiwonder] = useState<HiwonderStatus | null>(null);
   const [error, setError] = useState("");
 
   async function load() {
     setError("");
     try {
-      const result = await request<Inventory>("/relay/api/missions/inventory");
+      const [result, status] = await Promise.all([
+        request<Inventory>("/relay/api/missions/inventory"),
+        request<HiwonderStatus>("/relay/api/hiwonder/status").catch(() => null),
+      ]);
       setInventory(result.inventory);
+      setHiwonder(status);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Fleet inventory unavailable");
     }
@@ -56,9 +70,15 @@ export default function Fleet({ hazards }: { hazards: Hazard[] }) {
             <p>{device.capabilities.map((item) => item.replaceAll("_", " ")).join(" · ")}</p>
             <small>{device.available ? "Available in simulation" : "Unavailable in simulation"}</small>
             {device.device_id === "learm" && (
-              <div className="device-warning">
-                Power alone does not establish control. No USB/serial link is detected, and the exact LeArm controller is still unknown. Physical response stays blocked.
-              </div>
+              hiwonder?.connected ? (
+                <div className="device-connected-note">
+                  Windows sees Hiwonder over Bluetooth. Read-only status is connected; movement remains blocked.
+                </div>
+              ) : (
+                <div className="device-warning">
+                  No Hiwonder Bluetooth session is detected. Physical response stays blocked.
+                </div>
+              )
             )}
           </article>
         ))}
