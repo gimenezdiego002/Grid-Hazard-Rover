@@ -1,0 +1,13 @@
+{
+  "name": "relay-static-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node test-runtime.mjs"
+  },
+  "dependencies": {
+    "pyodide": "314.0.7"
+  }
+}

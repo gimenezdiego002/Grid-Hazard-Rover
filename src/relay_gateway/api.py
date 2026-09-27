@@ -4,7 +4,7 @@ from pathlib import Path
 import json
 import os
 from threading import Lock
-from typing import Literal
+from typing import Annotated, Literal
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -16,11 +16,15 @@ from .models import MissionRequest
 
 
 PROJECT_ROOT = Path(os.environ.get("RELAY_ASSET_ROOT", Path(__file__).resolve().parents[2])).resolve()
-app = FastAPI(title="Relay local simulator", version="0.1.0",
+app = FastAPI(title="FieldSight local simulator", version="0.1.0",
               description="Offline mock fleet inspection. No hardware actuation or paid API calls.")
 
 _mission_engine = None
 _mission_engine_lock = Lock()
+_simulator = None
+_simulator_lock = Lock()
+_arm_simulator = None
+_arm_simulator_lock = Lock()
 _MISSION_ID = r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,95}$"
 
 
@@ -40,6 +44,102 @@ class MissionActionRequest(BaseModel):
     action_id: str = Field(pattern=_MISSION_ID, max_length=96)
     action: Literal["start", "pause", "resume", "cancel", "complete_task", "simulate_review"]
     payload: dict = Field(default_factory=dict, max_length=4)
+
+
+class SimulatorPoint(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    x: float = Field(ge=0, le=24, allow_inf_nan=False)
+    y: float = Field(ge=0, le=16, allow_inf_nan=False)
+
+
+class SimulatorActionRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    run_id: str = Field(pattern=_MISSION_ID, max_length=96)
+    action_id: str = Field(pattern=_MISSION_ID, max_length=96)
+    action: Literal["start", "step", "pause", "resume", "stop", "reset", "direct",
+                    "inject_fault", "clear_fault", "review"]
+    dt_s: float = Field(default=0.5, ge=0.1, le=2, allow_inf_nan=False)
+    steps: int = Field(default=1, ge=1, le=20)
+    target: SimulatorPoint | None = None
+    robot_id: Literal["rover", "hexapod"] | None = None
+    fault: Literal["blocked_path", "sensor_dropout", "low_battery", "budget_exhausted"] | None = None
+    decision: Literal["acknowledge", "abort"] | None = None
+
+
+class ArmSimulatorActionRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    run_id: str = Field(pattern=_MISSION_ID, max_length=96)
+    action_id: str = Field(pattern=_MISSION_ID, max_length=96)
+    action: Literal["start", "pose", "capture", "replay", "clear_recording", "step", "pause",
+                    "resume", "stop", "reset", "inject_fault", "clear_fault"]
+    joints_deg: list[Annotated[float, Field(ge=0, le=180, allow_inf_nan=False)]] | None = Field(
+        default=None, min_length=6, max_length=6)
+    duration_s: float = Field(default=2, ge=0.5, le=10, allow_inf_nan=False)
+    name: str | None = Field(default=None, min_length=1, max_length=64)
+    repeats: int = Field(default=1, ge=1, le=5)
+    dt_s: float = Field(default=0.25, ge=0.1, le=2, allow_inf_nan=False)
+    steps: int = Field(default=1, ge=1, le=20)
+    fault: Literal["joint_stall", "grip_loss"] | None = None
+
+
+def arm_simulator():
+    """Independent virtual joint scene; cannot initialize a hardware transport."""
+    global _arm_simulator
+    with _arm_simulator_lock:
+        if _arm_simulator is None:
+            from .arm_simulator import ArmSimulator
+            _arm_simulator = ArmSimulator()
+    return _arm_simulator
+
+
+@app.get("/api/simulator/arm")
+def read_arm_simulator():
+    return arm_simulator().snapshot()
+
+
+@app.post("/api/simulator/arm/actions")
+def arm_simulator_action(request: ArmSimulatorActionRequest):
+    from .arm_simulator import ArmSimulatorConflict
+    try:
+        return arm_simulator().apply(**request.model_dump(exclude_unset=True))
+    except ArmSimulatorConflict as exc:
+        raise HTTPException(409, str(exc)) from None
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from None
+
+
+def simulator():
+    """A process-local, explicitly stepped scene with no hardware clients."""
+    global _simulator
+    with _simulator_lock:
+        if _simulator is None:
+            from .simulator import Simulator
+            _simulator = Simulator()
+    return _simulator
+
+
+@app.get("/api/simulator")
+def read_simulator():
+    return simulator().snapshot()
+
+
+@app.post("/api/simulator/actions")
+def simulator_action(request: SimulatorActionRequest):
+    from .simulator import SimulatorConflict
+    try:
+        return simulator().apply(**request.model_dump(exclude_unset=True))
+    except SimulatorConflict as exc:
+        raise HTTPException(409, str(exc)) from None
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from None
+
+
+@app.get("/simulator")
+def simulator_page():
+    path = PROJECT_ROOT / "web" / "simulator.html"
+    if not path.is_file():
+        raise HTTPException(404, "Simulator interface not found")
+    return FileResponse(path)
 
 
 def mission_engine():

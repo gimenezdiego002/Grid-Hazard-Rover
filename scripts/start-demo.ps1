@@ -13,11 +13,12 @@ if (-not (Test-Path -LiteralPath $relayPython -PathType Leaf)) {
 
 Push-Location -LiteralPath $relayProjectRoot
 try {
-    Write-Host "Relay local simulation: http://127.0.0.1:$Port"
+    Write-Host "FieldSight spatial simulator: http://127.0.0.1:$Port/simulator"
+    Write-Host "FieldSight mission lab: http://127.0.0.1:$Port/"
     Write-Host 'Mock requests only. No physical robot commands. Press Ctrl+C to stop.'
     & $relayPython -m uvicorn relay_gateway.api:app --host 127.0.0.1 --port $Port
     if ($LASTEXITCODE -ne 0) {
-        throw "Relay server exited with code $LASTEXITCODE."
+        throw "FieldSight server exited with code $LASTEXITCODE."
     }
 }
 finally {

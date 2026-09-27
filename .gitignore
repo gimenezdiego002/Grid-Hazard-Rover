@@ -42,6 +42,7 @@ venv/
 
 # Node
 node_modules/
+.vercel/
 dist/
 .vite/
 

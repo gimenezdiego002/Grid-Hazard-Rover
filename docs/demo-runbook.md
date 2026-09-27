@@ -1,6 +1,15 @@
-# Relay: five-minute judge rehearsal
+# FieldSight: five-minute judge rehearsal
 
-Open the local dashboard at **http://127.0.0.1:8765/**. If it is stopped, run `scripts/start-demo.ps1` from the project folder. Keep the **SIMULATION** banner visible. Say: “Relay coordinates a station, scout and announcer, and spends model calls when evidence changes. Today we are rehearsing the workflow with synthetic water readings.” No hardware is connected, no motion or real announcements occur, and all dashboard provider calls are mocked.
+**Hardware fallback:** use the [rover/crawler/arm simulator](simulator-demo.md)
+at `http://127.0.0.1:8765/simulator` for the animated navigation and inspection
+demo. Its arm section can rehearse pick-and-place, teach virtual poses and replay
+them even when the physical arm is unavailable. The older mission-lab rehearsal
+below remains available. The physical arm has a
+separate verified Bluetooth voltage-query connection; taught motion playback
+is still pending. See [arm connection](arm-connection.md) and the
+[economy pitch](economy-demo-story.md).
+
+Open the local dashboard at **http://127.0.0.1:8765/**. If it is stopped, run `scripts/start-demo.ps1` from the project folder. Keep the **SIMULATION** banner visible. Say: “FieldSight coordinates a station, scout and announcer, and spends model calls when evidence changes. Today we are rehearsing the workflow with synthetic water readings.” No hardware is connected, no motion or real announcements occur, and all dashboard provider calls are mocked.
 
 Before the presentation, run `.\.venv\Scripts\python.exe scripts/rehearse-demo.py` once and keep its HTML packet available as an offline fallback. It saves actual results from that mock rehearsal in a new directory; it does not check cloud accounts or connect devices. See [packet contents and checks](rehearsal-packet.md).
 

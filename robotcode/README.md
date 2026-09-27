@@ -15,6 +15,20 @@ has been demonstrated by this code. FNK0052 uses a Raspberry Pi application;
 Intellio's stock firmware is supplied by PictoBlox. A matching, redistributable
 LeArm firmware image has not been verified. See each folder for the exact boundary.
 
+The new [spatial simulator](../docs/simulator-demo.md) adds visible rover/crawler
+navigation in the Relay dashboard. Separate tools in `arm/ble_discover.py`,
+`arm/ble_inspect.py` and `arm/ble_diagnostics.py` have now demonstrated a
+non-motion Bluetooth connection and controller voltage reply. The
+[sanitized proof](../artifacts/learm-bluetooth-proof.json) records exactly what
+worked; the position query received no reply. The original application
+controllers and default `python -m robotcode` workflow remain simulated.
+
+The [arm recorder and explicit Bluetooth runners](../docs/arm-connection.md)
+provide commanded-waypoint teaching/replay. Preview is the default. Physical
+playback has not been demonstrated and requires reviewed bounds, an
+operator-provided starting reference and attended operation. They are separate
+from the simulator API; no simulator review dispatches physical motion.
+
 ## Run the basic workflow
 
 From the repository root, using the existing project `.venv`:
@@ -24,8 +38,8 @@ From the repository root, using the existing project `.venv`:
 .\.venv\Scripts\python.exe -m pytest robotcode/tests -q
 ```
 
-On Linux/Pi, the equivalent Python path is `.venv/bin/python`. The project-owned
-robot modules use only Python's standard library; tests reuse the repository's
+On Linux/Pi, the equivalent Python path is `.venv/bin/python`. The offline application
+controllers and default workflow use only Python's standard library; tests reuse the repository's
 pytest installation. The default CLI is finite and offline. It never imports
 the vendor server, opens serial/GPIO/network connections, starts a background
 loop, reads credentials, or calls a cloud/model provider. There is no live flag.

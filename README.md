@@ -1,6 +1,6 @@
-# Grid Hazard Rover — Relay inspection branch
+# FieldSight — robotics inspection and workflow simulator
 
-Source repository: [gimenezdiego002/Grid-Hazard-Rover](https://github.com/gimenezdiego002/Grid-Hazard-Rover), branch `relay/inspection-system`. This branch preserves the team's shared schemas and adds the existing Relay inspection prototype in `src/relay_gateway`, `web`, `tests` and its supporting files. It does not yet connect Relay to the team's photo-ingest, utility coordination or geographic risk workflow.
+Source repository: [gimenezdiego002/Grid-Hazard-Rover](https://github.com/gimenezdiego002/Grid-Hazard-Rover), branch `relay/inspection-system`. **FieldSight** is the user-facing name of the robotics inspection prototype; its internal `relay_gateway` package and existing Relay resource names remain unchanged. This branch preserves the team's shared schemas and adds the prototype in `src/relay_gateway`, `web`, `tests` and its supporting files. It does not yet connect FieldSight to the team's photo-ingest, utility coordination or geographic risk workflow.
 
 Credentials, runtime state, raw attachments and private operator handoffs stay outside Git. Scheduled synchronization targets only `relay/inspection-system` and preserves the team's `main` and other branches. Other clones should contribute offline changes; all live spending remains on the operator's canonical ledger.
 
@@ -10,15 +10,35 @@ A student-built robot fleet that investigates suspected leaks while budgeting it
 
 All eight published MLH prize categories have a defined role and a concrete acceptance check in [the prize submission plan](docs/mlh-submission.md). This is complete design coverage, not eight completed live integrations or confirmed prize eligibility.
 
-The separate [Gemini–Jev–Pollard supervisor and comparison](docs/jev-demo.md) rehearses mission supervision on synthetic fixtures. It has no successful live proof and does not establish an efficiency improvement.
+The separate [Gemini–Jev–Pollard supervisor and comparison](docs/jev-demo.md) has [recorded real local OpenJev inference](docs/jev-openjev.md) through `pollard-jev`: four mission decisions on synthetic observations, plus a warm-up and a separate tunnel smoke check. The dry sequence reused local state for two unchanged frames after one inference; wet and conflicting evidence produced model abstentions while local alarms stayed latched. These runs used fixture Gemini roles, and neither the hosted TypeSafe Jev path nor the combined live Gemini supervisor is verified. The browser simulator makes no OpenJev calls. The separate fixture comparison does not establish an overall efficiency improvement.
 
 The separate GCP project `shellhacks-relay-2026-0926` has linked billing, enabled APIs, dedicated service accounts, the `relay` Artifact Registry repository in `us-east1`, a private evidence bucket with a seven-day lifecycle, and a staging bucket with a two-day lifecycle. A restricted project Gemini API key is stored in Secret Manager as `relay-gemini-api-key`. The mock dashboard receives no secret.
 
 The [private Cloud Run service](https://relay-gateway-345149168663.us-east1.run.app) is deployed and verified: unauthenticated requests return 403; authenticated health and integrated-replay requests succeed, with six mock stages and 12 telemetry rows. A synthetic report was uploaded to private Cloud Storage and read back unchanged. Cloud Run uses minimum zero, maximum one instance and request-based billing. See [cloud verification](docs/cloud-setup.md) and [deployment notes](deploy/README.md) for access, resource controls and cleanup.
 
-Two live text-only Gemini smoke calls used synthetic readings. The latest call with the project key reported **275 tokens**, estimated **$0.0002565**, rounded upward to **$0.000257** in the shared ledger. Including the earlier $0.000179 call, the recorded model estimate is **$0.000436**. Reservations now total **$5.458659**: GCP $3, ngrok $1 for the OpenJev tunnel lease through September 28 at 05:00 EDT, separate from Cloud Run, Tiger Data $0.10, Atlas resource $0.10 plus $0.10 for its completed proof with unknown billing, Snowflake setup $1 plus $0.10 for its completed SQL API proof with unknown billing, ElevenLabs $0.05 held with unknown billing, and $0.008659 held unknown for five attempted Gemini role requests in the Jev task that returned no usable usage/results. Total commitments are **$5.459095**, leaving **$9.540905** in the planned envelope. These are estimates/reservations, not paid invoice totals. Current admission and reconciliation use `.state/spend.sqlite`; [the spending contract](docs/integration-contract.md) explains its scope.
+Two live text-only Gemini smoke calls used synthetic readings. The latest call with the project key reported **275 tokens**, estimated **$0.0002565**, rounded upward to **$0.000257** in the shared ledger. Including the earlier $0.000179 call, the recorded model estimate is **$0.000436**. Reservations now total **$6.458659**: Vercel $1 for the static simulator demo day, GCP $3, ngrok $1 for the OpenJev tunnel lease through September 28 at 05:00 EDT, separate from Cloud Run, Tiger Data $0.10, Atlas resource $0.10 plus $0.10 for its completed proof with unknown billing, Snowflake setup $1 plus $0.10 for its completed SQL API proof with unknown billing, ElevenLabs $0.05 held with unknown billing, and $0.008659 held unknown for five attempted Gemini role requests in the Jev task that returned no usable usage/results. Total commitments are **$6.459095**, leaving **$8.540905** in the planned envelope. These are estimates/reservations, not paid invoice totals. Current admission and reconciliation use `.state/spend.sqlite`; [the spending contract](docs/integration-contract.md) explains its scope.
 
 ## Start with the local replay
+
+The **[hosted rover, crawler and arm simulator](https://shellhacks-relay-robotics.vercel.app)**
+runs independently in each browser tab. Reloading resets its virtual scenes.
+It contains no hardware connection or paid model calls. See the
+[Vercel deployment notes](deploy/vercel-simulator/README.md) for the isolated
+static build and verification procedure.
+
+The hosted [AI workflow evidence page](https://shellhacks-relay-robotics.vercel.app/workflow-proof.html)
+shows recorded local OpenJev results, the separate fixture comparison, and the
+browser simulator's modeled accounting. Viewing it makes no inference calls.
+
+For the hardware fallback, open the **[rover, hexapod and arm simulator](http://127.0.0.1:8765/simulator)**
+after running `scripts/start-demo.ps1`. It adds a local metric floor plan,
+obstacle-aware movement, mission controls, failure rehearsal and visible AI
+workflow accounting. Its arm section includes an animated pick-and-place preset,
+virtual pose teaching/replay and fault recovery, usable without Bluetooth or a
+working mechanical arm. All movement and inference in that page are simulated;
+the virtual angles are not calibrated LeArm commands. The operator-reported LeArm vendor-app
+demonstration is separate from pending Relay-controlled motion verification. See the [simulator runbook](docs/simulator-demo.md),
+[arm connection plan](docs/arm-connection.md) and [economy demo story](docs/economy-demo-story.md).
 
 Robot source is organized in [`robotcode/`](robotcode/README.md), with arm,
 FNK0052 hexapod and Quarky Intellio rover subfolders. Run

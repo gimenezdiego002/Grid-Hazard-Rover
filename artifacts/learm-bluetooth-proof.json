@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-27",
+  "device_identity_basis": "Operator reported LeArm app and Hiwonder device name; one matching advertisement found after phone disconnect",
+  "transport": "Bluetooth LE",
+  "connection_observed": true,
+  "connection_closed_after_check": true,
+  "device_info": {
+    "manufacturer": "Dialog Semi",
+    "model": "DA14531",
+    "firmware": "v_6.0.14.1114",
+    "meaning": "Bluetooth module identifiers, not proof of arm controller revision"
+  },
+  "service_uuid": "0000fff0-0000-1000-8000-00805f9b34fb",
+  "characteristic_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
+  "observed_handle": 24,
+  "battery_query": {
+    "request_hex": "55 55 02 0f",
+    "response_hex": "55 55 04 0f c9 1e",
+    "controller_reported_mv": 7881,
+    "valid_lsc_response": true
+  },
+  "position_query": {
+    "request_hex": "55 55 09 15 06 01 02 03 04 05 06",
+    "response_received_within_4_seconds": false,
+    "position_readback_verified": false
+  },
+  "motion_commands_sent": 0,
+  "actuation_demonstrated": false,
+  "physical_motion_recorded": false,
+  "api_cloud_cost_usd": 0,
+  "private_device_address": "Kept only in ignored .state files",
+  "limitation": "Verifies discovery, GATT and a non-motion controller query. Does not verify joint limits, motion, stop, playback, or physical position feedback."
+}

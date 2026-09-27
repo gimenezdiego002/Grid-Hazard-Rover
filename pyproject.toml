@@ -16,6 +16,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+arm-bluetooth = ["bleak==3.0.2"]
 jev = ["pollard-jev==0.1"]
 dev = ["pytest==9.1.1", "httpx==0.28.1", "pollard-jev==0.1"]
 mongodb = ["pymongo==4.15.1"]

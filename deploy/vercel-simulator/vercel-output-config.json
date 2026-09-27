@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      },
+      "continue": true
+    },
+    { "src": "/simulator/?", "dest": "/index.html" },
+    { "handle": "filesystem" }
+  ],
+  "overrides": {
+    "runtime/pyodide.asm.wasm": { "contentType": "application/wasm" },
+    "runtime/pyodide.mjs": { "contentType": "text/javascript" },
+    "runtime/pyodide.asm.mjs": { "contentType": "text/javascript" }
+  }
+}

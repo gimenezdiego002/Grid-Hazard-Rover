@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122c37">
+  <title>FieldSight — Robotics simulator</title>
+  <link rel="stylesheet" href="/static/simulator.css">
+  <script src="/static/simulator.js" defer></script>
+  <script src="/static/arm-simulator.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#controls">Skip to simulator controls</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="FieldSight home"><span class="brand-icon" aria-hidden="true">⠿</span>FieldSight<span class="brand-caption">PHYSICAL AI<br>MISSION CONTROL</span></a>
+    <nav aria-label="Main navigation"><a href="/">Mission lab</a><a href="/simulator" aria-current="page">Robotics simulator</a><a href="#arm-simulator">Arm simulator</a></nav>
+    <span class="simulation-badge"><i></i> SIMULATION ONLY</span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">THE MISSION CONTINUES / SHELLHACKS 2026</p><h1>Two scouts. One smarter workflow.</h1><p>Explore, inspect, and hand off evidence. Spend intelligence where it matters.</p></div>
+      <div class="connection"><span class="connection-dot" id="connection-dot"></span><div><strong id="connection-state">Connecting to local simulator</strong><span>Virtual rover + hexapod · physical motion disabled</span></div></div>
+    </section>
+
+    <div class="notice"><span aria-hidden="true">◇</span><p><strong>A software proving ground.</strong> Movement, sensors, findings, and model decisions are simulated. This page makes no paid API calls. Arm handoffs are previews.</p></div>
+    <div class="error-banner" id="error-banner" role="alert" hidden><span id="error-text"></span><button id="reconnect" type="button">Reconnect</button></div>
+
+    <section class="headline-metrics" aria-label="Current simulation metrics">
+      <article><span>MISSION CLOCK</span><strong id="metric-clock">00:00</strong><small id="metric-status">Ready for a mission</small></article>
+      <article><span>FLEET DISTANCE</span><strong id="metric-distance">0.0 <em>m</em></strong><small>Simulated travel on this floor plan</small></article>
+      <article><span>AI REQUESTS AVOIDED</span><strong id="metric-saved">—</strong><small id="metric-saved-detail">Against analyzing every observation</small></article>
+      <article class="paid-metric"><span>ACTUAL PAID API COST</span><strong id="metric-paid">$0.00</strong><small>Offline deterministic simulation</small></article>
+    </section>
+
+    <div class="workspace">
+      <section class="map-panel panel" aria-labelledby="map-heading">
+        <div class="panel-heading map-heading"><div><p class="eyebrow">LOCAL METRIC ENVIRONMENT</p><h2 id="map-heading">Inspection floor</h2></div><div class="map-state"><span id="run-status" class="pill">READY</span><span class="map-live"><i></i> SYNTHETIC TELEMETRY</span></div></div>
+        <div class="map-container" id="map-container">
+          <canvas id="facility-map" width="1200" height="760" tabindex="0" role="img" aria-label="Interactive simulated facility map. Use the target coordinate fields to direct a robot with the keyboard."></canvas>
+          <div class="map-overlay map-coordinate" id="cursor-coordinates">LOCAL X / Y · METERS</div>
+          <div class="map-overlay map-instruction" id="map-instruction"><span aria-hidden="true">⌖</span> Click the floor to set an inspection target</div>
+          <div class="map-overlay map-scale"><span></span> <b id="map-scale">5 m</b></div>
+        </div>
+        <div class="map-legend"><span><i class="legend-dot rover-color"></i> Rover</span><span><i class="legend-dot hexapod-color"></i> Hexapod</span><span><i class="legend-route"></i> Planned route</span><span><i class="legend-area"></i> Inspection zone</span><span class="map-footnote">2D navigation · illustrative leg animation</span></div>
+        <div class="fleet-cards" id="fleet-cards"><div class="fleet-placeholder">Loading the simulated fleet…</div></div>
+      </section>
+
+      <aside class="controls-column" id="controls">
+        <section class="panel control-panel" aria-labelledby="control-heading">
+          <div class="panel-heading"><div><p class="eyebrow">MISSION DIRECTOR</p><h2 id="control-heading">Make the next move.</h2></div><span class="section-number">01</span></div>
+          <label for="scenario">Inspection scenario</label><select id="scenario" disabled><option value="preset">Patrol → two-scout inspection</option><option value="directed">Directed target → two-scout inspection</option></select>
+          <p id="scenario-description" class="field-hint">Start a rover patrol to discover synthetic evidence, then bring in the crawler.</p>
+          <div class="playback-controls"><button id="start" class="button primary" type="button" disabled><span aria-hidden="true">▶</span> Start mission</button><button id="pause" class="button secondary" type="button" disabled>Pause</button><button id="stop" class="button stop" type="button" disabled>Stop</button></div>
+          <div class="secondary-controls"><button id="step" type="button" disabled>Step +1 s</button><button id="reset" type="button" disabled>Reset mission</button><label class="speed-label" for="speed">Speed<select id="speed" disabled><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option><option value="8">8×</option></select></label></div>
+          <div id="review-controls" hidden><p class="field-hint" id="review-note">A simulated finding requires operator acknowledgement.</p><button id="review" class="button secondary" type="button">Acknowledge simulated finding</button></div>
+          <p class="control-status" id="control-status" role="status" aria-live="polite">Connecting…</p>
+        </section>
+
+        <section class="panel target-panel" aria-labelledby="target-heading">
+          <div class="panel-heading"><div><p class="eyebrow">DIRECTED INSPECTION</p><h2 id="target-heading">Send a scout.</h2></div><span class="section-number">02</span></div>
+          <form id="target-form">
+            <p class="field-hint">The rover leads. The hexapod joins for a close second view and station handoff.</p>
+            <div class="coordinate-inputs"><label for="target-x">Target X <span>m</span><input id="target-x" type="number" min="0" step="0.1" value="10" required disabled></label><label for="target-y">Target Y <span>m</span><input id="target-y" type="number" min="0" step="0.1" value="10" required disabled></label></div>
+            <button id="dispatch" class="button secondary" type="submit" disabled>Plan directed inspection <span aria-hidden="true">↗</span></button>
+          </form><p class="field-hint">Click the map or enter coordinates. The route planner checks obstacles before dispatch.</p>
+          <details class="fault-controls"><summary>Test a failure &amp; recovery</summary><label for="target-robot">Robot receiving the fault</label><select id="target-robot" disabled><option value="">Loading…</option></select><label for="fault">Injected condition</label><select id="fault" disabled><option value="blocked_path">Blocked path</option><option value="low_battery">Low battery</option><option value="sensor_dropout">Sensor dropout</option><option value="budget_exhausted">Model allowance exhausted</option></select><div class="fault-buttons"><button id="inject-fault" type="button" disabled>Inject fault</button><button id="clear-fault" type="button" disabled>Clear fault</button></div><p class="field-hint">Synthetic faults only. Inspect the event trail for the response.</p></details>
+        </section>
+      </aside>
+    </div>
+
+    <section class="economy-section panel" aria-labelledby="economy-heading">
+      <div class="economy-intro"><p class="eyebrow">ECONOMY BY DESIGN</p><h2 id="economy-heading">Every model call should earn its place.</h2><p>Local sensor checks filter routine readings. New evidence triggers a simulated analysis; repeated evidence stays local.</p><div class="workflow-strip"><span>Sense locally</span><b>→</b><span>Filter evidence</span><b>→</b><span>Analyze changes</span><b>→</b><span>Human review</span></div><p class="fine-print">Costs use illustrative rates. Travel and battery are simulated. No energy, carbon, or environmental savings have been measured.</p><details class="field-hint"><summary>View cost and token assumptions</summary><p>Each modeled request uses 1,800 input tokens and 220 output tokens. Illustrative rates are $0.30 per million input tokens and $2.50 per million output tokens. These are scenario assumptions, not provider pricing or measured token usage.</p><p>The baseline analyzes every observation, including periodic readings and arrival evidence.</p></details></div>
+      <div class="economy-comparison"><div class="comparison-title"><strong>Same run. Two analysis policies.</strong><span class="pill">SIMULATED</span></div><table><thead><tr><th scope="col">Workflow accounting</th><th scope="col">Every observation</th><th scope="col">Evidence gated</th></tr></thead><tbody><tr><th scope="row">Model requests</th><td id="baseline-requests">0</td><td id="economy-requests">0</td></tr><tr><th scope="row">Tokens</th><td id="baseline-tokens">0</td><td id="economy-tokens">0</td></tr><tr><th scope="row">Illustrative cost</th><td id="baseline-cost">$0.0000</td><td id="economy-cost">$0.0000</td></tr></tbody></table><div class="savings-track"><div id="savings-fill"></div></div><p id="economy-summary">Start a mission to compare the policies against its sensor evidence.</p></div>
+    </section>
+
+    <div class="bottom-grid">
+      <section class="panel timeline-panel" aria-labelledby="timeline-heading"><div class="panel-heading"><div><p class="eyebrow">MISSION EVENT TRAIL</p><h2 id="timeline-heading">The reasoning stays visible.</h2></div><span class="pill" id="event-count">0 EVENTS</span></div><ol id="event-list" class="event-list"><li class="empty-state">Start a mission to follow navigation, sensing, decisions, and recovery.</li></ol></section>
+      <section class="panel arm-panel" aria-labelledby="arm-heading"><div class="panel-heading"><div><p class="eyebrow">FROM INSPECTION TO INTERVENTION</p><h2 id="arm-heading">Arm handoff preview.</h2></div><span class="pill amber">UNCONNECTED</span></div><div class="arm-visual" aria-hidden="true"><svg viewBox="0 0 260 120"><path d="M23 106H235" class="arm-ground"/><path d="M72 104V90H111V104" class="arm-base"/><path d="M92 88L121 41L177 31" class="arm-link"/><path d="M177 31L199 47L215 43M199 47L203 65" class="arm-gripper"/><circle cx="92" cy="88" r="10"/><circle cx="121" cy="41" r="10"/><circle cx="177" cy="31" r="8"/><path d="M224 82V100H207V82Z" class="arm-object"/></svg><span>EVIDENCE → REVIEW → ACTION PREVIEW</span></div><p id="arm-summary">Inspection evidence can become a reviewed arm task. This page runs the virtual arm; physical playback is not verified.</p><ol id="arm-queue" class="arm-queue"></ol><div class="arm-status"><span class="connection-dot"></span><span>Actuation disabled · preview queue only</span></div><a class="arm-preview-link" href="#arm-simulator">Rehearse with the virtual arm →</a></section>
+    </div>
+    <section id="arm-simulator" class="panel arm-simulator" aria-labelledby="arm-sim-heading">
+      <div class="panel-heading"><div><p class="eyebrow">VIRTUAL ARM / SIX-JOINT REHEARSAL</p><h2 id="arm-sim-heading">Rehearse the intervention.</h2></div><span class="pill" id="arm-sim-state">CONNECTING</span></div>
+      <p class="arm-sim-intro">Pick and place a virtual marker, teach a routine, and test recovery. This rehearsal runs independently of the scouts.</p>
+      <div class="arm-sim-notice">SIMULATION ONLY · Virtual degrees, not calibrated servo targets. No Bluetooth, physical motion, or model calls.</div>
+      <div class="error-banner" id="arm-sim-error" role="alert" hidden><span id="arm-sim-error-text"></span><button id="arm-sim-reconnect" type="button">Reconnect arm simulator</button></div>
+      <div class="arm-sim-workspace">
+        <div class="arm-sim-scene-column"><div class="arm-sim-canvas-wrap" id="arm-sim-canvas-wrap"><canvas id="arm-sim-canvas" width="900" height="440" role="img" aria-label="Illustrative six-joint virtual arm. Side view shows shoulder, elbow, wrist pitch, and gripper. Inset dials show base yaw and wrist roll."></canvas><span class="arm-sim-scene-label">ILLUSTRATIVE KINEMATICS · NO CONTACT PHYSICS</span></div><div class="arm-sim-joints" id="arm-sim-joints" aria-label="Simulated joint telemetry"></div><div class="arm-sim-task"><strong id="arm-sim-stage">Connecting to virtual arm…</strong><span id="arm-sim-clock">00:00</span></div><div class="arm-sim-progress"><i id="arm-sim-progress"></i></div><p class="field-hint" id="arm-sim-payload">Marker state: awaiting simulator</p></div>
+        <div class="arm-sim-console"><p class="eyebrow">PRESET MARKER TRANSFER</p><h3>A complete routine, ready to play.</h3><p class="field-hint">Approach the marker, close the gripper, lift, transfer, release, and return home. Grasp and contact are scripted.</p><div class="playback-controls"><button id="arm-sim-start" class="button primary" type="button" disabled>▶ Play preset</button><button id="arm-sim-pause" class="button secondary" type="button" disabled>Pause</button><button id="arm-sim-stop" class="button stop" type="button" disabled>Stop</button></div><div class="secondary-controls"><button id="arm-sim-step" type="button" disabled>Step +0.5 s</button><button id="arm-sim-reset" type="button" disabled>Reset arm</button><label class="speed-label" for="arm-sim-speed">Speed<select id="arm-sim-speed" disabled><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option></select></label></div><p id="arm-sim-status" class="control-status" role="status" aria-live="polite">Connecting…</p><details class="fault-controls"><summary>Test an arm failure</summary><label for="arm-sim-fault">Synthetic condition</label><select id="arm-sim-fault" disabled><option value="joint_stall">Joint stall</option><option value="grip_loss">Grip loss</option></select><div class="fault-buttons"><button id="arm-sim-inject" type="button" disabled>Inject fault</button><button id="arm-sim-clear" type="button" disabled>Clear fault</button></div><p class="field-hint">Clearing a fault restores the virtual checkpoint, including a dropped marker, and leaves the arm paused. No physical recovery is performed.</p></details></div>
+      </div>
+      <details class="arm-sim-teaching" open><summary>Teach a virtual routine</summary><p class="field-hint">Set a pose while the arm is idle, record it, and repeat. Replay follows only the poses you taught in this simulator.</p><form id="arm-sim-pose-form"><div id="arm-sim-sliders" class="arm-sim-sliders"></div><div class="arm-sim-teach-actions"><button id="arm-sim-apply" class="button secondary" type="submit" disabled>Apply virtual pose</button><label for="arm-sim-pose-name">Pose label<input id="arm-sim-pose-name" maxlength="48" value="Inspection pose" disabled></label><button id="arm-sim-record" class="button secondary" type="button" disabled>Record current pose</button><button id="arm-sim-replay" class="button primary" type="button" disabled>▶ Replay taught routine</button></div></form><ol id="arm-sim-recorded" class="arm-sim-recorded"><li>No poses recorded yet.</li></ol></details>
+      <details class="arm-sim-events"><summary>Arm event trail</summary><ol id="arm-sim-events" class="event-list"></ol></details>
+    </section>
+    <footer><a href="/" class="footer-brand">FieldSight</a><p>Physical AI with a visible budget and a human in the loop.</p><span>SIMULATED FIELD WORK · REAL SOFTWARE</span></footer>
+  </main>
+</body>
+</html>

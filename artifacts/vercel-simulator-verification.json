@@ -1,0 +1,139 @@
+{
+  "url": "https://shellhacks-relay-robotics.vercel.app",
+  "deployment_id": "dpl_DxdGxBfpTDW9d1U3McCmsBjAkhbR",
+  "verified_at_utc": "2026-09-27T15:05:02.937398+00:00",
+  "public_without_login": true,
+  "headers_checked": true,
+  "manifest_matches_local_build": true,
+  "manifest": {
+    "runtime": "pyodide",
+    "runtime_version": "314.0.7",
+    "simulated": true,
+    "physical_connections": false,
+    "source_sha256": {
+      "simulator.py": "ce164c09ef53d2e91f702aead110c0f2333ec93735a53a6824c80ff2f3603205",
+      "arm_simulator.py": "84ff768a82f45ea53791a4cf1d535f288846ca637e14b8f89298e4fcab681781",
+      "arm_handoff.py": "e7b933716fa5050e5a350acaef77ba6cee295c1234fd6669f4b396d73f421222"
+    }
+  },
+  "http_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": "16343"
+    },
+    {
+      "path": "/simulator",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": "16343"
+    },
+    {
+      "path": "/worker.mjs",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "content_length": "6076"
+    },
+    {
+      "path": "/runtime/pyodide.mjs",
+      "status": 200,
+      "content_type": "text/javascript",
+      "content_length": "17931"
+    },
+    {
+      "path": "/runtime/pyodide.asm.wasm",
+      "status": 200,
+      "content_type": "application/wasm",
+      "content_length": "9598218"
+    },
+    {
+      "path": "/runtime/python_stdlib.zip",
+      "status": 200,
+      "content_type": "application/zip",
+      "content_length": "2545637"
+    },
+    {
+      "path": "/runtime/PYODIDE-LICENSE",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "16725"
+    },
+    {
+      "path": "/api/simulator",
+      "status": 404
+    },
+    {
+      "path": "/.env.local",
+      "status": 404
+    },
+    {
+      "path": "/.state/spend.sqlite",
+      "status": 404
+    }
+  ],
+  "simulation_only": true,
+  "hardware_commands": 0,
+  "model_calls": 0,
+  "browser_rehearsal": {
+    "status": "passed",
+    "engine_ready_under_csp": true,
+    "fleet_status": "completed",
+    "fleet_elapsed_s": 78,
+    "fleet_distance_m": 99,
+    "modeled_requests_avoided": 77,
+    "arm_status": "completed",
+    "arm_elapsed_s": 14,
+    "virtual_marker": "placed",
+    "browser_console_errors": 0,
+    "review_acknowledgment_exercised": true,
+    "screenshot_local_ignored": ".state/vercel-simulator-live.png"
+  },
+  "fieldsight_update": {
+    "verified_at_utc": "2026-09-27T15:26:14.842836+00:00",
+    "product": "FieldSight",
+    "url": "https://shellhacks-relay-robotics.vercel.app",
+    "http_checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "sha256": "0157301a81618a5e9721cf9b40db10219b1df0f1e2d7cb1fdf185425f0482979",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/simulator",
+        "status": 200,
+        "sha256": "0157301a81618a5e9721cf9b40db10219b1df0f1e2d7cb1fdf185425f0482979",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/workflow-proof.html",
+        "status": 200,
+        "sha256": "2309c703737ab800d430c49d8453dad3fded6877394bccfe331f5f9e14f50448",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/workflow-proof.css",
+        "status": 200,
+        "sha256": "82ce48f3765ef0c3aa25c0bc5a13bd24a25323f3c0e6bd71d120754cd58994d4",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/build-manifest.json",
+        "status": 200,
+        "sha256": "5ae1caa4334baa8df72451a7d380866fb566763543b7948f2753584a274aff85",
+        "matches_reviewed_build": true
+      }
+    ],
+    "hosted_workflow": "Static recorded OpenJev proof; no live inference connection",
+    "model_calls_during_verification": 0,
+    "physical_commands": 0,
+    "deployment_id": "dpl_2HyQa8ABESmvgKkNKSZvPyPJPBqN",
+    "browser_engine_ready": true,
+    "workflow_navigation_verified": true,
+    "browser_console_errors": 0,
+    "build_bridge_tests_passed": 9,
+    "runtime_rehearsal": "fleet completed 78s; arm completed 14s with virtual marker placed",
+    "screenshot_local_ignored": ".state/fieldsight-workflow-live.png"
+  }
+}

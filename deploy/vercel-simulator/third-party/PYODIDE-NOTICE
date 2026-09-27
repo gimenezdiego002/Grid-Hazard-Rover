@@ -1,0 +1,14 @@
+Pyodide 314.0.7
+Copyright Pyodide contributors and Mozilla.
+
+This browser simulator distributes unmodified Pyodide runtime assets from the
+official npm package pyodide@314.0.7. The Pyodide project is distributed under
+the Mozilla Public License, version 2.0. A copy is in PYODIDE-LICENSE alongside
+this notice.
+
+Project: https://pyodide.org/
+Corresponding source: https://github.com/pyodide/pyodide/tree/314.0.7
+License source: https://raw.githubusercontent.com/pyodide/pyodide/314.0.7/LICENSE
+
+The FieldSight simulation modules are separate application code. Their inclusion
+does not imply endorsement by the Pyodide project.

@@ -1,9 +1,41 @@
-# Gemini–Jev–Pollard Relay demo
+# FieldSight: Gemini–Jev–Pollard demo
 
-This is a separate, **simulated** Relay supervisory workflow. It leaves the
+This is a separate supervisory workflow using **simulated observations and actions**. It leaves the
 team's `/shared` contract, photo ingest, spatial matching, risk index and Leaflet
 dashboard unchanged. Gemini remains the mission/evidence/reporting model and
 GCP remains the primary cloud. No robot is connected, actuated or calibrated.
+
+## Current status: September 27, 2026
+
+FieldSight is now the user-facing product name; the internal `relay_gateway`
+package and the historical Relay records below retain their original names.
+The [local OpenJev proof](jev-openjev.md) demonstrates actual NLI inference
+through `pollard-jev` on synthetic observations: one warm-up and four mission
+decisions, followed by one separately recorded [tunnel smoke check](jev-openjev-ngrok.md).
+That is six evidenced local attempts through the tunnel proof, not a live
+connection from the hosted simulator. The four mission decisions took
+454–718 ms; this small smoke trial is not a performance benchmark.
+
+Dry monitoring used one actual inference for three frames, reusing local state
+for the two unchanged frames. On wet and conflicting observations, OpenJev
+abstained and the deterministic supervisor retained its alarm and review state.
+The [Pollard bridge](jev-pollard.md) supplies typed permitted choices and
+freshness/deadline admission checks; an accepted choice still cannot actuate a
+robot. Gemini's mission/report roles were fixtures in these local OpenJev runs.
+The hosted TypeSafe Jev path and a successful combined live Gemini supervisor
+remain unverified. The browser simulator runs neither OpenJev nor `pollard-jev`.
+
+The comparison below remains fixture evidence, not a live savings result. In
+its eight missions without injected provider faults, the Gemini arm uses 21
+attempts and 1,696 simulated tokens; the hybrid arm uses 18 Gemini plus five Jev
+attempts and 2,290 simulated tokens. Fewer Gemini attempts did not mean fewer
+total attempts, fewer tokens or better detection. See the
+[recorded comparison](../artifacts/jev-results.md). No physical energy or
+environmental saving has been measured.
+
+The September 26 checkpoint below preserves the earlier failed Gemini-role
+attempts and their spending provenance. It does not negate the later, separate
+local OpenJev proof or establish the worker's current availability.
 
 ## Verified checkpoint: September 26, 2026
 

@@ -1,0 +1,5706 @@
+{
+  "simulated": true,
+  "actual_model_calls": 0,
+  "actual_api_cost_usd": 0,
+  "preset_at_review": {
+    "schema_version": "1",
+    "run_id": "sim-c9b487ebf2d5-1",
+    "status": "needs_review",
+    "stage": "human_review",
+    "mode": "preset",
+    "elapsed_s": 56.5,
+    "world": {
+      "width_m": 24,
+      "height_m": 16,
+      "cell_size_m": 0.5,
+      "coordinate_system": "local_xy_meters_not_geographic",
+      "obstacles": [
+        {
+          "id": "equipment",
+          "x": 8,
+          "y": 6,
+          "width": 3,
+          "height": 5
+        },
+        {
+          "id": "partition",
+          "x": 14,
+          "y": 2,
+          "width": 2,
+          "height": 7
+        },
+        {
+          "id": "storage",
+          "x": 16,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      ],
+      "station": {
+        "x": 3.0,
+        "y": 12.0
+      },
+      "hazard": {
+        "x": 20.0,
+        "y": 11.0,
+        "radius_m": 1.5
+      },
+      "patrol": [
+        {
+          "x": 9.0,
+          "y": 3.0
+        },
+        {
+          "x": 20.0,
+          "y": 4.0
+        }
+      ]
+    },
+    "target": {
+      "x": 20.0,
+      "y": 11.0
+    },
+    "robots": [
+      {
+        "id": "rover",
+        "name": "Quarky Intellio Rover",
+        "kind": "wheeled",
+        "x": 20.0,
+        "y": 10.999999999999996,
+        "home": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "heading_deg": 90.0,
+        "speed_mps": 1.4,
+        "battery_pct": 99.09999999999997,
+        "distance_m": 29.999999999999996,
+        "state": "observing",
+        "payload_id": null,
+        "target": {
+          "x": 20.0,
+          "y": 11.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          },
+          {
+            "x": 2.0,
+            "y": 2.7
+          },
+          {
+            "x": 2.4,
+            "y": 3.0
+          },
+          {
+            "x": 3.1,
+            "y": 3.0
+          },
+          {
+            "x": 3.8,
+            "y": 3.0
+          },
+          {
+            "x": 4.5,
+            "y": 3.0
+          },
+          {
+            "x": 5.2,
+            "y": 3.0
+          },
+          {
+            "x": 5.9,
+            "y": 3.0
+          },
+          {
+            "x": 6.6,
+            "y": 3.0
+          },
+          {
+            "x": 7.3,
+            "y": 3.0
+          },
+          {
+            "x": 8.0,
+            "y": 3.0
+          },
+          {
+            "x": 8.7,
+            "y": 3.0
+          },
+          {
+            "x": 9.0,
+            "y": 3.0
+          },
+          {
+            "x": 9.7,
+            "y": 3.0
+          },
+          {
+            "x": 10.4,
+            "y": 3.0
+          },
+          {
+            "x": 11.1,
+            "y": 3.0
+          },
+          {
+            "x": 11.8,
+            "y": 3.0
+          },
+          {
+            "x": 12.5,
+            "y": 3.0
+          },
+          {
+            "x": 13.2,
+            "y": 3.0
+          },
+          {
+            "x": 13.5,
+            "y": 2.6
+          },
+          {
+            "x": 13.5,
+            "y": 1.9
+          },
+          {
+            "x": 13.8,
+            "y": 1.5
+          },
+          {
+            "x": 14.5,
+            "y": 1.5
+          },
+          {
+            "x": 15.2,
+            "y": 1.5
+          },
+          {
+            "x": 15.9,
+            "y": 1.5
+          },
+          {
+            "x": 16.5,
+            "y": 1.6
+          },
+          {
+            "x": 16.5,
+            "y": 2.3
+          },
+          {
+            "x": 16.5,
+            "y": 3.0
+          },
+          {
+            "x": 16.5,
+            "y": 3.7
+          },
+          {
+            "x": 16.9,
+            "y": 4.0
+          },
+          {
+            "x": 17.6,
+            "y": 4.0
+          },
+          {
+            "x": 18.3,
+            "y": 4.0
+          },
+          {
+            "x": 19.0,
+            "y": 4.0
+          },
+          {
+            "x": 19.7,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.7
+          },
+          {
+            "x": 20.0,
+            "y": 5.4
+          },
+          {
+            "x": 20.0,
+            "y": 6.1
+          },
+          {
+            "x": 20.0,
+            "y": 6.8
+          },
+          {
+            "x": 20.0,
+            "y": 7.5
+          },
+          {
+            "x": 20.0,
+            "y": 8.2
+          },
+          {
+            "x": 20.0,
+            "y": 8.9
+          },
+          {
+            "x": 20.0,
+            "y": 9.6
+          },
+          {
+            "x": 20.0,
+            "y": 10.3
+          },
+          {
+            "x": 20.0,
+            "y": 11.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 1.0
+        },
+        "simulated": true,
+        "physical_connected": false
+      },
+      {
+        "id": "hexapod",
+        "name": "Freenove hexapod crawler",
+        "kind": "hexapod",
+        "x": 19.0,
+        "y": 11.0,
+        "home": {
+          "x": 2.0,
+          "y": 5.0
+        },
+        "heading_deg": 0.0,
+        "speed_mps": 0.8,
+        "battery_pct": 99.24999999999997,
+        "distance_m": 24.999999999999993,
+        "state": "awaiting_review",
+        "payload_id": "inspection-kit",
+        "target": {
+          "x": 19.0,
+          "y": 11.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 5.0
+          },
+          {
+            "x": 2.0,
+            "y": 5.4
+          },
+          {
+            "x": 2.0,
+            "y": 5.8
+          },
+          {
+            "x": 2.0,
+            "y": 6.2
+          },
+          {
+            "x": 2.0,
+            "y": 6.6
+          },
+          {
+            "x": 2.0,
+            "y": 7.0
+          },
+          {
+            "x": 2.0,
+            "y": 7.4
+          },
+          {
+            "x": 2.0,
+            "y": 7.8
+          },
+          {
+            "x": 2.0,
+            "y": 8.2
+          },
+          {
+            "x": 2.0,
+            "y": 8.6
+          },
+          {
+            "x": 2.0,
+            "y": 9.0
+          },
+          {
+            "x": 2.0,
+            "y": 9.4
+          },
+          {
+            "x": 2.0,
+            "y": 9.8
+          },
+          {
+            "x": 2.0,
+            "y": 10.2
+          },
+          {
+            "x": 2.0,
+            "y": 10.6
+          },
+          {
+            "x": 2.0,
+            "y": 11.0
+          },
+          {
+            "x": 2.0,
+            "y": 11.4
+          },
+          {
+            "x": 2.0,
+            "y": 11.8
+          },
+          {
+            "x": 2.2,
+            "y": 12.0
+          },
+          {
+            "x": 2.6,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 11.6
+          },
+          {
+            "x": 3.3,
+            "y": 11.5
+          },
+          {
+            "x": 3.7,
+            "y": 11.5
+          },
+          {
+            "x": 4.1,
+            "y": 11.5
+          },
+          {
+            "x": 4.5,
+            "y": 11.5
+          },
+          {
+            "x": 4.9,
+            "y": 11.5
+          },
+          {
+            "x": 5.3,
+            "y": 11.5
+          },
+          {
+            "x": 5.7,
+            "y": 11.5
+          },
+          {
+            "x": 6.1,
+            "y": 11.5
+          },
+          {
+            "x": 6.5,
+            "y": 11.5
+          },
+          {
+            "x": 6.9,
+            "y": 11.5
+          },
+          {
+            "x": 7.3,
+            "y": 11.5
+          },
+          {
+            "x": 7.7,
+            "y": 11.5
+          },
+          {
+            "x": 8.1,
+            "y": 11.5
+          },
+          {
+            "x": 8.5,
+            "y": 11.5
+          },
+          {
+            "x": 8.9,
+            "y": 11.5
+          },
+          {
+            "x": 9.3,
+            "y": 11.5
+          },
+          {
+            "x": 9.7,
+            "y": 11.5
+          },
+          {
+            "x": 10.1,
+            "y": 11.5
+          },
+          {
+            "x": 10.5,
+            "y": 11.5
+          },
+          {
+            "x": 10.9,
+            "y": 11.5
+          },
+          {
+            "x": 11.3,
+            "y": 11.5
+          },
+          {
+            "x": 11.5,
+            "y": 11.3
+          },
+          {
+            "x": 11.6,
+            "y": 11.0
+          },
+          {
+            "x": 12.0,
+            "y": 11.0
+          },
+          {
+            "x": 12.4,
+            "y": 11.0
+          },
+          {
+            "x": 12.8,
+            "y": 11.0
+          },
+          {
+            "x": 13.2,
+            "y": 11.0
+          },
+          {
+            "x": 13.6,
+            "y": 11.0
+          },
+          {
+            "x": 14.0,
+            "y": 11.0
+          },
+          {
+            "x": 14.4,
+            "y": 11.0
+          },
+          {
+            "x": 14.8,
+            "y": 11.0
+          },
+          {
+            "x": 15.2,
+            "y": 11.0
+          },
+          {
+            "x": 15.6,
+            "y": 11.0
+          },
+          {
+            "x": 16.0,
+            "y": 11.0
+          },
+          {
+            "x": 16.4,
+            "y": 11.0
+          },
+          {
+            "x": 16.8,
+            "y": 11.0
+          },
+          {
+            "x": 17.2,
+            "y": 11.0
+          },
+          {
+            "x": 17.6,
+            "y": 11.0
+          },
+          {
+            "x": 18.0,
+            "y": 11.0
+          },
+          {
+            "x": 18.4,
+            "y": 11.0
+          },
+          {
+            "x": 18.8,
+            "y": 11.0
+          },
+          {
+            "x": 19.0,
+            "y": 11.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 0.667
+        },
+        "simulated": true,
+        "physical_connected": false
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Offline metric scene ready. All sensors and motion are simulated.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "mission_started",
+        "message": "Preset inspection started; navigation uses local A*.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 2.5,
+        "kind": "paused",
+        "message": "Simulation paused; no clock or motion advances.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 2.5,
+        "kind": "resumed",
+        "message": "Simulation resumed by explicit operator action.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 6.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 17.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 22.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 22.0,
+        "kind": "evidence",
+        "message": "suspected hazard: one modeled inference request; no API call.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 22.0,
+        "kind": "carrier_dispatched",
+        "message": "Scout evidence requests a kit-equipped close view; crawler sent to station.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 32.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 32.0,
+        "kind": "synthetic_dock",
+        "message": "Crawler docked in simulation. Kit transfer is a synthetic acknowledgement.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 35.0,
+        "kind": "synthetic_transfer",
+        "message": "Simulated kit loaded and arm clearance acknowledged. No arm command sent.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 56.0,
+        "kind": "evidence",
+        "message": "suspected hazard: one modeled inference request; no API call.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 14,
+        "time_s": 56.5,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 15,
+        "time_s": 56.5,
+        "kind": "evidence",
+        "message": "close inspection: one modeled inference request; no API call.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 16,
+        "time_s": 56.5,
+        "kind": "review_required",
+        "message": "Close inspection complete. Operator review is required; arm proposal is preview-only.",
+        "robot_id": null,
+        "simulated": true
+      }
+    ],
+    "observations": [
+      {
+        "sequence": 1,
+        "time_s": 2.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 2,
+        "time_s": 2.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 3,
+        "time_s": 4.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 4,
+        "time_s": 4.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 5,
+        "time_s": 6.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 6,
+        "time_s": 6.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 7,
+        "time_s": 8.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 8,
+        "time_s": 8.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 9,
+        "time_s": 10.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 10,
+        "time_s": 10.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 11,
+        "time_s": 12.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 12,
+        "time_s": 12.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 13,
+        "time_s": 14.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 14,
+        "time_s": 14.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 15,
+        "time_s": 16.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 16,
+        "time_s": 16.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 17,
+        "time_s": 18.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 18,
+        "time_s": 18.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 19,
+        "time_s": 20.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 20,
+        "time_s": 20.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 21,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 22,
+        "time_s": 22.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 23,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 24,
+        "time_s": 24.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 25,
+        "time_s": 24.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 26,
+        "time_s": 26.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 27,
+        "time_s": 26.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 28,
+        "time_s": 28.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 29,
+        "time_s": 28.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 30,
+        "time_s": 30.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 31,
+        "time_s": 30.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 32,
+        "time_s": 32.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 33,
+        "time_s": 32.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 34,
+        "time_s": 34.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 35,
+        "time_s": 34.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 36,
+        "time_s": 36.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 37,
+        "time_s": 36.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 38,
+        "time_s": 38.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 39,
+        "time_s": 38.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 40,
+        "time_s": 40.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 41,
+        "time_s": 40.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 42,
+        "time_s": 42.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 43,
+        "time_s": 42.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 44,
+        "time_s": 44.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 45,
+        "time_s": 44.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 46,
+        "time_s": 46.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 47,
+        "time_s": 46.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 48,
+        "time_s": 48.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 49,
+        "time_s": 48.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 50,
+        "time_s": 50.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 51,
+        "time_s": 50.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 52,
+        "time_s": 52.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 53,
+        "time_s": 52.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 54,
+        "time_s": 54.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 55,
+        "time_s": 54.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 56,
+        "time_s": 56.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 57,
+        "time_s": 56.0,
+        "robot_id": "hexapod",
+        "finding": "suspected_hazard",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "hexapod:suspected_hazard"
+      },
+      {
+        "sequence": 58,
+        "time_s": 56.5,
+        "robot_id": "hexapod",
+        "finding": "close_inspection",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "hexapod:close_inspection"
+      }
+    ],
+    "metrics": {
+      "observations": 58,
+      "eligible_observations": 21,
+      "routine_filtered": 37,
+      "duplicates_filtered": 18,
+      "governed_requests": 3,
+      "modeled_request_allowance": 6,
+      "budget_refused": false,
+      "baseline_requests": 58,
+      "avoided_requests": 55,
+      "request_reduction_pct": 94.8,
+      "baseline_input_tokens": 104400,
+      "governed_input_tokens": 5400,
+      "baseline_output_tokens": 12760,
+      "governed_output_tokens": 660,
+      "baseline_estimated_cost_usd": 0.06322,
+      "governed_estimated_cost_usd": 0.00327,
+      "estimated_cost_avoided_usd": 0.05995,
+      "actual_model_calls": 0,
+      "actual_api_cost_usd": 0,
+      "energy_measured": false,
+      "assumptions": {
+        "input_tokens_per_request": 1800,
+        "output_tokens_per_request": 220,
+        "input_usd_per_million": 0.3,
+        "output_usd_per_million": 2.5,
+        "label": "Illustrative assumptions; not provider pricing or measured tokens"
+      }
+    },
+    "review": {
+      "required": true,
+      "acknowledged": false,
+      "environment_safety": "not_established",
+      "scope": "simulated_workflow_only",
+      "reason": "inspection_complete"
+    },
+    "arm_handoff": {
+      "status": "needs_review",
+      "preview_only": true,
+      "actuation_enabled": false,
+      "physical_connected": false,
+      "commands_dispatched": 0,
+      "proposal": {
+        "schema_version": "1",
+        "proposal_id": "arm-preview-49695ec25be0d8c8cd4ed58b",
+        "inspection": {
+          "event_id": "inspection-sim-c9b487ebf2d5-1",
+          "mission_id": "sim-c9b487ebf2d5-1",
+          "source_id": "freenove-hexapod",
+          "station_id": "station-a",
+          "evidence_ref": "sim://sim-c9b487ebf2d5-1/close-inspection",
+          "simulated": true
+        },
+        "action": "place_marker",
+        "target_id": "learm",
+        "status": "needs_review",
+        "preview_only": true,
+        "simulated": true,
+        "confirmation_source": "synthetic_inspection",
+        "physical_connected": false,
+        "actuation_enabled": false,
+        "human_review_performed": false,
+        "environment_safety": "not_established",
+        "commands_dispatched": 0,
+        "network_requests": 0,
+        "model_calls": 0,
+        "api_cloud_cost_usd": 0,
+        "physical_result": null,
+        "next_step": "Review the simulated evidence; connect a verified taught routine separately."
+      }
+    },
+    "allowed_actions": [
+      "reset",
+      "review",
+      "stop"
+    ],
+    "simulated": true,
+    "simulation_model": "2D kinematic A*; no terrain, gait, traction, dynamic robot collision, camera or energy validation",
+    "storage": "bounded_process_memory",
+    "actuation_enabled": false,
+    "network_requests": 0,
+    "actual_model_calls": 0,
+    "actual_api_cost_usd": 0
+  },
+  "preset_completed": {
+    "schema_version": "1",
+    "run_id": "sim-c9b487ebf2d5-1",
+    "status": "completed",
+    "stage": "completed",
+    "mode": "preset",
+    "elapsed_s": 78.0,
+    "world": {
+      "width_m": 24,
+      "height_m": 16,
+      "cell_size_m": 0.5,
+      "coordinate_system": "local_xy_meters_not_geographic",
+      "obstacles": [
+        {
+          "id": "equipment",
+          "x": 8,
+          "y": 6,
+          "width": 3,
+          "height": 5
+        },
+        {
+          "id": "partition",
+          "x": 14,
+          "y": 2,
+          "width": 2,
+          "height": 7
+        },
+        {
+          "id": "storage",
+          "x": 16,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      ],
+      "station": {
+        "x": 3.0,
+        "y": 12.0
+      },
+      "hazard": {
+        "x": 20.0,
+        "y": 11.0,
+        "radius_m": 1.5
+      },
+      "patrol": [
+        {
+          "x": 9.0,
+          "y": 3.0
+        },
+        {
+          "x": 20.0,
+          "y": 4.0
+        }
+      ]
+    },
+    "target": {
+      "x": 20.0,
+      "y": 11.0
+    },
+    "robots": [
+      {
+        "id": "rover",
+        "name": "Quarky Intellio Rover",
+        "kind": "wheeled",
+        "x": 2.0,
+        "y": 2.0,
+        "home": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "heading_deg": -90.0,
+        "speed_mps": 1.4,
+        "battery_pct": 98.28999999999994,
+        "distance_m": 56.999999999999986,
+        "state": "idle",
+        "payload_id": null,
+        "target": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          },
+          {
+            "x": 2.0,
+            "y": 2.7
+          },
+          {
+            "x": 2.4,
+            "y": 3.0
+          },
+          {
+            "x": 3.1,
+            "y": 3.0
+          },
+          {
+            "x": 3.8,
+            "y": 3.0
+          },
+          {
+            "x": 4.5,
+            "y": 3.0
+          },
+          {
+            "x": 5.2,
+            "y": 3.0
+          },
+          {
+            "x": 5.9,
+            "y": 3.0
+          },
+          {
+            "x": 6.6,
+            "y": 3.0
+          },
+          {
+            "x": 7.3,
+            "y": 3.0
+          },
+          {
+            "x": 8.0,
+            "y": 3.0
+          },
+          {
+            "x": 8.7,
+            "y": 3.0
+          },
+          {
+            "x": 9.0,
+            "y": 3.0
+          },
+          {
+            "x": 9.7,
+            "y": 3.0
+          },
+          {
+            "x": 10.4,
+            "y": 3.0
+          },
+          {
+            "x": 11.1,
+            "y": 3.0
+          },
+          {
+            "x": 11.8,
+            "y": 3.0
+          },
+          {
+            "x": 12.5,
+            "y": 3.0
+          },
+          {
+            "x": 13.2,
+            "y": 3.0
+          },
+          {
+            "x": 13.5,
+            "y": 2.6
+          },
+          {
+            "x": 13.5,
+            "y": 1.9
+          },
+          {
+            "x": 13.8,
+            "y": 1.5
+          },
+          {
+            "x": 14.5,
+            "y": 1.5
+          },
+          {
+            "x": 15.2,
+            "y": 1.5
+          },
+          {
+            "x": 15.9,
+            "y": 1.5
+          },
+          {
+            "x": 16.5,
+            "y": 1.6
+          },
+          {
+            "x": 16.5,
+            "y": 2.3
+          },
+          {
+            "x": 16.5,
+            "y": 3.0
+          },
+          {
+            "x": 16.5,
+            "y": 3.7
+          },
+          {
+            "x": 16.9,
+            "y": 4.0
+          },
+          {
+            "x": 17.6,
+            "y": 4.0
+          },
+          {
+            "x": 18.3,
+            "y": 4.0
+          },
+          {
+            "x": 19.0,
+            "y": 4.0
+          },
+          {
+            "x": 19.7,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.7
+          },
+          {
+            "x": 20.0,
+            "y": 5.4
+          },
+          {
+            "x": 20.0,
+            "y": 6.1
+          },
+          {
+            "x": 20.0,
+            "y": 6.8
+          },
+          {
+            "x": 20.0,
+            "y": 7.5
+          },
+          {
+            "x": 20.0,
+            "y": 8.2
+          },
+          {
+            "x": 20.0,
+            "y": 8.9
+          },
+          {
+            "x": 20.0,
+            "y": 9.6
+          },
+          {
+            "x": 20.0,
+            "y": 10.3
+          },
+          {
+            "x": 20.0,
+            "y": 11.0
+          },
+          {
+            "x": 19.3,
+            "y": 11.0
+          },
+          {
+            "x": 18.6,
+            "y": 11.0
+          },
+          {
+            "x": 17.9,
+            "y": 11.0
+          },
+          {
+            "x": 17.2,
+            "y": 11.0
+          },
+          {
+            "x": 16.5,
+            "y": 11.0
+          },
+          {
+            "x": 15.8,
+            "y": 11.0
+          },
+          {
+            "x": 15.1,
+            "y": 11.0
+          },
+          {
+            "x": 14.4,
+            "y": 11.0
+          },
+          {
+            "x": 13.7,
+            "y": 11.0
+          },
+          {
+            "x": 13.0,
+            "y": 11.0
+          },
+          {
+            "x": 12.3,
+            "y": 11.0
+          },
+          {
+            "x": 11.6,
+            "y": 11.0
+          },
+          {
+            "x": 11.5,
+            "y": 10.4
+          },
+          {
+            "x": 11.5,
+            "y": 9.7
+          },
+          {
+            "x": 11.5,
+            "y": 9.0
+          },
+          {
+            "x": 11.5,
+            "y": 8.3
+          },
+          {
+            "x": 11.5,
+            "y": 7.6
+          },
+          {
+            "x": 11.5,
+            "y": 6.9
+          },
+          {
+            "x": 11.5,
+            "y": 6.2
+          },
+          {
+            "x": 11.5,
+            "y": 5.5
+          },
+          {
+            "x": 10.8,
+            "y": 5.5
+          },
+          {
+            "x": 10.1,
+            "y": 5.5
+          },
+          {
+            "x": 9.4,
+            "y": 5.5
+          },
+          {
+            "x": 8.7,
+            "y": 5.5
+          },
+          {
+            "x": 8.0,
+            "y": 5.5
+          },
+          {
+            "x": 7.3,
+            "y": 5.5
+          },
+          {
+            "x": 6.6,
+            "y": 5.5
+          },
+          {
+            "x": 5.9,
+            "y": 5.5
+          },
+          {
+            "x": 5.2,
+            "y": 5.5
+          },
+          {
+            "x": 4.5,
+            "y": 5.5
+          },
+          {
+            "x": 3.8,
+            "y": 5.5
+          },
+          {
+            "x": 3.1,
+            "y": 5.5
+          },
+          {
+            "x": 2.4,
+            "y": 5.5
+          },
+          {
+            "x": 2.0,
+            "y": 5.2
+          },
+          {
+            "x": 2.0,
+            "y": 4.5
+          },
+          {
+            "x": 2.0,
+            "y": 3.8
+          },
+          {
+            "x": 2.0,
+            "y": 3.1
+          },
+          {
+            "x": 2.0,
+            "y": 2.4
+          },
+          {
+            "x": 2.0,
+            "y": 2.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 0
+        },
+        "simulated": true,
+        "physical_connected": false
+      },
+      {
+        "id": "hexapod",
+        "name": "Freenove hexapod crawler",
+        "kind": "hexapod",
+        "x": 3.0,
+        "y": 12.0,
+        "home": {
+          "x": 2.0,
+          "y": 5.0
+        },
+        "heading_deg": 90.0,
+        "speed_mps": 0.8,
+        "battery_pct": 98.73999999999995,
+        "distance_m": 41.99999999999997,
+        "state": "docked",
+        "payload_id": null,
+        "target": {
+          "x": 3.0,
+          "y": 12.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 5.0
+          },
+          {
+            "x": 2.0,
+            "y": 5.4
+          },
+          {
+            "x": 2.0,
+            "y": 5.8
+          },
+          {
+            "x": 2.0,
+            "y": 6.2
+          },
+          {
+            "x": 2.0,
+            "y": 6.6
+          },
+          {
+            "x": 2.0,
+            "y": 7.0
+          },
+          {
+            "x": 2.0,
+            "y": 7.4
+          },
+          {
+            "x": 2.0,
+            "y": 7.8
+          },
+          {
+            "x": 2.0,
+            "y": 8.2
+          },
+          {
+            "x": 2.0,
+            "y": 8.6
+          },
+          {
+            "x": 2.0,
+            "y": 9.0
+          },
+          {
+            "x": 2.0,
+            "y": 9.4
+          },
+          {
+            "x": 2.0,
+            "y": 9.8
+          },
+          {
+            "x": 2.0,
+            "y": 10.2
+          },
+          {
+            "x": 2.0,
+            "y": 10.6
+          },
+          {
+            "x": 2.0,
+            "y": 11.0
+          },
+          {
+            "x": 2.0,
+            "y": 11.4
+          },
+          {
+            "x": 2.0,
+            "y": 11.8
+          },
+          {
+            "x": 2.2,
+            "y": 12.0
+          },
+          {
+            "x": 2.6,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 11.6
+          },
+          {
+            "x": 3.3,
+            "y": 11.5
+          },
+          {
+            "x": 3.7,
+            "y": 11.5
+          },
+          {
+            "x": 4.1,
+            "y": 11.5
+          },
+          {
+            "x": 4.5,
+            "y": 11.5
+          },
+          {
+            "x": 4.9,
+            "y": 11.5
+          },
+          {
+            "x": 5.3,
+            "y": 11.5
+          },
+          {
+            "x": 5.7,
+            "y": 11.5
+          },
+          {
+            "x": 6.1,
+            "y": 11.5
+          },
+          {
+            "x": 6.5,
+            "y": 11.5
+          },
+          {
+            "x": 6.9,
+            "y": 11.5
+          },
+          {
+            "x": 7.3,
+            "y": 11.5
+          },
+          {
+            "x": 7.7,
+            "y": 11.5
+          },
+          {
+            "x": 8.1,
+            "y": 11.5
+          },
+          {
+            "x": 8.5,
+            "y": 11.5
+          },
+          {
+            "x": 8.9,
+            "y": 11.5
+          },
+          {
+            "x": 9.3,
+            "y": 11.5
+          },
+          {
+            "x": 9.7,
+            "y": 11.5
+          },
+          {
+            "x": 10.1,
+            "y": 11.5
+          },
+          {
+            "x": 10.5,
+            "y": 11.5
+          },
+          {
+            "x": 10.9,
+            "y": 11.5
+          },
+          {
+            "x": 11.3,
+            "y": 11.5
+          },
+          {
+            "x": 11.5,
+            "y": 11.3
+          },
+          {
+            "x": 11.6,
+            "y": 11.0
+          },
+          {
+            "x": 12.0,
+            "y": 11.0
+          },
+          {
+            "x": 12.4,
+            "y": 11.0
+          },
+          {
+            "x": 12.8,
+            "y": 11.0
+          },
+          {
+            "x": 13.2,
+            "y": 11.0
+          },
+          {
+            "x": 13.6,
+            "y": 11.0
+          },
+          {
+            "x": 14.0,
+            "y": 11.0
+          },
+          {
+            "x": 14.4,
+            "y": 11.0
+          },
+          {
+            "x": 14.8,
+            "y": 11.0
+          },
+          {
+            "x": 15.2,
+            "y": 11.0
+          },
+          {
+            "x": 15.6,
+            "y": 11.0
+          },
+          {
+            "x": 16.0,
+            "y": 11.0
+          },
+          {
+            "x": 16.4,
+            "y": 11.0
+          },
+          {
+            "x": 16.8,
+            "y": 11.0
+          },
+          {
+            "x": 17.2,
+            "y": 11.0
+          },
+          {
+            "x": 17.6,
+            "y": 11.0
+          },
+          {
+            "x": 18.0,
+            "y": 11.0
+          },
+          {
+            "x": 18.4,
+            "y": 11.0
+          },
+          {
+            "x": 18.8,
+            "y": 11.0
+          },
+          {
+            "x": 19.0,
+            "y": 11.0
+          },
+          {
+            "x": 18.6,
+            "y": 11.0
+          },
+          {
+            "x": 18.2,
+            "y": 11.0
+          },
+          {
+            "x": 17.8,
+            "y": 11.0
+          },
+          {
+            "x": 17.4,
+            "y": 11.0
+          },
+          {
+            "x": 17.0,
+            "y": 11.0
+          },
+          {
+            "x": 16.6,
+            "y": 11.0
+          },
+          {
+            "x": 16.2,
+            "y": 11.0
+          },
+          {
+            "x": 15.8,
+            "y": 11.0
+          },
+          {
+            "x": 15.4,
+            "y": 11.0
+          },
+          {
+            "x": 15.0,
+            "y": 11.0
+          },
+          {
+            "x": 14.6,
+            "y": 11.0
+          },
+          {
+            "x": 14.2,
+            "y": 11.0
+          },
+          {
+            "x": 13.8,
+            "y": 11.0
+          },
+          {
+            "x": 13.4,
+            "y": 11.0
+          },
+          {
+            "x": 13.0,
+            "y": 11.0
+          },
+          {
+            "x": 12.6,
+            "y": 11.0
+          },
+          {
+            "x": 12.2,
+            "y": 11.0
+          },
+          {
+            "x": 11.8,
+            "y": 11.0
+          },
+          {
+            "x": 11.5,
+            "y": 11.1
+          },
+          {
+            "x": 11.5,
+            "y": 11.5
+          },
+          {
+            "x": 11.1,
+            "y": 11.5
+          },
+          {
+            "x": 10.7,
+            "y": 11.5
+          },
+          {
+            "x": 10.3,
+            "y": 11.5
+          },
+          {
+            "x": 9.9,
+            "y": 11.5
+          },
+          {
+            "x": 9.5,
+            "y": 11.5
+          },
+          {
+            "x": 9.1,
+            "y": 11.5
+          },
+          {
+            "x": 8.7,
+            "y": 11.5
+          },
+          {
+            "x": 8.3,
+            "y": 11.5
+          },
+          {
+            "x": 7.9,
+            "y": 11.5
+          },
+          {
+            "x": 7.5,
+            "y": 11.5
+          },
+          {
+            "x": 7.1,
+            "y": 11.5
+          },
+          {
+            "x": 6.7,
+            "y": 11.5
+          },
+          {
+            "x": 6.3,
+            "y": 11.5
+          },
+          {
+            "x": 5.9,
+            "y": 11.5
+          },
+          {
+            "x": 5.5,
+            "y": 11.5
+          },
+          {
+            "x": 5.1,
+            "y": 11.5
+          },
+          {
+            "x": 4.7,
+            "y": 11.5
+          },
+          {
+            "x": 4.3,
+            "y": 11.5
+          },
+          {
+            "x": 3.9,
+            "y": 11.5
+          },
+          {
+            "x": 3.5,
+            "y": 11.5
+          },
+          {
+            "x": 3.1,
+            "y": 11.5
+          },
+          {
+            "x": 3.0,
+            "y": 11.8
+          },
+          {
+            "x": 3.0,
+            "y": 12.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 3.0,
+          "hazard_signal": 0
+        },
+        "simulated": true,
+        "physical_connected": false
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Offline metric scene ready. All sensors and motion are simulated.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "mission_started",
+        "message": "Preset inspection started; navigation uses local A*.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 2.5,
+        "kind": "paused",
+        "message": "Simulation paused; no clock or motion advances.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 2.5,
+        "kind": "resumed",
+        "message": "Simulation resumed by explicit operator action.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 6.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 17.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 22.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 22.0,
+        "kind": "evidence",
+        "message": "suspected hazard: one modeled inference request; no API call.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 22.0,
+        "kind": "carrier_dispatched",
+        "message": "Scout evidence requests a kit-equipped close view; crawler sent to station.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 32.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 32.0,
+        "kind": "synthetic_dock",
+        "message": "Crawler docked in simulation. Kit transfer is a synthetic acknowledgement.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 35.0,
+        "kind": "synthetic_transfer",
+        "message": "Simulated kit loaded and arm clearance acknowledged. No arm command sent.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 56.0,
+        "kind": "evidence",
+        "message": "suspected hazard: one modeled inference request; no API call.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 14,
+        "time_s": 56.5,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 15,
+        "time_s": 56.5,
+        "kind": "evidence",
+        "message": "close inspection: one modeled inference request; no API call.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 16,
+        "time_s": 56.5,
+        "kind": "review_required",
+        "message": "Close inspection complete. Operator review is required; arm proposal is preview-only.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 17,
+        "time_s": 56.5,
+        "kind": "review_acknowledged",
+        "message": "Operator acknowledged simulated evidence. Arm proposal remains preview-only.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 18,
+        "time_s": 76.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 19,
+        "time_s": 78.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 20,
+        "time_s": 78.0,
+        "kind": "completed",
+        "message": "Rover returned home; crawler returned kit to station in simulation. No physical actions occurred.",
+        "robot_id": null,
+        "simulated": true
+      }
+    ],
+    "observations": [
+      {
+        "sequence": 17,
+        "time_s": 18.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 18,
+        "time_s": 18.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 19,
+        "time_s": 20.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 20,
+        "time_s": 20.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 21,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 22,
+        "time_s": 22.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 23,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 24,
+        "time_s": 24.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 25,
+        "time_s": 24.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 26,
+        "time_s": 26.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 27,
+        "time_s": 26.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 28,
+        "time_s": 28.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 29,
+        "time_s": 28.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 30,
+        "time_s": 30.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 31,
+        "time_s": 30.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 32,
+        "time_s": 32.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 33,
+        "time_s": 32.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 34,
+        "time_s": 34.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 35,
+        "time_s": 34.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 36,
+        "time_s": 36.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 37,
+        "time_s": 36.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 38,
+        "time_s": 38.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 39,
+        "time_s": 38.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 40,
+        "time_s": 40.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 41,
+        "time_s": 40.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 42,
+        "time_s": 42.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 43,
+        "time_s": 42.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 44,
+        "time_s": 44.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 45,
+        "time_s": 44.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 46,
+        "time_s": 46.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 47,
+        "time_s": 46.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 48,
+        "time_s": 48.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 49,
+        "time_s": 48.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 50,
+        "time_s": 50.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 51,
+        "time_s": 50.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 52,
+        "time_s": 52.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 53,
+        "time_s": 52.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 54,
+        "time_s": 54.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 55,
+        "time_s": 54.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 56,
+        "time_s": 56.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 57,
+        "time_s": 56.0,
+        "robot_id": "hexapod",
+        "finding": "suspected_hazard",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "hexapod:suspected_hazard"
+      },
+      {
+        "sequence": 58,
+        "time_s": 56.5,
+        "robot_id": "hexapod",
+        "finding": "close_inspection",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "hexapod:close_inspection"
+      },
+      {
+        "sequence": 59,
+        "time_s": 58.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 60,
+        "time_s": 58.0,
+        "robot_id": "hexapod",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:suspected_hazard"
+      },
+      {
+        "sequence": 61,
+        "time_s": 60.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 62,
+        "time_s": 60.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 63,
+        "time_s": 62.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 64,
+        "time_s": 62.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 65,
+        "time_s": 64.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 66,
+        "time_s": 64.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 67,
+        "time_s": 66.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 68,
+        "time_s": 66.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 69,
+        "time_s": 68.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 70,
+        "time_s": 68.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 71,
+        "time_s": 70.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 72,
+        "time_s": 70.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 73,
+        "time_s": 72.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 74,
+        "time_s": 72.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 75,
+        "time_s": 74.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 76,
+        "time_s": 74.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 77,
+        "time_s": 76.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 78,
+        "time_s": 76.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 79,
+        "time_s": 78.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 80,
+        "time_s": 78.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      }
+    ],
+    "metrics": {
+      "observations": 80,
+      "eligible_observations": 23,
+      "routine_filtered": 57,
+      "duplicates_filtered": 20,
+      "governed_requests": 3,
+      "modeled_request_allowance": 6,
+      "budget_refused": false,
+      "baseline_requests": 80,
+      "avoided_requests": 77,
+      "request_reduction_pct": 96.2,
+      "baseline_input_tokens": 144000,
+      "governed_input_tokens": 5400,
+      "baseline_output_tokens": 17600,
+      "governed_output_tokens": 660,
+      "baseline_estimated_cost_usd": 0.0872,
+      "governed_estimated_cost_usd": 0.00327,
+      "estimated_cost_avoided_usd": 0.08393,
+      "actual_model_calls": 0,
+      "actual_api_cost_usd": 0,
+      "energy_measured": false,
+      "assumptions": {
+        "input_tokens_per_request": 1800,
+        "output_tokens_per_request": 220,
+        "input_usd_per_million": 0.3,
+        "output_usd_per_million": 2.5,
+        "label": "Illustrative assumptions; not provider pricing or measured tokens"
+      }
+    },
+    "review": {
+      "required": true,
+      "acknowledged": true,
+      "environment_safety": "not_established",
+      "scope": "simulated_workflow_only",
+      "reason": "inspection_complete"
+    },
+    "arm_handoff": {
+      "status": "preview_ready",
+      "preview_only": true,
+      "actuation_enabled": false,
+      "physical_connected": false,
+      "commands_dispatched": 0,
+      "proposal": {
+        "schema_version": "1",
+        "proposal_id": "arm-preview-49695ec25be0d8c8cd4ed58b",
+        "inspection": {
+          "event_id": "inspection-sim-c9b487ebf2d5-1",
+          "mission_id": "sim-c9b487ebf2d5-1",
+          "source_id": "freenove-hexapod",
+          "station_id": "station-a",
+          "evidence_ref": "sim://sim-c9b487ebf2d5-1/close-inspection",
+          "simulated": true
+        },
+        "action": "place_marker",
+        "target_id": "learm",
+        "status": "needs_review",
+        "preview_only": true,
+        "simulated": true,
+        "confirmation_source": "synthetic_inspection",
+        "physical_connected": false,
+        "actuation_enabled": false,
+        "human_review_performed": false,
+        "environment_safety": "not_established",
+        "commands_dispatched": 0,
+        "network_requests": 0,
+        "model_calls": 0,
+        "api_cloud_cost_usd": 0,
+        "physical_result": null,
+        "next_step": "Review the simulated evidence; connect a verified taught routine separately."
+      }
+    },
+    "allowed_actions": [
+      "reset"
+    ],
+    "simulated": true,
+    "simulation_model": "2D kinematic A*; no terrain, gait, traction, dynamic robot collision, camera or energy validation",
+    "storage": "bounded_process_memory",
+    "actuation_enabled": false,
+    "network_requests": 0,
+    "actual_model_calls": 0,
+    "actual_api_cost_usd": 0
+  },
+  "directed_fault": {
+    "schema_version": "1",
+    "run_id": "sim-c9b487ebf2d5-2",
+    "status": "faulted",
+    "stage": "rover_investigate",
+    "mode": "directed",
+    "elapsed_s": 0.0,
+    "world": {
+      "width_m": 24,
+      "height_m": 16,
+      "cell_size_m": 0.5,
+      "coordinate_system": "local_xy_meters_not_geographic",
+      "obstacles": [
+        {
+          "id": "equipment",
+          "x": 8,
+          "y": 6,
+          "width": 3,
+          "height": 5
+        },
+        {
+          "id": "partition",
+          "x": 14,
+          "y": 2,
+          "width": 2,
+          "height": 7
+        },
+        {
+          "id": "storage",
+          "x": 16,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      ],
+      "station": {
+        "x": 3.0,
+        "y": 12.0
+      },
+      "hazard": {
+        "x": 20.0,
+        "y": 11.0,
+        "radius_m": 1.5
+      },
+      "patrol": [
+        {
+          "x": 9.0,
+          "y": 3.0
+        },
+        {
+          "x": 20.0,
+          "y": 4.0
+        }
+      ]
+    },
+    "target": {
+      "x": 19.0,
+      "y": 10.0
+    },
+    "robots": [
+      {
+        "id": "rover",
+        "name": "Quarky Intellio Rover",
+        "kind": "wheeled",
+        "x": 2.0,
+        "y": 2.0,
+        "home": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "heading_deg": 0.0,
+        "speed_mps": 1.4,
+        "battery_pct": 100.0,
+        "distance_m": 0.0,
+        "state": "moving",
+        "payload_id": null,
+        "target": {
+          "x": 19.0,
+          "y": 10.0
+        },
+        "path": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          },
+          {
+            "x": 2.0,
+            "y": 2.5
+          },
+          {
+            "x": 2.0,
+            "y": 3.0
+          },
+          {
+            "x": 2.0,
+            "y": 3.5
+          },
+          {
+            "x": 2.0,
+            "y": 4.0
+          },
+          {
+            "x": 2.0,
+            "y": 4.5
+          },
+          {
+            "x": 2.0,
+            "y": 5.0
+          },
+          {
+            "x": 2.0,
+            "y": 5.5
+          },
+          {
+            "x": 2.5,
+            "y": 5.5
+          },
+          {
+            "x": 3.0,
+            "y": 5.5
+          },
+          {
+            "x": 3.5,
+            "y": 5.5
+          },
+          {
+            "x": 4.0,
+            "y": 5.5
+          },
+          {
+            "x": 4.5,
+            "y": 5.5
+          },
+          {
+            "x": 5.0,
+            "y": 5.5
+          },
+          {
+            "x": 5.5,
+            "y": 5.5
+          },
+          {
+            "x": 6.0,
+            "y": 5.5
+          },
+          {
+            "x": 6.5,
+            "y": 5.5
+          },
+          {
+            "x": 7.0,
+            "y": 5.5
+          },
+          {
+            "x": 7.5,
+            "y": 5.5
+          },
+          {
+            "x": 8.0,
+            "y": 5.5
+          },
+          {
+            "x": 8.5,
+            "y": 5.5
+          },
+          {
+            "x": 9.0,
+            "y": 5.5
+          },
+          {
+            "x": 9.5,
+            "y": 5.5
+          },
+          {
+            "x": 10.0,
+            "y": 5.5
+          },
+          {
+            "x": 10.5,
+            "y": 5.5
+          },
+          {
+            "x": 11.0,
+            "y": 5.5
+          },
+          {
+            "x": 11.5,
+            "y": 5.5
+          },
+          {
+            "x": 11.5,
+            "y": 6.0
+          },
+          {
+            "x": 11.5,
+            "y": 6.5
+          },
+          {
+            "x": 11.5,
+            "y": 7.0
+          },
+          {
+            "x": 11.5,
+            "y": 7.5
+          },
+          {
+            "x": 11.5,
+            "y": 8.0
+          },
+          {
+            "x": 11.5,
+            "y": 8.5
+          },
+          {
+            "x": 11.5,
+            "y": 9.0
+          },
+          {
+            "x": 11.5,
+            "y": 9.5
+          },
+          {
+            "x": 11.5,
+            "y": 10.0
+          },
+          {
+            "x": 12.0,
+            "y": 10.0
+          },
+          {
+            "x": 12.5,
+            "y": 10.0
+          },
+          {
+            "x": 13.0,
+            "y": 10.0
+          },
+          {
+            "x": 13.5,
+            "y": 10.0
+          },
+          {
+            "x": 14.0,
+            "y": 10.0
+          },
+          {
+            "x": 14.5,
+            "y": 10.0
+          },
+          {
+            "x": 15.0,
+            "y": 10.0
+          },
+          {
+            "x": 15.5,
+            "y": 10.0
+          },
+          {
+            "x": 16.0,
+            "y": 10.0
+          },
+          {
+            "x": 16.5,
+            "y": 10.0
+          },
+          {
+            "x": 17.0,
+            "y": 10.0
+          },
+          {
+            "x": 17.5,
+            "y": 10.0
+          },
+          {
+            "x": 18.0,
+            "y": 10.0
+          },
+          {
+            "x": 18.5,
+            "y": 10.0
+          },
+          {
+            "x": 19.0,
+            "y": 10.0
+          }
+        ],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": null,
+          "hazard_signal": 0.0
+        },
+        "simulated": true,
+        "physical_connected": false
+      },
+      {
+        "id": "hexapod",
+        "name": "Freenove hexapod crawler",
+        "kind": "hexapod",
+        "x": 2.0,
+        "y": 5.0,
+        "home": {
+          "x": 2.0,
+          "y": 5.0
+        },
+        "heading_deg": 0.0,
+        "speed_mps": 0.8,
+        "battery_pct": 100.0,
+        "distance_m": 0.0,
+        "state": "faulted",
+        "payload_id": null,
+        "target": null,
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 5.0
+          }
+        ],
+        "fault": "sensor_dropout",
+        "sensors": {
+          "source": "synthetic",
+          "valid": false,
+          "nearest_obstacle_m": null,
+          "hazard_signal": 0.0
+        },
+        "simulated": true,
+        "physical_connected": false
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Offline metric scene ready. All sensors and motion are simulated.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "mission_started",
+        "message": "Directed inspection started; navigation uses local A*.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 0.0,
+        "kind": "fault",
+        "message": "sensor dropout injected. Fleet motion frozen for recovery.",
+        "robot_id": "hexapod",
+        "simulated": true
+      }
+    ],
+    "observations": [],
+    "metrics": {
+      "observations": 0,
+      "eligible_observations": 0,
+      "routine_filtered": 0,
+      "duplicates_filtered": 0,
+      "governed_requests": 0,
+      "modeled_request_allowance": 6,
+      "budget_refused": false,
+      "baseline_requests": 0,
+      "avoided_requests": 0,
+      "request_reduction_pct": 0,
+      "baseline_input_tokens": 0,
+      "governed_input_tokens": 0,
+      "baseline_output_tokens": 0,
+      "governed_output_tokens": 0,
+      "baseline_estimated_cost_usd": 0.0,
+      "governed_estimated_cost_usd": 0.0,
+      "estimated_cost_avoided_usd": 0.0,
+      "actual_model_calls": 0,
+      "actual_api_cost_usd": 0,
+      "energy_measured": false,
+      "assumptions": {
+        "input_tokens_per_request": 1800,
+        "output_tokens_per_request": 220,
+        "input_usd_per_million": 0.3,
+        "output_usd_per_million": 2.5,
+        "label": "Illustrative assumptions; not provider pricing or measured tokens"
+      }
+    },
+    "review": {
+      "required": false,
+      "acknowledged": false,
+      "environment_safety": "not_established",
+      "scope": "simulated_workflow_only"
+    },
+    "arm_handoff": {
+      "status": "awaiting_inspection",
+      "preview_only": true,
+      "actuation_enabled": false,
+      "physical_connected": false,
+      "commands_dispatched": 0,
+      "proposal": null
+    },
+    "allowed_actions": [
+      "reset",
+      "clear_fault",
+      "stop"
+    ],
+    "simulated": true,
+    "simulation_model": "2D kinematic A*; no terrain, gait, traction, dynamic robot collision, camera or energy validation",
+    "storage": "bounded_process_memory",
+    "actuation_enabled": false,
+    "network_requests": 0,
+    "actual_model_calls": 0,
+    "actual_api_cost_usd": 0
+  },
+  "directed_completed": {
+    "schema_version": "1",
+    "run_id": "sim-c9b487ebf2d5-2",
+    "status": "completed",
+    "stage": "completed",
+    "mode": "directed",
+    "elapsed_s": 74.0,
+    "world": {
+      "width_m": 24,
+      "height_m": 16,
+      "cell_size_m": 0.5,
+      "coordinate_system": "local_xy_meters_not_geographic",
+      "obstacles": [
+        {
+          "id": "equipment",
+          "x": 8,
+          "y": 6,
+          "width": 3,
+          "height": 5
+        },
+        {
+          "id": "partition",
+          "x": 14,
+          "y": 2,
+          "width": 2,
+          "height": 7
+        },
+        {
+          "id": "storage",
+          "x": 16,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      ],
+      "station": {
+        "x": 3.0,
+        "y": 12.0
+      },
+      "hazard": {
+        "x": 20.0,
+        "y": 11.0,
+        "radius_m": 1.5
+      },
+      "patrol": [
+        {
+          "x": 9.0,
+          "y": 3.0
+        },
+        {
+          "x": 20.0,
+          "y": 4.0
+        }
+      ]
+    },
+    "target": {
+      "x": 19.0,
+      "y": 10.0
+    },
+    "robots": [
+      {
+        "id": "rover",
+        "name": "Quarky Intellio Rover",
+        "kind": "wheeled",
+        "x": 2.0,
+        "y": 2.0,
+        "home": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "heading_deg": -90.0,
+        "speed_mps": 1.4,
+        "battery_pct": 98.49999999999994,
+        "distance_m": 50.0,
+        "state": "idle",
+        "payload_id": null,
+        "target": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          },
+          {
+            "x": 2.0,
+            "y": 2.7
+          },
+          {
+            "x": 2.0,
+            "y": 3.4
+          },
+          {
+            "x": 2.0,
+            "y": 4.1
+          },
+          {
+            "x": 2.0,
+            "y": 4.8
+          },
+          {
+            "x": 2.0,
+            "y": 5.5
+          },
+          {
+            "x": 2.7,
+            "y": 5.5
+          },
+          {
+            "x": 3.4,
+            "y": 5.5
+          },
+          {
+            "x": 4.1,
+            "y": 5.5
+          },
+          {
+            "x": 4.8,
+            "y": 5.5
+          },
+          {
+            "x": 5.5,
+            "y": 5.5
+          },
+          {
+            "x": 6.2,
+            "y": 5.5
+          },
+          {
+            "x": 6.9,
+            "y": 5.5
+          },
+          {
+            "x": 7.6,
+            "y": 5.5
+          },
+          {
+            "x": 8.3,
+            "y": 5.5
+          },
+          {
+            "x": 9.0,
+            "y": 5.5
+          },
+          {
+            "x": 9.7,
+            "y": 5.5
+          },
+          {
+            "x": 10.4,
+            "y": 5.5
+          },
+          {
+            "x": 11.1,
+            "y": 5.5
+          },
+          {
+            "x": 11.5,
+            "y": 5.8
+          },
+          {
+            "x": 11.5,
+            "y": 6.5
+          },
+          {
+            "x": 11.5,
+            "y": 7.2
+          },
+          {
+            "x": 11.5,
+            "y": 7.9
+          },
+          {
+            "x": 11.5,
+            "y": 8.6
+          },
+          {
+            "x": 11.5,
+            "y": 9.3
+          },
+          {
+            "x": 11.5,
+            "y": 10.0
+          },
+          {
+            "x": 12.2,
+            "y": 10.0
+          },
+          {
+            "x": 12.9,
+            "y": 10.0
+          },
+          {
+            "x": 13.6,
+            "y": 10.0
+          },
+          {
+            "x": 14.3,
+            "y": 10.0
+          },
+          {
+            "x": 15.0,
+            "y": 10.0
+          },
+          {
+            "x": 15.7,
+            "y": 10.0
+          },
+          {
+            "x": 16.4,
+            "y": 10.0
+          },
+          {
+            "x": 17.1,
+            "y": 10.0
+          },
+          {
+            "x": 17.8,
+            "y": 10.0
+          },
+          {
+            "x": 18.5,
+            "y": 10.0
+          },
+          {
+            "x": 19.0,
+            "y": 10.0
+          },
+          {
+            "x": 18.3,
+            "y": 10.0
+          },
+          {
+            "x": 17.6,
+            "y": 10.0
+          },
+          {
+            "x": 16.9,
+            "y": 10.0
+          },
+          {
+            "x": 16.2,
+            "y": 10.0
+          },
+          {
+            "x": 15.5,
+            "y": 10.0
+          },
+          {
+            "x": 14.8,
+            "y": 10.0
+          },
+          {
+            "x": 14.1,
+            "y": 10.0
+          },
+          {
+            "x": 13.4,
+            "y": 10.0
+          },
+          {
+            "x": 12.7,
+            "y": 10.0
+          },
+          {
+            "x": 12.0,
+            "y": 10.0
+          },
+          {
+            "x": 11.5,
+            "y": 9.8
+          },
+          {
+            "x": 11.5,
+            "y": 9.1
+          },
+          {
+            "x": 11.5,
+            "y": 8.4
+          },
+          {
+            "x": 11.5,
+            "y": 7.7
+          },
+          {
+            "x": 11.5,
+            "y": 7.0
+          },
+          {
+            "x": 11.5,
+            "y": 6.3
+          },
+          {
+            "x": 11.5,
+            "y": 5.6
+          },
+          {
+            "x": 10.9,
+            "y": 5.5
+          },
+          {
+            "x": 10.2,
+            "y": 5.5
+          },
+          {
+            "x": 9.5,
+            "y": 5.5
+          },
+          {
+            "x": 8.8,
+            "y": 5.5
+          },
+          {
+            "x": 8.1,
+            "y": 5.5
+          },
+          {
+            "x": 7.4,
+            "y": 5.5
+          },
+          {
+            "x": 6.7,
+            "y": 5.5
+          },
+          {
+            "x": 6.0,
+            "y": 5.5
+          },
+          {
+            "x": 5.3,
+            "y": 5.5
+          },
+          {
+            "x": 4.6,
+            "y": 5.5
+          },
+          {
+            "x": 3.9,
+            "y": 5.5
+          },
+          {
+            "x": 3.2,
+            "y": 5.5
+          },
+          {
+            "x": 2.5,
+            "y": 5.5
+          },
+          {
+            "x": 2.0,
+            "y": 5.3
+          },
+          {
+            "x": 2.0,
+            "y": 4.6
+          },
+          {
+            "x": 2.0,
+            "y": 3.9
+          },
+          {
+            "x": 2.0,
+            "y": 3.2
+          },
+          {
+            "x": 2.0,
+            "y": 2.5
+          },
+          {
+            "x": 2.0,
+            "y": 2.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 0
+        },
+        "simulated": true,
+        "physical_connected": false
+      },
+      {
+        "id": "hexapod",
+        "name": "Freenove hexapod crawler",
+        "kind": "hexapod",
+        "x": 3.0,
+        "y": 12.0,
+        "home": {
+          "x": 2.0,
+          "y": 5.0
+        },
+        "heading_deg": 90.0,
+        "speed_mps": 0.8,
+        "battery_pct": 98.73999999999995,
+        "distance_m": 41.99999999999997,
+        "state": "docked",
+        "payload_id": null,
+        "target": {
+          "x": 3.0,
+          "y": 12.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 5.0
+          },
+          {
+            "x": 2.0,
+            "y": 5.4
+          },
+          {
+            "x": 2.0,
+            "y": 5.8
+          },
+          {
+            "x": 2.0,
+            "y": 6.2
+          },
+          {
+            "x": 2.0,
+            "y": 6.6
+          },
+          {
+            "x": 2.0,
+            "y": 7.0
+          },
+          {
+            "x": 2.0,
+            "y": 7.4
+          },
+          {
+            "x": 2.0,
+            "y": 7.8
+          },
+          {
+            "x": 2.0,
+            "y": 8.2
+          },
+          {
+            "x": 2.0,
+            "y": 8.6
+          },
+          {
+            "x": 2.0,
+            "y": 9.0
+          },
+          {
+            "x": 2.0,
+            "y": 9.4
+          },
+          {
+            "x": 2.0,
+            "y": 9.8
+          },
+          {
+            "x": 2.0,
+            "y": 10.2
+          },
+          {
+            "x": 2.0,
+            "y": 10.6
+          },
+          {
+            "x": 2.0,
+            "y": 11.0
+          },
+          {
+            "x": 2.0,
+            "y": 11.4
+          },
+          {
+            "x": 2.0,
+            "y": 11.8
+          },
+          {
+            "x": 2.2,
+            "y": 12.0
+          },
+          {
+            "x": 2.6,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 12.0
+          },
+          {
+            "x": 3.0,
+            "y": 11.6
+          },
+          {
+            "x": 3.3,
+            "y": 11.5
+          },
+          {
+            "x": 3.7,
+            "y": 11.5
+          },
+          {
+            "x": 4.1,
+            "y": 11.5
+          },
+          {
+            "x": 4.5,
+            "y": 11.5
+          },
+          {
+            "x": 4.9,
+            "y": 11.5
+          },
+          {
+            "x": 5.3,
+            "y": 11.5
+          },
+          {
+            "x": 5.7,
+            "y": 11.5
+          },
+          {
+            "x": 6.1,
+            "y": 11.5
+          },
+          {
+            "x": 6.5,
+            "y": 11.5
+          },
+          {
+            "x": 6.9,
+            "y": 11.5
+          },
+          {
+            "x": 7.3,
+            "y": 11.5
+          },
+          {
+            "x": 7.7,
+            "y": 11.5
+          },
+          {
+            "x": 8.1,
+            "y": 11.5
+          },
+          {
+            "x": 8.5,
+            "y": 11.5
+          },
+          {
+            "x": 8.9,
+            "y": 11.5
+          },
+          {
+            "x": 9.3,
+            "y": 11.5
+          },
+          {
+            "x": 9.7,
+            "y": 11.5
+          },
+          {
+            "x": 10.1,
+            "y": 11.5
+          },
+          {
+            "x": 10.5,
+            "y": 11.5
+          },
+          {
+            "x": 10.9,
+            "y": 11.5
+          },
+          {
+            "x": 11.3,
+            "y": 11.5
+          },
+          {
+            "x": 11.5,
+            "y": 11.3
+          },
+          {
+            "x": 11.5,
+            "y": 10.9
+          },
+          {
+            "x": 11.5,
+            "y": 10.5
+          },
+          {
+            "x": 11.5,
+            "y": 10.1
+          },
+          {
+            "x": 11.8,
+            "y": 10.0
+          },
+          {
+            "x": 12.2,
+            "y": 10.0
+          },
+          {
+            "x": 12.6,
+            "y": 10.0
+          },
+          {
+            "x": 13.0,
+            "y": 10.0
+          },
+          {
+            "x": 13.4,
+            "y": 10.0
+          },
+          {
+            "x": 13.8,
+            "y": 10.0
+          },
+          {
+            "x": 14.2,
+            "y": 10.0
+          },
+          {
+            "x": 14.6,
+            "y": 10.0
+          },
+          {
+            "x": 15.0,
+            "y": 10.0
+          },
+          {
+            "x": 15.4,
+            "y": 10.0
+          },
+          {
+            "x": 15.8,
+            "y": 10.0
+          },
+          {
+            "x": 16.2,
+            "y": 10.0
+          },
+          {
+            "x": 16.6,
+            "y": 10.0
+          },
+          {
+            "x": 17.0,
+            "y": 10.0
+          },
+          {
+            "x": 17.4,
+            "y": 10.0
+          },
+          {
+            "x": 17.8,
+            "y": 10.0
+          },
+          {
+            "x": 18.0,
+            "y": 10.0
+          },
+          {
+            "x": 17.6,
+            "y": 10.0
+          },
+          {
+            "x": 17.2,
+            "y": 10.0
+          },
+          {
+            "x": 16.8,
+            "y": 10.0
+          },
+          {
+            "x": 16.4,
+            "y": 10.0
+          },
+          {
+            "x": 16.0,
+            "y": 10.0
+          },
+          {
+            "x": 15.6,
+            "y": 10.0
+          },
+          {
+            "x": 15.2,
+            "y": 10.0
+          },
+          {
+            "x": 14.8,
+            "y": 10.0
+          },
+          {
+            "x": 14.4,
+            "y": 10.0
+          },
+          {
+            "x": 14.0,
+            "y": 10.0
+          },
+          {
+            "x": 13.6,
+            "y": 10.0
+          },
+          {
+            "x": 13.2,
+            "y": 10.0
+          },
+          {
+            "x": 12.8,
+            "y": 10.0
+          },
+          {
+            "x": 12.4,
+            "y": 10.0
+          },
+          {
+            "x": 12.0,
+            "y": 10.0
+          },
+          {
+            "x": 11.6,
+            "y": 10.0
+          },
+          {
+            "x": 11.5,
+            "y": 10.3
+          },
+          {
+            "x": 11.5,
+            "y": 10.7
+          },
+          {
+            "x": 11.5,
+            "y": 11.1
+          },
+          {
+            "x": 11.5,
+            "y": 11.5
+          },
+          {
+            "x": 11.1,
+            "y": 11.5
+          },
+          {
+            "x": 10.7,
+            "y": 11.5
+          },
+          {
+            "x": 10.3,
+            "y": 11.5
+          },
+          {
+            "x": 9.9,
+            "y": 11.5
+          },
+          {
+            "x": 9.5,
+            "y": 11.5
+          },
+          {
+            "x": 9.1,
+            "y": 11.5
+          },
+          {
+            "x": 8.7,
+            "y": 11.5
+          },
+          {
+            "x": 8.3,
+            "y": 11.5
+          },
+          {
+            "x": 7.9,
+            "y": 11.5
+          },
+          {
+            "x": 7.5,
+            "y": 11.5
+          },
+          {
+            "x": 7.1,
+            "y": 11.5
+          },
+          {
+            "x": 6.7,
+            "y": 11.5
+          },
+          {
+            "x": 6.3,
+            "y": 11.5
+          },
+          {
+            "x": 5.9,
+            "y": 11.5
+          },
+          {
+            "x": 5.5,
+            "y": 11.5
+          },
+          {
+            "x": 5.1,
+            "y": 11.5
+          },
+          {
+            "x": 4.7,
+            "y": 11.5
+          },
+          {
+            "x": 4.3,
+            "y": 11.5
+          },
+          {
+            "x": 3.9,
+            "y": 11.5
+          },
+          {
+            "x": 3.5,
+            "y": 11.5
+          },
+          {
+            "x": 3.1,
+            "y": 11.5
+          },
+          {
+            "x": 3.0,
+            "y": 11.8
+          },
+          {
+            "x": 3.0,
+            "y": 12.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 3.0,
+          "hazard_signal": 0
+        },
+        "simulated": true,
+        "physical_connected": false
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Offline metric scene ready. All sensors and motion are simulated.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "mission_started",
+        "message": "Directed inspection started; navigation uses local A*.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 0.0,
+        "kind": "fault",
+        "message": "sensor dropout injected. Fleet motion frozen for recovery.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 0.0,
+        "kind": "fault_cleared",
+        "message": "Synthetic fault cleared and route replanned; explicit resume required.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 0.0,
+        "kind": "resumed",
+        "message": "Simulation resumed by explicit operator action.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 18.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 18.0,
+        "kind": "evidence",
+        "message": "suspected hazard: one modeled inference request; no API call.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 18.0,
+        "kind": "carrier_dispatched",
+        "message": "Scout evidence requests a kit-equipped close view; crawler sent to station.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 28.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 28.0,
+        "kind": "synthetic_dock",
+        "message": "Crawler docked in simulation. Kit transfer is a synthetic acknowledgement.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 31.0,
+        "kind": "synthetic_transfer",
+        "message": "Simulated kit loaded and arm clearance acknowledged. No arm command sent.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 52.5,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 52.5,
+        "kind": "evidence",
+        "message": "close inspection: one modeled inference request; no API call.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 14,
+        "time_s": 52.5,
+        "kind": "review_required",
+        "message": "Close inspection complete. Operator review is required; arm proposal is preview-only.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 15,
+        "time_s": 52.5,
+        "kind": "review_acknowledged",
+        "message": "Operator acknowledged simulated evidence. Arm proposal remains preview-only.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 16,
+        "time_s": 70.5,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 17,
+        "time_s": 74.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "hexapod",
+        "simulated": true
+      },
+      {
+        "sequence": 18,
+        "time_s": 74.0,
+        "kind": "completed",
+        "message": "Rover returned home; crawler returned kit to station in simulation. No physical actions occurred.",
+        "robot_id": null,
+        "simulated": true
+      }
+    ],
+    "observations": [
+      {
+        "sequence": 13,
+        "time_s": 14.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 14,
+        "time_s": 14.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 15,
+        "time_s": 16.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 16,
+        "time_s": 16.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 17,
+        "time_s": 18.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 18,
+        "time_s": 18.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 19,
+        "time_s": 18.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 20,
+        "time_s": 20.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 21,
+        "time_s": 20.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 22,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 23,
+        "time_s": 22.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 24,
+        "time_s": 24.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 25,
+        "time_s": 24.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 26,
+        "time_s": 26.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 27,
+        "time_s": 26.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 28,
+        "time_s": 28.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 29,
+        "time_s": 28.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 30,
+        "time_s": 30.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 31,
+        "time_s": 30.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 32,
+        "time_s": 32.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 33,
+        "time_s": 32.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 34,
+        "time_s": 34.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 35,
+        "time_s": 34.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 36,
+        "time_s": 36.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 37,
+        "time_s": 36.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 38,
+        "time_s": 38.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 39,
+        "time_s": 38.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 40,
+        "time_s": 40.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 41,
+        "time_s": 40.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 42,
+        "time_s": 42.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 43,
+        "time_s": 42.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 44,
+        "time_s": 44.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 45,
+        "time_s": 44.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 46,
+        "time_s": 46.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 47,
+        "time_s": 46.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 48,
+        "time_s": 48.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 49,
+        "time_s": 48.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 50,
+        "time_s": 50.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 51,
+        "time_s": 50.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 52,
+        "time_s": 52.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "duplicates_filtered",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      },
+      {
+        "sequence": 53,
+        "time_s": 52.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 54,
+        "time_s": 52.5,
+        "robot_id": "hexapod",
+        "finding": "close_inspection",
+        "decision": "modeled_request",
+        "simulated": true,
+        "evidence_key": "hexapod:close_inspection"
+      },
+      {
+        "sequence": 55,
+        "time_s": 54.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 56,
+        "time_s": 54.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 57,
+        "time_s": 56.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 58,
+        "time_s": 56.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 59,
+        "time_s": 58.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 60,
+        "time_s": 58.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 61,
+        "time_s": 60.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 62,
+        "time_s": 60.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 63,
+        "time_s": 62.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 64,
+        "time_s": 62.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 65,
+        "time_s": 64.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 66,
+        "time_s": 64.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 67,
+        "time_s": 66.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 68,
+        "time_s": 66.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 69,
+        "time_s": 68.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 70,
+        "time_s": 68.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 71,
+        "time_s": 70.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 72,
+        "time_s": 70.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 73,
+        "time_s": 72.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 74,
+        "time_s": 72.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 75,
+        "time_s": 74.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 76,
+        "time_s": 74.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      }
+    ],
+    "metrics": {
+      "observations": 76,
+      "eligible_observations": 20,
+      "routine_filtered": 56,
+      "duplicates_filtered": 18,
+      "governed_requests": 2,
+      "modeled_request_allowance": 6,
+      "budget_refused": false,
+      "baseline_requests": 76,
+      "avoided_requests": 74,
+      "request_reduction_pct": 97.4,
+      "baseline_input_tokens": 136800,
+      "governed_input_tokens": 3600,
+      "baseline_output_tokens": 16720,
+      "governed_output_tokens": 440,
+      "baseline_estimated_cost_usd": 0.08284,
+      "governed_estimated_cost_usd": 0.00218,
+      "estimated_cost_avoided_usd": 0.08066,
+      "actual_model_calls": 0,
+      "actual_api_cost_usd": 0,
+      "energy_measured": false,
+      "assumptions": {
+        "input_tokens_per_request": 1800,
+        "output_tokens_per_request": 220,
+        "input_usd_per_million": 0.3,
+        "output_usd_per_million": 2.5,
+        "label": "Illustrative assumptions; not provider pricing or measured tokens"
+      }
+    },
+    "review": {
+      "required": true,
+      "acknowledged": true,
+      "environment_safety": "not_established",
+      "scope": "simulated_workflow_only",
+      "reason": "inspection_complete"
+    },
+    "arm_handoff": {
+      "status": "preview_ready",
+      "preview_only": true,
+      "actuation_enabled": false,
+      "physical_connected": false,
+      "commands_dispatched": 0,
+      "proposal": {
+        "schema_version": "1",
+        "proposal_id": "arm-preview-86b9190f95259e7b9bc9f2e1",
+        "inspection": {
+          "event_id": "inspection-sim-c9b487ebf2d5-2",
+          "mission_id": "sim-c9b487ebf2d5-2",
+          "source_id": "freenove-hexapod",
+          "station_id": "station-a",
+          "evidence_ref": "sim://sim-c9b487ebf2d5-2/close-inspection",
+          "simulated": true
+        },
+        "action": "place_marker",
+        "target_id": "learm",
+        "status": "needs_review",
+        "preview_only": true,
+        "simulated": true,
+        "confirmation_source": "synthetic_inspection",
+        "physical_connected": false,
+        "actuation_enabled": false,
+        "human_review_performed": false,
+        "environment_safety": "not_established",
+        "commands_dispatched": 0,
+        "network_requests": 0,
+        "model_calls": 0,
+        "api_cloud_cost_usd": 0,
+        "physical_result": null,
+        "next_step": "Review the simulated evidence; connect a verified taught routine separately."
+      }
+    },
+    "allowed_actions": [
+      "reset"
+    ],
+    "simulated": true,
+    "simulation_model": "2D kinematic A*; no terrain, gait, traction, dynamic robot collision, camera or energy validation",
+    "storage": "bounded_process_memory",
+    "actuation_enabled": false,
+    "network_requests": 0,
+    "actual_model_calls": 0,
+    "actual_api_cost_usd": 0
+  },
+  "budget_refused": {
+    "schema_version": "1",
+    "run_id": "sim-c9b487ebf2d5-3",
+    "status": "needs_review",
+    "stage": "rover_investigate",
+    "mode": "preset",
+    "elapsed_s": 22.0,
+    "world": {
+      "width_m": 24,
+      "height_m": 16,
+      "cell_size_m": 0.5,
+      "coordinate_system": "local_xy_meters_not_geographic",
+      "obstacles": [
+        {
+          "id": "equipment",
+          "x": 8,
+          "y": 6,
+          "width": 3,
+          "height": 5
+        },
+        {
+          "id": "partition",
+          "x": 14,
+          "y": 2,
+          "width": 2,
+          "height": 7
+        },
+        {
+          "id": "storage",
+          "x": 16,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      ],
+      "station": {
+        "x": 3.0,
+        "y": 12.0
+      },
+      "hazard": {
+        "x": 20.0,
+        "y": 11.0,
+        "radius_m": 1.5
+      },
+      "patrol": [
+        {
+          "x": 9.0,
+          "y": 3.0
+        },
+        {
+          "x": 20.0,
+          "y": 4.0
+        }
+      ]
+    },
+    "target": {
+      "x": 20.0,
+      "y": 11.0
+    },
+    "robots": [
+      {
+        "id": "rover",
+        "name": "Quarky Intellio Rover",
+        "kind": "wheeled",
+        "x": 20.0,
+        "y": 10.999999999999996,
+        "home": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "heading_deg": 90.0,
+        "speed_mps": 1.4,
+        "battery_pct": 99.09999999999997,
+        "distance_m": 29.999999999999996,
+        "state": "arrived",
+        "payload_id": null,
+        "target": {
+          "x": 20.0,
+          "y": 11.0
+        },
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 2.0
+          },
+          {
+            "x": 2.0,
+            "y": 2.7
+          },
+          {
+            "x": 2.4,
+            "y": 3.0
+          },
+          {
+            "x": 3.1,
+            "y": 3.0
+          },
+          {
+            "x": 3.8,
+            "y": 3.0
+          },
+          {
+            "x": 4.5,
+            "y": 3.0
+          },
+          {
+            "x": 5.2,
+            "y": 3.0
+          },
+          {
+            "x": 5.9,
+            "y": 3.0
+          },
+          {
+            "x": 6.6,
+            "y": 3.0
+          },
+          {
+            "x": 7.3,
+            "y": 3.0
+          },
+          {
+            "x": 8.0,
+            "y": 3.0
+          },
+          {
+            "x": 8.7,
+            "y": 3.0
+          },
+          {
+            "x": 9.0,
+            "y": 3.0
+          },
+          {
+            "x": 9.7,
+            "y": 3.0
+          },
+          {
+            "x": 10.4,
+            "y": 3.0
+          },
+          {
+            "x": 11.1,
+            "y": 3.0
+          },
+          {
+            "x": 11.8,
+            "y": 3.0
+          },
+          {
+            "x": 12.5,
+            "y": 3.0
+          },
+          {
+            "x": 13.2,
+            "y": 3.0
+          },
+          {
+            "x": 13.5,
+            "y": 2.6
+          },
+          {
+            "x": 13.5,
+            "y": 1.9
+          },
+          {
+            "x": 13.8,
+            "y": 1.5
+          },
+          {
+            "x": 14.5,
+            "y": 1.5
+          },
+          {
+            "x": 15.2,
+            "y": 1.5
+          },
+          {
+            "x": 15.9,
+            "y": 1.5
+          },
+          {
+            "x": 16.5,
+            "y": 1.6
+          },
+          {
+            "x": 16.5,
+            "y": 2.3
+          },
+          {
+            "x": 16.5,
+            "y": 3.0
+          },
+          {
+            "x": 16.5,
+            "y": 3.7
+          },
+          {
+            "x": 16.9,
+            "y": 4.0
+          },
+          {
+            "x": 17.6,
+            "y": 4.0
+          },
+          {
+            "x": 18.3,
+            "y": 4.0
+          },
+          {
+            "x": 19.0,
+            "y": 4.0
+          },
+          {
+            "x": 19.7,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.0
+          },
+          {
+            "x": 20.0,
+            "y": 4.7
+          },
+          {
+            "x": 20.0,
+            "y": 5.4
+          },
+          {
+            "x": 20.0,
+            "y": 6.1
+          },
+          {
+            "x": 20.0,
+            "y": 6.8
+          },
+          {
+            "x": 20.0,
+            "y": 7.5
+          },
+          {
+            "x": 20.0,
+            "y": 8.2
+          },
+          {
+            "x": 20.0,
+            "y": 8.9
+          },
+          {
+            "x": 20.0,
+            "y": 9.6
+          },
+          {
+            "x": 20.0,
+            "y": 10.3
+          },
+          {
+            "x": 20.0,
+            "y": 11.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 1.0
+        },
+        "simulated": true,
+        "physical_connected": false
+      },
+      {
+        "id": "hexapod",
+        "name": "Freenove hexapod crawler",
+        "kind": "hexapod",
+        "x": 2.0,
+        "y": 5.0,
+        "home": {
+          "x": 2.0,
+          "y": 5.0
+        },
+        "heading_deg": 0.0,
+        "speed_mps": 0.8,
+        "battery_pct": 100.0,
+        "distance_m": 0.0,
+        "state": "idle",
+        "payload_id": null,
+        "target": null,
+        "path": [],
+        "trail": [
+          {
+            "x": 2.0,
+            "y": 5.0
+          }
+        ],
+        "fault": null,
+        "sensors": {
+          "source": "synthetic",
+          "valid": true,
+          "nearest_obstacle_m": 2.0,
+          "hazard_signal": 0
+        },
+        "simulated": true,
+        "physical_connected": false
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Offline metric scene ready. All sensors and motion are simulated.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "mission_started",
+        "message": "Preset inspection started; navigation uses local A*.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 0.0,
+        "kind": "budget_exhausted",
+        "message": "Modeled request allowance exhausted; next novel eligible observation will require review.",
+        "robot_id": null,
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 6.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 17.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 22.0,
+        "kind": "arrived",
+        "message": "Reached planned waypoint with obstacle clearance.",
+        "robot_id": "rover",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 22.0,
+        "kind": "budget_refused",
+        "message": "Novel evidence exceeded the modeled request allowance. No model was called.",
+        "robot_id": "rover",
+        "simulated": true
+      }
+    ],
+    "observations": [
+      {
+        "sequence": 1,
+        "time_s": 2.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 2,
+        "time_s": 2.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 3,
+        "time_s": 4.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 4,
+        "time_s": 4.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 5,
+        "time_s": 6.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 6,
+        "time_s": 6.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 7,
+        "time_s": 8.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 8,
+        "time_s": 8.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 9,
+        "time_s": 10.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 10,
+        "time_s": 10.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 11,
+        "time_s": 12.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 12,
+        "time_s": 12.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 13,
+        "time_s": 14.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 14,
+        "time_s": 14.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 15,
+        "time_s": 16.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 16,
+        "time_s": 16.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 17,
+        "time_s": 18.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 18,
+        "time_s": 18.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 19,
+        "time_s": 20.0,
+        "robot_id": "rover",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "rover:routine_clear"
+      },
+      {
+        "sequence": 20,
+        "time_s": 20.0,
+        "robot_id": "hexapod",
+        "finding": "routine_clear",
+        "decision": "routine_filtered",
+        "simulated": true,
+        "evidence_key": "hexapod:routine_clear"
+      },
+      {
+        "sequence": 21,
+        "time_s": 22.0,
+        "robot_id": "rover",
+        "finding": "suspected_hazard",
+        "decision": "budget_refused",
+        "simulated": true,
+        "evidence_key": "rover:suspected_hazard"
+      }
+    ],
+    "metrics": {
+      "observations": 21,
+      "eligible_observations": 1,
+      "routine_filtered": 20,
+      "duplicates_filtered": 0,
+      "governed_requests": 0,
+      "modeled_request_allowance": 0,
+      "budget_refused": true,
+      "baseline_requests": 21,
+      "avoided_requests": 21,
+      "request_reduction_pct": 100.0,
+      "baseline_input_tokens": 37800,
+      "governed_input_tokens": 0,
+      "baseline_output_tokens": 4620,
+      "governed_output_tokens": 0,
+      "baseline_estimated_cost_usd": 0.02289,
+      "governed_estimated_cost_usd": 0.0,
+      "estimated_cost_avoided_usd": 0.02289,
+      "actual_model_calls": 0,
+      "actual_api_cost_usd": 0,
+      "energy_measured": false,
+      "assumptions": {
+        "input_tokens_per_request": 1800,
+        "output_tokens_per_request": 220,
+        "input_usd_per_million": 0.3,
+        "output_usd_per_million": 2.5,
+        "label": "Illustrative assumptions; not provider pricing or measured tokens"
+      }
+    },
+    "review": {
+      "required": true,
+      "acknowledged": false,
+      "environment_safety": "not_established",
+      "scope": "simulated_workflow_only",
+      "reason": "budget_refused"
+    },
+    "arm_handoff": {
+      "status": "awaiting_inspection",
+      "preview_only": true,
+      "actuation_enabled": false,
+      "physical_connected": false,
+      "commands_dispatched": 0,
+      "proposal": null
+    },
+    "allowed_actions": [
+      "reset",
+      "review",
+      "stop"
+    ],
+    "simulated": true,
+    "simulation_model": "2D kinematic A*; no terrain, gait, traction, dynamic robot collision, camera or energy validation",
+    "storage": "bounded_process_memory",
+    "actuation_enabled": false,
+    "network_requests": 0,
+    "actual_model_calls": 0,
+    "actual_api_cost_usd": 0
+  }
+}

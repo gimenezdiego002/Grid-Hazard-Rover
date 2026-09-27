@@ -1,0 +1,1428 @@
+{
+  "simulated": true,
+  "commands_dispatched": 0,
+  "model_calls": 0,
+  "preset_completed": {
+    "schema_version": "arm-simulation/1",
+    "run_id": "arm-sim-a70e7f74fdd8-1",
+    "source": "simulation",
+    "simulated": true,
+    "status": "completed",
+    "stage": "completed",
+    "mode": "preset",
+    "elapsed_s": 14.0,
+    "joints_deg": [
+      90.0,
+      60.0,
+      60.0,
+      90.0,
+      90.0,
+      20.0
+    ],
+    "joint_names": [
+      "base",
+      "shoulder",
+      "elbow",
+      "wrist_pitch",
+      "wrist_roll",
+      "gripper"
+    ],
+    "angle_unit": "degrees",
+    "routine": [
+      {
+        "name": "home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "approach_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "grasp_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "lift_marker",
+        "joints_deg": [
+          35.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "carry_marker",
+        "joints_deg": [
+          145.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 3.0
+      },
+      {
+        "name": "lower_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "release_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "return_home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recorded_routine": [],
+    "recording": {
+      "schema_version": "arm-simulation/1",
+      "recording_kind": "simulated_joint_angles",
+      "angle_unit": "degrees",
+      "poses": [],
+      "simulated": true,
+      "actuation_enabled": false
+    },
+    "current_waypoint": 7,
+    "repeat_index": 1,
+    "repeats": 1,
+    "progress": 1.0,
+    "waypoint_progress": 1.0,
+    "payload": {
+      "state": "placed",
+      "position": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "gripper": {
+      "open_fraction": 1.0,
+      "state": "open"
+    },
+    "end_effector": {
+      "x": 0.451769,
+      "y": 0.0,
+      "z": 0.522487
+    },
+    "link_positions": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.1
+      },
+      {
+        "x": 0.14,
+        "y": 0.0,
+        "z": 0.342487
+      },
+      {
+        "x": 0.347846,
+        "y": 0.0,
+        "z": 0.462487
+      },
+      {
+        "x": 0.451769,
+        "y": 0.0,
+        "z": 0.522487
+      }
+    ],
+    "stations": {
+      "source": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      },
+      "destination": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "fault": null,
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Virtual arm ready. Angles and dimensions are illustrative, not calibrated LeArm settings.",
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "routine_started",
+        "message": "Preset virtual routine started (1 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 1.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose home.",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 3.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose approach_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 4.0,
+        "kind": "virtual_grasp",
+        "message": "Virtual marker attached using a proximity fixture; no physical grip was measured.",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 4.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose grasp_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 6.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose lift_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 9.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose carry_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 11.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose lower_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 12.0,
+        "kind": "virtual_release",
+        "message": "Virtual marker placed; this is a simulated fixture result.",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 12.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose release_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 14.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose return_home.",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 14.0,
+        "kind": "completed",
+        "message": "Virtual routine completed. Physical result remains unverified; no device commands sent.",
+        "simulated": true
+      }
+    ],
+    "allowed_actions": [
+      "reset",
+      "start",
+      "pose",
+      "capture",
+      "clear_recording"
+    ],
+    "physical_connected": false,
+    "actuation_enabled": false,
+    "commands_dispatched": 0,
+    "physical_result": null,
+    "model_calls": 0,
+    "network_requests": 0,
+    "api_cloud_cost_usd": 0,
+    "simulation_model": "Illustrative joint-angle interpolation and forward kinematics; no calibration, dynamics, collisions, load, contact or physical grip validation",
+    "storage": "bounded_process_memory"
+  },
+  "taught_replay_completed": {
+    "schema_version": "arm-simulation/1",
+    "run_id": "arm-sim-a70e7f74fdd8-2",
+    "source": "simulation",
+    "simulated": true,
+    "status": "completed",
+    "stage": "completed",
+    "mode": "recorded",
+    "elapsed_s": 8.0,
+    "joints_deg": [
+      120.0,
+      70.0,
+      65.0,
+      100.0,
+      115.0,
+      20.0
+    ],
+    "joint_names": [
+      "base",
+      "shoulder",
+      "elbow",
+      "wrist_pitch",
+      "wrist_roll",
+      "gripper"
+    ],
+    "angle_unit": "degrees",
+    "routine": [
+      {
+        "name": "virtual-home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "virtual-reach",
+        "joints_deg": [
+          120.0,
+          70.0,
+          65.0,
+          100.0,
+          115.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recorded_routine": [
+      {
+        "name": "virtual-home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "virtual-reach",
+        "joints_deg": [
+          120.0,
+          70.0,
+          65.0,
+          100.0,
+          115.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recording": {
+      "schema_version": "arm-simulation/1",
+      "recording_kind": "simulated_joint_angles",
+      "angle_unit": "degrees",
+      "poses": [
+        {
+          "name": "virtual-home",
+          "joints_deg": [
+            90.0,
+            60.0,
+            60.0,
+            90.0,
+            90.0,
+            20.0
+          ],
+          "duration_s": 1.0
+        },
+        {
+          "name": "virtual-reach",
+          "joints_deg": [
+            120.0,
+            70.0,
+            65.0,
+            100.0,
+            115.0,
+            20.0
+          ],
+          "duration_s": 2.0
+        }
+      ],
+      "simulated": true,
+      "actuation_enabled": false
+    },
+    "current_waypoint": 1,
+    "repeat_index": 2,
+    "repeats": 2,
+    "progress": 1.0,
+    "waypoint_progress": 1.0,
+    "payload": {
+      "state": "at_source",
+      "position": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      }
+    },
+    "gripper": {
+      "open_fraction": 1.0,
+      "state": "open"
+    },
+    "end_effector": {
+      "x": 0.289513,
+      "y": 0.16715,
+      "z": 0.631118
+    },
+    "link_positions": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.1
+      },
+      {
+        "x": 0.082935,
+        "y": 0.047883,
+        "z": 0.363114
+      },
+      {
+        "x": 0.229905,
+        "y": 0.132736,
+        "z": 0.53282
+      },
+      {
+        "x": 0.289513,
+        "y": 0.16715,
+        "z": 0.631118
+      }
+    ],
+    "stations": {
+      "source": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      },
+      "destination": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "fault": null,
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Virtual arm ready. Angles and dimensions are illustrative, not calibrated LeArm settings.",
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "pose_captured",
+        "message": "Captured virtual-home as illustrative joint angles, not hardware pulse targets.",
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 0.0,
+        "kind": "routine_started",
+        "message": "Manual virtual routine started (1 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 2.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose manual_pose.",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 2.0,
+        "kind": "completed",
+        "message": "Virtual routine completed. Physical result remains unverified; no device commands sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 2.0,
+        "kind": "pose_captured",
+        "message": "Captured virtual-reach as illustrative joint angles, not hardware pulse targets.",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 2.0,
+        "kind": "routine_started",
+        "message": "Recorded virtual routine started (2 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 3.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose virtual-home.",
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 5.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose virtual-reach.",
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 5.0,
+        "kind": "repeat",
+        "message": "Beginning virtual repetition 2.",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 6.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose virtual-home.",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 8.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose virtual-reach.",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 8.0,
+        "kind": "completed",
+        "message": "Virtual routine completed. Physical result remains unverified; no device commands sent.",
+        "simulated": true
+      }
+    ],
+    "allowed_actions": [
+      "reset",
+      "start",
+      "pose",
+      "capture",
+      "clear_recording",
+      "replay"
+    ],
+    "physical_connected": false,
+    "actuation_enabled": false,
+    "commands_dispatched": 0,
+    "physical_result": null,
+    "model_calls": 0,
+    "network_requests": 0,
+    "api_cloud_cost_usd": 0,
+    "simulation_model": "Illustrative joint-angle interpolation and forward kinematics; no calibration, dynamics, collisions, load, contact or physical grip validation",
+    "storage": "bounded_process_memory"
+  },
+  "grip_loss": {
+    "schema_version": "arm-simulation/1",
+    "run_id": "arm-sim-a70e7f74fdd8-3",
+    "source": "simulation",
+    "simulated": true,
+    "status": "faulted",
+    "stage": "lift_marker",
+    "mode": "preset",
+    "elapsed_s": 4.0,
+    "joints_deg": [
+      35.0,
+      15.0,
+      105.0,
+      60.0,
+      90.0,
+      110.0
+    ],
+    "joint_names": [
+      "base",
+      "shoulder",
+      "elbow",
+      "wrist_pitch",
+      "wrist_roll",
+      "gripper"
+    ],
+    "angle_unit": "degrees",
+    "routine": [
+      {
+        "name": "home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "approach_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "grasp_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "lift_marker",
+        "joints_deg": [
+          35.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "carry_marker",
+        "joints_deg": [
+          145.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 3.0
+      },
+      {
+        "name": "lower_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "release_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "return_home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recorded_routine": [],
+    "recording": {
+      "schema_version": "arm-simulation/1",
+      "recording_kind": "simulated_joint_angles",
+      "angle_unit": "degrees",
+      "poses": [],
+      "simulated": true,
+      "actuation_enabled": false
+    },
+    "current_waypoint": 3,
+    "repeat_index": 1,
+    "repeats": 1,
+    "progress": 0.285714,
+    "waypoint_progress": 0.0,
+    "payload": {
+      "state": "dropped",
+      "position": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      }
+    },
+    "gripper": {
+      "open_fraction": 0.0,
+      "state": "closed"
+    },
+    "end_effector": {
+      "x": 0.343174,
+      "y": -0.490103,
+      "z": 0.292469
+    },
+    "link_positions": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.1
+      },
+      {
+        "x": 0.155129,
+        "y": -0.221547,
+        "z": 0.172469
+      },
+      {
+        "x": 0.274345,
+        "y": -0.391805,
+        "z": 0.292469
+      },
+      {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      }
+    ],
+    "stations": {
+      "source": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      },
+      "destination": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "fault": "grip_loss",
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Virtual arm ready. Angles and dimensions are illustrative, not calibrated LeArm settings.",
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "routine_started",
+        "message": "Preset virtual routine started (1 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 1.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose home.",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 3.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose approach_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 4.0,
+        "kind": "virtual_grasp",
+        "message": "Virtual marker attached using a proximity fixture; no physical grip was measured.",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 4.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose grasp_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 4.0,
+        "kind": "fault",
+        "message": "Synthetic grip loss injected; trajectory frozen for explicit recovery.",
+        "simulated": true
+      }
+    ],
+    "allowed_actions": [
+      "reset",
+      "clear_fault",
+      "stop"
+    ],
+    "physical_connected": false,
+    "actuation_enabled": false,
+    "commands_dispatched": 0,
+    "physical_result": null,
+    "model_calls": 0,
+    "network_requests": 0,
+    "api_cloud_cost_usd": 0,
+    "simulation_model": "Illustrative joint-angle interpolation and forward kinematics; no calibration, dynamics, collisions, load, contact or physical grip validation",
+    "storage": "bounded_process_memory"
+  },
+  "restored_virtual_checkpoint": {
+    "schema_version": "arm-simulation/1",
+    "run_id": "arm-sim-a70e7f74fdd8-3",
+    "source": "simulation",
+    "simulated": true,
+    "status": "paused",
+    "stage": "lift_marker",
+    "mode": "preset",
+    "elapsed_s": 4.0,
+    "joints_deg": [
+      35.0,
+      15.0,
+      105.0,
+      60.0,
+      90.0,
+      110.0
+    ],
+    "joint_names": [
+      "base",
+      "shoulder",
+      "elbow",
+      "wrist_pitch",
+      "wrist_roll",
+      "gripper"
+    ],
+    "angle_unit": "degrees",
+    "routine": [
+      {
+        "name": "home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "approach_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "grasp_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "lift_marker",
+        "joints_deg": [
+          35.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "carry_marker",
+        "joints_deg": [
+          145.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 3.0
+      },
+      {
+        "name": "lower_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "release_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "return_home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recorded_routine": [],
+    "recording": {
+      "schema_version": "arm-simulation/1",
+      "recording_kind": "simulated_joint_angles",
+      "angle_unit": "degrees",
+      "poses": [],
+      "simulated": true,
+      "actuation_enabled": false
+    },
+    "current_waypoint": 3,
+    "repeat_index": 1,
+    "repeats": 1,
+    "progress": 0.285714,
+    "waypoint_progress": 0.0,
+    "payload": {
+      "state": "held",
+      "position": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      }
+    },
+    "gripper": {
+      "open_fraction": 0.0,
+      "state": "closed"
+    },
+    "end_effector": {
+      "x": 0.343174,
+      "y": -0.490103,
+      "z": 0.292469
+    },
+    "link_positions": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.1
+      },
+      {
+        "x": 0.155129,
+        "y": -0.221547,
+        "z": 0.172469
+      },
+      {
+        "x": 0.274345,
+        "y": -0.391805,
+        "z": 0.292469
+      },
+      {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      }
+    ],
+    "stations": {
+      "source": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      },
+      "destination": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "fault": null,
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Virtual arm ready. Angles and dimensions are illustrative, not calibrated LeArm settings.",
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "routine_started",
+        "message": "Preset virtual routine started (1 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 1.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose home.",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 3.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose approach_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 4.0,
+        "kind": "virtual_grasp",
+        "message": "Virtual marker attached using a proximity fixture; no physical grip was measured.",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 4.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose grasp_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 4.0,
+        "kind": "fault",
+        "message": "Synthetic grip loss injected; trajectory frozen for explicit recovery.",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 4.0,
+        "kind": "fault_cleared",
+        "message": "Virtual fault cleared and pre-fault virtual payload restored. Explicit resume required.",
+        "simulated": true
+      }
+    ],
+    "allowed_actions": [
+      "reset",
+      "resume",
+      "step",
+      "stop",
+      "inject_fault",
+      "capture",
+      "clear_recording"
+    ],
+    "physical_connected": false,
+    "actuation_enabled": false,
+    "commands_dispatched": 0,
+    "physical_result": null,
+    "model_calls": 0,
+    "network_requests": 0,
+    "api_cloud_cost_usd": 0,
+    "simulation_model": "Illustrative joint-angle interpolation and forward kinematics; no calibration, dynamics, collisions, load, contact or physical grip validation",
+    "storage": "bounded_process_memory"
+  },
+  "recovered_completed": {
+    "schema_version": "arm-simulation/1",
+    "run_id": "arm-sim-a70e7f74fdd8-3",
+    "source": "simulation",
+    "simulated": true,
+    "status": "completed",
+    "stage": "completed",
+    "mode": "preset",
+    "elapsed_s": 14.0,
+    "joints_deg": [
+      90.0,
+      60.0,
+      60.0,
+      90.0,
+      90.0,
+      20.0
+    ],
+    "joint_names": [
+      "base",
+      "shoulder",
+      "elbow",
+      "wrist_pitch",
+      "wrist_roll",
+      "gripper"
+    ],
+    "angle_unit": "degrees",
+    "routine": [
+      {
+        "name": "home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "approach_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "grasp_marker",
+        "joints_deg": [
+          35.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "lift_marker",
+        "joints_deg": [
+          35.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "carry_marker",
+        "joints_deg": [
+          145.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 3.0
+      },
+      {
+        "name": "lower_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          110.0
+        ],
+        "duration_s": 2.0
+      },
+      {
+        "name": "release_marker",
+        "joints_deg": [
+          145.0,
+          15.0,
+          105.0,
+          60.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 1.0
+      },
+      {
+        "name": "return_home",
+        "joints_deg": [
+          90.0,
+          60.0,
+          60.0,
+          90.0,
+          90.0,
+          20.0
+        ],
+        "duration_s": 2.0
+      }
+    ],
+    "recorded_routine": [],
+    "recording": {
+      "schema_version": "arm-simulation/1",
+      "recording_kind": "simulated_joint_angles",
+      "angle_unit": "degrees",
+      "poses": [],
+      "simulated": true,
+      "actuation_enabled": false
+    },
+    "current_waypoint": 7,
+    "repeat_index": 1,
+    "repeats": 1,
+    "progress": 1.0,
+    "waypoint_progress": 1.0,
+    "payload": {
+      "state": "placed",
+      "position": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "gripper": {
+      "open_fraction": 1.0,
+      "state": "open"
+    },
+    "end_effector": {
+      "x": 0.451769,
+      "y": 0.0,
+      "z": 0.522487
+    },
+    "link_positions": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.1
+      },
+      {
+        "x": 0.14,
+        "y": 0.0,
+        "z": 0.342487
+      },
+      {
+        "x": 0.347846,
+        "y": 0.0,
+        "z": 0.462487
+      },
+      {
+        "x": 0.451769,
+        "y": 0.0,
+        "z": 0.522487
+      }
+    ],
+    "stations": {
+      "source": {
+        "x": 0.343174,
+        "y": -0.490103,
+        "z": 0.292469
+      },
+      "destination": {
+        "x": 0.343174,
+        "y": 0.490103,
+        "z": 0.292469
+      }
+    },
+    "fault": null,
+    "events": [
+      {
+        "sequence": 1,
+        "time_s": 0.0,
+        "kind": "ready",
+        "message": "Virtual arm ready. Angles and dimensions are illustrative, not calibrated LeArm settings.",
+        "simulated": true
+      },
+      {
+        "sequence": 2,
+        "time_s": 0.0,
+        "kind": "routine_started",
+        "message": "Preset virtual routine started (1 repetition(s)); no device command sent.",
+        "simulated": true
+      },
+      {
+        "sequence": 3,
+        "time_s": 1.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose home.",
+        "simulated": true
+      },
+      {
+        "sequence": 4,
+        "time_s": 3.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose approach_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 5,
+        "time_s": 4.0,
+        "kind": "virtual_grasp",
+        "message": "Virtual marker attached using a proximity fixture; no physical grip was measured.",
+        "simulated": true
+      },
+      {
+        "sequence": 6,
+        "time_s": 4.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose grasp_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 7,
+        "time_s": 4.0,
+        "kind": "fault",
+        "message": "Synthetic grip loss injected; trajectory frozen for explicit recovery.",
+        "simulated": true
+      },
+      {
+        "sequence": 8,
+        "time_s": 4.0,
+        "kind": "fault_cleared",
+        "message": "Virtual fault cleared and pre-fault virtual payload restored. Explicit resume required.",
+        "simulated": true
+      },
+      {
+        "sequence": 9,
+        "time_s": 4.0,
+        "kind": "resume",
+        "message": "Virtual arm running; no physical actuator is connected.",
+        "simulated": true
+      },
+      {
+        "sequence": 10,
+        "time_s": 6.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose lift_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 11,
+        "time_s": 9.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose carry_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 12,
+        "time_s": 11.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose lower_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 13,
+        "time_s": 12.0,
+        "kind": "virtual_release",
+        "message": "Virtual marker placed; this is a simulated fixture result.",
+        "simulated": true
+      },
+      {
+        "sequence": 14,
+        "time_s": 12.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose release_marker.",
+        "simulated": true
+      },
+      {
+        "sequence": 15,
+        "time_s": 14.0,
+        "kind": "waypoint_reached",
+        "message": "Reached virtual pose return_home.",
+        "simulated": true
+      },
+      {
+        "sequence": 16,
+        "time_s": 14.0,
+        "kind": "completed",
+        "message": "Virtual routine completed. Physical result remains unverified; no device commands sent.",
+        "simulated": true
+      }
+    ],
+    "allowed_actions": [
+      "reset",
+      "start",
+      "pose",
+      "capture",
+      "clear_recording"
+    ],
+    "physical_connected": false,
+    "actuation_enabled": false,
+    "commands_dispatched": 0,
+    "physical_result": null,
+    "model_calls": 0,
+    "network_requests": 0,
+    "api_cloud_cost_usd": 0,
+    "simulation_model": "Illustrative joint-angle interpolation and forward kinematics; no calibration, dynamics, collisions, load, contact or physical grip validation",
+    "storage": "bounded_process_memory"
+  }
+}
