@@ -1,0 +1,4094 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Relay offline rehearsal</title><style>
+body{font:16px/1.6 system-ui,sans-serif;max-width:1000px;margin:32px auto;padding:0 20px;background:#f5f7fa;color:#182b38}
+h1,h2{line-height:1.2}.banner{background:#fce9ad;border:2px solid #8c6200;padding:16px;font-weight:700}
+table{border-collapse:collapse;width:100%;background:white}th,td{border:1px solid #bcc7ce;padding:10px;text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:16px;border:1px solid #bcc7ce}
+li{margin:6px 0}summary{cursor:pointer;font-weight:700}details{margin:20px 0}
+</style></head><body><p class="banner">SIMULATION · OFFLINE · NO HARDWARE OR LIVE PROVIDER PROOF</p>
+<h1>Relay rehearsal: PASSED</h1><p>Generated 2026-09-26T21:15:52.522403+00:00.
+This saved packet works without the dashboard or an internet connection. It replays the canonical twelve-reading water fixture.</p>
+<h2>Mission boundaries</h2><ul><li><strong>preset: completed</strong> — human review: False; environmental safety: not_established</li><li><strong>directed: completed</strong> — human review: False; environmental safety: not_established</li><li><strong>zero_request_refusal: needs_review</strong> — human review: False; environmental safety: not_established</li></ul><p>Both inspection workflows require a simulated review transition.
+The zero-request mission must keep its local alarm and remain blocked after simulated acknowledgement.</p>
+<h2>Illustrative model work</h2><table><thead><tr><th>Policy</th><th>Mock requests</th><th>Simulated tokens</th>
+<th>Simulated estimated USD</th></tr></thead><tbody><tr><td>baseline</td><td>12</td><td>3743</td><td>$0.006623</td></tr><tr><td>economy</td><td>1</td><td>312</td><td>$0.000552</td></tr></tbody></table>
+<p>Actual new paid provider charges for this replay: $0. These results cover one synthetic incident and are not energy or carbon measurements.</p>
+<h2>Six mock adapters</h2><p>Snowflake reference retrieval → Gemini gateway → Tiger Data telemetry → MongoDB report →
+ElevenLabs briefing descriptor → Solana local report hash. Cloud hosting and domain setup require separate evidence.</p>
+<h2>Proof limits</h2><ul><li>Every reading, mission assignment, model result, review and adapter operation in this packet is simulated.</li><li>Workflow completion does not establish environmental safety or real human approval. No hardware is connected or actuated.</li><li>The six adapters run locally as mocks. This packet establishes no live provider, cloud, domain or blockchain proof.</li><li>The ElevenLabs stage creates a descriptor, not audio. The Solana stage checks a local hash, not a transaction.</li><li>Costs and tokens are illustrative simulation measurements; new paid provider charges for this packet are zero.</li><li>The comparison covers one synthetic wet interval. No real-world accuracy, energy, carbon, battery or water savings were measured.</li><li>Existing cloud resources may accrue costs independently. This command neither checks nor modifies the canonical spending ledger.</li></ul><details open><summary>Verified outcome checks</summary><ul><li>PASS — preset: disconnected simulation</li><li>PASS — preset: mock analysis audit</li><li>PASS — preset: review gates announcement</li><li>PASS — preset: unavailable second view skipped</li><li>PASS — preset: mission completes with suspected hazard</li><li>PASS — preset: expected mission assignment</li><li>PASS — directed: disconnected simulation</li><li>PASS — directed: mock analysis audit</li><li>PASS — directed: review gates announcement</li><li>PASS — directed: unavailable second view skipped</li><li>PASS — directed: mission completes with suspected hazard</li><li>PASS — directed: expected mission assignment</li><li>PASS — zero_request_refusal: disconnected simulation</li><li>PASS — zero_request_refusal: mock analysis audit</li><li>PASS — zero_request_refusal: review gates announcement</li><li>PASS — zero_request_refusal: unavailable second view skipped</li><li>PASS — zero_request_refusal: zero requests and tokens</li><li>PASS — zero_request_refusal: refused analysis keeps local alarm</li><li>PASS — zero_request_refusal: acknowledgement cannot release refusal</li><li>PASS — comparison: complete mock runs</li><li>PASS — comparison: twelve versus one requests</li><li>PASS — comparison: fewer simulated tokens</li><li>PASS — comparison: same labeled incident detected</li><li>PASS — integration: six completed mock adapters</li><li>PASS — integration: no remote work claimed</li><li>PASS — integration: twelve telemetry readings persist idempotently</li><li>PASS — integration: report readback and reference grounding</li><li>PASS — integration: no real review or audio</li><li>PASS — integration: local receipt accepts original and rejects tamper</li></ul></details>
+<details><summary>Full evidence (also saved as packet.json)</summary><pre>{
+  &quot;schema&quot;: &quot;relay.rehearsal.v1&quot;,
+  &quot;generated_at&quot;: &quot;2026-09-26T21:15:52.522403+00:00&quot;,
+  &quot;simulated&quot;: true,
+  &quot;fixture&quot;: {
+    &quot;path&quot;: &quot;scenarios/leak.json&quot;,
+    &quot;sha256&quot;: &quot;fda65f13dadc8461c969a7ae96029d22088b6e075d1a0035785660a404cc1b79&quot;,
+    &quot;scenario_id&quot;: &quot;synthetic-water-onset-v1&quot;,
+    &quot;readings&quot;: 12
+  },
+  &quot;missions&quot;: {
+    &quot;preset&quot;: {
+      &quot;planned&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-preset&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;planned&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 0,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;start&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;pending&quot;
+      },
+      &quot;analysis&quot;: {
+        &quot;mission_id&quot;: &quot;rehearsal-preset&quot;,
+        &quot;strategy&quot;: &quot;economy&quot;,
+        &quot;provider_mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;root_id&quot;: &quot;65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3&quot;,
+        &quot;findings&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;status&quot;: &quot;suspected_hazard&quot;,
+            &quot;hazard_type&quot;: &quot;standing_water&quot;,
+            &quot;confidence_milli&quot;: 850,
+            &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+            &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+            &quot;cited_reference_ids&quot;: []
+          }
+        ],
+        &quot;events&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-000&quot;,
+            &quot;timestamp_seconds&quot;: 0,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-010&quot;,
+            &quot;timestamp_seconds&quot;: 10,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-020&quot;,
+            &quot;timestamp_seconds&quot;: 20,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-030&quot;,
+            &quot;timestamp_seconds&quot;: 30,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;decision&quot;: &quot;analyze&quot;,
+            &quot;reason&quot;: &quot;threshold_crossing&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-050&quot;,
+            &quot;timestamp_seconds&quot;: 50,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-060&quot;,
+            &quot;timestamp_seconds&quot;: 60,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-070&quot;,
+            &quot;timestamp_seconds&quot;: 70,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-080&quot;,
+            &quot;timestamp_seconds&quot;: 80,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_reset&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-090&quot;,
+            &quot;timestamp_seconds&quot;: 90,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-100&quot;,
+            &quot;timestamp_seconds&quot;: 100,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-110&quot;,
+            &quot;timestamp_seconds&quot;: 110,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          }
+        ],
+        &quot;reference_context&quot;: [],
+        &quot;outcome&quot;: &quot;complete&quot;,
+        &quot;accounting&quot;: {
+          &quot;requests&quot;: 1,
+          &quot;new_requests&quot;: 1,
+          &quot;tokens&quot;: 312,
+          &quot;estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;new_estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+          &quot;replayed_requests&quot;: 0,
+          &quot;avoided_tokens&quot;: 0,
+          &quot;session_estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;shared_spend_operation_ids&quot;: [],
+          &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+        },
+        &quot;limits&quot;: {
+          &quot;max_requests&quot;: 12,
+          &quot;max_tokens&quot;: 24000,
+          &quot;max_usd&quot;: &quot;0.10&quot;,
+          &quot;session_api_ceiling_usd&quot;: &quot;15.00&quot;,
+          &quot;reserve_usd&quot;: &quot;5.00&quot;
+        },
+        &quot;evaluation&quot;: {
+          &quot;available&quot;: true,
+          &quot;labeled_hazard_episodes&quot;: 1,
+          &quot;detected_hazard_episodes&quot;: 1,
+          &quot;detection_latency_seconds&quot;: [
+            0
+          ],
+          &quot;false_positive_findings&quot;: 0,
+          &quot;scope&quot;: &quot;Deterministic labeled simulation only; not real-world accuracy.&quot;
+        },
+        &quot;audit_verified&quot;: true,
+        &quot;limitations&quot;: [
+          &quot;No physical robot commands or media decoding.&quot;,
+          &quot;Estimated token/USD reservations can differ from final provider usage.&quot;,
+          &quot;No cloud energy or carbon measurement; no whole-account spending enforcement.&quot;
+        ]
+      },
+      &quot;before_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-preset&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;needs_review&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 2,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;simulate_review&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      },
+      &quot;early_announcement&quot;: {
+        &quot;rejected&quot;: true,
+        &quot;state_preserved&quot;: true
+      },
+      &quot;after_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-preset&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;running&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 3,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;complete_task&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: {
+          &quot;task_id&quot;: &quot;announce&quot;,
+          &quot;role&quot;: &quot;announce&quot;,
+          &quot;device_id&quot;: &quot;stackchan&quot;,
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: false,
+          &quot;operation&quot;: &quot;simulate_announcement&quot;,
+          &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+          &quot;simulated&quot;: true,
+          &quot;physical_action&quot;: false
+        },
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      },
+      &quot;blocked_announcement&quot;: null,
+      &quot;final&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-preset&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 6,
+            &quot;action_id&quot;: &quot;announce&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;announce&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;completed&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 4,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      }
+    },
+    &quot;directed&quot;: {
+      &quot;planned&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-directed&quot;,
+        &quot;mode&quot;: &quot;directed&quot;,
+        &quot;preset&quot;: null,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;loading-bay&quot;,
+        &quot;status&quot;: &quot;planned&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;directed&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;loading-bay&quot;,
+              &quot;scout_id&quot;: &quot;intellio-rover&quot;,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 0,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;start&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;pending&quot;
+      },
+      &quot;analysis&quot;: {
+        &quot;mission_id&quot;: &quot;rehearsal-directed&quot;,
+        &quot;strategy&quot;: &quot;economy&quot;,
+        &quot;provider_mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;root_id&quot;: &quot;65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3&quot;,
+        &quot;findings&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;status&quot;: &quot;suspected_hazard&quot;,
+            &quot;hazard_type&quot;: &quot;standing_water&quot;,
+            &quot;confidence_milli&quot;: 850,
+            &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+            &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+            &quot;cited_reference_ids&quot;: []
+          }
+        ],
+        &quot;events&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-000&quot;,
+            &quot;timestamp_seconds&quot;: 0,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-010&quot;,
+            &quot;timestamp_seconds&quot;: 10,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-020&quot;,
+            &quot;timestamp_seconds&quot;: 20,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-030&quot;,
+            &quot;timestamp_seconds&quot;: 30,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;decision&quot;: &quot;analyze&quot;,
+            &quot;reason&quot;: &quot;threshold_crossing&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-050&quot;,
+            &quot;timestamp_seconds&quot;: 50,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-060&quot;,
+            &quot;timestamp_seconds&quot;: 60,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-070&quot;,
+            &quot;timestamp_seconds&quot;: 70,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-080&quot;,
+            &quot;timestamp_seconds&quot;: 80,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_reset&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-090&quot;,
+            &quot;timestamp_seconds&quot;: 90,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-100&quot;,
+            &quot;timestamp_seconds&quot;: 100,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-110&quot;,
+            &quot;timestamp_seconds&quot;: 110,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          }
+        ],
+        &quot;reference_context&quot;: [],
+        &quot;outcome&quot;: &quot;complete&quot;,
+        &quot;accounting&quot;: {
+          &quot;requests&quot;: 1,
+          &quot;new_requests&quot;: 1,
+          &quot;tokens&quot;: 312,
+          &quot;estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;new_estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+          &quot;replayed_requests&quot;: 0,
+          &quot;avoided_tokens&quot;: 0,
+          &quot;session_estimated_usd&quot;: &quot;0.000552&quot;,
+          &quot;shared_spend_operation_ids&quot;: [],
+          &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+        },
+        &quot;limits&quot;: {
+          &quot;max_requests&quot;: 12,
+          &quot;max_tokens&quot;: 24000,
+          &quot;max_usd&quot;: &quot;0.10&quot;,
+          &quot;session_api_ceiling_usd&quot;: &quot;15.00&quot;,
+          &quot;reserve_usd&quot;: &quot;5.00&quot;
+        },
+        &quot;evaluation&quot;: {
+          &quot;available&quot;: true,
+          &quot;labeled_hazard_episodes&quot;: 1,
+          &quot;detected_hazard_episodes&quot;: 1,
+          &quot;detection_latency_seconds&quot;: [
+            0
+          ],
+          &quot;false_positive_findings&quot;: 0,
+          &quot;scope&quot;: &quot;Deterministic labeled simulation only; not real-world accuracy.&quot;
+        },
+        &quot;audit_verified&quot;: true,
+        &quot;limitations&quot;: [
+          &quot;No physical robot commands or media decoding.&quot;,
+          &quot;Estimated token/USD reservations can differ from final provider usage.&quot;,
+          &quot;No cloud energy or carbon measurement; no whole-account spending enforcement.&quot;
+        ]
+      },
+      &quot;before_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-directed&quot;,
+        &quot;mode&quot;: &quot;directed&quot;,
+        &quot;preset&quot;: null,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;loading-bay&quot;,
+        &quot;status&quot;: &quot;needs_review&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;directed&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;loading-bay&quot;,
+              &quot;scout_id&quot;: &quot;intellio-rover&quot;,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 2,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;simulate_review&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      },
+      &quot;early_announcement&quot;: {
+        &quot;rejected&quot;: true,
+        &quot;state_preserved&quot;: true
+      },
+      &quot;after_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-directed&quot;,
+        &quot;mode&quot;: &quot;directed&quot;,
+        &quot;preset&quot;: null,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;loading-bay&quot;,
+        &quot;status&quot;: &quot;running&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;directed&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;loading-bay&quot;,
+              &quot;scout_id&quot;: &quot;intellio-rover&quot;,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 3,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;complete_task&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: {
+          &quot;task_id&quot;: &quot;announce&quot;,
+          &quot;role&quot;: &quot;announce&quot;,
+          &quot;device_id&quot;: &quot;stackchan&quot;,
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: false,
+          &quot;operation&quot;: &quot;simulate_announcement&quot;,
+          &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+          &quot;simulated&quot;: true,
+          &quot;physical_action&quot;: false
+        },
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      },
+      &quot;blocked_announcement&quot;: null,
+      &quot;final&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-directed&quot;,
+        &quot;mode&quot;: &quot;directed&quot;,
+        &quot;preset&quot;: null,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;loading-bay&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;suspected_hazard&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: true,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;directed&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;loading-bay&quot;,
+              &quot;scout_id&quot;: &quot;intellio-rover&quot;,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;suspected_hazard&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 6,
+            &quot;action_id&quot;: &quot;announce&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;announce&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;completed&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 4,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;suspected_hazard&quot;
+      }
+    },
+    &quot;zero_request_refusal&quot;: {
+      &quot;planned&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-refusal&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;planned&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: false,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 0,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;start&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;pending&quot;
+      },
+      &quot;analysis&quot;: {
+        &quot;mission_id&quot;: &quot;rehearsal-refusal&quot;,
+        &quot;strategy&quot;: &quot;economy&quot;,
+        &quot;provider_mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;root_id&quot;: &quot;65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3&quot;,
+        &quot;findings&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;status&quot;: &quot;needs_review&quot;,
+            &quot;hazard_type&quot;: null,
+            &quot;confidence_milli&quot;: 0,
+            &quot;summary&quot;: &quot;Mission or session AI budget refused this analysis.&quot;,
+            &quot;recommended_action&quot;: &quot;Keep the local alert visible and request human review.&quot;,
+            &quot;cited_reference_ids&quot;: []
+          }
+        ],
+        &quot;events&quot;: [
+          {
+            &quot;event_id&quot;: &quot;water-000&quot;,
+            &quot;timestamp_seconds&quot;: 0,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-010&quot;,
+            &quot;timestamp_seconds&quot;: 10,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-020&quot;,
+            &quot;timestamp_seconds&quot;: 20,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-030&quot;,
+            &quot;timestamp_seconds&quot;: 30,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-040&quot;,
+            &quot;timestamp_seconds&quot;: 40,
+            &quot;decision&quot;: &quot;analyze&quot;,
+            &quot;reason&quot;: &quot;budget_refused&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-050&quot;,
+            &quot;timestamp_seconds&quot;: 50,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-060&quot;,
+            &quot;timestamp_seconds&quot;: 60,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-070&quot;,
+            &quot;timestamp_seconds&quot;: 70,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_already_active&quot;,
+            &quot;local_alarm&quot;: true
+          },
+          {
+            &quot;event_id&quot;: &quot;water-080&quot;,
+            &quot;timestamp_seconds&quot;: 80,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;alert_reset&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-090&quot;,
+            &quot;timestamp_seconds&quot;: 90,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-100&quot;,
+            &quot;timestamp_seconds&quot;: 100,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          },
+          {
+            &quot;event_id&quot;: &quot;water-110&quot;,
+            &quot;timestamp_seconds&quot;: 110,
+            &quot;decision&quot;: &quot;suppressed&quot;,
+            &quot;reason&quot;: &quot;below_threshold&quot;,
+            &quot;local_alarm&quot;: false
+          }
+        ],
+        &quot;reference_context&quot;: [],
+        &quot;outcome&quot;: &quot;needs_review&quot;,
+        &quot;accounting&quot;: {
+          &quot;requests&quot;: 0,
+          &quot;new_requests&quot;: 0,
+          &quot;tokens&quot;: 0,
+          &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+          &quot;new_estimated_usd&quot;: &quot;0.000000&quot;,
+          &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+          &quot;replayed_requests&quot;: 0,
+          &quot;avoided_tokens&quot;: 0,
+          &quot;session_estimated_usd&quot;: &quot;0.000000&quot;,
+          &quot;shared_spend_operation_ids&quot;: [],
+          &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+        },
+        &quot;limits&quot;: {
+          &quot;max_requests&quot;: 0,
+          &quot;max_tokens&quot;: 24000,
+          &quot;max_usd&quot;: &quot;0.10&quot;,
+          &quot;session_api_ceiling_usd&quot;: &quot;15.00&quot;,
+          &quot;reserve_usd&quot;: &quot;5.00&quot;
+        },
+        &quot;evaluation&quot;: {
+          &quot;available&quot;: true,
+          &quot;labeled_hazard_episodes&quot;: 1,
+          &quot;detected_hazard_episodes&quot;: 0,
+          &quot;detection_latency_seconds&quot;: [],
+          &quot;false_positive_findings&quot;: 0,
+          &quot;scope&quot;: &quot;Deterministic labeled simulation only; not real-world accuracy.&quot;
+        },
+        &quot;audit_verified&quot;: true,
+        &quot;limitations&quot;: [
+          &quot;No physical robot commands or media decoding.&quot;,
+          &quot;Estimated token/USD reservations can differ from final provider usage.&quot;,
+          &quot;No cloud energy or carbon measurement; no whole-account spending enforcement.&quot;
+        ]
+      },
+      &quot;before_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-refusal&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;needs_review&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;needs_review&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;budget_refused&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [
+          &quot;budget_refused&quot;
+        ],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: true,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;pending&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;budget_refused&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 1,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;simulate_review&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;needs_review&quot;
+      },
+      &quot;early_announcement&quot;: {
+        &quot;rejected&quot;: true,
+        &quot;state_preserved&quot;: true
+      },
+      &quot;after_review&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-refusal&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;needs_review&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;needs_review&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;budget_refused&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [
+          &quot;budget_refused&quot;
+        ],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: true,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;budget_refused&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 1,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;simulate_review&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;needs_review&quot;
+      },
+      &quot;blocked_announcement&quot;: {
+        &quot;rejected&quot;: true,
+        &quot;state_preserved&quot;: true
+      },
+      &quot;final&quot;: {
+        &quot;schema_version&quot;: &quot;1&quot;,
+        &quot;mission_id&quot;: &quot;rehearsal-refusal&quot;,
+        &quot;mode&quot;: &quot;preset&quot;,
+        &quot;preset&quot;: &quot;water-inspection&quot;,
+        &quot;station_id&quot;: &quot;station-a&quot;,
+        &quot;target_id&quot;: &quot;inspection-area&quot;,
+        &quot;status&quot;: &quot;needs_review&quot;,
+        &quot;simulated&quot;: true,
+        &quot;actuation_enabled&quot;: false,
+        &quot;network_requests&quot;: 0,
+        &quot;model_calls&quot;: 0,
+        &quot;planned_roles&quot;: [
+          {
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: true,
+            &quot;reason&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;assigned&quot;,
+            &quot;required&quot;: false,
+            &quot;reason&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;role&quot;: &quot;reviewed_response&quot;,
+            &quot;device_id&quot;: &quot;learm&quot;,
+            &quot;status&quot;: &quot;blocked&quot;,
+            &quot;required&quot;: false,
+            &quot;simulated&quot;: true,
+            &quot;reason&quot;: &quot;Physical response is disabled. LeArm remains disconnected; no mitigation task is issued.&quot;
+          }
+        ],
+        &quot;proposed_tasks&quot;: [
+          {
+            &quot;task_id&quot;: &quot;monitor&quot;,
+            &quot;role&quot;: &quot;monitor&quot;,
+            &quot;device_id&quot;: &quot;monitoring-station&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected monitoring-station: declared monitor capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;completed&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;scout&quot;,
+            &quot;role&quot;: &quot;scout&quot;,
+            &quot;device_id&quot;: &quot;intellio-rover&quot;,
+            &quot;status&quot;: &quot;needs_review&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;Selected intellio-rover: declared scout capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;outcome&quot;: &quot;budget_refused&quot;,
+            &quot;summary&quot;: &quot;&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;second_view&quot;,
+            &quot;role&quot;: &quot;second_view&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;skipped&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_observation&quot;,
+            &quot;why_assigned&quot;: &quot;No available device declares second_view.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          },
+          {
+            &quot;task_id&quot;: &quot;review&quot;,
+            &quot;role&quot;: &quot;human_review&quot;,
+            &quot;device_id&quot;: null,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: true,
+            &quot;operation&quot;: &quot;simulate_review_only&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false,
+            &quot;why_assigned&quot;: &quot;Observations require review; no automatic human approval.&quot;
+          },
+          {
+            &quot;task_id&quot;: &quot;announce&quot;,
+            &quot;role&quot;: &quot;announce&quot;,
+            &quot;device_id&quot;: &quot;stackchan&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;required&quot;: false,
+            &quot;operation&quot;: &quot;simulate_announcement&quot;,
+            &quot;why_assigned&quot;: &quot;Selected stackchan: declared announce capability and available in simulation.&quot;,
+            &quot;simulated&quot;: true,
+            &quot;physical_action&quot;: false
+          }
+        ],
+        &quot;blockers&quot;: [
+          &quot;budget_refused&quot;
+        ],
+        &quot;suspected_hazard&quot;: false,
+        &quot;budget_refused&quot;: true,
+        &quot;review&quot;: {
+          &quot;status&quot;: &quot;simulated_acknowledged&quot;,
+          &quot;required&quot;: true,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;environment_safety&quot;: &quot;not_established&quot;,
+        &quot;events&quot;: [
+          {
+            &quot;sequence&quot;: 1,
+            &quot;action_id&quot;: &quot;plan&quot;,
+            &quot;action&quot;: &quot;create&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;create&quot;,
+              &quot;mode&quot;: &quot;preset&quot;,
+              &quot;station_id&quot;: &quot;station-a&quot;,
+              &quot;target_id&quot;: &quot;inspection-area&quot;,
+              &quot;scout_id&quot;: null,
+              &quot;second_view&quot;: true
+            },
+            &quot;state_before&quot;: &quot;absent&quot;,
+            &quot;state_after&quot;: &quot;planned&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 2,
+            &quot;action_id&quot;: &quot;start&quot;,
+            &quot;action&quot;: &quot;start&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;start&quot;,
+              &quot;payload&quot;: {}
+            },
+            &quot;state_before&quot;: &quot;planned&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 3,
+            &quot;action_id&quot;: &quot;monitor&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;monitor&quot;,
+                &quot;outcome&quot;: &quot;completed&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;running&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 4,
+            &quot;action_id&quot;: &quot;scout&quot;,
+            &quot;action&quot;: &quot;complete_task&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;complete_task&quot;,
+              &quot;payload&quot;: {
+                &quot;task_id&quot;: &quot;scout&quot;,
+                &quot;outcome&quot;: &quot;budget_refused&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;running&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          },
+          {
+            &quot;sequence&quot;: 5,
+            &quot;action_id&quot;: &quot;review&quot;,
+            &quot;action&quot;: &quot;simulate_review&quot;,
+            &quot;details&quot;: {
+              &quot;action&quot;: &quot;simulate_review&quot;,
+              &quot;payload&quot;: {
+                &quot;decision&quot;: &quot;acknowledge&quot;
+              }
+            },
+            &quot;state_before&quot;: &quot;needs_review&quot;,
+            &quot;state_after&quot;: &quot;needs_review&quot;,
+            &quot;simulated&quot;: true
+          }
+        ],
+        &quot;progress&quot;: {
+          &quot;completed&quot;: 1,
+          &quot;total&quot;: 4,
+          &quot;unit&quot;: &quot;simulated_tasks&quot;
+        },
+        &quot;allowed_actions&quot;: [
+          &quot;simulate_review&quot;,
+          &quot;pause&quot;,
+          &quot;cancel&quot;
+        ],
+        &quot;next_task&quot;: null,
+        &quot;outcome&quot;: &quot;needs_review&quot;
+      }
+    }
+  },
+  &quot;comparison&quot;: {
+    &quot;simulated&quot;: true,
+    &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+    &quot;baseline&quot;: {
+      &quot;mission_id&quot;: &quot;leak-demo&quot;,
+      &quot;strategy&quot;: &quot;baseline&quot;,
+      &quot;provider_mode&quot;: &quot;mock&quot;,
+      &quot;simulated&quot;: true,
+      &quot;actuation_enabled&quot;: false,
+      &quot;root_id&quot;: &quot;65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3&quot;,
+      &quot;findings&quot;: [
+        {
+          &quot;event_id&quot;: &quot;water-000&quot;,
+          &quot;timestamp_seconds&quot;: 0,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-010&quot;,
+          &quot;timestamp_seconds&quot;: 10,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-020&quot;,
+          &quot;timestamp_seconds&quot;: 20,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-030&quot;,
+          &quot;timestamp_seconds&quot;: 30,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;timestamp_seconds&quot;: 40,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-050&quot;,
+          &quot;timestamp_seconds&quot;: 50,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-060&quot;,
+          &quot;timestamp_seconds&quot;: 60,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-070&quot;,
+          &quot;timestamp_seconds&quot;: 70,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-080&quot;,
+          &quot;timestamp_seconds&quot;: 80,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-090&quot;,
+          &quot;timestamp_seconds&quot;: 90,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-100&quot;,
+          &quot;timestamp_seconds&quot;: 100,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        },
+        {
+          &quot;event_id&quot;: &quot;water-110&quot;,
+          &quot;timestamp_seconds&quot;: 110,
+          &quot;status&quot;: &quot;clear&quot;,
+          &quot;hazard_type&quot;: null,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated reading is below the wetness threshold.&quot;,
+          &quot;recommended_action&quot;: &quot;Continue local monitoring.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        }
+      ],
+      &quot;events&quot;: [
+        {
+          &quot;event_id&quot;: &quot;water-000&quot;,
+          &quot;timestamp_seconds&quot;: 0,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-010&quot;,
+          &quot;timestamp_seconds&quot;: 10,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-020&quot;,
+          &quot;timestamp_seconds&quot;: 20,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-030&quot;,
+          &quot;timestamp_seconds&quot;: 30,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;timestamp_seconds&quot;: 40,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-050&quot;,
+          &quot;timestamp_seconds&quot;: 50,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-060&quot;,
+          &quot;timestamp_seconds&quot;: 60,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-070&quot;,
+          &quot;timestamp_seconds&quot;: 70,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-080&quot;,
+          &quot;timestamp_seconds&quot;: 80,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-090&quot;,
+          &quot;timestamp_seconds&quot;: 90,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-100&quot;,
+          &quot;timestamp_seconds&quot;: 100,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-110&quot;,
+          &quot;timestamp_seconds&quot;: 110,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;fixed_interval&quot;,
+          &quot;local_alarm&quot;: false
+        }
+      ],
+      &quot;reference_context&quot;: [],
+      &quot;outcome&quot;: &quot;complete&quot;,
+      &quot;accounting&quot;: {
+        &quot;requests&quot;: 12,
+        &quot;new_requests&quot;: 12,
+        &quot;tokens&quot;: 3743,
+        &quot;estimated_usd&quot;: &quot;0.006623&quot;,
+        &quot;new_estimated_usd&quot;: &quot;0.006623&quot;,
+        &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+        &quot;replayed_requests&quot;: 0,
+        &quot;avoided_tokens&quot;: 0,
+        &quot;session_estimated_usd&quot;: &quot;0.006623&quot;,
+        &quot;shared_spend_operation_ids&quot;: [],
+        &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+      },
+      &quot;limits&quot;: {
+        &quot;max_requests&quot;: 12,
+        &quot;max_tokens&quot;: 24000,
+        &quot;max_usd&quot;: &quot;0.10&quot;,
+        &quot;session_api_ceiling_usd&quot;: &quot;15.00&quot;,
+        &quot;reserve_usd&quot;: &quot;5.00&quot;
+      },
+      &quot;evaluation&quot;: {
+        &quot;available&quot;: true,
+        &quot;labeled_hazard_episodes&quot;: 1,
+        &quot;detected_hazard_episodes&quot;: 1,
+        &quot;detection_latency_seconds&quot;: [
+          0
+        ],
+        &quot;false_positive_findings&quot;: 0,
+        &quot;scope&quot;: &quot;Deterministic labeled simulation only; not real-world accuracy.&quot;
+      },
+      &quot;audit_verified&quot;: true,
+      &quot;limitations&quot;: [
+        &quot;No physical robot commands or media decoding.&quot;,
+        &quot;Estimated token/USD reservations can differ from final provider usage.&quot;,
+        &quot;No cloud energy or carbon measurement; no whole-account spending enforcement.&quot;
+      ]
+    },
+    &quot;economy&quot;: {
+      &quot;mission_id&quot;: &quot;leak-demo&quot;,
+      &quot;strategy&quot;: &quot;economy&quot;,
+      &quot;provider_mode&quot;: &quot;mock&quot;,
+      &quot;simulated&quot;: true,
+      &quot;actuation_enabled&quot;: false,
+      &quot;root_id&quot;: &quot;65c3509374ca1e5cd7eebe0af32c67dff2f60d4a506b636c4f02b1ec853856e3&quot;,
+      &quot;findings&quot;: [
+        {
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;timestamp_seconds&quot;: 40,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: []
+        }
+      ],
+      &quot;events&quot;: [
+        {
+          &quot;event_id&quot;: &quot;water-000&quot;,
+          &quot;timestamp_seconds&quot;: 0,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-010&quot;,
+          &quot;timestamp_seconds&quot;: 10,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-020&quot;,
+          &quot;timestamp_seconds&quot;: 20,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-030&quot;,
+          &quot;timestamp_seconds&quot;: 30,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;timestamp_seconds&quot;: 40,
+          &quot;decision&quot;: &quot;analyze&quot;,
+          &quot;reason&quot;: &quot;threshold_crossing&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-050&quot;,
+          &quot;timestamp_seconds&quot;: 50,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;alert_already_active&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-060&quot;,
+          &quot;timestamp_seconds&quot;: 60,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;alert_already_active&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-070&quot;,
+          &quot;timestamp_seconds&quot;: 70,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;alert_already_active&quot;,
+          &quot;local_alarm&quot;: true
+        },
+        {
+          &quot;event_id&quot;: &quot;water-080&quot;,
+          &quot;timestamp_seconds&quot;: 80,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;alert_reset&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-090&quot;,
+          &quot;timestamp_seconds&quot;: 90,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-100&quot;,
+          &quot;timestamp_seconds&quot;: 100,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        },
+        {
+          &quot;event_id&quot;: &quot;water-110&quot;,
+          &quot;timestamp_seconds&quot;: 110,
+          &quot;decision&quot;: &quot;suppressed&quot;,
+          &quot;reason&quot;: &quot;below_threshold&quot;,
+          &quot;local_alarm&quot;: false
+        }
+      ],
+      &quot;reference_context&quot;: [],
+      &quot;outcome&quot;: &quot;complete&quot;,
+      &quot;accounting&quot;: {
+        &quot;requests&quot;: 1,
+        &quot;new_requests&quot;: 1,
+        &quot;tokens&quot;: 312,
+        &quot;estimated_usd&quot;: &quot;0.000552&quot;,
+        &quot;new_estimated_usd&quot;: &quot;0.000552&quot;,
+        &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+        &quot;replayed_requests&quot;: 0,
+        &quot;avoided_tokens&quot;: 0,
+        &quot;session_estimated_usd&quot;: &quot;0.000552&quot;,
+        &quot;shared_spend_operation_ids&quot;: [],
+        &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+      },
+      &quot;limits&quot;: {
+        &quot;max_requests&quot;: 12,
+        &quot;max_tokens&quot;: 24000,
+        &quot;max_usd&quot;: &quot;0.10&quot;,
+        &quot;session_api_ceiling_usd&quot;: &quot;15.00&quot;,
+        &quot;reserve_usd&quot;: &quot;5.00&quot;
+      },
+      &quot;evaluation&quot;: {
+        &quot;available&quot;: true,
+        &quot;labeled_hazard_episodes&quot;: 1,
+        &quot;detected_hazard_episodes&quot;: 1,
+        &quot;detection_latency_seconds&quot;: [
+          0
+        ],
+        &quot;false_positive_findings&quot;: 0,
+        &quot;scope&quot;: &quot;Deterministic labeled simulation only; not real-world accuracy.&quot;
+      },
+      &quot;audit_verified&quot;: true,
+      &quot;limitations&quot;: [
+        &quot;No physical robot commands or media decoding.&quot;,
+        &quot;Estimated token/USD reservations can differ from final provider usage.&quot;,
+        &quot;No cloud energy or carbon measurement; no whole-account spending enforcement.&quot;
+      ]
+    },
+    &quot;savings&quot;: {
+      &quot;requests_avoided&quot;: 11,
+      &quot;tokens_avoided&quot;: 3431,
+      &quot;estimated_usd_avoided&quot;: &quot;0.006071&quot;,
+      &quot;request_reduction_percent&quot;: 91.67
+    },
+    &quot;comparison_complete&quot;: true,
+    &quot;environmental_claim&quot;: &quot;Fewer simulated model requests and tokens. No measured energy or carbon savings.&quot;
+  },
+  &quot;integration&quot;: {
+    &quot;schema_version&quot;: &quot;1&quot;,
+    &quot;mode&quot;: &quot;mock&quot;,
+    &quot;simulated&quot;: true,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;mission_id&quot;: &quot;leak-demo&quot;,
+    &quot;mission_outcome&quot;: &quot;complete&quot;,
+    &quot;actuation_enabled&quot;: false,
+    &quot;network_requests&quot;: 0,
+    &quot;live_services_verified&quot;: [],
+    &quot;production_spend_ledger_modified&quot;: false,
+    &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+    &quot;steps&quot;: [
+      {
+        &quot;provider&quot;: &quot;snowflake&quot;,
+        &quot;action&quot;: &quot;Retrieve synthetic reference passages&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;statement_handle&quot;: &quot;mock-reference-query-v1&quot;,
+          &quot;reference_ids&quot;: [
+            &quot;fixture-water-review-v1&quot;,
+            &quot;fixture-water-routing-v1&quot;
+          ],
+          &quot;returned_references&quot;: 2,
+          &quot;source_urls&quot;: [
+            &quot;relay://fixtures/water-review-v1&quot;,
+            &quot;relay://fixtures/water-routing-v1&quot;
+          ]
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;Offline contract rehearsal; no provider request was made.&quot;
+        ]
+      },
+      {
+        &quot;provider&quot;: &quot;gemini&quot;,
+        &quot;action&quot;: &quot;Exercise the model gateway with deterministic findings&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;provider_mode&quot;: &quot;mock&quot;,
+          &quot;mock_model_calls&quot;: 1,
+          &quot;findings&quot;: 1,
+          &quot;cited_reference_ids&quot;: [
+            &quot;fixture-water-review-v1&quot;
+          ],
+          &quot;audit_verified&quot;: true,
+          &quot;mission_outcome&quot;: &quot;complete&quot;
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;MockProvider produced these findings; this stage did not call Gemini.&quot;,
+          &quot;Reference use in this rehearsal is deterministic and does not establish model quality.&quot;
+        ]
+      },
+      {
+        &quot;provider&quot;: &quot;tiger&quot;,
+        &quot;action&quot;: &quot;Insert, replay, and read the synthetic telemetry window&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;inserted_events&quot;: 12,
+          &quot;replay_inserted_events&quot;: 0,
+          &quot;readback_events&quot;: 12,
+          &quot;event_ids&quot;: [
+            &quot;water-000&quot;,
+            &quot;water-010&quot;,
+            &quot;water-020&quot;,
+            &quot;water-030&quot;,
+            &quot;water-040&quot;,
+            &quot;water-050&quot;,
+            &quot;water-060&quot;,
+            &quot;water-070&quot;,
+            &quot;water-080&quot;,
+            &quot;water-090&quot;,
+            &quot;water-100&quot;,
+            &quot;water-110&quot;
+          ],
+          &quot;start_inclusive&quot;: &quot;2026-09-26T18:00:00Z&quot;,
+          &quot;end_exclusive&quot;: &quot;2026-09-26T18:01:51Z&quot;,
+          &quot;idempotency_verified&quot;: true
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;Offline contract rehearsal; no provider request was made.&quot;
+        ]
+      },
+      {
+        &quot;provider&quot;: &quot;mongodb&quot;,
+        &quot;action&quot;: &quot;Store and read back the simulated reviewed report&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;content_sha256&quot;: &quot;57c30c4e04364d448a7a0f947b5742c09fd004c186d141d2a0654326b9f23e93&quot;,
+          &quot;inserted&quot;: true,
+          &quot;readback_verified&quot;: true,
+          &quot;review_status&quot;: &quot;simulated_review&quot;,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;Offline contract rehearsal; no provider request was made.&quot;
+        ]
+      },
+      {
+        &quot;provider&quot;: &quot;elevenlabs&quot;,
+        &quot;action&quot;: &quot;Prepare a reviewed briefing descriptor without audio&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;characters&quot;: 226,
+          &quot;cache_key&quot;: &quot;b32c43df518fe87ab094c6ce12819e7774b44ac2cd264e9091d1b8cd6c41c7b4&quot;,
+          &quot;audio_generated&quot;: false,
+          &quot;audio_path&quot;: null,
+          &quot;human_review_performed&quot;: false
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;This is a mock descriptor; no speech was synthesized or played.&quot;
+        ]
+      },
+      {
+        &quot;provider&quot;: &quot;solana&quot;,
+        &quot;action&quot;: &quot;Verify the report hash and reject a modified copy&quot;,
+        &quot;mode&quot;: &quot;mock&quot;,
+        &quot;simulated&quot;: true,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;evidence&quot;: {
+          &quot;report_sha256&quot;: &quot;dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41&quot;,
+          &quot;original_valid&quot;: true,
+          &quot;modified_valid&quot;: false,
+          &quot;chain_verified&quot;: false,
+          &quot;transaction_signature&quot;: null
+        },
+        &quot;estimated_usd&quot;: &quot;0.000000&quot;,
+        &quot;actual_billed_usd&quot;: &quot;0.000000&quot;,
+        &quot;limitations&quot;: [
+          &quot;Only local hash consistency was tested; no wallet or blockchain transaction exists.&quot;
+        ]
+      }
+    ],
+    &quot;services&quot;: [
+      {
+        &quot;provider&quot;: &quot;gemini&quot;,
+        &quot;name&quot;: &quot;Gemini API&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;elevenlabs&quot;,
+        &quot;name&quot;: &quot;ElevenLabs&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;solana&quot;,
+        &quot;name&quot;: &quot;Solana&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;tiger&quot;,
+        &quot;name&quot;: &quot;Tiger Data&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;digitalocean&quot;,
+        &quot;name&quot;: &quot;DigitalOcean&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;not_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;Hosting/domain setup requires separate deployment evidence.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;snowflake&quot;,
+        &quot;name&quot;: &quot;Snowflake API&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;mongodb&quot;,
+        &quot;name&quot;: &quot;MongoDB Atlas&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;mock_adapter_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;This run does not establish an active account or remote integration.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;godaddy&quot;,
+        &quot;name&quot;: &quot;GoDaddy Registry&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;not_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;Hosting/domain setup requires separate deployment evidence.&quot;
+      },
+      {
+        &quot;provider&quot;: &quot;gcp&quot;,
+        &quot;name&quot;: &quot;Google Cloud&quot;,
+        &quot;remote_verified&quot;: false,
+        &quot;demo_status&quot;: &quot;not_exercised&quot;,
+        &quot;connection_status&quot;: &quot;not_checked_by_offline_demo&quot;,
+        &quot;note&quot;: &quot;Hosting/domain setup requires separate deployment evidence.&quot;
+      }
+    ],
+    &quot;report&quot;: {
+      &quot;schema&quot;: &quot;relay.report.v1&quot;,
+      &quot;report_id&quot;: &quot;leak-demo:report-v1&quot;,
+      &quot;report_revision&quot;: 1,
+      &quot;mission_id&quot;: &quot;leak-demo&quot;,
+      &quot;station_id&quot;: &quot;station-a&quot;,
+      &quot;simulated&quot;: true,
+      &quot;fixture_start&quot;: &quot;2026-09-26T18:00:00Z&quot;,
+      &quot;outcome&quot;: &quot;complete&quot;,
+      &quot;findings&quot;: [
+        {
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;timestamp_seconds&quot;: 40,
+          &quot;status&quot;: &quot;suspected_hazard&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;confidence_milli&quot;: 850,
+          &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+          &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+          &quot;cited_reference_ids&quot;: [
+            &quot;fixture-water-review-v1&quot;
+          ]
+        }
+      ],
+      &quot;observations&quot;: [
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-000&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:00Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 40,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-010&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:10Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 55,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-020&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:20Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 80,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-030&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:30Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 60,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-040&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:40Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 850,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-050&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:00:50Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 1000,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-060&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:00Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 960,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-070&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:10Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 900,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-080&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:20Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 130,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-090&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:30Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 70,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-100&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:40Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 60,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        },
+        {
+          &quot;mission_id&quot;: &quot;leak-demo&quot;,
+          &quot;event_id&quot;: &quot;water-110&quot;,
+          &quot;robot_id&quot;: &quot;station-a&quot;,
+          &quot;observed_at&quot;: &quot;2026-09-26T18:01:50Z&quot;,
+          &quot;kind&quot;: &quot;water&quot;,
+          &quot;value_milli&quot;: 45,
+          &quot;simulated&quot;: true,
+          &quot;latitude&quot;: null,
+          &quot;longitude&quot;: null
+        }
+      ],
+      &quot;references&quot;: [
+        {
+          &quot;reference_id&quot;: &quot;fixture-water-review-v1&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;title&quot;: &quot;Synthetic water inspection procedure&quot;,
+          &quot;body&quot;: &quot;Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.&quot;,
+          &quot;source_url&quot;: &quot;relay://fixtures/water-review-v1&quot;,
+          &quot;is_simulated&quot;: true
+        },
+        {
+          &quot;reference_id&quot;: &quot;fixture-water-routing-v1&quot;,
+          &quot;hazard_type&quot;: &quot;standing_water&quot;,
+          &quot;title&quot;: &quot;Synthetic route review note&quot;,
+          &quot;body&quot;: &quot;Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.&quot;,
+          &quot;source_url&quot;: &quot;relay://fixtures/water-routing-v1&quot;,
+          &quot;is_simulated&quot;: true
+        }
+      ],
+      &quot;accounting&quot;: {
+        &quot;requests&quot;: 1,
+        &quot;new_requests&quot;: 1,
+        &quot;tokens&quot;: 485,
+        &quot;estimated_usd&quot;: &quot;0.000725&quot;,
+        &quot;new_estimated_usd&quot;: &quot;0.000725&quot;,
+        &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+        &quot;replayed_requests&quot;: 0,
+        &quot;avoided_tokens&quot;: 0,
+        &quot;session_estimated_usd&quot;: &quot;0.000725&quot;,
+        &quot;shared_spend_operation_ids&quot;: [],
+        &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+      },
+      &quot;review&quot;: {
+        &quot;status&quot;: &quot;simulated_review&quot;,
+        &quot;reviewed&quot;: true,
+        &quot;human_review_performed&quot;: false
+      },
+      &quot;finalization&quot;: {
+        &quot;status&quot;: &quot;simulated_finalization&quot;,
+        &quot;finalized&quot;: true
+      },
+      &quot;actuation_enabled&quot;: false
+    },
+    &quot;findings&quot;: [
+      {
+        &quot;event_id&quot;: &quot;water-040&quot;,
+        &quot;timestamp_seconds&quot;: 40,
+        &quot;status&quot;: &quot;suspected_hazard&quot;,
+        &quot;hazard_type&quot;: &quot;standing_water&quot;,
+        &quot;confidence_milli&quot;: 850,
+        &quot;summary&quot;: &quot;Simulated wetness reading suggests standing water.&quot;,
+        &quot;recommended_action&quot;: &quot;Ask a person to inspect; a second robot observation may help.&quot;,
+        &quot;cited_reference_ids&quot;: [
+          &quot;fixture-water-review-v1&quot;
+        ]
+      }
+    ],
+    &quot;accounting&quot;: {
+      &quot;requests&quot;: 1,
+      &quot;new_requests&quot;: 1,
+      &quot;tokens&quot;: 485,
+      &quot;estimated_usd&quot;: &quot;0.000725&quot;,
+      &quot;new_estimated_usd&quot;: &quot;0.000725&quot;,
+      &quot;actual_paid_usd&quot;: &quot;0.000000&quot;,
+      &quot;replayed_requests&quot;: 0,
+      &quot;avoided_tokens&quot;: 0,
+      &quot;session_estimated_usd&quot;: &quot;0.000725&quot;,
+      &quot;shared_spend_operation_ids&quot;: [],
+      &quot;price_basis&quot;: &quot;illustrative simulation rates&quot;
+    },
+    &quot;references&quot;: [
+      {
+        &quot;reference_id&quot;: &quot;fixture-water-review-v1&quot;,
+        &quot;hazard_type&quot;: &quot;standing_water&quot;,
+        &quot;title&quot;: &quot;Synthetic water inspection procedure&quot;,
+        &quot;body&quot;: &quot;Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.&quot;,
+        &quot;source_url&quot;: &quot;relay://fixtures/water-review-v1&quot;,
+        &quot;simulated&quot;: true
+      },
+      {
+        &quot;reference_id&quot;: &quot;fixture-water-routing-v1&quot;,
+        &quot;hazard_type&quot;: &quot;standing_water&quot;,
+        &quot;title&quot;: &quot;Synthetic route review note&quot;,
+        &quot;body&quot;: &quot;Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.&quot;,
+        &quot;source_url&quot;: &quot;relay://fixtures/water-routing-v1&quot;,
+        &quot;simulated&quot;: true
+      }
+    ],
+    &quot;reference_context&quot;: [
+      {
+        &quot;reference_id&quot;: &quot;fixture-water-review-v1&quot;,
+        &quot;hazard_type&quot;: &quot;standing_water&quot;,
+        &quot;title&quot;: &quot;Synthetic water inspection procedure&quot;,
+        &quot;body&quot;: &quot;Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.&quot;,
+        &quot;source_url&quot;: &quot;relay://fixtures/water-review-v1&quot;,
+        &quot;is_simulated&quot;: true
+      },
+      {
+        &quot;reference_id&quot;: &quot;fixture-water-routing-v1&quot;,
+        &quot;hazard_type&quot;: &quot;standing_water&quot;,
+        &quot;title&quot;: &quot;Synthetic route review note&quot;,
+        &quot;body&quot;: &quot;Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.&quot;,
+        &quot;source_url&quot;: &quot;relay://fixtures/water-routing-v1&quot;,
+        &quot;is_simulated&quot;: true
+      }
+    ],
+    &quot;telemetry&quot;: [
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-000&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:00Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 40,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-010&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:10Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 55,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-020&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:20Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 80,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-030&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:30Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 60,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-040&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:40Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 850,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-050&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:00:50Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 1000,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-060&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:00Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 960,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-070&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:10Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 900,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-080&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:20Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 130,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-090&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:30Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 70,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-100&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:40Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 60,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      },
+      {
+        &quot;mission_id&quot;: &quot;leak-demo&quot;,
+        &quot;event_id&quot;: &quot;water-110&quot;,
+        &quot;robot_id&quot;: &quot;station-a&quot;,
+        &quot;observed_at&quot;: &quot;2026-09-26T18:01:50Z&quot;,
+        &quot;kind&quot;: &quot;water&quot;,
+        &quot;value_milli&quot;: 45,
+        &quot;simulated&quot;: true,
+        &quot;latitude&quot;: null,
+        &quot;longitude&quot;: null
+      }
+    ],
+    &quot;telemetry_persistence&quot;: {
+      &quot;inserted&quot;: 12,
+      &quot;replay_inserted&quot;: 0,
+      &quot;readback_count&quot;: 12,
+      &quot;verified&quot;: true
+    },
+    &quot;mission_persistence&quot;: {
+      &quot;mission_id&quot;: &quot;leak-demo&quot;,
+      &quot;verified&quot;: true,
+      &quot;content_sha256&quot;: &quot;57c30c4e04364d448a7a0f947b5742c09fd004c186d141d2a0654326b9f23e93&quot;
+    },
+    &quot;briefing&quot;: {
+      &quot;provider&quot;: &quot;elevenlabs&quot;,
+      &quot;mode&quot;: &quot;mock&quot;,
+      &quot;simulated&quot;: true,
+      &quot;cache_key&quot;: &quot;b32c43df518fe87ab094c6ce12819e7774b44ac2cd264e9091d1b8cd6c41c7b4&quot;,
+      &quot;cache_hit&quot;: false,
+      &quot;characters&quot;: 226,
+      &quot;voice_id&quot;: &quot;mock-voice&quot;,
+      &quot;model_id&quot;: &quot;mock-model&quot;,
+      &quot;output_format&quot;: &quot;mp3_44100_128&quot;,
+      &quot;audio_path&quot;: null,
+      &quot;audio_sha256&quot;: null,
+      &quot;request_sent&quot;: false,
+      &quot;actual_billed_usd&quot;: &quot;0.00&quot;,
+      &quot;provider_character_cost&quot;: null,
+      &quot;provider_character_cost_status&quot;: &quot;not_requested&quot;,
+      &quot;provider_character_cost_unit&quot;: &quot;provider_defined&quot;,
+      &quot;provider_trace_id&quot;: null,
+      &quot;status&quot;: &quot;mock&quot;,
+      &quot;note&quot;: &quot;No speech generated; no provider request made.&quot;,
+      &quot;text&quot;: &quot;Simulated inspection: 12 readings across 1 robot identifiers. 1 suspected hazard findings; 0 findings need review. Review and finalization are simulated. No physical inspection, real human approval, or robot movement occurred.&quot;,
+      &quot;review_status&quot;: &quot;simulated_review&quot;,
+      &quot;human_review_performed&quot;: false
+    },
+    &quot;receipt&quot;: {
+      &quot;schema&quot;: &quot;relay.receipt.v1&quot;,
+      &quot;provider&quot;: &quot;solana&quot;,
+      &quot;mode&quot;: &quot;mock&quot;,
+      &quot;network&quot;: &quot;devnet&quot;,
+      &quot;simulated&quot;: true,
+      &quot;report_simulated&quot;: true,
+      &quot;report_sha256&quot;: &quot;dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41&quot;,
+      &quot;memo&quot;: &quot;relay:v1:sha256:dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41&quot;,
+      &quot;signature&quot;: null,
+      &quot;signer&quot;: null,
+      &quot;explorer_url&quot;: null,
+      &quot;chain_verified&quot;: false,
+      &quot;request_sent&quot;: false,
+      &quot;status&quot;: &quot;mock&quot;,
+      &quot;note&quot;: &quot;No wallet or blockchain transaction created.&quot;
+    },
+    &quot;receipt_verification&quot;: {
+      &quot;hash_matches&quot;: true,
+      &quot;chain_verified&quot;: false,
+      &quot;valid&quot;: true,
+      &quot;mode&quot;: &quot;mock&quot;,
+      &quot;network&quot;: &quot;devnet&quot;,
+      &quot;report_sha256&quot;: &quot;dac660d3fa3854162e410473689b2c7ca2f77db923a8bf4b715566a6a6c1ba41&quot;,
+      &quot;simulated&quot;: true,
+      &quot;status&quot;: &quot;mock_hash_verified&quot;,
+      &quot;note&quot;: &quot;Local hash comparison only; no blockchain transaction exists.&quot;
+    },
+    &quot;tamper_verification&quot;: {
+      &quot;hash_matches&quot;: false,
+      &quot;chain_verified&quot;: false,
+      &quot;valid&quot;: false,
+      &quot;mode&quot;: &quot;mock&quot;,
+      &quot;network&quot;: &quot;devnet&quot;,
+      &quot;report_sha256&quot;: &quot;44e9356b058628de03ce58c9723c116ed81c1e27293ae7debd865ca3e415e70c&quot;,
+      &quot;status&quot;: &quot;report_changed&quot;,
+      &quot;simulated&quot;: true
+    },
+    &quot;limitations&quot;: [
+      &quot;All adapter operations in this workflow are mock; remote accounts and deployments were not checked.&quot;,
+      &quot;Supplied observations are replayed as simulated and use a fixed fixture epoch.&quot;,
+      &quot;Review, finalization, and reference passages are demo fixtures, not real human approval.&quot;,
+      &quot;There is no generated audio, blockchain transaction, physical actuation, or cloud provisioning.&quot;,
+      &quot;Mock model cost estimates are illustrative; actual new provider charges for this run are zero.&quot;
+    ]
+  },
+  &quot;limitations&quot;: [
+    &quot;Every reading, mission assignment, model result, review and adapter operation in this packet is simulated.&quot;,
+    &quot;Workflow completion does not establish environmental safety or real human approval. No hardware is connected or actuated.&quot;,
+    &quot;The six adapters run locally as mocks. This packet establishes no live provider, cloud, domain or blockchain proof.&quot;,
+    &quot;The ElevenLabs stage creates a descriptor, not audio. The Solana stage checks a local hash, not a transaction.&quot;,
+    &quot;Costs and tokens are illustrative simulation measurements; new paid provider charges for this packet are zero.&quot;,
+    &quot;The comparison covers one synthetic wet interval. No real-world accuracy, energy, carbon, battery or water savings were measured.&quot;,
+    &quot;Existing cloud resources may accrue costs independently. This command neither checks nor modifies the canonical spending ledger.&quot;
+  ],
+  &quot;checks&quot;: [
+    {
+      &quot;name&quot;: &quot;preset: disconnected simulation&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;preset: mock analysis audit&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;preset: review gates announcement&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;preset: unavailable second view skipped&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;preset: mission completes with suspected hazard&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;preset: expected mission assignment&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: disconnected simulation&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: mock analysis audit&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: review gates announcement&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: unavailable second view skipped&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: mission completes with suspected hazard&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;directed: expected mission assignment&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: disconnected simulation&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: mock analysis audit&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: review gates announcement&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: unavailable second view skipped&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: zero requests and tokens&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: refused analysis keeps local alarm&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;zero_request_refusal: acknowledgement cannot release refusal&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;comparison: complete mock runs&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;comparison: twelve versus one requests&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;comparison: fewer simulated tokens&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;comparison: same labeled incident detected&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: six completed mock adapters&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: no remote work claimed&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: twelve telemetry readings persist idempotently&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: report readback and reference grounding&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: no real review or audio&quot;,
+      &quot;passed&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;integration: local receipt accepts original and rejects tamper&quot;,
+      &quot;passed&quot;: true
+    }
+  ],
+  &quot;status&quot;: &quot;passed&quot;
+}</pre></details></body></html>

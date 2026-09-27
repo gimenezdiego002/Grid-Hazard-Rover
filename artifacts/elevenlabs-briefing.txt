@@ -1,0 +1,1 @@
+Relay demonstration. Simulated readings at Station A indicate suspected water. An operator should review the evidence before directing the rover. No robot has moved.

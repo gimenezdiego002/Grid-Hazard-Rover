@@ -1,0 +1,30 @@
+{
+  "currency": "USD",
+  "authorization_total": "20.00",
+  "planned_ceiling": "15.00",
+  "contingency": "5.00",
+  "estimated_new_usage_usd": "0.000179",
+  "actual_billed_usd": null,
+  "unresolved_reservations": "0.000000",
+  "entries": [
+    {
+      "id": "gemini-smoke-2026-09-26",
+      "provider": "Gemini Developer API",
+      "operation": "One synthetic wetness observation; no images or private data",
+      "model": "gemini-3.5-flash-lite",
+      "max_requests": 1,
+      "reserved_usd": "0.010000",
+      "status": "completed_provider_usage_recorded",
+      "pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "input_usd_per_million": "0.30",
+      "output_usd_per_million": "2.50",
+      "settled_estimated_usd": "0.000179",
+      "provider_reported_tokens": 202,
+      "new_requests": 1,
+      "actual_billed_usd": null,
+      "audit_verified": true,
+      "evidence_file": ".state/gemini-smoke.json"
+    }
+  ],
+  "note": "Setup record only, not a provider invoice or automatic cross-provider enforcement. Update before/after each billable operation. Mock runs, package installation, inventory research, and Gemini model-list connectivity check incurred no generation charges."
+}

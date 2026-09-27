@@ -1,0 +1,11 @@
+{
+  "network": "devnet",
+  "public_key": "J4a7ghbiUzbu94NiSyryBeWfvgnVRSGP422tEgXz5Kxr",
+  "checked_at": "2026-09-26T21:12:13.438787+00:00",
+  "operation": "getBalance",
+  "funding_requested": false,
+  "transaction_submitted": false,
+  "new_api_cloud_charge_usd": "0.000000",
+  "status": "verified",
+  "balance_lamports": 0
+}
