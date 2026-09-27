@@ -88,7 +88,22 @@ test.beforeEach(async ({ page }) => {
   await page.route("https://tile.openstreetmap.org/**", (route) =>
     route.abort(),
   );
+  await page.route("https://*.basemaps.cartocdn.com/**", (route) =>
+    route.abort(),
+  );
   await page.route("https://fonts.googleapis.com/**", (route) => route.abort());
+  await page.route("**/relay/api/missions/inventory", (route) =>
+    route.fulfill({
+      json: {
+        simulated: true,
+        physical_connections_verified: false,
+        inventory: [
+          { device_id: "freenove-hexapod", name: "Freenove Hexapod", capabilities: ["second_view"], available: false, simulated: true, physical_connected: false },
+          { device_id: "learm", name: "Hiwonder LeArm", capabilities: ["reviewed_response"], available: false, simulated: true, physical_connected: false },
+        ],
+      },
+    }),
+  );
 });
 test("renders real contracts, filters matches, preserves unknown dates and exports", async ({
   page,
@@ -103,7 +118,7 @@ test("renders real contracts, filters matches, preserves unknown dates and expor
   await expect(
     page.getByText("2 demo fixtures", { exact: false }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Coordination", exact: true }).click();
+  await page.getByRole("button", { name: "Project connections", exact: true }).click();
   await expect(
     page.getByText("Schedule unknown", { exact: true }),
   ).toBeVisible();
@@ -113,7 +128,7 @@ test("renders real contracts, filters matches, preserves unknown dates and expor
   await expect(
     page.getByText("No matches found.", { exact: false }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Data sources", exact: true }).click();
+  await page.getByRole("button", { name: "Evidence & sources", exact: true }).click();
   await expect(page.getByText("Unknown → Unknown").first()).toBeVisible();
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export data" }).click();
@@ -236,9 +251,11 @@ test("mobile layout stays inside the viewport", async ({ page }) => {
   await expect(page.getByText("API data loaded")).toBeVisible();
   for (const section of [
     "Overview",
-    "Coordination",
-    "Field hazards",
-    "Data sources",
+    "Project connections",
+    "Rover findings",
+    "Robot fleet",
+    "Call reports",
+    "Evidence & sources",
   ]) {
     await page.getByRole("button", { name: section, exact: true }).click();
     expect(
@@ -249,6 +266,118 @@ test("mobile layout stays inside the viewport", async ({ page }) => {
   }
   await page.screenshot({ path: "tmp/mobile.png", fullPage: true });
 });
+test("company token unlocks the protected AI call review queue", async ({ page }) => {
+  await page.addInitScript(() =>
+    sessionStorage.setItem("fieldsight-call-access", "test-company-token"),
+  );
+  const call = {
+    conversation_id: "conv_test_001",
+    company_id: "utility-a",
+    company_name: "Utility A",
+    ended_at: "2026-09-27T12:00:00Z",
+    duration_seconds: 72,
+    analysis: {
+      summary: "Caller reported flooding near an exposed cable.",
+      category: "field_hazard",
+      sentiment: "concerned",
+      urgency: "high",
+      call_successful: true,
+      location_text: "NW 7th Street, Miami",
+      action_items: ["Dispatch a qualified reviewer."],
+    },
+    recording_status: "provider_retained",
+    consent_to_record: true,
+    review_status: "new",
+  };
+  await page.route("**/api/calls", async (route) => {
+    expect(route.request().headers().authorization).toBe(
+      "Bearer test-company-token",
+    );
+    await route.fulfill({ json: [call] });
+  });
+  await page.route("**/api/calls/conv_test_001", (route) =>
+    route.fulfill({
+      json: {
+        ...call,
+        agent_id: "agent_fieldsight",
+        agent_name: "FieldSight Operations",
+        transcript: [
+          { role: "agent", message: "How can I help?", time_in_call_seconds: 1 },
+          {
+            role: "user",
+            message: "There is an exposed cable.",
+            time_in_call_seconds: 9,
+          },
+        ],
+        has_audio: true,
+        audio_sha256: null,
+        reviewer_note: null,
+        source: "elevenlabs",
+      },
+    }),
+  );
+  await page.goto("/");
+  await page.getByRole("button", { name: "Call reports", exact: true }).click();
+  await expect(page.getByText("Company follow-up queue")).toBeVisible();
+  await page.getByRole("button", { name: /Utility A/ }).click();
+  await expect(page.getByText("There is an exposed cable.")).toBeVisible();
+  await expect(page.getByText("NW 7th Street, Miami")).toBeVisible();
+});
+test("robot fleet is truthful and crawler demo advances", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Rover simulation", exact: true }).click();
+  await expect(page.getByText("Hiwonder LeArm")).toBeVisible();
+  await expect(page.getByText("Physical response stays blocked.", { exact: false })).toBeVisible();
+  await expect(page.getByLabel("Simulated rover telemetry")).toContainText("87%");
+  await expect(page.getByText("Mission ready", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Start demo" }).click();
+  await expect(page.getByText("Walking corridor", { exact: true })).toBeVisible({ timeout: 4000 });
+  await page.getByRole("button", { name: "Open evidence for standing water" }).click();
+  await expect(page.getByRole("dialog", { name: "Inspection evidence detail" })).toContainText("[longitude, latitude]");
+  await page.getByRole("button", { name: "Close evidence" }).click();
+});
+test("company portal scopes the experience and returns to operations", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Company portal" }).click();
+  await expect(page.getByText("Company portal preview")).toBeVisible();
+  await expect(page.getByText("See what needs attention near your planned work.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Company portal" })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Operations workspace" }).click();
+  await expect(page.getByText("Miami-Dade workspace")).toBeVisible();
+});
+test("nearby hazards and risk areas collapse into an interactive list", async ({ page }) => {
+  await page.unroute("**/api/demo-summary");
+  await page.route("**/api/demo-summary", (route) =>
+    route.fulfill({
+      json: {
+        ...snapshot,
+        hazards: [
+          {
+            id: "h-near-risk",
+            hazard_type: "pothole",
+            severity: 4,
+            confidence: 0.93,
+            description: "Road surface damage near the coordination area.",
+            timestamp: "2026-09-27T12:00:00Z",
+            image_url: null,
+            location: { type: "Point", coordinates: [-80.355, 25.765] },
+            metadata: { demo: true },
+          },
+        ],
+      },
+    }),
+  );
+  await page.goto("/");
+  const cluster = page.locator(".map-notice-cluster");
+  await expect(cluster).toContainText("2");
+  await cluster.hover();
+  await expect(page.locator(".leaflet-tooltip .map-cluster-list")).toContainText("2 nearby map items");
+  await cluster.click();
+  const popup = page.locator(".leaflet-popup .map-cluster-list");
+  await expect(popup).toContainText("pothole");
+  await popup.getByRole("button", { name: /pothole/i }).click();
+  await expect(page.locator(".detail h2")).toHaveText("pothole");
+});
 test("live backend smoke and desktop screenshot", async ({ page }) => {
   test.setTimeout(120000);
   test.skip(
@@ -257,6 +386,7 @@ test("live backend smoke and desktop screenshot", async ({ page }) => {
   );
   await page.unroute("**/api/demo-summary");
   await page.unroute("https://tile.openstreetmap.org/**");
+  await page.unroute("https://*.basemaps.cartocdn.com/**");
   await page.unroute("https://fonts.googleapis.com/**");
   await page.goto("/");
   await expect(page.getByText("API data loaded")).toBeVisible({

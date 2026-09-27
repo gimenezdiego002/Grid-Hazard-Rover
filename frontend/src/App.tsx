@@ -3,6 +3,7 @@ import {
   Activity,
   ArrowDownToLine,
   ArrowUpRight,
+  Bot,
   Building2,
   Camera,
   ChevronRight,
@@ -10,6 +11,7 @@ import {
   Layers3,
   Map,
   Network,
+  PhoneCall,
   RefreshCw,
   Search,
   ShieldAlert,
@@ -17,6 +19,10 @@ import {
 } from "lucide-react";
 import MapView from "./MapView";
 import Upload from "./Upload";
+import Calls from "./Calls";
+import CompanyPortal from "./CompanyPortal";
+import Fleet from "./Fleet";
+import WorkspaceSwitcher, { type WorkspaceMode } from "./WorkspaceSwitcher";
 import { request } from "./api";
 import {
   distance,
@@ -34,13 +40,23 @@ const empty: Snapshot = {
   matches: [],
   risk_cells: [],
 };
-type Page = "Overview" | "Coordination" | "Field hazards" | "Data sources";
+type Page = "Overview" | "Coordination" | "Field hazards" | "Robot fleet" | "AI calls" | "Data sources";
 const navigation = [
-  { label: "Overview", icon: Map },
-  { label: "Coordination", icon: Network },
-  { label: "Field hazards", icon: Camera },
-  { label: "Data sources", icon: Database },
+  { label: "Overview", page: "Overview", icon: Map },
+  { label: "Project connections", page: "Coordination", icon: Network },
+  { label: "Rover findings", page: "Field hazards", icon: Camera },
+  { label: "Robot fleet", page: "Robot fleet", icon: Bot },
+  { label: "Call reports", page: "AI calls", icon: PhoneCall },
+  { label: "Evidence & sources", page: "Data sources", icon: Database },
 ] as const;
+const pageTitle: Record<Page, string> = {
+  Overview: "A clearer view of what’s ahead.",
+  Coordination: "Project connections",
+  "Field hazards": "Rover findings",
+  "Robot fleet": "Robot fleet & simulation",
+  "AI calls": "AI call reports",
+  "Data sources": "Evidence & sources",
+};
 const safeUrl = (url: string | null) =>
   url && /^https?:\/\//i.test(url) ? url : undefined;
 export default function App() {
@@ -52,7 +68,8 @@ export default function App() {
     [busy, setBusy] = useState(true),
     [error, setError] = useState(""),
     [updated, setUpdated] = useState<Date | null>(null),
-    [upload, setUpload] = useState(false);
+    [upload, setUpload] = useState(false),
+    [companyPortal, setCompanyPortal] = useState(false);
   const load = useCallback(async (signal?: AbortSignal) => {
     setBusy(true);
     setError("");
@@ -128,6 +145,23 @@ export default function App() {
     anchor.download = "grid-hazard-rover-snapshot.json";
     anchor.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  if (companyPortal) {
+    return (
+      <CompanyPortal
+        data={data}
+        onExit={() => setCompanyPortal(false)}
+        onOpenRover={() => {
+          setCompanyPortal(false);
+          setPage("Robot fleet");
+        }}
+      />
+    );
+  }
+  function selectWorkspace(mode: WorkspaceMode) {
+    if (mode === "company") setCompanyPortal(true);
+    if (mode === "rover") setPage("Robot fleet");
+    if (mode === "operations" && page === "Robot fleet") setPage("Overview");
   }
   const detail = (
     <aside className="detail">
@@ -325,19 +359,19 @@ export default function App() {
           <small>UTILITY COORDINATION</small>
         </div>
         <nav>
-          {navigation.map(({ label, icon: Icon }) => (
+          {navigation.map(({ label, page: targetPage, icon: Icon }) => (
             <button
               key={label}
-              className={page === label ? "nav-item active" : "nav-item"}
+              className={page === targetPage ? "nav-item active" : "nav-item"}
               onClick={() => {
-                setPage(label);
+                setPage(targetPage);
                 setQuery("");
                 setFilter("all");
               }}
             >
               <Icon size={19} />
               {label}
-              {label === "Field hazards" && (
+              {targetPage === "Field hazards" && (
                 <span className="nav-count">{data.hazards.length}</span>
               )}
             </button>
@@ -364,6 +398,10 @@ export default function App() {
           <span className="breadcrumb">
             Workspace <ChevronRight size={14} /> <strong>{page}</strong>
           </span>
+          <WorkspaceSwitcher
+            mode={page === "Robot fleet" ? "rover" : "operations"}
+            onSelect={selectWorkspace}
+          />
           <div className="top-actions">
             <span className={`connection ${error ? "offline" : ""}`}>
               <i />
@@ -392,9 +430,7 @@ export default function App() {
           <div className="page-heading">
             <div>
               <span className="eyebrow">SEE THE CONNECTIONS. ACT EARLIER.</span>
-              <h1>
-                {page === "Overview" ? "A clearer view of what’s ahead." : page}
-              </h1>
+              <h1>{pageTitle[page]}</h1>
               <p>
                 {page === "Overview"
                   ? "Utility projects, public works, and field hazards. One shared picture."
@@ -402,6 +438,10 @@ export default function App() {
                     ? "Find spatial intersections and understand schedule uncertainty."
                     : page === "Field hazards"
                       ? "Field observations classified by Gemini, ready for human review."
+                      : page === "AI calls"
+                        ? "Review AI-assisted caller reports and route company follow-up."
+                      : page === "Robot fleet"
+                        ? "Monitor declared devices and rehearse a safe crawler inspection."
                       : "Trace your evidence. Know what is real, synthetic, or still unknown."}
               </p>
             </div>
@@ -437,9 +477,9 @@ export default function App() {
                 icon: Building2,
               },
               {
-                label: "Utility-to-utility matches",
+                label: "Project connections",
                 value: utilityPairs.length,
-                sub: "Core coordination signal",
+                sub: "Nearby or crossing work",
                 icon: Network,
               },
               {
@@ -660,6 +700,10 @@ export default function App() {
               </div>
               {detail}
             </div>
+          ) : page === "Robot fleet" ? (
+            <Fleet hazards={data.hazards} />
+          ) : page === "AI calls" ? (
+            <Calls />
           ) : (
             <>
               <div className="source-banner">
@@ -782,8 +826,7 @@ export default function App() {
                 </table>
               </div>
               <p className="muted">
-                Routing, voice briefings, and Discord alerts are not exposed by
-                the current API and are not shown as working controls.
+                Every synthetic item is labeled. Live provider and physical-device claims require separate evidence.
               </p>
             </>
           )}

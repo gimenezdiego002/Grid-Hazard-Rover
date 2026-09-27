@@ -82,6 +82,42 @@ export interface UploadResult {
   persisted: boolean;
 }
 export type Selection = { kind: Kind | "risk" | "match"; id: string };
+export type CallUrgency = "low" | "medium" | "high" | "emergency";
+export type CallReviewStatus = "new" | "in_review" | "escalated" | "resolved";
+export interface CallAnalysis {
+  summary: string;
+  category: string;
+  sentiment: string;
+  urgency: CallUrgency;
+  call_successful: boolean | null;
+  location_text: string | null;
+  action_items: string[];
+}
+export interface CallSummary {
+  conversation_id: string;
+  company_id: string | null;
+  company_name: string | null;
+  ended_at: string;
+  duration_seconds: number | null;
+  analysis: CallAnalysis;
+  recording_status: "not_available" | "provider_retained" | "local_saved";
+  consent_to_record: boolean | null;
+  review_status: CallReviewStatus;
+}
+export interface TranscriptTurn {
+  role: "agent" | "user" | "unknown";
+  message: string;
+  time_in_call_seconds: number | null;
+}
+export interface CallReport extends CallSummary {
+  agent_id: string;
+  agent_name: string | null;
+  transcript: TranscriptTurn[];
+  has_audio: boolean;
+  audio_sha256: string | null;
+  reviewer_note: string | null;
+  source: "elevenlabs";
+}
 export const fixture = (item: Located) =>
   item.metadata.is_fixture === true || item.metadata.demo === true;
 export const humanize = (value: string) => value.replaceAll("_", " ");

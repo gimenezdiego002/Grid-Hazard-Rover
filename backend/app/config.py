@@ -25,6 +25,12 @@ class Settings:
     google_maps_api_key: str | None = field(default=None, repr=False)
     elevenlabs_api_key: str | None = field(default=None, repr=False)
     elevenlabs_voice_id: str | None = None
+    elevenlabs_agent_id: str | None = None
+    elevenlabs_webhook_secret: str | None = field(default=None, repr=False)
+    calls_dashboard_token: str | None = field(default=None, repr=False)
+    elevenlabs_save_call_audio: bool = False
+    call_audio_storage_dir: Path = Path(".state/call-audio")
+    call_audio_max_bytes: int = 15_000_000
     discord_webhook_url: str | None = field(default=None, repr=False)
 
     @property
@@ -63,5 +69,17 @@ def get_settings() -> Settings:
         google_maps_api_key=os.getenv("GOOGLE_MAPS_API_KEY", "").strip() or None,
         elevenlabs_api_key=os.getenv("ELEVENLABS_API_KEY", "").strip() or None,
         elevenlabs_voice_id=os.getenv("ELEVENLABS_VOICE_ID", "").strip() or None,
+        elevenlabs_agent_id=os.getenv("ELEVENLABS_AGENT_ID", "").strip() or None,
+        elevenlabs_webhook_secret=os.getenv("ELEVENLABS_WEBHOOK_SECRET", "").strip() or None,
+        calls_dashboard_token=os.getenv("CALLS_DASHBOARD_TOKEN", "").strip() or None,
+        elevenlabs_save_call_audio=os.getenv("ELEVENLABS_SAVE_CALL_AUDIO", "false").strip().lower()
+        in {"1", "true", "yes", "on"},
+        call_audio_storage_dir=Path(
+            os.getenv("CALL_AUDIO_STORAGE_DIR", ".state/call-audio").strip()
+            or ".state/call-audio"
+        ),
+        call_audio_max_bytes=int(
+            os.getenv("CALL_AUDIO_MAX_BYTES", "15000000").strip() or "15000000"
+        ),
         discord_webhook_url=os.getenv("DISCORD_WEBHOOK_URL", "").strip() or None,
     )

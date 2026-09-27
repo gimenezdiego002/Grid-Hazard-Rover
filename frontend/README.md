@@ -40,6 +40,22 @@ the exact frontend origin. Never put service credentials in Vite variables.
 - Responsive layouts, keyboard-accessible native modal, loading/error/empty
   states, and retained last successful snapshot on refresh errors.
 
+## Dashboard surfaces
+
+- **Operations workspace** shows cross-company coordination, rover findings,
+  risk explanations, protected AI call review, and Relay device inventory.
+- **Company portal preview** scopes projects, matches, related findings, and
+  risk areas to one selected utility. It demonstrates the intended tenant
+  experience; production tenant identity still requires real authentication
+  and server-enforced authorization.
+- **Robot fleet** includes a clearly labeled, non-actuating FNK0052 street
+  rehearsal with inspection/photo points. Evidence cards use a canonical
+  hazard's `image_url` when available and otherwise state that no photo preview
+  is available. Hiwonder LeArm remains disconnected and physically blocked.
+
+During local development Vite proxies `/api`, `/ingest`, `/health`, and
+`/relay` to the combined backend on port 8000.
+
 ## Verification
 
 ```powershell

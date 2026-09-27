@@ -14,6 +14,8 @@ from backend.app.api import router as api_router
 from backend.app.repository import clear_repository_cache
 from backend.app.data_routes import router as data_router
 from backend.app.integrations.relay_routes import router as relay_integration_router
+from backend.app.calls.repository import clear_call_repository_cache
+from backend.app.calls.routes import router as call_router
 from relay_gateway.api import app as relay_app
 from relay_gateway.fleet_gateway import create_app as create_fleet_app
 
@@ -25,6 +27,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     finally:
         close_mongo_client()
         clear_repository_cache()
+        clear_call_repository_cache()
 
 
 def create_app() -> FastAPI:
@@ -44,6 +47,7 @@ def create_app() -> FastAPI:
     application.include_router(api_router)
     application.include_router(data_router)
     application.include_router(relay_integration_router)
+    application.include_router(call_router)
 
     # Relay keeps its own API, models, static dashboard, telemetry cache, and
     # runtime state. Namespaced mounts avoid route collisions while providing
