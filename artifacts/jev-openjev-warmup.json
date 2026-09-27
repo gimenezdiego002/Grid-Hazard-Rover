@@ -1,0 +1,154 @@
+{
+  "run_kind": "actual_local_openjev_warmup",
+  "health_before": {
+    "service": "relay-local-openjev",
+    "ready": true,
+    "backend": "local_openjev",
+    "inference_simulated": false,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "pid": 30280,
+    "hosted_api_requests": 0,
+    "actuation_enabled": false,
+    "busy": false,
+    "requests": 0,
+    "max_requests": 100,
+    "metadata": {
+      "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "max_length": 1024,
+      "load_seconds": 7.25,
+      "model_allocated_bytes": 9180287488,
+      "cloud_api_usd": "0",
+      "energy_measured": false
+    },
+    "resources": {
+      "allocated_bytes": 9180287488,
+      "reserved_bytes": 9221177344,
+      "peak_allocated_bytes": 9180287488,
+      "peak_reserved_bytes": 9221177344,
+      "basis": "pytorch_worker_allocator_since_startup"
+    }
+  },
+  "decision": {
+    "choice": "continue_monitoring",
+    "status": "completed",
+    "reason": "local_nli_choice",
+    "confidence": null,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "operation_id": "warmup-ec6ce79704bb4e33",
+    "simulated": false,
+    "metrics": {
+      "calls": 1,
+      "dispatches": 1,
+      "api_requests": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "token_measurement": "tokenized_pairs_available_billing_and_compute_tokens_unmeasured",
+      "estimated_usd": "0",
+      "actual_paid_usd": "0",
+      "actual_paid_api_usd": "0",
+      "provider_reported_cost_usd": null,
+      "actual_billed_usd": null,
+      "reserved_usd": "0",
+      "reservation_held_usd": "0",
+      "cost_basis": "local_inference_api_cost_only_excludes_hardware_and_electricity",
+      "energy_joules": null,
+      "energy_measurement": "not_measured",
+      "latency_ms": 921.0,
+      "load_latency_ms": 7250.0,
+      "backend": "alexwortega-openjev-local",
+      "repository": "AlexWortega/openjev",
+      "checkpoint": "qwen3.5-4b-nli-v2",
+      "revision": "552759daad712f1af6c4c13dabcb1e047886fc9c",
+      "provider_identity": {
+        "provider": "alexwortega-openjev",
+        "provider_version": "openjev-nli-adapter-v1",
+        "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+        "model_version": "552759daad712f1af6c4c13dabcb1e047886fc9c;max_len=1024;dtype=bfloat16;device=cuda",
+        "synthetic": false,
+        "settings": {}
+      },
+      "score_semantics": "independent_entailment",
+      "confidence_calibrated": false,
+      "acceptance_threshold": 0.8,
+      "minimum_margin": 0.15,
+      "observations_simulated": true,
+      "local_inference": true,
+      "request_sha256": "258ae509848e08d4ef69072572d12f16f6a87abd3b5eaf69076ea64efd53ca84",
+      "hypothesis_count": 4,
+      "tokenized_pair_lengths": [
+        506,
+        510,
+        507,
+        507
+      ],
+      "unshared_input_tokens": 2030,
+      "maximum_context_tokens": 1024,
+      "tokenization_basis": "cached_encoder_tokenizer_complete_unpadded_pairs",
+      "input_context_truncated": false,
+      "entailment_scores": {
+        "hold": 0.027962040156126022,
+        "request_evidence": 0.0007422654889523983,
+        "escalate_gemini": 0.007001869846135378,
+        "continue_monitoring": 0.9815191030502319
+      },
+      "nli_scores": {
+        "hold": {
+          "contradiction": 0.9525743722915649,
+          "entailment": 0.027962040156126022,
+          "neutral": 0.019463542848825455
+        },
+        "request_evidence": {
+          "contradiction": 0.9973249435424805,
+          "entailment": 0.0007422654889523983,
+          "neutral": 0.0019328254275023937
+        },
+        "escalate_gemini": {
+          "contradiction": 0.9838660359382629,
+          "entailment": 0.007001869846135378,
+          "neutral": 0.009132160805165768
+        },
+        "continue_monitoring": {
+          "contradiction": 0.015049836598336697,
+          "entailment": 0.9815191030502319,
+          "neutral": 0.003430999116972089
+        }
+      },
+      "selected_entailment": 0.9815191030502319,
+      "selected_margin": 0.9535570628941059
+    }
+  },
+  "health_after": {
+    "service": "relay-local-openjev",
+    "ready": true,
+    "backend": "local_openjev",
+    "inference_simulated": false,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "pid": 30280,
+    "hosted_api_requests": 0,
+    "actuation_enabled": false,
+    "busy": false,
+    "requests": 1,
+    "max_requests": 100,
+    "metadata": {
+      "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "max_length": 1024,
+      "load_seconds": 7.25,
+      "model_allocated_bytes": 9180287488,
+      "cloud_api_usd": "0",
+      "energy_measured": false
+    },
+    "resources": {
+      "allocated_bytes": 9188807168,
+      "reserved_bytes": 9579790336,
+      "peak_allocated_bytes": 9544062464,
+      "peak_reserved_bytes": 9579790336,
+      "basis": "pytorch_worker_allocator_since_startup"
+    }
+  },
+  "observations_simulated": true,
+  "actuation_enabled": false
+}

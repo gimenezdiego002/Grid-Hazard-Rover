@@ -1,0 +1,290 @@
+{
+  "schema_version": "1",
+  "run_id": "openjev-ccaf46d693af4ff7",
+  "created_at": "2026-09-27T01:00:48.616592+00:00",
+  "run_kind": "local_openjev_with_gemini_fixtures",
+  "mission_id": "dry_monitoring",
+  "provider_modes": {
+    "supervisor": "actual_local_openjev",
+    "mission_evidence_report": "fixture"
+  },
+  "observations_simulated": true,
+  "actions_simulated": true,
+  "actuation_enabled": false,
+  "cloud_api_requests": 0,
+  "actual_paid_api_usd": "0",
+  "energy_joules": null,
+  "execution_status": "completed",
+  "service": {
+    "service": "relay-local-openjev",
+    "ready": true,
+    "backend": "local_openjev",
+    "inference_simulated": false,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "pid": 30280,
+    "hosted_api_requests": 0,
+    "actuation_enabled": false,
+    "busy": false,
+    "requests": 1,
+    "max_requests": 100,
+    "metadata": {
+      "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "max_length": 1024,
+      "load_seconds": 7.25,
+      "model_allocated_bytes": 9180287488,
+      "cloud_api_usd": "0",
+      "energy_measured": false
+    },
+    "resources": {
+      "allocated_bytes": 9188807168,
+      "reserved_bytes": 9579790336,
+      "peak_allocated_bytes": 9544062464,
+      "peak_reserved_bytes": 9579790336,
+      "basis": "pytorch_worker_allocator_since_startup"
+    }
+  },
+  "mission": {
+    "schema_version": "1",
+    "operation_id": "openjev-ccaf46d693af4ff7:mission",
+    "provider": "Gemini",
+    "mode": "fixture",
+    "role": "mission",
+    "status": "completed",
+    "simulated": true,
+    "inference_simulated": true,
+    "actuation_enabled": false,
+    "alarm_clear_authorized": false,
+    "evidence": {
+      "intent": "inspect_water",
+      "summary": "Fixture water-inspection intent."
+    },
+    "model": "relay-gemini-role-fixture-v1",
+    "usage": {
+      "calls": 1,
+      "input_tokens": 28,
+      "output_tokens": 18,
+      "total_tokens": 46,
+      "basis": "illustrative_fixture"
+    },
+    "estimated_usd": "0.000100",
+    "actual_billed_usd": "0.000000",
+    "price_basis": "illustrative simulation rates",
+    "latency_ms": 3.026,
+    "limitations": [
+      "All actions are simulated; advisory output cannot clear local alarms.",
+      "Text metadata only; no image decoding or measured model quality in fixture mode."
+    ],
+    "prompt_sha256": "26b55d10b44e7bf2803d461b8f65a26aab6d2626ced091ce39ef18c3f3c1de48",
+    "pollard_node_id": "2aaf7a4bad0468b6847d03cca64dac593885ed19f4f54876b968ca3b61cbe68a",
+    "result_sha256": "a053ccaef0e946cafc67eb9349ef23598894284fed940314faa0d9789255a0b2",
+    "reserved_tokens": 1961,
+    "shared_spend_operation_id": null,
+    "reason": "fixture_completed"
+  },
+  "events": [
+    {
+      "frame_id": "dry-10",
+      "health": "fresh",
+      "local_alarm": false,
+      "safe_hold": false,
+      "action": "continue_monitoring",
+      "status": "monitoring",
+      "reason": "validated_supervisory_choice",
+      "changed": true,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini",
+        "continue_monitoring"
+      ],
+      "unsafe_action_rejections": 0,
+      "provider_results": [
+        {
+          "choice": "continue_monitoring",
+          "status": "completed",
+          "reason": "local_nli_choice",
+          "confidence": null,
+          "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+          "operation_id": "openjev-ccaf46d693af4ff7:dry-10:jev:attempt-0",
+          "simulated": false,
+          "metrics": {
+            "calls": 1,
+            "dispatches": 1,
+            "api_requests": 0,
+            "input_tokens": null,
+            "output_tokens": null,
+            "token_measurement": "tokenized_pairs_available_billing_and_compute_tokens_unmeasured",
+            "estimated_usd": "0",
+            "actual_paid_usd": "0",
+            "actual_paid_api_usd": "0",
+            "provider_reported_cost_usd": null,
+            "actual_billed_usd": null,
+            "reserved_usd": "0",
+            "reservation_held_usd": "0",
+            "cost_basis": "local_inference_api_cost_only_excludes_hardware_and_electricity",
+            "energy_joules": null,
+            "energy_measurement": "not_measured",
+            "latency_ms": 718.0,
+            "load_latency_ms": 7250.0,
+            "backend": "alexwortega-openjev-local",
+            "repository": "AlexWortega/openjev",
+            "checkpoint": "qwen3.5-4b-nli-v2",
+            "revision": "552759daad712f1af6c4c13dabcb1e047886fc9c",
+            "provider_identity": {
+              "provider": "alexwortega-openjev",
+              "provider_version": "openjev-nli-adapter-v1",
+              "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+              "model_version": "552759daad712f1af6c4c13dabcb1e047886fc9c;max_len=1024;dtype=bfloat16;device=cuda",
+              "synthetic": false,
+              "settings": {}
+            },
+            "score_semantics": "independent_entailment",
+            "confidence_calibrated": false,
+            "acceptance_threshold": 0.8,
+            "minimum_margin": 0.15,
+            "observations_simulated": true,
+            "local_inference": true,
+            "request_sha256": "499cc5db21213953240a301ea02ffe880331e91928245d4218bd272aa79c4fbb",
+            "hypothesis_count": 4,
+            "tokenized_pair_lengths": [
+              506,
+              510,
+              507,
+              507
+            ],
+            "unshared_input_tokens": 2030,
+            "maximum_context_tokens": 1024,
+            "tokenization_basis": "cached_encoder_tokenizer_complete_unpadded_pairs",
+            "input_context_truncated": false,
+            "entailment_scores": {
+              "hold": 0.02661055140197277,
+              "request_evidence": 0.000771781662479043,
+              "escalate_gemini": 0.007247955072671175,
+              "continue_monitoring": 0.9806946516036987
+            },
+            "nli_scores": {
+              "hold": {
+                "contradiction": 0.9528264403343201,
+                "entailment": 0.02661055140197277,
+                "neutral": 0.020563041791319847
+              },
+              "request_evidence": {
+                "contradiction": 0.99725741147995,
+                "entailment": 0.000771781662479043,
+                "neutral": 0.001970813376829028
+              },
+              "escalate_gemini": {
+                "contradiction": 0.9832619428634644,
+                "entailment": 0.007247955072671175,
+                "neutral": 0.009490113705396652
+              },
+              "continue_monitoring": {
+                "contradiction": 0.015712743625044823,
+                "entailment": 0.9806946516036987,
+                "neutral": 0.003592635737732053
+              }
+            },
+            "selected_entailment": 0.9806946516036987,
+            "selected_margin": 0.954084100201726
+          }
+        }
+      ],
+      "simulated": true,
+      "physical_action": false,
+      "actuation_enabled": false,
+      "replayed": false,
+      "latency_ms": 718.0
+    },
+    {
+      "frame_id": "dry-11",
+      "health": "fresh",
+      "local_alarm": false,
+      "safe_hold": false,
+      "action": "continue_monitoring",
+      "status": "monitoring",
+      "reason": "unchanged_state_no_cloud_work",
+      "changed": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini",
+        "continue_monitoring"
+      ],
+      "unsafe_action_rejections": 0,
+      "provider_results": [],
+      "simulated": true,
+      "physical_action": false,
+      "actuation_enabled": false,
+      "replayed": false,
+      "latency_ms": 0
+    },
+    {
+      "frame_id": "dry-12",
+      "health": "fresh",
+      "local_alarm": false,
+      "safe_hold": false,
+      "action": "continue_monitoring",
+      "status": "monitoring",
+      "reason": "unchanged_state_no_cloud_work",
+      "changed": false,
+      "allowed_actions": [
+        "hold",
+        "request_evidence",
+        "escalate_gemini",
+        "continue_monitoring"
+      ],
+      "unsafe_action_rejections": 0,
+      "provider_results": [],
+      "simulated": true,
+      "physical_action": false,
+      "actuation_enabled": false,
+      "replayed": false,
+      "latency_ms": 0
+    }
+  ],
+  "report": {
+    "schema_version": "1",
+    "operation_id": "openjev-ccaf46d693af4ff7:report",
+    "provider": "Gemini",
+    "mode": "fixture",
+    "role": "report",
+    "status": "completed",
+    "simulated": true,
+    "inference_simulated": true,
+    "actuation_enabled": false,
+    "alarm_clear_authorized": false,
+    "evidence": {
+      "status": "monitoring",
+      "summary": "Fixture summary: continue simulated monitoring."
+    },
+    "model": "relay-gemini-role-fixture-v1",
+    "usage": {
+      "calls": 1,
+      "input_tokens": 22,
+      "output_tokens": 21,
+      "total_tokens": 43,
+      "basis": "illustrative_fixture"
+    },
+    "estimated_usd": "0.000106",
+    "actual_billed_usd": "0.000000",
+    "price_basis": "illustrative simulation rates",
+    "latency_ms": 1.826,
+    "limitations": [
+      "All actions are simulated; advisory output cannot clear local alarms.",
+      "Text metadata only; no image decoding or measured model quality in fixture mode."
+    ],
+    "prompt_sha256": "d37baf0c09ac96e7580b3a55961d0f524852423cedae48167768cab0bcc7e9e5",
+    "pollard_node_id": "98bdbe91d46561c612f7ad1301a67ba62c957b551510549d88164bc4a5aa4d5c",
+    "result_sha256": "35d526e04323397729eb63e2ac83610e01d72084887849a02bc01329fd7f8669",
+    "reserved_tokens": 1937,
+    "shared_spend_operation_id": null,
+    "reason": "fixture_completed"
+  },
+  "facts": {
+    "local_alarm_latched": false,
+    "review_required": false
+  },
+  "scope": "Synthetic observations; no robot or leak-detection validation."
+}

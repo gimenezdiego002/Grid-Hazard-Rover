@@ -1,0 +1,163 @@
+{
+  "created_at": "2026-09-27T01:02:22.360801+00:00",
+  "status": "running_and_smoke_tested",
+  "run_kind": "actual_local_openjev_on_synthetic_observations_with_gemini_fixtures",
+  "endpoint": "http://127.0.0.1:8770",
+  "service": {
+    "service": "relay-local-openjev",
+    "ready": true,
+    "backend": "local_openjev",
+    "inference_simulated": false,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "pid": 30280,
+    "hosted_api_requests": 0,
+    "actuation_enabled": false,
+    "busy": false,
+    "requests": 5,
+    "max_requests": 100,
+    "metadata": {
+      "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "max_length": 1024,
+      "load_seconds": 7.25,
+      "model_allocated_bytes": 9180287488,
+      "cloud_api_usd": "0",
+      "energy_measured": false
+    },
+    "resources": {
+      "allocated_bytes": 9188807168,
+      "reserved_bytes": 9579790336,
+      "peak_allocated_bytes": 9544062464,
+      "peak_reserved_bytes": 9579790336,
+      "basis": "pytorch_worker_allocator_since_startup"
+    }
+  },
+  "model_files": {
+    "repository": "AlexWortega/openjev",
+    "revision": "552759daad712f1af6c4c13dabcb1e047886fc9c",
+    "checkpoint": "qwen3.5-4b-nli-v2",
+    "files": {
+      "modeling_openjev.py": {
+        "bytes": 13789,
+        "sha256": "071670d0879963ee69600ed31f0f3d5a37bee314461709477e8ac0e25f33fd97"
+      },
+      "qwen3.5-4b-nli-v2/config.json": {
+        "bytes": 3167,
+        "sha256": "477bed7614828c875db38b952835af9ca2fb5fa024af56cda8a708181db76a07"
+      },
+      "qwen3.5-4b-nli-v2/tokenizer_config.json": {
+        "bytes": 1125,
+        "sha256": "9cf04fffe3d8c3b85e439fb35c7acad0761ab51c422a8c4256d9f887c3a0be7d"
+      },
+      "qwen3.5-4b-nli-v2/chat_template.jinja": {
+        "bytes": 7756,
+        "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+      },
+      "qwen3.5-4b-nli-v2/tokenizer.json": {
+        "bytes": 19989325,
+        "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523"
+      },
+      "qwen3.5-4b-nli-v2/model.safetensors": {
+        "bytes": 9078635984,
+        "sha256": "f625c42c6bac1fbc03935f584d0126d096b6681bdc62d11f4a7c7f3b94bc35b3"
+      }
+    }
+  },
+  "versions": {
+    "python": "3.12.2",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.0",
+    "huggingface-hub": "1.33.0",
+    "hf-xet": "1.6.0",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.22.2",
+    "pollard-jev": "0.1"
+  },
+  "warmup_proof": "artifacts/jev-openjev-warmup.json",
+  "warmup_calls": 1,
+  "mission_calls": 4,
+  "runs": [
+    {
+      "mission_id": "dry_monitoring",
+      "proof": "artifacts/jev-openjev-dry_monitoring.json",
+      "execution_status": "completed",
+      "facts": {
+        "local_alarm_latched": false,
+        "review_required": false
+      },
+      "actions": [
+        "continue_monitoring",
+        "continue_monitoring",
+        "continue_monitoring"
+      ],
+      "local_decisions": [
+        {
+          "status": "completed",
+          "reason": "local_nli_choice",
+          "choice": "continue_monitoring",
+          "latency_ms": 718.0
+        }
+      ]
+    },
+    {
+      "mission_id": "wet_episode",
+      "proof": "artifacts/jev-openjev-wet_episode.json",
+      "execution_status": "completed",
+      "facts": {
+        "local_alarm_latched": true,
+        "review_required": true
+      },
+      "actions": [
+        "continue_monitoring",
+        "hold",
+        "hold"
+      ],
+      "local_decisions": [
+        {
+          "status": "completed",
+          "reason": "local_nli_choice",
+          "choice": "continue_monitoring",
+          "latency_ms": 531.0
+        },
+        {
+          "status": "blocked",
+          "reason": "insufficient_nli_support",
+          "choice": null,
+          "latency_ms": 454.0
+        }
+      ]
+    },
+    {
+      "mission_id": "conflicting",
+      "proof": "artifacts/jev-openjev-conflicting.json",
+      "execution_status": "completed",
+      "facts": {
+        "local_alarm_latched": true,
+        "review_required": true
+      },
+      "actions": [
+        "hold"
+      ],
+      "local_decisions": [
+        {
+          "status": "blocked",
+          "reason": "insufficient_nli_support",
+          "choice": null,
+          "latency_ms": 485.0
+        }
+      ]
+    }
+  ],
+  "claims": {
+    "hosted_api_requests": 0,
+    "actual_paid_api_usd": "0",
+    "observations_simulated": true,
+    "actions_simulated": true,
+    "actuation_enabled": false,
+    "gemini_roles": "fixtures",
+    "threshold_calibrated": false,
+    "energy_measured": false,
+    "scope": "Small integration smoke test, not a quality benchmark. Wet/conflicting NLI support was below the unchanged 0.8 threshold; controller held with alarm latched."
+  }
+}
