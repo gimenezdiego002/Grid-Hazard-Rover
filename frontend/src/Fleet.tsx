@@ -27,6 +27,10 @@ interface HiwonderStatus {
   gatt_service_count?: number;
 }
 
+const capabilityLabels: Record<string, string> = {
+  reviewed_response: "Operator-reviewed arm response",
+};
+
 export default function Fleet({ hazards }: { hazards: Hazard[] }) {
   const [inventory, setInventory] = useState<Device[]>([]);
   const [hiwonder, setHiwonder] = useState<HiwonderStatus | null>(null);
@@ -59,20 +63,27 @@ export default function Fleet({ hazards }: { hazards: Hazard[] }) {
       </div>
       {error && <div className="error" role="alert">{error}</div>}
       <div className="device-grid">
-        {inventory.map((device) => (
+        {inventory.map((device) => {
+          const isHiwonder = device.device_id === "learm";
+          const isConnected = isHiwonder ? Boolean(hiwonder?.connected) : device.physical_connected;
+          return (
           <article className="device-card" key={device.device_id}>
             <div className="device-icon">{device.device_id === "learm" ? <Bot /> : <Cpu />}</div>
-            <span className={`device-state ${device.physical_connected ? "connected" : "disconnected"}`}>
-              {device.physical_connected ? <Radio size={12} /> : <CircleOff size={12} />}
-              {device.physical_connected ? "Connected" : "Not connected"}
+            <span className={`device-state ${isConnected ? "connected" : "disconnected"}`}>
+              {isConnected ? <Radio size={12} /> : <CircleOff size={12} />}
+              {isConnected ? (isHiwonder ? "Bluetooth connected" : "Connected") : "Not connected"}
             </span>
             <h3>{device.name}</h3>
-            <p>{device.capabilities.map((item) => item.replaceAll("_", " ")).join(" · ")}</p>
-            <small>{device.available ? "Available in simulation" : "Unavailable in simulation"}</small>
-            {device.device_id === "learm" && (
+            <p>{device.capabilities.map((item) => capabilityLabels[item] ?? item.replaceAll("_", " ")).join(" · ")}</p>
+            <small>
+              {isHiwonder && hiwonder?.connected
+                ? "Device detected · Physical control locked"
+                : device.available ? "Available in simulation" : "Unavailable in simulation"}
+            </small>
+            {isHiwonder && (
               hiwonder?.connected ? (
                 <div className="device-connected-note">
-                  Windows sees Hiwonder over Bluetooth. Read-only status is connected; movement remains blocked.
+                  Bluetooth connection verified. Monitoring is active; movement remains locked until the controller protocol is safely configured.
                 </div>
               ) : (
                 <div className="device-warning">
@@ -81,7 +92,8 @@ export default function Fleet({ hazards }: { hazards: Hazard[] }) {
               )
             )}
           </article>
-        ))}
+          );
+        })}
       </div>
       <RoverDemo hazards={hazards} />
     </>
