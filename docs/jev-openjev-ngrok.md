@@ -1,8 +1,10 @@
 # OpenJev HTTPS tunnel
 
-Verified endpoint: **https://0e3afafa81da.ngrok.app**. The eight-hour session
-expires **September 27, 2026, 05:15:56 EDT** (`09:15:56 UTC`).
-[Saved proof](../artifacts/jev-openjev-ngrok-proof.json) records unauthenticated
+Verified endpoint: **https://0e3afafa81da.ngrok.app**. The existing session now
+expires **September 28, 2026, 05:00 EDT** (`09:00 UTC`).
+[Expiry handoff proof](../artifacts/jev-openjev-ngrok-expiry.json) records the
+same ngrok process and URL surviving the keeper replacement, without a restart.
+The [historical smoke proof](../artifacts/jev-openjev-ngrok-proof.json) records unauthenticated
 and wrong-password requests returning 401, authenticated health returning 200,
 invalid JSON payload validation returning 422, and one actual local decision
 returning 200 in 750 ms. This used synthetic facts; no robot was actuated.
@@ -47,22 +49,22 @@ one inference at a time and retains its existing 100-attempt session limit.
 
 ## Stop this tunnel
 
-The supervisor stops its own ngrok child at expiry. To stop it earlier, validate
-the saved PID, exact executable, parent supervisor, script and creation window:
+The attached watcher rereads `.state/ngrok-openjev/lease.json` every 30 seconds
+and stops the validated process at expiry. It does not become ngrok's parent.
+To stop earlier, check the PID, exact executable and original creation window;
+the optional saved FILETIME comparison allows 1 ms for CIM timestamp rounding:
 
 ```powershell
 $ngrokSession = Get-Content -LiteralPath .state/ngrok-openjev/session.json -Raw | ConvertFrom-Json
 $ngrokChild = Get-CimInstance Win32_Process -Filter "ProcessId = $([int]$ngrokSession.ngrok_pid)"
-$ngrokSupervisor = Get-CimInstance Win32_Process -Filter "ProcessId = $([int]$ngrokSession.supervisor_pid)"
-if (-not $ngrokChild -or -not $ngrokSupervisor) { throw 'Recorded tunnel process is absent; nothing stopped.' }
+if (-not $ngrokChild) { throw 'Recorded tunnel process is absent; nothing stopped.' }
 $ngrokStart = [datetimeoffset]::Parse($ngrokSession.started_at).UtcDateTime
 $ngrokCreationDelta = ($ngrokChild.CreationDate.ToUniversalTime() - $ngrokStart).TotalSeconds
-$ngrokRunner = (Resolve-Path -LiteralPath .state/ngrok-openjev/run-tunnel.py).Path
-$ngrokRunnerPattern = '(?:^|\s)"?(?:' + [regex]::Escape($ngrokRunner) + '|\.state[\\/]ngrok-openjev[\\/]run-tunnel\.py)"?(?:\s|$)'
+$ngrokRecordedCreation = $ngrokSession.ngrok_creation_filetime
+$ngrokCreationMatches = $null -eq $ngrokRecordedCreation -or [math]::Abs($ngrokChild.CreationDate.ToUniversalTime().ToFileTimeUtc() - [long]$ngrokRecordedCreation) -le 10000
 if ($ngrokChild.ExecutablePath -ine 'C:\ProgramData\chocolatey\lib\ngrok\tools\ngrok.exe' -or
-    $ngrokChild.ParentProcessId -ne [int]$ngrokSession.supervisor_pid -or
     $ngrokCreationDelta -lt 0 -or $ngrokCreationDelta -gt 30 -or
-    $ngrokSupervisor.CommandLine -notmatch $ngrokRunnerPattern) {
+    -not $ngrokCreationMatches) {
     throw 'Process identity did not match this tunnel; nothing stopped.'
 }
 Stop-Process -Id ([int]$ngrokSession.ngrok_pid)
@@ -77,7 +79,8 @@ before reserving funds. A new session receives its own expiry and reservation.
 ## Cost and capture scope
 
 The canonical spending ledger holds **USD 1.00** for this session under
-`ngrok-openjev-20260927T011556Z`; actual billed cost remains unverified. Stopping
+`ngrok-openjev-20260927T011556Z`; the expiry change kept this same hold and session.
+Actual billed cost remains unverified. Stopping
 does not reconcile or release that hold. No plan was purchased or changed, and
 the reported existing Pro subscription was not independently verified.
 
