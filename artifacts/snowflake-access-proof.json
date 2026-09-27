@@ -1,0 +1,100 @@
+{
+  "provider": "snowflake",
+  "status": "approved_access_and_sql_api_verified",
+  "verification_date_local": "2026-09-26",
+  "timezone": "America/New_York",
+  "approval": {
+    "scope": "One-day role-restricted programmatic access token, exact operator IPv4 restriction, protected local storage, and one bounded SQL API reference query",
+    "explicit_user_approval_received": true,
+    "inherited_public_privileges_disclosed": true,
+    "future_credentials_authorized": false
+  },
+  "runtime_access": {
+    "service_user": "RELAY_REFERENCE_CLIENT",
+    "user_type": "SERVICE",
+    "enabled_for_approved_proof": true,
+    "explicit_user_roles": ["RELAY_REFERENCE_READER"],
+    "explicit_role_grants_verified": [
+      {"privilege": "USAGE", "object_type": "WAREHOUSE", "object_name": "RELAY_REFERENCE_WH"},
+      {"privilege": "USAGE", "object_type": "DATABASE", "object_name": "SHELLHACKS_RELAY"},
+      {"privilege": "USAGE", "object_type": "SCHEMA", "object_name": "SHELLHACKS_RELAY.INSPECTION"},
+      {"privilege": "SELECT", "object_type": "TABLE", "object_name": "SHELLHACKS_RELAY.INSPECTION.RELAY_REFERENCES"}
+    ],
+    "network_policy": "RELAY_REFERENCE_OPERATOR_ONLY",
+    "network_rule": "SHELLHACKS_RELAY.INSPECTION.RELAY_REFERENCE_OPERATOR_IPV4",
+    "network_scope": "Exact operator public IPv4 /32; address omitted from shared evidence",
+    "network_policy_scope": "Service user only",
+    "public_grants_count_previously_observed": 109,
+    "effective_access_limitation": "The restricted role still inherits PUBLIC, including observed AI and system compute privileges. Four explicit reader grants do not make effective access strictly read-only."
+  },
+  "credential_metadata": {
+    "name": "RELAY_REFERENCE_PROOF_1DAY",
+    "role_restriction": "RELAY_REFERENCE_READER",
+    "status_at_verification": "ACTIVE",
+    "created_at": "2026-09-27T00:34:29.052000+00:00",
+    "expires_at": "2026-09-28T00:34:29.052000+00:00",
+    "validity_seconds": 86400,
+    "network_policy_bypass_minutes": null,
+    "storage": "Windows user-bound DPAPI encrypted file in ignored .state directory",
+    "local_encrypt_decrypt_match_verified": true,
+    "credential_value_included": false
+  },
+  "sql_api": {
+    "live_proof_artifact": "artifacts/snowflake-live-proof.json",
+    "operation_id": "data:snowflake:snowflake-proof-20260926-v1",
+    "statement_handle": "01c75703-0002-5d94-0002-c8360001a4c2",
+    "query_history_status": "Success",
+    "returned_row_count": 2,
+    "reference_ids": ["fixture-water-review-v1", "fixture-water-routing-v1"],
+    "all_returned_passages_simulated": true,
+    "canonical_seed_text_match_verified": true,
+    "retrieval_verified": true,
+    "model_use_verified": false,
+    "live_dispatch_count_this_approval": 1
+  },
+  "warehouse_after_proof": {
+    "name": "RELAY_REFERENCE_WH",
+    "size": "X-Small",
+    "generation": 1,
+    "state": "SUSPENDED",
+    "running_queries": 0,
+    "queued_queries": 0,
+    "auto_suspend_seconds": 60,
+    "auto_resume": false,
+    "verification_source": "Snowsight warehouse details after the successful SQL API statement and explicit suspension",
+    "local_screenshot": ".state/snowflake-api-proof.png"
+  },
+  "query_ids": {
+    "verify_explicit_role_grants": "01c75701-0002-5d94-0002-c8360001a426",
+    "enable_service_user": "01c75702-0002-5d94-0002-c8360001a46e",
+    "create_programmatic_access_token": "01c75702-0002-5d94-0002-c8360001a472",
+    "verify_programmatic_access_token_metadata": "01c75703-0002-5d94-0002-c8360001a492",
+    "resume_for_proof": "01c75703-0002-5d94-0002-c8360001a4b2",
+    "sql_api_retrieval": "01c75703-0002-5d94-0002-c8360001a4c2",
+    "suspend_after_proof": "01c75704-0002-5d94-0002-c8360001a4ce",
+    "show_warehouse_after_suspension": "01c75704-0002-5d94-0002-c8360001a4da"
+  },
+  "cost": {
+    "setup_operation_id": "snowflake-trial-setup-2026-09-26",
+    "setup_reserved_usd": "1.000000",
+    "query_operation_id": "data:snowflake:snowflake-proof-20260926-v1",
+    "query_reserved_usd": "0.100000",
+    "query_spending_status": "unknown",
+    "query_unknown_reason": "missing_usage",
+    "actual_billed_usd": null,
+    "reservations_retained": true,
+    "snapshot": "docs/current-spend.json"
+  },
+  "offline_verification": {
+    "command": ".venv/Scripts/python.exe -m pytest tests/test_data_integrations.py tests/test_data_cli.py tests/test_cli_references.py -q",
+    "passed": 79,
+    "elapsed_seconds": 1.2
+  },
+  "limitations": [
+    "Synthetic reference retrieval is verified; Gemini use of the returned passages remains unverified.",
+    "The historical browser setup artifact records the earlier pre-approval state and is preserved unchanged.",
+    "Warehouse suspension does not settle incurred billing or remove inherited PUBLIC capabilities.",
+    "The API and default CLI remain mock-only; later live work requires deliberate opt-in and cumulative spending admission.",
+    "This proof does not establish a physical inspection, real safety guidance, or integration with the Grid Hazard Rover shared contract."
+  ]
+}

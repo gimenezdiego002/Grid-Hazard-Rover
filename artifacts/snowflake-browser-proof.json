@@ -1,0 +1,88 @@
+{
+  "provider": "snowflake",
+  "status": "browser_setup_verified",
+  "recorded_at": "2026-09-27T00:17:21.942846+00:00",
+  "mode": "live_browser",
+  "data_simulated": true,
+  "authenticated_account_verified": true,
+  "trial_display": {
+    "remaining_usd_displayed": 400,
+    "total_usd_displayed": 400,
+    "days_remaining_displayed": 119,
+    "limitation": "Rounded Snowsight display, not an invoice or exact usage reconciliation."
+  },
+  "database": "SHELLHACKS_RELAY",
+  "database_kind": "TRANSIENT",
+  "data_retention_days": 0,
+  "schema": "INSPECTION",
+  "table": "RELAY_REFERENCES",
+  "warehouse": {
+    "name": "RELAY_REFERENCE_WH",
+    "size": "X-Small",
+    "generation": 1,
+    "auto_suspend_seconds": 60,
+    "auto_resume": false,
+    "statement_timeout_seconds": 5,
+    "statement_queued_timeout_seconds": 5,
+    "final_state": "SUSPENDED",
+    "final_running_queries": 0,
+    "final_queued_queries": 0
+  },
+  "browser_query_verified": true,
+  "returned_row_count": 2,
+  "references": [
+    {
+      "reference_id": "fixture-water-review-v1",
+      "hazard_type": "standing_water",
+      "simulated": true
+    },
+    {
+      "reference_id": "fixture-water-routing-v1",
+      "hazard_type": "standing_water",
+      "simulated": true
+    }
+  ],
+  "query_ids": {
+    "create_warehouse": "01c756eb-0002-5d94-0002-c8360001a1ea",
+    "create_database": "01c756eb-0002-5d94-0002-c8360001a1f2",
+    "create_schema": "01c756eb-0002-5d93-0002-c8360001b14a",
+    "create_table": "01c756eb-0002-5d93-0002-c8360001b172",
+    "resume": "01c756eb-0002-5d93-0002-c8360001b176",
+    "seed_merge": "01c756eb-0002-5d94-0002-c8360001a22e",
+    "reference_select": "01c756eb-0002-5d94-0002-c8360001a232",
+    "suspend": "01c756eb-0002-5d94-0002-c8360001a23e",
+    "verify_suspended": "01c756eb-0002-5d94-0002-c8360001a242"
+  },
+  "sql_api_verified": false,
+  "model_use_verified": false,
+  "runtime_access": {
+    "status": "proposed_not_executed",
+    "service_user": "RELAY_REFERENCE_CLIENT",
+    "explicit_role": "RELAY_REFERENCE_READER",
+    "token_created": false,
+    "proposed_token_days": 1,
+    "proposed_network_scope": "operator IPv4 /32, user-level policy only",
+    "public_grants_count_observed": 109,
+    "public_grants_examples": [
+      "USE AI FUNCTIONS",
+      "EXECUTE AGENT TASK",
+      "BIND SERVICE ENDPOINT",
+      "MANAGE ARTIFACT PUBLICATION",
+      "USAGE on SYSTEM_COMPUTE_POOL_CPU and SYSTEM_COMPUTE_POOL_GPU"
+    ],
+    "limitation": "A role-restricted token still inherits PUBLIC. Four explicit reader grants do not make effective access strictly read-only."
+  },
+  "cost": {
+    "setup_operation_id": "snowflake-trial-setup-2026-09-26",
+    "existing_reserved_usd": "1.000000",
+    "new_reservation_created": false,
+    "actual_billed_usd": null,
+    "reconciliation_status": "unresolved"
+  },
+  "limitations": [
+    "Browser SQL proof does not verify the Python SQL API adapter or Gemini reference use.",
+    "No physical inspection or real guidance source is demonstrated.",
+    "Warehouse resume is an explicit administrator step before any later budgeted proof.",
+    "Failed obsolete RESOURCE_CONSTRAINT syntax was corrected to GENERATION before resources were created."
+  ]
+}

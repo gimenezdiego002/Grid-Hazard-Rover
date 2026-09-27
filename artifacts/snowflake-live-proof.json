@@ -1,0 +1,57 @@
+{
+  "schema_version": "1",
+  "provider": "snowflake",
+  "mode": "live",
+  "status": "completed",
+  "operation_id": "data:snowflake:snowflake-proof-20260926-v1",
+  "simulated": true,
+  "remote_verified": true,
+  "proof_verified": true,
+  "actual_billed_usd": null,
+  "steps": [
+    {
+      "action": "retrieve_bounded_references",
+      "status": "completed",
+      "statement_handle": "01c75703-0002-5d94-0002-c8360001a4c2"
+    }
+  ],
+  "evidence": {
+    "statement_handle": "01c75703-0002-5d94-0002-c8360001a4c2",
+    "reference_ids": [
+      "fixture-water-review-v1",
+      "fixture-water-routing-v1"
+    ],
+    "reference_context": [
+      {
+        "reference_id": "fixture-water-review-v1",
+        "hazard_type": "standing_water",
+        "title": "Synthetic water inspection procedure",
+        "body": "Demo procedure: keep a suspected water finding visible for human review. A second independent observation may help corroborate it.",
+        "source_url": "relay://fixtures/water-review-v1",
+        "is_simulated": true
+      },
+      {
+        "reference_id": "fixture-water-routing-v1",
+        "hazard_type": "standing_water",
+        "title": "Synthetic route review note",
+        "body": "Demo procedure: propose inspection of the affected area; route and actuator decisions remain with the deterministic coordinator and operator.",
+        "source_url": "relay://fixtures/water-routing-v1",
+        "is_simulated": true
+      }
+    ],
+    "retrieval_verified": true,
+    "model_use_verified": false,
+    "source_simulation_note": "Each passage retains its own is_simulated flag; the proof's hazard query is synthetic."
+  },
+  "spending": {
+    "status": "unknown",
+    "reserved_usd": "0.100000",
+    "estimated_usd": null,
+    "note": "The entire reservation remains held. Reconcile provider usage and resource lifetime manually."
+  },
+  "limitations": [
+    "All proof inputs are synthetic; review and physical inspection are not established.",
+    "No cloud service or SQL schema is provisioned. MongoDB upserts may create the configured database/collection. Provider billing and shutdown remain external.",
+    "Reference retrieval alone does not prove use by Gemini."
+  ]
+}
