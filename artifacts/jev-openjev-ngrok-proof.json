@@ -1,0 +1,144 @@
+{
+  "created_at": "2026-09-27T01:17:03.618106+00:00",
+  "endpoint": "https://0e3afafa81da.ngrok.app",
+  "status": "running_and_verified",
+  "authentication": "HTTP Basic over HTTPS",
+  "credential_values_included": false,
+  "credentials_storage": "ignored .state/ngrok-openjev/client-credentials.json",
+  "lease_expires_at": "2026-09-27T09:15:56.978500+00:00",
+  "spend_operation_id": "ngrok-openjev-20260927T011556Z",
+  "reserved_usd": "1.000000",
+  "actual_billed_usd": null,
+  "plan_changes": false,
+  "local_request_inspection": false,
+  "cloud_traffic_capture_settings": "not inspected; local inspect=false is not a claim about account-wide capture",
+  "checks": {
+    "unauthenticated_health_status": 401,
+    "incorrect_password_status": 401,
+    "authenticated_health_status": 200,
+    "unauthenticated_decide_status": 401,
+    "authenticated_invalid_payload_status": 422,
+    "authenticated_decision_http_status": 200,
+    "model_request_count_increased_by_one": true
+  },
+  "decision": {
+    "choice": "continue_monitoring",
+    "status": "completed",
+    "reason": "local_nli_choice",
+    "confidence": null,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "operation_id": "ngrok-smoke-15d3af8369c44de5",
+    "simulated": false,
+    "metrics": {
+      "calls": 1,
+      "dispatches": 1,
+      "api_requests": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "token_measurement": "tokenized_pairs_available_billing_and_compute_tokens_unmeasured",
+      "estimated_usd": "0",
+      "actual_paid_usd": "0",
+      "actual_paid_api_usd": "0",
+      "provider_reported_cost_usd": null,
+      "actual_billed_usd": null,
+      "reserved_usd": "0",
+      "reservation_held_usd": "0",
+      "cost_basis": "local_inference_api_cost_only_excludes_hardware_and_electricity",
+      "energy_joules": null,
+      "energy_measurement": "not_measured",
+      "latency_ms": 750.0,
+      "load_latency_ms": 7250.0,
+      "backend": "alexwortega-openjev-local",
+      "repository": "AlexWortega/openjev",
+      "checkpoint": "qwen3.5-4b-nli-v2",
+      "revision": "552759daad712f1af6c4c13dabcb1e047886fc9c",
+      "provider_identity": {
+        "provider": "alexwortega-openjev",
+        "provider_version": "openjev-nli-adapter-v1",
+        "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+        "model_version": "552759daad712f1af6c4c13dabcb1e047886fc9c;max_len=1024;dtype=bfloat16;device=cuda",
+        "synthetic": false,
+        "settings": {}
+      },
+      "score_semantics": "independent_entailment",
+      "confidence_calibrated": false,
+      "acceptance_threshold": 0.8,
+      "minimum_margin": 0.15,
+      "observations_simulated": true,
+      "local_inference": true,
+      "request_sha256": "b1ffced0f29ee3c5b8177650ab7561a02ac7b007a96e0e032d91c1a911763132",
+      "hypothesis_count": 4,
+      "tokenized_pair_lengths": [
+        506,
+        510,
+        507,
+        507
+      ],
+      "unshared_input_tokens": 2030,
+      "maximum_context_tokens": 1024,
+      "tokenization_basis": "cached_encoder_tokenizer_complete_unpadded_pairs",
+      "input_context_truncated": false,
+      "entailment_scores": {
+        "hold": 0.02703438512980938,
+        "request_evidence": 0.0007029596017673612,
+        "escalate_gemini": 0.007360153365880251,
+        "continue_monitoring": 0.9808762669563293
+      },
+      "nli_scores": {
+        "hold": {
+          "contradiction": 0.9539260268211365,
+          "entailment": 0.02703438512980938,
+          "neutral": 0.01903964951634407
+        },
+        "request_evidence": {
+          "contradiction": 0.9976041913032532,
+          "entailment": 0.0007029596017673612,
+          "neutral": 0.001692912308499217
+        },
+        "escalate_gemini": {
+          "contradiction": 0.9830028414726257,
+          "entailment": 0.007360153365880251,
+          "neutral": 0.009637021459639072
+        },
+        "continue_monitoring": {
+          "contradiction": 0.01550225354731083,
+          "entailment": 0.9808762669563293,
+          "neutral": 0.003621483687311411
+        }
+      },
+      "selected_entailment": 0.9808762669563293,
+      "selected_margin": 0.95384188182652
+    }
+  },
+  "health_after": {
+    "service": "relay-local-openjev",
+    "ready": true,
+    "backend": "local_openjev",
+    "inference_simulated": false,
+    "model": "AlexWortega/openjev/qwen3.5-4b-nli-v2",
+    "pid": 30280,
+    "hosted_api_requests": 0,
+    "actuation_enabled": false,
+    "busy": false,
+    "requests": 6,
+    "max_requests": 100,
+    "metadata": {
+      "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "cuda_runtime": "12.8",
+      "max_length": 1024,
+      "load_seconds": 7.25,
+      "model_allocated_bytes": 9180287488,
+      "cloud_api_usd": "0",
+      "energy_measured": false
+    },
+    "resources": {
+      "allocated_bytes": 9188807168,
+      "reserved_bytes": 9579790336,
+      "peak_allocated_bytes": 9544062464,
+      "peak_reserved_bytes": 9579790336,
+      "basis": "pytorch_worker_allocator_since_startup"
+    }
+  },
+  "scope": "One actual local OpenJev request over the HTTPS tunnel on simulated controller facts; no actuation or hosted model call."
+}
