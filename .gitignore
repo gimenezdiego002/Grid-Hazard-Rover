@@ -43,6 +43,7 @@ venv/
 # Node
 node_modules/
 .vercel/
+web/team-simulator/generated/
 dist/
 .vite/
 

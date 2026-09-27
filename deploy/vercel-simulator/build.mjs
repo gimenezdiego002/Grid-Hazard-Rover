@@ -3,11 +3,14 @@ import {existsSync} from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import {createHash} from "node:crypto";
+import {build} from "esbuild";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
 const dist = path.join(here, "dist");
 const runtime = path.join(here, "node_modules/pyodide");
+const teamSource = path.join(root, "web/team-simulator");
+const teamGenerated = path.join(teamSource, "generated");
 const packageData = JSON.parse(await readFile(path.join(runtime, "package.json"), "utf8"));
 if (packageData.version !== "314.0.7") throw new Error(`Expected pinned Pyodide 314.0.7; found ${packageData.version}`);
 const runtimeFiles = ["pyodide.mjs", "pyodide.asm.mjs", "pyodide.asm.wasm", "python_stdlib.zip", "pyodide-lock.json"];
@@ -21,10 +24,39 @@ if (existsSync(dist)) {
 await mkdir(path.join(dist, "static"), {recursive: true});
 await mkdir(path.join(dist, "runtime"), {recursive: true});
 await mkdir(path.join(dist, "python/relay_gateway"), {recursive: true});
+await mkdir(path.join(dist, "static/team-simulator/generated"), {recursive: true});
+await mkdir(path.join(dist, "licenses"), {recursive: true});
 for (const file of ["simulator.js", "arm-simulator.js"]) await copyFile(path.join(root, "web", file), path.join(dist, "static", file));
 await copyFile(path.join(here, "boot.js"), path.join(dist, "boot.js"));
 await copyFile(path.join(here, "worker.mjs"), path.join(dist, "worker.mjs"));
 for (const file of ["workflow-proof.html", "workflow-proof.css"]) await copyFile(path.join(here, file), path.join(dist, file));
+// Bundle only the teammate's browser scene. No Fleet API, Bluetooth, or backend
+// module is an entry point. Keep identical local and hosted static asset paths.
+if (existsSync(teamGenerated) && ((await lstat(teamGenerated)).isSymbolicLink() || await realpath(teamGenerated) !== teamGenerated)) {
+  throw new Error("Refusing linked teammate simulator output directory");
+}
+await mkdir(teamGenerated, {recursive: true});
+const teamBuild = await build({
+  entryPoints: [path.join(teamSource, "main.tsx")], outfile: path.join(teamGenerated, "street.js"),
+  bundle: true, write: false, format: "esm", platform: "browser", target: ["es2022"],
+  jsx: "automatic", minify: true, sourcemap: false, legalComments: "external", metafile: true,
+  nodePaths: [path.join(here, "node_modules")], define: {"process.env.NODE_ENV": '"production"'},
+});
+for (const output of teamBuild.outputFiles) {
+  const name = path.basename(output.path);
+  if (!["street.js", "street.js.LEGAL.txt"].includes(name)) throw new Error("Unexpected teammate bundle output");
+  await writeFile(path.join(teamGenerated, name), output.contents);
+  await writeFile(path.join(dist, "static/team-simulator/generated", name), output.contents);
+}
+await copyFile(path.join(teamSource, "style.css"), path.join(dist, "static/team-simulator/style.css"));
+await copyFile(path.join(teamSource, "provenance.json"), path.join(dist, "team-simulator-provenance.json"));
+for (const name of ["react", "react-dom", "scheduler", "lucide-react"]) {
+  await copyFile(path.join(here, "node_modules", name, "LICENSE"), path.join(dist, "licenses", `${name}.txt`));
+}
+const teamHashes = {};
+for (const name of ["RoverDemo.tsx", "contracts.ts", "main.tsx", "fixtures.json", "provenance.json", "style.css"]) {
+  teamHashes[name] = createHash("sha256").update(await readFile(path.join(teamSource, name))).digest("hex");
+}
 for (const file of runtimeFiles) await copyFile(path.join(runtime, file), path.join(dist, "runtime", file));
 for (const file of ["LICENSE", "LICENSE.md", "LICENSE.txt"]) {
   if (existsSync(path.join(runtime, file))) await copyFile(path.join(runtime, file), path.join(dist, "runtime", file));
@@ -49,5 +81,8 @@ html = html.replace("<title>FieldSight — Robotics simulator</title>", "<title>
 html = html.replace("</footer>", '<a href="/runtime/PYODIDE-NOTICE" target="_blank" rel="noopener noreferrer">Python runtime · Pyodide 314.0.7</a></footer>');
 await writeFile(path.join(dist, "index.html"), html);
 await writeFile(path.join(dist, "simulator.html"), html);
-await writeFile(path.join(dist, "build-manifest.json"), JSON.stringify({runtime: "pyodide", runtime_version: packageData.version, simulated: true, physical_connections: false, source_sha256: hashes}, null, 2) + "\n");
+await writeFile(path.join(dist, "build-manifest.json"), JSON.stringify({runtime: "pyodide", runtime_version: packageData.version, simulated: true, physical_connections: false, source_sha256: hashes,
+  teammate_simulator: {runtime: "react_browser", source_sha256: teamHashes,
+    javascript_bytes: teamBuild.outputFiles.find((file) => file.path.endsWith("street.js")).contents.length,
+    upstream_provenance: "/team-simulator-provenance.json", model_calls: 0, physical_commands: 0}}, null, 2) + "\n");
 console.log(`Built isolated static simulator at ${dist}; Pyodide ${packageData.version}; ${sourceFiles.length} exact Python modules.`);

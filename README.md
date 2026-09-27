@@ -22,9 +22,12 @@ Two live text-only Gemini smoke calls used synthetic readings. The latest call w
 
 The **[hosted rover, crawler and arm simulator](https://shellhacks-relay-robotics.vercel.app)**
 runs independently in each browser tab. Reloading resets its virtual scenes.
-It contains no hardware connection or paid model calls. See the
+Its **[Street inspection](https://shellhacks-relay-robotics.vercel.app/simulator#street-simulator)**
+section incorporates the teammate's React rehearsal with two existing synthetic
+hazard fixtures, independently of the fleet and arm controls. These scenes make
+no live API or model calls and connect no hardware. See the
 [Vercel deployment notes](deploy/vercel-simulator/README.md) for the isolated
-static build and verification procedure.
+static build, pinned teammate source, licenses and verification procedure.
 
 The hosted [AI workflow evidence page](https://shellhacks-relay-robotics.vercel.app/workflow-proof.html)
 shows recorded local OpenJev results, the separate fixture comparison, and the

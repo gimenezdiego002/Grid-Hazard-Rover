@@ -85,7 +85,27 @@ test("static build contains only approved code and exact engine copies, with no 
   assert.match(await readFile(path.join(dist, "runtime/PYODIDE-LICENSE"), "utf8"), /Mozilla Public License Version 2.0/);
   assert.match(await readFile(path.join(dist, "runtime/PYODIDE-NOTICE"), "utf8"), /Pyodide 314.0.7/);
   assert.match(html, /href="\/workflow-proof\.html">AI workflow/);
-  assert.deepEqual((await readdir(dist)).sort(), ["boot.js", "build-manifest.json", "index.html", "python", "runtime", "simulator.html", "static", "worker.mjs", "workflow-proof.css", "workflow-proof.html"]);
+  assert.deepEqual((await readdir(dist)).sort(), ["boot.js", "build-manifest.json", "index.html", "licenses", "python", "runtime", "simulator.html", "static", "team-simulator-provenance.json", "worker.mjs", "workflow-proof.css", "workflow-proof.html"]);
+});
+
+test("teammate street scene shares the main page with an isolated static bundle and traced sources", async () => {
+  const dist = path.join(here, "dist"), source = path.join(here, "../../web/team-simulator");
+  const html = await readFile(path.join(dist, "index.html"), "utf8");
+  assert.match(html, /id="street-simulator-root"/);
+  assert.match(html, /href="#street-simulator"/);
+  assert.match(html, /src="\/static\/team-simulator\/generated\/street\.js"/);
+  assert.match(html, /href="\/static\/team-simulator\/style\.css"/);
+  const manifest = JSON.parse(await readFile(path.join(dist, "build-manifest.json")));
+  for (const [file, hash] of Object.entries(manifest.teammate_simulator.source_sha256)) {
+    assert.equal(createHash("sha256").update(await readFile(path.join(source, file))).digest("hex"), hash);
+  }
+  const bundle = await readFile(path.join(dist, "static/team-simulator/generated/street.js"));
+  assert.equal(bundle.length, manifest.teammate_simulator.javascript_bytes);
+  assert.deepEqual(bundle, await readFile(path.join(source, "generated/street.js")));
+  assert.deepEqual(await readFile(path.join(dist, "team-simulator-provenance.json")), await readFile(path.join(source, "provenance.json")));
+  assert.deepEqual((await readdir(path.join(dist, "licenses"))).sort(), ["lucide-react.txt", "react-dom.txt", "react.txt", "scheduler.txt"]);
+  assert.equal(manifest.teammate_simulator.physical_commands, 0);
+  assert.equal(manifest.teammate_simulator.model_calls, 0);
 });
 
 test("workflow evidence stays static and publishes only artifact names and matching content hashes", async () => {

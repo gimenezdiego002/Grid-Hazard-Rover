@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "baseUrl": "./node_modules",
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "react": ["@types/react/index.d.ts"],
+      "react/*": ["@types/react/*"],
+      "react-dom/*": ["@types/react-dom/*"],
+      "geojson": ["@types/geojson/index.d.ts"]
+    }
+  },
+  "include": ["../../web/team-simulator/*.tsx", "../../web/team-simulator/*.ts"]
+}

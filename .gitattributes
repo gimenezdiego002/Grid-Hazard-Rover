@@ -1,2 +1,5 @@
 # Preserve the verified vendor snapshot byte-for-byte, including original whitespace.
 robotcode/hexapod/vendor/fnk0052/** -text -whitespace
+
+# Source provenance uses byte hashes; retain the same bytes across checkouts.
+web/team-simulator/** text eol=lf

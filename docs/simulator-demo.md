@@ -39,6 +39,23 @@ not validated terrain, gait, traction, camera, energy or multirobot collision
 physics. Sensor readings and findings are generated from the fixture geometry.
 There is no real Gemini vision classification in this simulator.
 
+## Teammate street inspection
+
+Choose **Street inspection** in the same page's navigation, or open
+`/simulator#street-simulator`. Start, pause and reset its illustrated crawler
+replay, then open the unlocked evidence cards. The pothole and standing-water
+records are two existing synthetic fixtures; their coordinates, timestamps and
+confidence values are fixture data. No photograph is captured, no observation
+is submitted, and no live API, model or robot is connected. This React scene has
+its own clock and does not change the fleet, arm or economy accounting.
+
+The adaptation is pinned to teammate branch `Diego-Crawler-Plan` commit
+`4d1e8ad1b474104824df5b8aaf8e187f7378a1f0`. For a fresh local checkout, run
+`npm ci` and `npm run build` in `deploy/vercel-simulator` before opening the
+FastAPI page. This creates the ignored local browser bundle as well as the
+hosted assets, dependency licenses and source provenance described in the
+[deployment notes](../deploy/vercel-simulator/README.md).
+
 ## Saved rehearsal
 
 ```powershell

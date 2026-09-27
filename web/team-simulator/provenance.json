@@ -1,0 +1,81 @@
+{
+  "schema_version": "team-street-simulator/1",
+  "origin_repository": "https://github.com/gimenezdiego002/Grid-Hazard-Rover",
+  "origin_branch": "Diego-Crawler-Plan",
+  "origin_commit": "4d1e8ad1b474104824df5b8aaf8e187f7378a1f0",
+  "implementation": "Adapted teammate React street rehearsal, preserving its illustrated scene, five-stage progression and evidence-card design.",
+  "simulated": true,
+  "physical_connected": false,
+  "actuation_enabled": false,
+  "model_calls": 0,
+  "backend_submissions": 0,
+  "sources": [
+    {
+      "path": "frontend/src/RoverDemo.tsx",
+      "git_blob": "ce6b80c0b142f3bbb2729bf9db46c7ec03c4121f",
+      "sha256": "8bc2290c6ca209feff003da9f637222bd7a62ed490364b6720fb8ce3926ffaef"
+    },
+    {
+      "path": "frontend/src/contracts.ts",
+      "git_blob": "a5a7359acdfda80eb51d20b0a7bf262732dadb86",
+      "sha256": "ca40a39d1e519d9a2c1118560a5185fea82633e8c3d71bd4f3ccfc1c966d6f47"
+    },
+    {
+      "path": "backend/app/demo_data.py",
+      "git_blob": "eb9a5f08d24a3d197c7362fed3a30f41766d0fa8",
+      "sha256": "7c29da01635e79d58a8e8306259965ed10c7d2bd8337d64f397a4c0fa274a4ea"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "git_blob": "a607689de490ccecb707872a701e9f1cb15d44da",
+      "sha256": "a13ada3a4b8b9a513c35b311c8e4b439809f56aab814b41fbf19fec66d5bf081",
+      "usage": "Scene styles extracted and scoped separately in the static build."
+    }
+  ],
+  "local_files": {
+    "RoverDemo.tsx": {
+      "sha256": "a30b793a49dc1f9d520308733a10d24206b473ce8e10b6ed4b0e809e53507122"
+    },
+    "contracts.ts": {
+      "sha256": "ca40a39d1e519d9a2c1118560a5185fea82633e8c3d71bd4f3ccfc1c966d6f47"
+    },
+    "main.tsx": {
+      "sha256": "92ac74e82bb791f7c7a94b8aef7c44c78fc9e444625aee54df4529238abb203c"
+    },
+    "fixtures.json": {
+      "sha256": "00b380d1f78c94088ae03b55a0df81cbbe4955afd151708b34ef9c0dfe0e62f1"
+    }
+  },
+  "unchanged_source_files": [
+    "contracts.ts"
+  ],
+  "fixture_provenance": [
+    {
+      "id": "demo-rover-pothole",
+      "source_path": "backend/app/demo_data.py",
+      "source_symbol": "demo_hazards",
+      "note": "Existing synthetic backend fixture; default image_url=None represented as JSON null."
+    },
+    {
+      "id": "demo-water",
+      "source_path": "frontend/src/RoverDemo.tsx",
+      "source_symbol": "evidence fallback",
+      "note": "Existing synthetic fallback fixture; no new coordinates, confidence or observations invented."
+    }
+  ],
+  "adaptations": [
+    "Use one monotonic clock and one interval; stages advance every1800ms and stop at7200ms; pause preserves fractional elapsed time and reset clears clock and evidence modal.",
+    "Replace Live, Connected, AI-ready, captured-photo and report-delivery labels with simulation, fixture evidence and preview-only labels.",
+    "Render only available synthetic inspection points; unlock evidence cards as the stage progresses instead of showing them before the rehearsal.",
+    "Clearly label fixture coordinates, times and confidence as synthetic; no georeferencing to the separate local-meter floor simulator.",
+    "Use a native modal dialog for keyboard focus containment, Escape dismissal and return of focus to its opener.",
+    "Mount the adapted component with two existing synthetic fixtures through a new static React entry point; no backend, provider or hardware integration."
+  ],
+  "limitations": [
+    "Street positions are illustrative percentages, not geographic navigation.",
+    "The sample battery is fixed display data.",
+    "No photographs are captured or submitted.",
+    "The scene is independent of FieldSight fleet and arm engine state.",
+    "No third teammate hazard fixture existed in the audited backend fixture source."
+  ]
+}

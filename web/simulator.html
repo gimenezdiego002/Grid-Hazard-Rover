@@ -6,14 +6,16 @@
   <meta name="theme-color" content="#122c37">
   <title>FieldSight — Robotics simulator</title>
   <link rel="stylesheet" href="/static/simulator.css">
+  <link rel="stylesheet" href="/static/team-simulator/style.css">
   <script src="/static/simulator.js" defer></script>
   <script src="/static/arm-simulator.js" defer></script>
+  <script type="module" src="/static/team-simulator/generated/street.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#controls">Skip to simulator controls</a>
   <header class="topbar">
     <a class="brand" href="/" aria-label="FieldSight home"><span class="brand-icon" aria-hidden="true">⠿</span>FieldSight<span class="brand-caption">PHYSICAL AI<br>MISSION CONTROL</span></a>
-    <nav aria-label="Main navigation"><a href="/">Mission lab</a><a href="/simulator" aria-current="page">Robotics simulator</a><a href="#arm-simulator">Arm simulator</a></nav>
+    <nav aria-label="Main navigation"><a href="/">Mission lab</a><a href="/simulator" aria-current="page">Robot fleet</a><a href="#street-simulator">Street inspection</a><a href="#arm-simulator">Arm simulator</a></nav>
     <span class="simulation-badge"><i></i> SIMULATION ONLY</span>
   </header>
   <main>
@@ -67,6 +69,11 @@
         </section>
       </aside>
     </div>
+
+    <section id="street-simulator" class="street-simulator-section" aria-label="Street inspection replay">
+      <div id="street-simulator-root"><div class="street-loading" role="status"><p class="eyebrow">STREET INSPECTION REPLAY</p><h2>Loading the crawler's street view…</h2><p>The browser bundle is loading an independent inspection replay with simulated evidence.</p></div></div>
+      <noscript><p class="street-loading">Enable JavaScript to explore the street inspection replay. No physical robot or model provider is connected.</p></noscript>
+    </section>
 
     <section class="economy-section panel" aria-labelledby="economy-heading">
       <div class="economy-intro"><p class="eyebrow">ECONOMY BY DESIGN</p><h2 id="economy-heading">Every model call should earn its place.</h2><p>Local sensor checks filter routine readings. New evidence triggers a simulated analysis; repeated evidence stays local.</p><div class="workflow-strip"><span>Sense locally</span><b>→</b><span>Filter evidence</span><b>→</b><span>Analyze changes</span><b>→</b><span>Human review</span></div><p class="fine-print">Costs use illustrative rates. Travel and battery are simulated. No energy, carbon, or environmental savings have been measured.</p><details class="field-hint"><summary>View cost and token assumptions</summary><p>Each modeled request uses 1,800 input tokens and 220 output tokens. Illustrative rates are $0.30 per million input tokens and $2.50 per million output tokens. These are scenario assumptions, not provider pricing or measured token usage.</p><p>The baseline analyzes every observation, including periodic readings and arrival evidence.</p></details></div>

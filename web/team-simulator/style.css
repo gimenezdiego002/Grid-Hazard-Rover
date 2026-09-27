@@ -1,0 +1,438 @@
+/* Adapted from frontend/src/styles.css at Diego-Crawler-Plan commit 4d1e8ad.
+   Only RoverDemo styles are retained. Every selector is scoped to the mount. */
+#street-simulator-root {
+  --teal: var(--green, #177860);
+  --shadow: 0 5px 20px rgba(18, 44, 55, .035);
+  color: var(--ink, #19353d);
+  line-height: 1.5;
+}
+#street-simulator-root .rover-demo-head,
+#street-simulator-root .inspection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+#street-simulator-root .rover-demo-head p,
+#street-simulator-root .inspection-heading p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+#street-simulator-root .eyebrow {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.55px;
+}
+#street-simulator-root .primary,
+#street-simulator-root .secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 7px;
+  padding: 11px 15px;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+#street-simulator-root .primary {
+  background: var(--teal);
+  color: #fff;
+  border: 1px solid var(--teal);
+}
+#street-simulator-root .primary:hover:not(:disabled) { background: #12634e; }
+#street-simulator-root .secondary {
+  background: var(--paper, #fffefa);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+#street-simulator-root .secondary:hover:not(:disabled) { background: #edf4ed; }
+#street-simulator-root .icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 7px;
+  border: 0;
+  border-radius: 5px;
+  color: #537071;
+}
+#street-simulator-root .icon-button:hover { background: #e7efed; }
+#street-simulator-root .badge {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+#street-simulator-root .badge.high { color: #ac6229; background: #fff0df; }
+#street-simulator-root .badge.moderate { color: #8c7625; background: #f8f1d9; }
+#street-simulator-root .live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #177860;
+  border-radius: 50%;
+}
+#street-simulator-root .rover-demo {
+  margin-top: 26px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fff 0%, #f5f8f4 100%);
+  box-shadow: var(--shadow);
+}
+
+#street-simulator-root .simulation-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff1d4;
+  color: #795c15;
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+#street-simulator-root .rover-demo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, .6fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+#street-simulator-root .street-scene {
+  position: relative;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(#cfe9ee 0 47%, #dae4d0 47% 58%, #596360 58% 100%);
+  isolation: isolate;
+}
+
+#street-simulator-root .city-skyline {
+  position: absolute;
+  inset: 65px 0 auto;
+  height: 115px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 0 4%;
+}
+
+#street-simulator-root .city-skyline i {
+  flex: 1;
+  height: 60%;
+  border-radius: 4px 4px 0 0;
+  background: #8ba8aa;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.2);
+}
+
+#street-simulator-root .city-skyline i:nth-child(2) { height: 95%; background: #759497; }
+
+#street-simulator-root .city-skyline i:nth-child(3) { height: 75%; }
+
+#street-simulator-root .city-skyline i:nth-child(4) { height: 110%; background: #6f8b90; }
+
+#street-simulator-root .street-road {
+  position: absolute;
+  left: -5%; right: -5%; bottom: 0;
+  height: 145px;
+  transform: perspective(300px) rotateX(18deg);
+  background: #46504e;
+  border-top: 8px solid #bec8b9;
+}
+
+#street-simulator-root .street-road span {
+  position: relative;
+  display: inline-block;
+  width: 12%;
+  height: 6px;
+  margin: 76px 6%;
+  background: #f4df91;
+}
+
+#street-simulator-root .hexapod {
+  position: absolute;
+  z-index: 5;
+  bottom: 38px;
+  width: 110px;
+  transform: translateX(-50%);
+  transition: left 1.5s cubic-bezier(.45,.05,.2,1);
+  color: #183d38;
+}
+
+#street-simulator-root .hexapod svg { width: 100%; overflow: visible; filter: drop-shadow(0 7px 5px rgba(0,0,0,.24)); }
+
+#street-simulator-root .hexapod svg rect { fill: #d9efc8; stroke: currentColor; stroke-width: 4; }
+
+#street-simulator-root .hexapod svg circle { fill: #ec7c3b; }
+
+#street-simulator-root .hexapod svg .legs { fill: none; stroke: currentColor; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+
+#street-simulator-root .hexapod small {
+  display: block;
+  margin-top: -7px;
+  text-align: center;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+#street-simulator-root .hexapod.walking .legs { animation: fieldSightStreetWalk .45s ease-in-out infinite alternate; transform-origin: center; }
+
+@keyframes fieldSightStreetWalk { from { transform: skewX(-3deg) translateY(0); } to { transform: skewX(3deg) translateY(-2px); } }
+
+#street-simulator-root .inspection-point {
+  position: absolute;
+  z-index: 4;
+  bottom: 116px;
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  transform: translateX(-50%);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #ee8a43;
+  color: #fff;
+  box-shadow: 0 0 0 6px rgba(238,138,67,.2);
+}
+
+#street-simulator-root .inspection-point.captured { background: #3d7b55; box-shadow: 0 0 0 6px rgba(61,123,85,.18); }
+
+#street-simulator-root .mission-status {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 8px;
+  padding: 11px 13px;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 11px;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(10px);
+}
+
+#street-simulator-root .mission-status > span { grid-row: 1 / 3; align-self: center; }
+
+#street-simulator-root .mission-status strong { font-size: 11px; }
+
+#street-simulator-root .mission-status small { color: var(--muted); font-size: 9px; }
+
+#street-simulator-root .rover-telemetry {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(17,45,50,.91);
+  color: rgba(255,255,255,.72);
+  box-shadow: 0 5px 18px rgba(17,45,50,.22);
+  font-size: 9px;
+}
+
+#street-simulator-root .rover-telemetry span { display: flex; align-items: center; gap: 4px; }
+
+#street-simulator-root .rover-telemetry strong { color: #fff; font-family: monospace; }
+
+#street-simulator-root .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #9aa49f; }
+
+#street-simulator-root .mission-panel {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+#street-simulator-root .mission-panel-head,
+#street-simulator-root .mission-panel-head > div:first-child,
+#street-simulator-root .mission-progress > div,
+#street-simulator-root .mission-mini-stats { display: flex; align-items: center; justify-content: space-between; }
+
+#street-simulator-root .mission-panel-head > div:first-child { align-items: flex-start; flex-direction: column; gap: 3px; }
+
+#street-simulator-root .mission-panel-head h3 { margin: 0; }
+
+#street-simulator-root .mission-live { display: flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 99px; background: #eef2f0; color: #6a7b80; font-size: 9px; font-weight: 700; }
+
+#street-simulator-root .mission-live.active { background: #e1f1dc; color: #32613a; }
+
+#street-simulator-root .mission-progress { margin: 18px 0 12px; }
+
+#street-simulator-root .mission-progress > div { color: var(--muted); font-size: 9px; }
+
+#street-simulator-root .mission-progress i { display: block; height: 5px; margin-top: 6px; overflow: hidden; border-radius: 99px; background: #e9efed; }
+
+#street-simulator-root .mission-progress b { display: block; height: 100%; border-radius: inherit; background: #173b36; transition: width .4s ease; }
+
+#street-simulator-root .mission-mini-stats { gap: 5px; margin-bottom: 16px; }
+
+#street-simulator-root .mission-mini-stats span { flex: 1; padding: 7px 4px; border-radius: 7px; background: #f3f6f5; color: var(--muted); text-align: center; font-size: 8px; }
+
+#street-simulator-root .mission-mini-stats strong { display: block; color: #173b36; font-size: 15px; }
+
+#street-simulator-root .mission-controls { display: flex; gap: 8px; }
+
+#street-simulator-root .mission-steps { display: grid; gap: 13px; margin: 24px 0; padding: 0; list-style: none; }
+
+#street-simulator-root .mission-steps li { display: flex; align-items: center; gap: 10px; color: #89938f; font-size: 11px; }
+
+#street-simulator-root .mission-steps li > span { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #ced7d2; border-radius: 50%; font-size: 9px; }
+
+#street-simulator-root .mission-steps li div { display: grid; gap: 2px; }
+
+#street-simulator-root .mission-steps li small { color: #94a19c; font-size: 8px; font-weight: 500; }
+
+#street-simulator-root .mission-steps li.active { color: #173b36; font-weight: 750; }
+
+#street-simulator-root .mission-steps li.active > span { border-color: #6b9d7b; background: #e4f1df; }
+
+#street-simulator-root .mission-steps li.done { color: #3e7552; }
+
+#street-simulator-root .safety-note { display: flex; gap: 8px; padding: 12px; border-radius: 10px; background: #f0f3f1; color: #66746f; font-size: 9px; line-height: 1.55; }
+
+#street-simulator-root .inspection-heading { margin: 28px 0 14px; }
+
+#street-simulator-root .inspection-heading h3 { margin: 0; }
+
+#street-simulator-root .inspection-heading > span { color: var(--muted); font-size: 10px; }
+
+#street-simulator-root .inspection-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+
+#street-simulator-root .inspection-card { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+
+#street-simulator-root .inspection-preview,
+#street-simulator-root .inspection-preview > img,
+#street-simulator-root .evidence-placeholder { width: 100%; height: 145px; object-fit: cover; }
+
+#street-simulator-root .inspection-preview { display: block; padding: 0; overflow: hidden; border: 0; background: transparent; }
+
+#street-simulator-root .inspection-preview > img { display: block; transition: transform .2s ease; }
+
+#street-simulator-root .inspection-preview:hover > img { transform: scale(1.025); }
+
+#street-simulator-root .evidence-placeholder { display: grid; place-items: center; align-content: center; gap: 9px; background: linear-gradient(135deg,#d8e1d7,#9fb3a8); color: #fff; }
+
+#street-simulator-root .evidence-placeholder.scene-1 { background: linear-gradient(145deg,#c5dce4,#668996); }
+
+#street-simulator-root .evidence-placeholder.scene-2 { background: linear-gradient(145deg,#ead7b9,#9e7650); }
+
+#street-simulator-root .evidence-placeholder span { font-size: 9px; }
+
+#street-simulator-root .inspection-card-body { padding: 15px; }
+
+#street-simulator-root .inspection-card-body > div { display: flex; justify-content: space-between; align-items: center; }
+
+#street-simulator-root .inspection-card h4 { margin: 13px 0 7px; text-transform: capitalize; }
+
+#street-simulator-root .inspection-card p { min-height: 34px; margin: 0 0 13px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+
+#street-simulator-root .inspection-card footer { display: flex; justify-content: space-between; gap: 8px; color: #71807a; font-size: 8px; }
+
+#street-simulator-root .inspection-card footer span { display: flex; align-items: center; gap: 4px; }
+
+#street-simulator-root .evidence-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(9,30,32,.7);
+  backdrop-filter: blur(5px);
+}
+
+#street-simulator-root .evidence-modal > article { position: relative; width: min(720px, 100%); max-height: calc(100vh - 48px); overflow: auto; border-radius: 18px; background: #fff; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+
+#street-simulator-root .evidence-modal > article > img,
+#street-simulator-root .evidence-modal-placeholder { width: 100%; min-height: 310px; max-height: 52vh; object-fit: cover; }
+
+#street-simulator-root .evidence-modal-placeholder { display: grid; place-items: center; align-content: center; gap: 12px; background: linear-gradient(145deg,#d7e2dd,#76938b); color: #fff; }
+
+#street-simulator-root .evidence-close { position: absolute; z-index: 2; top: 12px; right: 12px; background: rgba(255,255,255,.94); }
+
+#street-simulator-root .evidence-modal-copy { padding: 24px; }
+
+#street-simulator-root .evidence-modal-copy h2 { margin: 14px 0 7px; text-transform: capitalize; }
+
+#street-simulator-root .evidence-modal-copy dl { display: grid; grid-template-columns: 130px 1fr; gap: 9px 14px; margin: 20px 0 0; }
+
+#street-simulator-root .evidence-modal-copy dt { color: var(--muted); font-size: 10px; }
+
+#street-simulator-root .evidence-modal-copy dd { margin: 0; font-size: 11px; }
+/* Fit the extracted component to FieldSight without inheriting page-footer rules. */
+#street-simulator-root .rover-demo { margin-top: 0; border-radius: 12px; background: var(--paper); }
+#street-simulator-root .rover-demo-grid > * { min-width: 0; }
+#street-simulator-root .mission-panel { background: #fafbf6; }
+#street-simulator-root .mission-panel-head { gap: 10px; }
+#street-simulator-root .mission-panel-head h3 { font-size: 15px; }
+#street-simulator-root .mission-live { flex-shrink: 0; }
+#street-simulator-root .mission-status { max-width: calc(100% - 32px); }
+#street-simulator-root .rover-telemetry { top: auto; bottom: 12px; }
+#street-simulator-root .hexapod { width: clamp(65px, 15%, 110px); bottom: 56px; }
+#street-simulator-root .safety-note svg { flex-shrink: 0; }
+#street-simulator-root .inspection-card footer {
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+}
+#street-simulator-root .inspection-card footer > span {
+  width: auto;
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+}
+#street-simulator-root .inspection-card-body > div > small { font-size: 9px; }
+#street-simulator-root .evidence-modal-copy p { font-size: 13px; line-height: 1.6; }
+#street-simulator-root .evidence-modal-copy dd { overflow-wrap: anywhere; }
+#street-simulator-root .evidence-modal > article { overscroll-behavior: contain; }
+#street-simulator-root .muted { color: var(--muted); font-size: 12px; }
+#street-simulator-root dialog.evidence-modal { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0; }
+#street-simulator-root dialog.evidence-modal:not([open]) { display: none; }
+#street-simulator-root dialog.evidence-modal::backdrop { background: transparent; }
+@media (max-width: 1050px) {
+  #street-simulator-root .rover-demo-grid { grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); }
+}
+@media (max-width: 900px) {
+  #street-simulator-root .rover-demo-grid { grid-template-columns: 1fr; }
+  #street-simulator-root .inspection-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  #street-simulator-root .rover-demo-head,
+  #street-simulator-root .inspection-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  #street-simulator-root .inspection-gallery { grid-template-columns: 1fr; }
+  #street-simulator-root .rover-demo { padding: 16px; }
+  #street-simulator-root .street-scene { min-height: 310px; }
+  #street-simulator-root .rover-telemetry { right: 12px; bottom: 12px; left: 12px; justify-content: space-between; gap: 7px; }
+  #street-simulator-root .rover-telemetry span:nth-child(3) { display: none; }
+  #street-simulator-root .mission-panel { padding: 16px; }
+  #street-simulator-root .evidence-modal { padding: 12px; }
+  #street-simulator-root .evidence-modal > article { max-height: calc(100dvh - 24px); }
+  #street-simulator-root .evidence-modal-copy { padding: 18px; }
+  #street-simulator-root .evidence-modal-copy dl { grid-template-columns: 1fr; gap: 4px; }
+  #street-simulator-root .evidence-modal-copy dd { margin-bottom: 9px; }
+  #street-simulator-root .evidence-modal-placeholder { min-height: 220px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #street-simulator-root .hexapod.walking .legs { animation: none; }
+  #street-simulator-root .hexapod,
+  #street-simulator-root .mission-progress b,
+  #street-simulator-root .inspection-preview > img { transition: none; }
+}
