@@ -4,6 +4,34 @@ Production project: `shellhacks-relay-robotics`. Replace `YOUR_VERCEL_TEAM_SCOPE
 with the approved Vercel team scope in the commands below.
 Assigned URL: https://shellhacks-relay-robotics.vercel.app
 
+## Custom domain status
+
+On September 27, 2026, `fieldsight.biz` and `www.fieldsight.biz` were attached
+to this production project. Vercel confirmed both project attachments and
+domain ownership verification, but reported invalid DNS configuration for both.
+Their DNS is hosted by **Porkbun**. The public site and HTTPS on these custom
+names are not yet verified; use the assigned Vercel URL until setup is complete.
+
+Vercel's project-specific DNS recommendations at that check were:
+
+| Type | Host | Value |
+|---|---|---|
+| A | apex (`@`; leave Host blank in Porkbun) | `216.150.1.1` |
+| A | apex (`@`; leave Host blank in Porkbun) | `216.150.16.1` |
+| CNAME | `www` | `fff55ab134beb79c.vercel-dns-016.com.` |
+
+The domain owner must replace the existing apex parking A/ALIAS records and
+the `www` parking CNAME with these records in Porkbun. Preserve nameservers
+and unrelated records. No DNS changes were made in this session because the
+Porkbun browser session required the domain owner's login.
+
+After the DNS update, run `npx vercel@60.1.3 domains verify fieldsight.biz
+--scope YOUR_VERCEL_TEAM_SCOPE` and repeat for `www.fieldsight.biz`. Setup is
+done when Vercel reports valid configuration and both HTTPS names serve the
+FieldSight simulator and `/workflow-proof.html` with trusted certificates.
+
+## Deployment
+
 This is a static deployment of the rover, crawler and arm simulator. The exact
 three Python simulation modules run inside a Pyodide Web Worker in each browser
 tab. Vercel serves assets only: no server functions, provider credentials, robot
