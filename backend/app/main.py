@@ -13,6 +13,9 @@ from backend.app.database import close_mongo_client
 from backend.app.api import router as api_router
 from backend.app.repository import clear_repository_cache
 from backend.app.data_routes import router as data_router
+from backend.app.integrations.relay_routes import router as relay_integration_router
+from relay_gateway.api import app as relay_app
+from relay_gateway.fleet_gateway import create_app as create_fleet_app
 
 
 @asynccontextmanager
@@ -40,6 +43,13 @@ def create_app() -> FastAPI:
     )
     application.include_router(api_router)
     application.include_router(data_router)
+    application.include_router(relay_integration_router)
+
+    # Relay keeps its own API, models, static dashboard, telemetry cache, and
+    # runtime state. Namespaced mounts avoid route collisions while providing
+    # one demo-friendly process. Put the more-specific fleet mount first.
+    application.mount("/relay/fleet", create_fleet_app(), name="relay-fleet")
+    application.mount("/relay", relay_app, name="relay")
 
     @application.get("/health", tags=["health"])
     def health() -> dict[str, str]:

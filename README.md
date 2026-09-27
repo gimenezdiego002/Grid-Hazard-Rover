@@ -52,6 +52,7 @@ From the repository root in PowerShell:
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r backend\requirements.txt
+python -m pip install -e ".[dev,integrations]"
 Copy-Item .env.example .env
 python -m uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000
 ```
@@ -67,6 +68,9 @@ Core endpoints include:
 - `GET /api/projects`, `/api/records`, `/api/hazards`
 - `GET /api/matches`, `/api/risk-grid`, `/api/demo-summary`
 - `POST /ingest/photo`
+- `POST /api/integrations/relay/hazards`
+- `/relay/*` for the namespaced Relay simulator and dashboard
+- `/relay/fleet/*` for bounded Relay telemetry intake
 
 `POST /ingest/photo` accepts a bounded JPEG plus trusted longitude, latitude,
 timestamp, and optional source. Gemini supplies visual classification only; it
@@ -98,7 +102,8 @@ physical motion.
 .\.venv\Scripts\python.exe -m relay_gateway integrations
 ```
 
-The standalone Relay dashboard can be launched with `scripts/start-demo.ps1`.
+The primary Grid startup exposes Relay at `http://localhost:8000/relay/`. The
+standalone Relay dashboard can also be launched with `scripts/start-demo.ps1`.
 Its mission state is bounded and process-local. Inventory, sensor observations,
 review events, model usage, and costs are clearly labeled when simulated.
 

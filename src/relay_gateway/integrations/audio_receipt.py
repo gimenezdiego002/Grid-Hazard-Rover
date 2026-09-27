@@ -22,6 +22,8 @@ from typing import Callable, Mapping
 import urllib.error
 import urllib.request
 
+from ..path_safety import is_link_or_junction
+
 
 DEVNET_RPC = "https://api.devnet.solana.com"
 MEMO_PROGRAM = "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr"
@@ -112,7 +114,7 @@ def report_sha256(report: dict) -> str:
 
 def _state_root(state_dir) -> Path:
     requested = Path(state_dir)
-    if requested.name != ".state" or requested.is_symlink() or requested.is_junction():
+    if requested.name != ".state" or is_link_or_junction(requested):
         raise ValueError("Local integration state must be a dedicated, non-linked .state directory.")
     root = requested.resolve()
     root.mkdir(parents=True, exist_ok=True)
@@ -124,7 +126,7 @@ def _child(root: Path, *parts: str) -> Path:
     current = root
     for part in parts:
         current = current / part
-        if current.is_symlink() or current.is_junction():
+        if is_link_or_junction(current):
             raise ValueError("Linked integration state paths are not accepted.")
     if not target.resolve().is_relative_to(root):
         raise ValueError("Integration state must remain inside its .state directory.")

@@ -1,6 +1,6 @@
 # Branch scope: Grid Hazard Rover and Relay
 
-This branch adds the existing Relay inspection prototype alongside the Grid Hazard Rover foundation. Preserve `/shared` as the canonical contract for the team backend, frontend and rover. Relay's separate observation/mission models in `src/relay_gateway` do not replace Project, Record, Hazard, Match or RiskCell. No photo-ingest, spatial-matching or risk-map integration between these systems has been demonstrated.
+This branch integrates the Relay inspection prototype alongside the Grid Hazard Rover foundation. Preserve `/shared` as the canonical contract for the team backend, frontend and rover. Relay's separate observation/mission models in `src/relay_gateway` do not replace Project, Record, Hazard, Match or RiskCell. Relay is mounted under `/relay`, its fleet gateway under `/relay/fleet`, and reviewed findings cross into the canonical hazard pipeline only through `backend/app/integrations/relay_adapter.py` with trusted location, timestamp, and severity.
 
 The Relay constraints below govern its software and the existing cumulative API/cloud authorization. The retained Grid Hazard Rover guidance later in this file governs the team-owned backend, frontend, rover and shared contract. Where product/deployment directions differ, keep the subsystems distinct and follow the user's explicit scope; do not silently change teammate architecture. Use `deploy/relay.env.example` for Relay; root `.env.example` retains the team's configuration.
 
@@ -17,7 +17,7 @@ User objective: a multi-robot hazard/leak inspection system with preset and dire
 - Keep the user's other cloud projects and unrelated resources untouched. The user selected a separate ShellHacks project on September 26, 2026: use `shellhacks-relay-2026-0926`; leave unrelated projects untouched.
 - Use a project-local `.venv`. Repository edits are shared between agents; coordinate file ownership.
 
-Hardware known: Freenove Raspberry Pi hexapod (exact model pending), Quarky Intellio Rover kit, Hiwonder LeArm (exact version pending), assorted station sensors, StackChan (exact version pending), and an existing IMREN K4 charger. The operator's local-only `docs/shopping-list.md` contains shopping evidence and is excluded from Git; use `docs/hardware-bringup.md` for the shared bring-up requirements.
+Hardware known: Freenove Big Hexapod Robot Kit for Raspberry Pi model FNK0052, Quarky Intellio Rover kit, Hiwonder LeArm (exact version pending), assorted station sensors, StackChan (exact version pending), and an existing IMREN K4 charger. The operator's local-only `docs/shopping-list.md` contains shopping evidence and is excluded from Git; use `docs/hardware-bringup.md` for the shared bring-up requirements.
 
 ---
 
@@ -315,7 +315,7 @@ At the time this guide was updated:
   is not configured. Live Gemini classification has been verified separately.
 - `.venv` uses Python 3.11 and is ignored. `.env` is also ignored and must
   never be committed; `.env.example` contains names and safe defaults only.
-- Frontend and rover directories remain teammate-owned and were not
-  implemented by the backend lane.
+- The React/Leaflet frontend is implemented and consumes the canonical API.
+  Rover physical control remains hardware-gated and must preserve mock support.
 
 Re-check the repository rather than assuming this baseline remains current.

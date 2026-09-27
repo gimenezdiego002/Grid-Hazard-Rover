@@ -20,6 +20,7 @@ import urllib.request
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from .models import Observation, Scenario
+from .path_safety import is_link_or_junction
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
@@ -150,7 +151,7 @@ class FleetConsumer:
         self.path = self.state / "fleet-consumer.sqlite"
         for path in (self.state, self.path, Path(str(self.path) + "-journal"),
                      Path(str(self.path) + "-wal"), Path(str(self.path) + "-shm")):
-            if path.is_symlink() or path.is_junction():
+            if is_link_or_junction(path):
                 raise ValueError("Linked fleet-consumer state paths are prohibited")
         self.state.mkdir(parents=True, exist_ok=True)
         with self._connect() as connection:
