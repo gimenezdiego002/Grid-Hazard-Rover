@@ -51,6 +51,30 @@
   color: var(--ink);
 }
 #street-simulator-root .secondary:hover:not(:disabled) { background: #edf4ed; }
+#street-simulator-root .secondary.street-reset {
+  background: #fff1d6;
+  border: 2px solid #bd9651;
+  color: #694916;
+  font-weight: 750;
+}
+#street-simulator-root .secondary.street-reset:hover { background: #f9e5bd; }
+#street-simulator-root .street-reset:focus-visible { outline: 3px solid #876529; outline-offset: 3px; }
+#street-simulator-root .street-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 11px;
+}
+#street-simulator-root .street-technologies span {
+  padding: 4px 8px;
+  border: 1px solid #cadccf;
+  border-radius: 5px;
+  background: #edf5ef;
+  color: #35634c;
+  font-size: 10px;
+  font-weight: 650;
+}
+#street-simulator-root .street-reset-help { margin: 9px 0 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
 #street-simulator-root .icon-button {
   display: inline-flex;
   align-items: center;
@@ -285,7 +309,8 @@
 
 #street-simulator-root .mission-mini-stats strong { display: block; color: #173b36; font-size: 15px; }
 
-#street-simulator-root .mission-controls { display: flex; gap: 8px; }
+#street-simulator-root .mission-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+#street-simulator-root .mission-controls > button { flex: 1 1 120px; min-height: 44px; }
 
 #street-simulator-root .mission-steps { display: grid; gap: 13px; margin: 24px 0; padding: 0; list-style: none; }
 

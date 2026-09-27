@@ -34,7 +34,7 @@
   ],
   "local_files": {
     "RoverDemo.tsx": {
-      "sha256": "a30b793a49dc1f9d520308733a10d24206b473ce8e10b6ed4b0e809e53507122"
+      "sha256": "7c34ee4f51305b96aa7d0afd74d8c980296b58cbdbca6b139ed8dfdf64ad5cee"
     },
     "contracts.ts": {
       "sha256": "ca40a39d1e519d9a2c1118560a5185fea82633e8c3d71bd4f3ccfc1c966d6f47"
@@ -44,6 +44,9 @@
     },
     "fixtures.json": {
       "sha256": "00b380d1f78c94088ae03b55a0df81cbbe4955afd151708b34ef9c0dfe0e62f1"
+    },
+    "style.css": {
+      "sha256": "bbedf3ad6b976c38ed3bacf03e97e7e099cde2db240718bf7857fcff6692d989"
     }
   },
   "unchanged_source_files": [
@@ -69,7 +72,8 @@
     "Render only available synthetic inspection points; unlock evidence cards as the stage progresses instead of showing them before the rehearsal.",
     "Clearly label fixture coordinates, times and confidence as synthetic; no georeferencing to the separate local-meter floor simulator.",
     "Use a native modal dialog for keyboard focus containment, Escape dismissal and return of focus to its opener.",
-    "Mount the adapted component with two existing synthetic fixtures through a new static React entry point; no backend, provider or hardware integration."
+    "Mount the adapted component with two existing synthetic fixtures through a new static React entry point; no backend, provider or hardware integration.",
+    "Make Reset street prominent and describe its independent replay scope; show React, TypeScript and SVG as the street scene technologies."
   ],
   "limitations": [
     "Street positions are illustrative percentages, not geographic navigation.",

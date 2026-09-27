@@ -67,10 +67,14 @@ export async function bootstrap({window, document}) {
   const status = document.getElementById("browser-boot-status");
   const detail = document.getElementById("browser-boot-detail");
   const retry = document.getElementById("browser-boot-retry");
+  const resetAll = document.getElementById("browser-reset-all");
   const banner = document.getElementById("browser-boot");
   const nativeFetch = window.fetch.bind(window);
   let worker, bridge, timer, failed = false;
   retry.addEventListener("click", () => window.location.reload());
+  // Every scene is tab-local on this static deployment. Reload also recovers
+  // a failed worker and discards in-flight work without replaying mutations.
+  resetAll.addEventListener("click", () => window.location.reload());
   const fail = (message) => {
     if (failed) return;
     failed = true;window.clearTimeout(timer);
@@ -108,7 +112,7 @@ export async function bootstrap({window, document}) {
     }
     banner.classList.add("browser-boot-ready");
     status.textContent = "Running entirely in this browser.";
-    detail.textContent = "Each tab has its own simulated fleet and arm. Reloading resets both. No shared backend, hardware connection, or model calls.";
+    detail.textContent = "Fleet, street and arm run independently in this tab. No hardware connection or live model calls.";
   } catch (error) {fail(error.message);}
 }
 

@@ -106,6 +106,9 @@ test("the initial view labels simulation and withholds evidence until replay rea
   await render();
   assert.match(host.textContent, /simulat/i);
   assert.match(host.textContent, /physical actuation.*disabled/i);
+  assert.equal(text(".street-reset").trim(), "Reset street");
+  assert.match(text("#street-reset-help"), /Fleet and arm simulations keep their state/);
+  assert.deepEqual([...host.querySelectorAll(".street-technologies span")].map((badge) => badge.textContent), ["React", "TypeScript", "SVG"]);
   assert.equal(text(".mission-progress strong"), "0%");
   assert.equal(cards().length, 0);
   assert.ok(points().every((button) => button.disabled));
@@ -168,6 +171,27 @@ test("reset clears elapsed time, captured fixtures, and a running playback", asy
   assert.equal(intervals.size, 0);
   await advance(10000);
   assert.equal(text(".mission-progress strong"), "0%");
+});
+
+test("street reset closes evidence and starts a fresh single-clock replay", async () => {
+  await render();await click(query(".mission-controls .primary"));await advance(3600);
+  await click(query(".inspection-preview"));
+  assert.ok(query("dialog[open]"));
+  // Native dialogs make the background inert; exercise the reset handler here
+  // to verify its cleanup even if another page control requests a street reset.
+  await click(query(".street-reset"));
+  assert.equal(query("dialog"), null);
+  assert.equal(cards().length, 0);
+  assert.equal(intervals.size, 0);
+  await click(query(".mission-controls .primary"));
+  assert.equal(intervals.size, 1);
+  await advance(1800);
+  assert.equal(text(".mission-progress strong"), "25%");
+  assert.equal(text(".rover-telemetry strong"), "T+00:01");
+  assert.equal(cards().length, 0);
+  await advance(5400);
+  assert.equal(text(".mission-progress strong"), "100%");
+  assert.equal(intervals.size, 0);
 });
 
 test("modal close and keyboard-cancel paths restore focus to the evidence opener", async () => {

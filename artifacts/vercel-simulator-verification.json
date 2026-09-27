@@ -271,5 +271,157 @@
       "screenshot_local_ignored": ".state/team-street-simulator-live.png"
     },
     "staged_teammate_sources_match_build": true
+  },
+  "reset_technology_update": {
+    "verified_at_utc": "2026-09-27T16:12:25.376713+00:00",
+    "deployment_id": "dpl_EcMWwcULN1XWjVBRuVLHNLG8z4NY",
+    "url": "https://shellhacks-relay-robotics.vercel.app/simulator",
+    "http_checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "sha256": "209674fdeb666c60f67b2e8490b8b1e3601ab2f105675201f94ff89ea82563a2",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/simulator",
+        "status": 200,
+        "sha256": "209674fdeb666c60f67b2e8490b8b1e3601ab2f105675201f94ff89ea82563a2",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/boot.js",
+        "status": 200,
+        "sha256": "e48fd9862c8737123765519121ca1d3e93a9341bbcbb10df1ef601b2c375394f",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/workflow-proof.html",
+        "status": 200,
+        "sha256": "8d2f84f730f796053867ebd20c02568e82f431827d854ce4b25b38e4982da18f",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/workflow-proof.css",
+        "status": 200,
+        "sha256": "58f9b4a1aa02b8085a5ec8cbf21de30eec0e43e251dab9184a9b1e454e8e6928",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/build-manifest.json",
+        "status": 200,
+        "sha256": "2eec746adb4ce9553cd4853968474e99e4f93969481385c986bf2c6f503ef058",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/static/simulator.css",
+        "status": 200,
+        "sha256": "b6617afa85d54b2a5a136473821f22e0d8789b0e09e2042941aa7aaf67ada602",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/static/team-simulator/style.css",
+        "status": 200,
+        "sha256": "bbedf3ad6b976c38ed3bacf03e97e7e099cde2db240718bf7857fcff6692d989",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/static/team-simulator/generated/street.js",
+        "status": 200,
+        "sha256": "51ede7dd4c079efcbb8a762248ef76ea73f28c47c5a1313585268768b76f48d1",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/static/team-simulator/generated/street.js.LEGAL.txt",
+        "status": 200,
+        "sha256": "6dd19d76fcc3baa1f9b41c64a6b8234f7c8dd3a2b71a2bd0abb7baa90baca3df",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/team-simulator-provenance.json",
+        "status": 200,
+        "sha256": "2b078a6b4eebb3a993811014a1c2da17bd2c7b9ec212a80dca5f2ee8b3f04f96",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/licenses/react.txt",
+        "status": 200,
+        "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/licenses/react-dom.txt",
+        "status": 200,
+        "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/licenses/scheduler.txt",
+        "status": 200,
+        "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+        "matches_reviewed_build": true
+      },
+      {
+        "path": "/licenses/lucide-react.txt",
+        "status": 200,
+        "sha256": "1e7290b35280a048667bbf0ebabac1c7fd52a75300e8b2946ac165715997f2bc",
+        "matches_reviewed_build": true
+      }
+    ],
+    "manifest": {
+      "runtime": "pyodide",
+      "runtime_version": "314.0.7",
+      "simulated": true,
+      "physical_connections": false,
+      "source_sha256": {
+        "simulator.py": "ce164c09ef53d2e91f702aead110c0f2333ec93735a53a6824c80ff2f3603205",
+        "arm_simulator.py": "84ff768a82f45ea53791a4cf1d535f288846ca637e14b8f89298e4fcab681781",
+        "arm_handoff.py": "e7b933716fa5050e5a350acaef77ba6cee295c1234fd6669f4b396d73f421222"
+      },
+      "teammate_simulator": {
+        "runtime": "react_browser",
+        "source_sha256": {
+          "RoverDemo.tsx": "7c34ee4f51305b96aa7d0afd74d8c980296b58cbdbca6b139ed8dfdf64ad5cee",
+          "contracts.ts": "ca40a39d1e519d9a2c1118560a5185fea82633e8c3d71bd4f3ccfc1c966d6f47",
+          "main.tsx": "92ac74e82bb791f7c7a94b8aef7c44c78fc9e444625aee54df4529238abb203c",
+          "fixtures.json": "00b380d1f78c94088ae03b55a0df81cbbe4955afd151708b34ef9c0dfe0e62f1",
+          "provenance.json": "2b078a6b4eebb3a993811014a1c2da17bd2c7b9ec212a80dca5f2ee8b3f04f96",
+          "style.css": "bbedf3ad6b976c38ed3bacf03e97e7e099cde2db240718bf7857fcff6692d989"
+        },
+        "javascript_bytes": 236738,
+        "upstream_provenance": "/team-simulator-provenance.json",
+        "model_calls": 0,
+        "physical_commands": 0
+      }
+    },
+    "automated_checks": {
+      "node_tests_passed": 56,
+      "python_tests_passed": 70,
+      "python_warning": "Existing Starlette/httpx deprecation warning",
+      "wasm_rehearsal": "fleet completed 78s; arm completed 14s, marker placed; teaching, fault recovery, budget refusal and idempotency passed"
+    },
+    "local_browser_rehearsal": {
+      "individual_resets": [
+        "fleet",
+        "street",
+        "arm"
+      ],
+      "arm_reset_erases_taught_poses": true,
+      "global_reset_clears_all_three_scenes_and_taught_poses": true,
+      "all_three_restart_after_global_reset": true,
+      "technology_badges_and_workflow_cards_visible": true,
+      "browser_console_errors": 0
+    },
+    "staged_teammate_sources_match_build": true,
+    "model_calls": 0,
+    "physical_commands": 0,
+    "production_browser_rehearsal": {
+      "all_three_started": true,
+      "global_reset_returned_all_three_to_idle": true,
+      "fleet_clock_and_distance_zero": true,
+      "technology_labels_visible": true,
+      "browser_console_errors": 0,
+      "screenshot_local_ignored": ".state/fieldsight-reset-technologies-live.png"
+    }
   }
 }

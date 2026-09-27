@@ -11,6 +11,16 @@ connections or shared mission database are deployed. Reloading clears that tab's
 simulations and taught virtual poses. The full local mission lab and live arm
 command-line tools remain separate.
 
+The session banner offers **Reset all simulations**, including when the Python
+worker cannot start. It reloads the tab to discard all three scenes and taught
+virtual arm poses. Each scene also has a visible reset for that scene alone;
+the text beside each control explains what it clears. This global reload-based
+reset is hosted-only because the local FastAPI service retains server state.
+
+Technology badges distinguish the running Python/Pyodide/WebAssembly and
+React/TypeScript scenes from the separate recorded OpenJev/Pollard workflow.
+The workflow evidence page labels Gemini's fixture role in those trials.
+
 **Street inspection** on the same page (`/simulator#street-simulator`) adapts
 the teammate's React scene from `Diego-Crawler-Plan` commit
 `4d1e8ad1b474104824df5b8aaf8e187f7378a1f0`. It replays two existing synthetic
@@ -25,6 +35,7 @@ npm ci
 npm run build
 node test-runtime.mjs
 node test-bridge.mjs
+node --test ../../tests/test_simulator_ui.cjs ../../tests/test_arm_simulator_ui.cjs ../../tests/test_team_rover_demo.cjs
 node prepare-vercel.mjs
 npx vercel@60.1.3 deploy --prebuilt --prod --yes --scope YOUR_VERCEL_TEAM_SCOPE
 ```

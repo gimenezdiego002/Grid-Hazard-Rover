@@ -130,6 +130,9 @@ export default function RoverDemo({ hazards }: { hazards: Hazard[] }) {
           <span className="eyebrow">SIMULATED STREET INSPECTION</span>
           <h2>See what the crawler would observe.</h2>
           <p>No robot is moving. This sequence replays synthetic evidence; it makes no model calls or report submissions.</p>
+          <div className="street-technologies" aria-label="Street scene technologies">
+            <span>React</span><span>TypeScript</span><span>SVG</span>
+          </div>
         </div>
         <span className="simulation-chip">Simulation</span>
       </div>
@@ -209,10 +212,13 @@ export default function RoverDemo({ hazards }: { hazards: Hazard[] }) {
             >
               {stage === stages.length - 1 ? <><CheckCircle2 size={16} /> Completed</> : running ? <><Pause size={16} /> Pause</> : <><Play size={16} /> {elapsedMs > 0 ? "Continue" : "Start demo"}</>}
             </button>
-            <button className="secondary" onClick={reset}>
-              <RotateCcw size={16} /> Reset
+            <button type="button" className="secondary street-reset" aria-describedby="street-reset-help" onClick={reset}>
+              <RotateCcw size={16} /> Reset street
             </button>
           </div>
+          <p id="street-reset-help" className="street-reset-help">
+            Rewinds this replay and clears opened evidence. Fleet and arm simulations keep their state.
+          </p>
           <ol className="mission-steps">
             {stages.map((label, index) => (
               <li key={label} className={stage === index ? "active" : stage > index ? "done" : ""}>

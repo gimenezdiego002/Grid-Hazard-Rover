@@ -22,6 +22,31 @@ function bridge() {
   const adapter = createFetchBridge({worker, origin: "https://relay.example", nativeFetch: async (...args) => {nativeCalls.push(args);return new Response("native");}, onFatal: (message) => fatal.push(message)});
   return {worker, nativeCalls, fatal, ...adapter};
 }
+
+function bootPage({workerSupported = true} = {}) {
+  const ids = ["browser-boot-status", "browser-boot-detail", "browser-boot-retry", "browser-reset-all", "browser-boot"];
+  const nodes = new Map(ids.map((id) => [id, {
+    textContent: "", hidden: id === "browser-boot-retry", disabled: false,
+    listeners: new Map(), classes: new Set(),
+    classList: {add(name) {nodes.get(id).classes.add(name);}},
+    addEventListener(type, callback) {this.listeners.set(type, callback);},
+    click() {assert.equal(this.hidden, false);assert.equal(this.disabled, false);this.listeners.get("click")?.();},
+  }]));
+  const loaded = [], nativeCalls = [];
+  let worker, reloads = 0;
+  const window = {
+    Worker: workerSupported ? class extends FakeWorker {constructor() {super();worker = this;}} : undefined,
+    WebAssembly: {}, fetch: async (...args) => {nativeCalls.push(args);return new Response("native");},
+    location: {origin: "https://relay.example", reload() {reloads += 1;}},
+    setTimeout: () => 1, clearTimeout() {},
+  };
+  const document = {getElementById: (id) => nodes.get(id), createElement: () => ({}),
+    head: {append(script) {loaded.push(script.src);script.onload();}}};
+  return {window, document, nodes, loaded, nativeCalls,
+    get worker() {return worker;}, get reloads() {return reloads;},
+    start() {return bootstrap({window, document});},
+  };
+}
 test("only exact same-origin simulator route and method pairs execute in the worker", async () => {
   const ui = bridge();
   for (const input of ["/api/simulator-extra", "/api/run", "https://elsewhere.example/api/simulator", "/api/simulator?other=1"]) await ui.fetch(input);
@@ -64,14 +89,46 @@ test("malformed worker responses reject without leaving a hanging UI request", a
   const ui = bridge();const result = ui.fetch("/api/simulator");await flush();ui.worker.reply(0, 204, {notAllowed: true});await assert.rejects(result, /Invalid response/);ui.close();
 });
 test("boot waits for runtime readiness before loading either existing controller", async () => {
-  const nodes = new Map(["browser-boot-status", "browser-boot-detail", "browser-boot-retry", "browser-boot"].map((id) => [id, {textContent: "", hidden: true, classList: {add() {}}, addEventListener() {}}]));
-  const loaded = [];let worker;
-  const window = {Worker: class extends FakeWorker {constructor() {super();worker = this;}}, WebAssembly: {}, fetch: async () => new Response("native"), location: {origin: "https://relay.example", reload() {}}, setTimeout: () => 1, clearTimeout() {}};
-  const document = {getElementById: (id) => nodes.get(id), createElement: () => ({}), head: {append(script) {loaded.push(script.src);script.onload();}}};
-  const boot = bootstrap({window, document});await flush();assert.deepEqual(loaded, []);
-  worker.emit("message", {data: {type: "status", message: "Loading WASM"}});assert.equal(nodes.get("browser-boot-detail").textContent, "Loading WASM");
-  worker.emit("message", {data: {type: "ready"}});await boot;
-  assert.deepEqual(loaded, ["/static/simulator.js", "/static/arm-simulator.js"]);assert.match(nodes.get("browser-boot-status").textContent, /entirely in this browser/);
+  const page = bootPage();
+  const boot = page.start();await flush();assert.deepEqual(page.loaded, []);
+  page.worker.emit("message", {data: {type: "status", message: "Loading WASM"}});assert.equal(page.nodes.get("browser-boot-detail").textContent, "Loading WASM");
+  page.worker.emit("message", {data: {type: "ready"}});await boot;
+  assert.deepEqual(page.loaded, ["/static/simulator.js", "/static/arm-simulator.js"]);assert.match(page.nodes.get("browser-boot-status").textContent, /entirely in this browser/);
+});
+
+test("reset all simulations reloads immediately during startup instead of sending reset commands", async () => {
+  const page = bootPage(), boot = page.start();await flush();
+  assert.deepEqual(page.loaded, []);
+  page.nodes.get("browser-reset-all").click();
+  assert.equal(page.reloads, 1, "A full reload must not wait for worker readiness");
+  assert.deepEqual(page.worker.requests, []);
+  assert.deepEqual(page.nativeCalls, []);
+  // Finish the fake startup lifecycle; an actual reload discards this document.
+  page.worker.emit("error", {message: "Document discarded"});await boot;
+});
+
+test("reset all stays usable after startup succeeds and after its worker subsequently fails", async () => {
+  const page = bootPage(), boot = page.start();await flush();
+  page.worker.emit("message", {data: {type: "ready"}});await boot;
+  page.nodes.get("browser-reset-all").click();
+  assert.equal(page.reloads, 1);
+  assert.equal(page.nodes.get("browser-boot-retry").hidden, true, "Reset is distinct from failure recovery");
+  page.worker.emit("error", {message: "Worker stopped"});
+  assert.equal(page.worker.terminated, true);
+  page.nodes.get("browser-reset-all").click();
+  assert.equal(page.reloads, 2);
+  assert.deepEqual(page.worker.requests, []);
+  assert.deepEqual(page.nativeCalls, []);
+});
+
+test("reset all does not depend on browser worker availability and remains separate from retry", async () => {
+  const page = bootPage({workerSupported: false});await page.start();
+  assert.equal(page.worker, undefined);
+  assert.equal(page.nodes.get("browser-boot-retry").hidden, false);
+  page.nodes.get("browser-reset-all").click();assert.equal(page.reloads, 1);
+  page.nodes.get("browser-boot-retry").click();assert.equal(page.reloads, 2);
+  assert.deepEqual(page.loaded, []);
+  assert.deepEqual(page.nativeCalls, []);
 });
 test("static build contains only approved code and exact engine copies, with no Mission lab link", async () => {
   const dist = path.join(here, "dist"), manifest = JSON.parse(await readFile(path.join(dist, "build-manifest.json")));
@@ -82,6 +139,12 @@ test("static build contains only approved code and exact engine copies, with no 
     assert.equal(manifest.source_sha256[name], createHash("sha256").update(original).digest("hex"));
   }
   const html = await readFile(path.join(dist, "index.html"), "utf8");assert.doesNotMatch(html, /Mission lab/);assert.match(html, /src="\/boot.js"/);assert.doesNotMatch(html, /script src="\/static\/(simulator|arm-simulator)\.js"/);
+  const reset = html.match(/<button\b(?=[^>]*\bid="browser-reset-all")[^>]*>([\s\S]*?)<\/button>/);
+  assert.ok(reset, "The hosted page needs its global reset control");
+  assert.match(reset[1], /Reset all simulations/);
+  assert.doesNotMatch(reset[0].split(">")[0], /\b(?:hidden|disabled)\b/);
+  assert.doesNotMatch(await readFile(path.join(here, "../../web/simulator.html"), "utf8"), /id="browser-reset-all"/,
+    "Reload must not claim to reset the local FastAPI process state");
   assert.match(await readFile(path.join(dist, "runtime/PYODIDE-LICENSE"), "utf8"), /Mozilla Public License Version 2.0/);
   assert.match(await readFile(path.join(dist, "runtime/PYODIDE-NOTICE"), "utf8"), /Pyodide 314.0.7/);
   assert.match(html, /href="\/workflow-proof\.html">AI workflow/);
