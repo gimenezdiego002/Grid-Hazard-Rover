@@ -19,6 +19,8 @@ User objective: a multi-robot hazard/leak inspection system with preset and dire
 
 Hardware known: Freenove Big Hexapod Robot Kit for Raspberry Pi model FNK0052, Quarky Intellio Rover kit, Hiwonder LeArm (exact version pending), assorted station sensors, StackChan (exact version pending), and an existing IMREN K4 charger. The operator's local-only `docs/shopping-list.md` contains shopping evidence and is excluded from Git; use `docs/hardware-bringup.md` for the shared bring-up requirements.
 
+FNK0052 development lives on `Diego-Crawler-Plan`. The `rover` package provides a tested mock controller, deterministic safety navigation, Relay telemetry mapping, trusted location and photo adapters, and a physically gated wrapper around Freenove's official `Code/Server` modules. Physical hardware has not been tested. Never turn mock success into a hardware claim, never enable actuation by default, and follow `docs/fnk0052-setup.md` before supervised bring-up.
+
 ---
 
 # Retained Grid Hazard Rover team guidance

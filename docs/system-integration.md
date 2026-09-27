@@ -61,3 +61,14 @@ subsystems can share one environment.
 Canonical Grid data uses `projects`, `records`, `hazards`, `matches`, and
 `risk_cells`; spatial collections keep `2dsphere` indexes. Relay-specific
 mission and governance storage remains under its existing names and files.
+
+## FNK0052 source path
+
+On `Diego-Crawler-Plan`, the robot package adds a mock-first producer for this
+architecture. Semantic robot commands go through a controller and explicit
+actuation gate; Freenove's official implementation retains gait/servo control.
+Robot heartbeat and inspection evidence use Relay's existing envelopes and
+deduplication. JPEG plus trusted operator/mission location and timestamp uses
+Grid's existing `/ingest/photo`; the resulting canonical hazard therefore joins
+Matias's normalized records and Diego's matching/risk pipeline without a second
+schema or database.

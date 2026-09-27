@@ -146,6 +146,20 @@ Frontend tests run from `frontend/`. Relay also has focused tests under `tests/`
 Automated tests use mocks and fixtures; passing them is not proof of a connected
 account, paid request, blockchain transaction, or physical robot inspection.
 
+## FNK0052 mock demo
+
+The Freenove FNK0052 software lane is mock-first and physically disabled by
+default:
+
+```powershell
+.\.venv\Scripts\python.exe -m rover diagnostics
+.\.venv\Scripts\python.exe -m rover demo
+```
+
+The finite demo connects simulated FNK0052 camera/ultrasonic behavior to Relay
+telemetry and the existing Grid hazard, matching, and risk pipeline. See the
+[FNK0052 setup and safety guide](docs/fnk0052-setup.md) before the robot arrives.
+
 ## Safety and truthfulness
 
 - Never move physical hardware unattended. Motion requires a supervised,
