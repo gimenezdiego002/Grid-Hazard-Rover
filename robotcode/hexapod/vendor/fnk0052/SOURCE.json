@@ -1,0 +1,141 @@
+{
+  "source_repository": "https://github.com/Freenove/Freenove_Big_Hexapod_Robot_Kit_for_Raspberry_Pi",
+  "commit": "b7d228cc870b0a802d3768bfcf742f85fa8695f6",
+  "retrieved_at_utc": "2026-09-27T04:49:58.174418+00:00",
+  "retrieval_date": "2026-09-27",
+  "scope": [
+    "Code/Server/*",
+    "LICENSE.txt",
+    "README.md"
+  ],
+  "license": "CC-BY-NC-SA-3.0",
+  "modified": false,
+  "verification": "Each byte length and Git blob SHA-1 matched the recursive tree at the pinned commit before writing; SHA-256 recorded for local verification.",
+  "files": {
+    "Code/Server/Thread.py": {
+      "sha256": "e288859d1e263625ea79d09698d305bcbd84d5bfd5b1dd0c51a5e4fc8bdd62c1",
+      "blob_sha": "d00dc2859147bdc45dd4baa74f4bf9b70921413f",
+      "size": 878
+    },
+    "Code/Server/adc.py": {
+      "sha256": "d752f310589c777bba2f393207be46c217e80b5fc42965e52c8fd95d5389babe",
+      "blob_sha": "2a7522dc3cfdee92e8efb1775306b07cdf7efd66",
+      "size": 4184
+    },
+    "Code/Server/buzzer.py": {
+      "sha256": "52d1da6cb0b25715181d44ecade9b3cb301d0b4309e3926ba138ee237d8d5e29",
+      "blob_sha": "6e43e67550de549996a4ad5fc55b7247ec798758",
+      "size": 1083
+    },
+    "Code/Server/camera.py": {
+      "sha256": "d5c1f09e10768ebafd6728b31368b97d1e8bb163142efba4620610416c870e18",
+      "blob_sha": "cfa969c1143ef6fe4224a793a7a868604d36b901",
+      "size": 6593
+    },
+    "Code/Server/command.py": {
+      "sha256": "2ae267b018a3191329ec3a24e047c61463de96104e893e28e35bb7dcd03603ec",
+      "blob_sha": "c0582a59c3a59e1a9a3ff4f02d60536cef63d843",
+      "size": 487
+    },
+    "Code/Server/control.py": {
+      "sha256": "013636891b6379b26949d73d4f389306f0659c47c27d6f170c3ea28a5d0d15d8",
+      "blob_sha": "70b7e9c08cd9652f424b8ec11e3c7dc4c43fd0a6",
+      "size": 22579
+    },
+    "Code/Server/imu.py": {
+      "sha256": "875eba38762072880c920986c3411135060b325ebaafdf403701a36896682fd1",
+      "blob_sha": "aecc829c584ad632426f7dacce944e5d933ddb04",
+      "size": 6457
+    },
+    "Code/Server/kalman.py": {
+      "sha256": "087462352dd1725f4506f8e2ac648c666c54c9be3983c188b29823f55879bdc5",
+      "blob_sha": "3ec6636c12eabf942b6644c36051bfcf8e7a03c9",
+      "size": 2262
+    },
+    "Code/Server/led.py": {
+      "sha256": "d407ec165a993bf47259c7bea5c55e1eb92f282d806bc4a4c6651aa2b33eb113",
+      "blob_sha": "910c442323e96cd2d4c1857930858ea8b0874717",
+      "size": 5458
+    },
+    "Code/Server/main.py": {
+      "sha256": "87cd028b101b25061db59d008284b3f5eac302bf179cb1be9a0de130f34a3728",
+      "blob_sha": "a807eeecf043c089caa10b42c3079a5dc26fed4b",
+      "size": 3162
+    },
+    "Code/Server/myCode.py": {
+      "sha256": "1a91b855d830d7d0ff6f26d88125fb6539d03a2c9dff0175dfc481a57942bda3",
+      "blob_sha": "ddb10f0eade22446cf61a3282234e5b43da65d81",
+      "size": 865
+    },
+    "Code/Server/parameter.py": {
+      "sha256": "c5f016b7321f148ac7d504d6c3bdda7ef4a33fe77e2fdfaca026410bf756e497",
+      "blob_sha": "bee8688827a25306f5fd1e61fa95a7a1732eb0d9",
+      "size": 5639
+    },
+    "Code/Server/pca9685.py": {
+      "sha256": "010891ec83c4cb8e08e0a9b5f289e9e5379cf8a1724537d35e2b539314370690",
+      "blob_sha": "9ed8ed569196511cbdcda454a3f65da983bb9046",
+      "size": 2829
+    },
+    "Code/Server/pid.py": {
+      "sha256": "332ceba1b696208e19596dcd199b7030ec7c23f02d2acf91b8e40530925424e7",
+      "blob_sha": "b35918d192b5a73d74ac996859d1c3879c915e46",
+      "size": 1318
+    },
+    "Code/Server/point.txt": {
+      "sha256": "ead849cc642148e98d0abce38f0cbd91ea33d2fd91a8afe5e690ec6ec2dd9179",
+      "blob_sha": "8b806021055a4e17a9355e6c4010252806d1a9f8",
+      "size": 54
+    },
+    "Code/Server/rpi_ledpixel.py": {
+      "sha256": "51b47a15f9a60490178f3d465d8ff074c87b1a498bd06b98ab66cec65a182581",
+      "blob_sha": "6a9b0dd0f8f639bab33f79659f8f2e48035826a6",
+      "size": 6720
+    },
+    "Code/Server/server.py": {
+      "sha256": "adebd2b4bdb71e63e650b6001f388daeb450f63a10cd89768d6babf1f67bea78",
+      "blob_sha": "f740eb4e9e20046830ccf2d45ddf25f44745fdce",
+      "size": 9028
+    },
+    "Code/Server/servo.py": {
+      "sha256": "9d6a916cc941f58bc44dfe3fbe3bae4b2697c2814c2148df45a7b0030b05e09f",
+      "blob_sha": "d5684034114c77229bb094d5fed2f35a2df92bea",
+      "size": 2273
+    },
+    "Code/Server/spi_ledpixel.py": {
+      "sha256": "b8614b597bc4a6086b10ef8b17357efcfd195aa7c918d934816d2cbb85f6308c",
+      "blob_sha": "155f8e869b2a1f830899f1774234b748280f79ef",
+      "size": 12302
+    },
+    "Code/Server/tcp_server.py": {
+      "sha256": "6d71797377c3ae70d8e314d6e2f6ad591d6288c978a5d3d0d27e366a4be7d525",
+      "blob_sha": "188ed997e3ae28470df2634717928f1a2bb37cf1",
+      "size": 7451
+    },
+    "Code/Server/test.py": {
+      "sha256": "c8a3162a099f1ca490fc6ffc2d697b5ad25daa4ba4280be344d4fa8c7aaaf0bd",
+      "blob_sha": "3596dc75741176825e256f18e368eb2eba92968d",
+      "size": 3447
+    },
+    "Code/Server/ui_server.py": {
+      "sha256": "f3b81254973bde43208e11ffe3dee47e57645868ee9ec8456909a657bff5f239",
+      "blob_sha": "7faafb06bb635363eb4bccfe70c793b6fa3c9c58",
+      "size": 2141
+    },
+    "Code/Server/ultrasonic.py": {
+      "sha256": "6a777b3ff81fe9207a27e158cf3c5af0accaca4ef928a503f5258b5c7f570c7d",
+      "blob_sha": "b468eb9ba8a052234f043bb55c03ceacf8ecbc1c",
+      "size": 2223
+    },
+    "LICENSE.txt": {
+      "sha256": "6f0ad05bd210c96bf7541c7fe9d117dab0542613594a3aa4d22c8a28a0a7b105",
+      "blob_sha": "a354af8153ddfb682e48d38d7700b20871c669f0",
+      "size": 19499
+    },
+    "README.md": {
+      "sha256": "1243db93f9f5a4c21021bc38e56de29e0c5f7566f7911056d2bd9ec981c87652",
+      "blob_sha": "41508c6c2757a95f17fa77041c6125325e3c64b1",
+      "size": 2797
+    }
+  }
+}

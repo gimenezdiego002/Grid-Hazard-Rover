@@ -20,6 +20,13 @@ Two live text-only Gemini smoke calls used synthetic readings. The latest call w
 
 ## Start with the local replay
 
+Robot source is organized in [`robotcode/`](robotcode/README.md), with arm,
+FNK0052 hexapod and Quarky Intellio rover subfolders. Run
+`.\.venv\Scripts\python.exe -m robotcode` for the finite, offline patrol →
+report → payload pickup → hexapod inspection → payload drop-off rehearsal.
+Project controllers use simulated IO only; vendor software/setup references
+are included separately. No device flashing or physical workflow is verified.
+
 From the repository root, use Python 3.12+. Reuse the project's `.venv` if it already exists; otherwise create it once:
 
 ```powershell

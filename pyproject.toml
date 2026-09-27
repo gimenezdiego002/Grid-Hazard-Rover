@@ -28,5 +28,5 @@ relay-gateway = "relay_gateway.__main__:main"
 where = ["src"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "robotcode/tests"]
 pythonpath = ["src"]

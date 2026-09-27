@@ -6,9 +6,9 @@ No physical motion or servo calibration runs unattended. A present teammate owns
 
 | Device | Confirmed from the user | Still needed |
 |---|---|---|
-| Freenove hexapod for Raspberry Pi | Owned, unopened at planning time | Exact kit number, PCB revision, Pi model/presence, microSD, matching cells, stock camera contents |
+| Freenove hexapod for Raspberry Pi | Owned; user confirmed **FNK0052** on September 27, 2026 | PCB revision, Pi model/presence, microSD, matching cells, stock camera contents |
 | Quarky Intellio Rover Kit | Rover version confirmed | Installed firmware, supplied battery/charging accessories, working camera access and control method |
-| Hiwonder LeArm | Owned, unopened at planning time | Exact generation, controller board, included adapter, remote battery compartment label |
+| Hiwonder LeArm | Owned; user confirmed **6-DOF LeArm** on September 27, 2026 | Exact generation, controller board, included adapter, remote battery compartment label; LeArm AI is not confirmed |
 | StackChan | Owned, new in box | Manufacturer/version, included power accessories, supported programming path |
 | Sensor station parts | Several sensors owned | Actual sensor models, controller board, voltage requirements, water sensor availability |
 | IMREN K4 charger | Already owned | Inspect the unit and use its own matching instructions/power input |
